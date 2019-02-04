@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/Main-NotLogged.master.cs" Inherits="ASSMCA.MainNotLogged" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ASSMCA:SEPS</title>
+    <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/global.css" rel="stylesheet">
+    <script type='text/javascript' src="vendor/jquery-1.11.2.min.js"></script>
+    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/scripts/UIFlujo.js")%>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js") %>"></script>
+</head>
+<body>
+    <!--[if lt IE 9]>
+            <script>$(function() {$("#mainBodyContent_LoginBox").remove(); $(".navbar-wrapper").remove();});</script>
+            <div style="position:absolute;top:0;left;0;height:100%;width:100%;z-index:2000;background:#FFF;text-align:center">
+                <h1>SEPS: Navegador incompatible.</h1>
+                <p>Esta página no es compatible con el navegador que está utilizando. Para navegar esta pagina deberá ser con un navegador moderno.</p>
+                <p>Recomendamos que descargue Google Chrome (<a href="http://www.google.com/chrome/">http://www.google.com/chrome/</a>).</p>
+            </div>
+        <![endif]-->
+    <div class="visible-print-block">
+        <img style="width: 100px; height: 70px;" class="leftFloat" src="<%=ResolveClientUrl("images/logo_t.png")%>" alt="ASSMCA SEPS" />
+        <h1>Sistema Electrónico de Perfiles Sociodemográficos (SEPS)</h1>
+    </div>
+    <form id="form1" runat="server">
+        <div class="navbar-wrapper hidden-md hidden-lg" style="margin: 0px; padding: 0px">
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="padding: 4px 0px 4px 15px; width: 100px;" href="#">
+                        <img style="height: 100%;" src="<%=ResolveClientUrl("images/logo_t.png")%>" alt="ASSMCA SEPS" /></a>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div class="hidden-print" id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand" style="margin-top: 5px">
+                        <img style="width: 100px; height: 70px;" src="<%=ResolveClientUrl("images/logo_t.png")%>" alt="ASSMCA SEPS" />
+                    </li>
+                </ul>
+            </div>
+            <div id="page-content-wrapper">
+                <noscript>
+                    <h2>El JavaScript esta desactivado.  Necesita activar el JavaScript antes de usar el SEPS.</h2>
+                    <style type="text/css">
+                    #mainBodyContent_LoginBox{ display:none; }
+                    .navbar-wrapper{ display:none; }
+                    </style>
+                </noscript>
+                <asp:ContentPlaceHolder ID="mainBodyContent" runat="server" />
+            </div>
+        </div>
+    </form>
+    <script type='text/javascript' src="vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <!--[if IE 10]>
+            <script type='text/javascript' src= "<%= Page.ResolveClientUrl("~/vendor/ie10-viewport-bug-workaround.js") %>"></script>
+        <![endif]-->
+</body>
+</html>

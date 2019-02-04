@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file can be merged correctly only with the XDE CompareMerge facility. If you are using a text-based merge tool, stop now. Text merge can lead to model corruption. (xCF7k74Jdki9bXC6+qZZyg) -->
+<RMS:MODEL xmlns:RMS="http://www.rational.com/products/xde"  xmlns:dt="http://www.rational.com/products/xde"  id="iFdwbv/3hUme0eHVVJ7Bjg"  unitPolicy="3" >
+<RMS:METAMODEL name="UML 7.0"  id="9Bz1bpZ9HU+itfrtkk+fCA"  semanticVersion="1.5k"  version="7.1.310.2700"  server="1.2.310.2700"  format="0.28" />
+<RMS:ROOT>
+<mdl id="O2EJIQjbfEmXrQrOMw5OHg" >
+<nam>WorkspaceModel</nam>
+<knd>WORKSPACE</knd>
+<wrk>
+<wrk id="UCJIkmwubkqvnLrXfIwLjw" >
+<dgv reserve="19" >
+<dgv id="SrFtPtMukEutXgGQ8NtdmQ" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{AC88A01A-DE51-4C32-BD6F-401183294D20}</nam>
+<vwx>496120</vwx>
+<vwy>113348</vwy>
+<zoo>100</zoo>
+</dgv>
+<dgv id="5Cb9KbH5LUmHThzhOSMjzg" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{EB1D08CF-0A6D-46ED-BAF2-7382FF973817}</nam>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="wFEFO82l2UGXhr5Z2RXhhQ" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{747F9270-19F2-4DD9-8E8B-8F332D3F6A05}</nam>
+<vwx>3000</vwx>
+<vwy>4611</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="81+pQDgZ70CuwETjYHRHUg" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{1C2C086D-26A2-44B4-9368-416BB522EAE5}</nam>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="MHypiDrV202liMDRHPpa0Q" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{68E2E753-858B-4B48-8846-7092B742B93F}</nam>
+<vwx>793</vwx>
+<vwy>-2500</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="hP9LiBq+VUe8idecLM3Egw" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{823BE02B-5C31-4B01-9F2F-DE8147D92695}</nam>
+<vwx>-14270</vwx>
+<vwy>-7000</vwy>
+<zoo>100</zoo>
+</dgv>
+<dgv id="f0zJamFVo0GhGJky5CKY/A" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{68470CFD-A185-4772-88F3-48F92C4EB8E0}</nam>
+<vwx>-1095</vwx>
+<vwy>-1884</vwy>
+<zoo>100</zoo>
+</dgv>
+<dgv id="hx9XqNx2vEOBeGJZpHUcfA" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{4A5DF40D-6324-483B-8EFE-2D5FF8AB90D8}</nam>
+<vwx>-9750</vwx>
+<vwy>-2893</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="amKJfGf44EGgCcemDdgypQ" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{2F856240-1E0F-4D90-AD35-FB051A509F2C}</nam>
+<vwx>-1955</vwx>
+<vwy>-7768</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="7xJD1RDIQkOvFL4pwkuMhQ" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{4009A573-28BF-4284-964D-E9BCE25AC178}</nam>
+<vwx>-18357</vwx>
+<vwy>-16572</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="jTY4mwZdEkG1BslfWdKR6A" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{1B9AC1DE-DAD0-4D35-89A1-33939D1BB232}</nam>
+<vwx>-21731</vwx>
+<vwy>-2106</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="ztA/TA+Qw0eaPjPu/HSWjQ" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{EFF46A87-CE20-4BAF-B2DD-1FBEDCA17F06}</nam>
+<vwx>1217</vwx>
+<vwy>-1632</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="GNLuJXcB2kWqwm0zfMK/yA" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{FEDBF48A-9050-4DE4-85CD-EBF7D6BB02D3}</nam>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="rvEUinYEBku/ArkBSbzCNA" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{57ACAFFA-28C9-44CD-9C77-AD22A4B25D34}</nam>
+<vwx>1316</vwx>
+<vwy>-884</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="y09fVSQQAUazpzgAVpZmjg" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{70D430EF-A24E-4F2A-95A7-62762C00F39F}</nam>
+<vwx>-3348</vwx>
+<vwy>232</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="xSSraeROaU6kbs6K8gGd3g" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{1C27E0A5-130D-4C01-BE96-C2A0AA098719}</nam>
+<vwx>-4028</vwx>
+<vwy>-1975</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="vl1ubjPkZkmKC6aU6ncRCw" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{02A753FC-9247-46DD-90EC-721083E98B42}</nam>
+<vwx>-4000</vwx>
+<vwy>-3445</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="S3N/8GabyUG0JoGM3VX8LQ" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{D937EF1C-2247-4AE3-B1C7-43A5E5CABE4A}</nam>
+<vwx>-920</vwx>
+<vwy>-973</vwy>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+<dgv id="PIJoPlmHmE2FFqKbyHmHCw" >
+<ext>(0,0)</ext>
+<pst>(0,0)</pst>
+<nam>{CCCF64CF-BF0D-4FE6-8196-BB59BAC1CC82}</nam>
+<wns>Closed</wns>
+<zoo>100</zoo>
+</dgv>
+</dgv>
+</wrk>
+</wrk>
+</mdl>
+</RMS:ROOT>
+</RMS:MODEL>

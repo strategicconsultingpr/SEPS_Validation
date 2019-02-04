@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSeguridad" targetNamespace="http://www.tempuri.org/dsSeguridad.xsd" xmlns:mstns="http://www.tempuri.org/dsSeguridad.xsd" xmlns="http://www.tempuri.org/dsSeguridad.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSeguridad" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsSeguridad" msprop:Generator_UserDSName="dsSeguridad">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SA_USUARIO" msprop:Generator_TableClassName="SA_USUARIODataTable" msprop:Generator_TableVarName="tableSA_USUARIO" msprop:Generator_TablePropName="SA_USUARIO" msprop:Generator_RowDeletingName="SA_USUARIORowDeleting" msprop:Generator_RowChangingName="SA_USUARIORowChanging" msprop:Generator_RowEvHandlerName="SA_USUARIORowChangeEventHandler" msprop:Generator_RowDeletedName="SA_USUARIORowDeleted" msprop:Generator_UserTableName="SA_USUARIO" msprop:Generator_RowChangedName="SA_USUARIORowChanged" msprop:Generator_RowEvArgName="SA_USUARIORowChangeEvent" msprop:Generator_RowClassName="SA_USUARIORow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_Usuario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnPK_Usuario" msprop:Generator_ColumnPropNameInRow="PK_Usuario" msprop:Generator_ColumnPropNameInTable="PK_UsuarioColumn" msprop:Generator_UserColumnName="PK_Usuario" type="xs:int" />
+              <xs:element name="NB_Login" msprop:Generator_ColumnVarNameInTable="columnNB_Login" msprop:Generator_ColumnPropNameInRow="NB_Login" msprop:Generator_ColumnPropNameInTable="NB_LoginColumn" msprop:Generator_UserColumnName="NB_Login" type="xs:string" />
+              <xs:element name="NB_Usuario" msprop:Generator_ColumnVarNameInTable="columnNB_Usuario" msprop:Generator_ColumnPropNameInRow="NB_Usuario" msprop:Generator_ColumnPropNameInTable="NB_UsuarioColumn" msprop:Generator_UserColumnName="NB_Usuario" type="xs:string" />
+              <xs:element name="AP_Usuario" msprop:Generator_ColumnVarNameInTable="columnAP_Usuario" msprop:Generator_ColumnPropNameInRow="AP_Usuario" msprop:Generator_ColumnPropNameInTable="AP_UsuarioColumn" msprop:Generator_UserColumnName="AP_Usuario" type="xs:string" />
+              <xs:element name="IN_C_PERSONA" msprop:Generator_ColumnVarNameInTable="columnIN_C_PERSONA" msprop:Generator_ColumnPropNameInRow="IN_C_PERSONA" msprop:Generator_ColumnPropNameInTable="IN_C_PERSONAColumn" msprop:Generator_UserColumnName="IN_C_PERSONA" type="xs:int" minOccurs="0" />
+              <xs:element name="IN_READ" msprop:Generator_ColumnVarNameInTable="columnIN_READ" msprop:Generator_ColumnPropNameInRow="IN_READ" msprop:Generator_ColumnPropNameInTable="IN_READColumn" msprop:Generator_UserColumnName="IN_READ" type="xs:int" minOccurs="0" />
+              <xs:element name="IN_U_PERSONA" msprop:Generator_ColumnVarNameInTable="columnIN_U_PERSONA" msprop:Generator_ColumnPropNameInRow="IN_U_PERSONA" msprop:Generator_ColumnPropNameInTable="IN_U_PERSONAColumn" msprop:Generator_UserColumnName="IN_U_PERSONA" type="xs:int" minOccurs="0" />
+              <xs:element name="IN_C_PERFIL" msprop:Generator_ColumnVarNameInTable="columnIN_C_PERFIL" msprop:Generator_ColumnPropNameInRow="IN_C_PERFIL" msprop:Generator_ColumnPropNameInTable="IN_C_PERFILColumn" msprop:Generator_UserColumnName="IN_C_PERFIL" type="xs:int" minOccurs="0" />
+              <xs:element name="IN_U_PCORTA" msprop:Generator_ColumnVarNameInTable="columnIN_U_PCORTA" msprop:Generator_ColumnPropNameInRow="IN_U_PCORTA" msprop:Generator_ColumnPropNameInTable="IN_U_PCORTAColumn" msprop:Generator_UserColumnName="IN_U_PCORTA" type="xs:int" minOccurs="0" />
+              <xs:element name="IN_D_PCORTA" msprop:Generator_ColumnVarNameInTable="columnIN_D_PCORTA" msprop:Generator_ColumnPropNameInRow="IN_D_PCORTA" msprop:Generator_ColumnPropNameInTable="IN_D_PCORTAColumn" msprop:Generator_UserColumnName="IN_D_PCORTA" type="xs:int" minOccurs="0" />
+              <xs:element name="IN_U_PERFIL" msprop:Generator_ColumnVarNameInTable="columnIN_U_PERFIL" msprop:Generator_ColumnPropNameInRow="IN_U_PERFIL" msprop:Generator_ColumnPropNameInTable="IN_U_PERFILColumn" msprop:Generator_UserColumnName="IN_U_PERFIL" type="xs:int" minOccurs="0" />
+              <xs:element name="IN_D_PERFIL" msprop:Generator_ColumnVarNameInTable="columnIN_D_PERFIL" msprop:Generator_ColumnPropNameInRow="IN_D_PERFIL" msprop:Generator_ColumnPropNameInTable="IN_D_PERFILColumn" msprop:Generator_UserColumnName="IN_D_PERFIL" type="xs:int" minOccurs="0" />
+              <xs:element name="PK_Programa" msprop:Generator_ColumnVarNameInTable="columnPK_Programa" msprop:Generator_ColumnPropNameInRow="PK_Programa" msprop:Generator_ColumnPropNameInTable="PK_ProgramaColumn" msprop:Generator_UserColumnName="PK_Programa" type="xs:short" />
+              <xs:element name="NB_Programa" msprop:Generator_ColumnVarNameInTable="columnNB_Programa" msprop:Generator_ColumnPropNameInRow="NB_Programa" msprop:Generator_ColumnPropNameInTable="NB_ProgramaColumn" msprop:Generator_UserColumnName="NB_Programa" type="xs:string" minOccurs="0" />
+              <xs:element name="PK_Administracion" msprop:Generator_ColumnVarNameInTable="columnPK_Administracion" msprop:Generator_ColumnPropNameInRow="PK_Administracion" msprop:Generator_ColumnPropNameInTable="PK_AdministracionColumn" msprop:Generator_UserColumnName="PK_Administracion" type="xs:unsignedByte" />
+              <xs:element name="NB_Administracion" msprop:Generator_ColumnVarNameInTable="columnNB_Administracion" msprop:Generator_ColumnPropNameInRow="NB_Administracion" msprop:Generator_ColumnPropNameInTable="NB_AdministracionColumn" msprop:Generator_UserColumnName="NB_Administracion" type="xs:string" />
+              <xs:element name="IN_CambiarPassword" msprop:Generator_ColumnVarNameInTable="columnIN_CambiarPassword" msprop:Generator_ColumnPropNameInRow="IN_CambiarPassword" msprop:Generator_ColumnPropNameInTable="IN_CambiarPasswordColumn" msprop:Generator_UserColumnName="IN_CambiarPassword" type="xs:boolean" />
+              <xs:element name="CO_Tipo" msprop:Generator_ColumnVarNameInTable="columnCO_Tipo" msprop:Generator_ColumnPropNameInRow="CO_Tipo" msprop:Generator_ColumnPropNameInTable="CO_TipoColumn" msprop:Generator_UserColumnName="CO_Tipo" type="xs:unsignedByte" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

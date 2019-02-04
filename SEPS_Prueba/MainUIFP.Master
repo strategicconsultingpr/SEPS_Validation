@@ -1,0 +1,118 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainUIFP.Master.cs" Inherits="ASSMCA.MainUIFP" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ASSMCA:SEPS</title>
+    <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/global.css" rel="stylesheet">
+    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/jquery-1.11.2.min.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIFlujoPerfil.js")%>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIVal.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js") %>"></script>
+</head>
+<body>
+    <div class="visible-print-block">
+        <img style="width: 100px; height: 70px;" class="leftFloat" src="<%=ResolveClientUrl("images/logo_t.png")%>" alt="ASSMCA SEPS" /><h1>Sistema Electrónico de Perfiles Sociodemográficos (SEPS)</h1>
+    </div>
+    <form id="form1" runat="server">
+        <asp:HiddenField ID="frmActionMode" runat="server" />
+        <input runat="server" id="hFKPrograma" type="hidden" />
+        <div class="navbar-wrapper hidden-md hidden-lg  hidden-print" style="margin: 0px; padding: 0px">
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="padding: 4px 0px 4px 15px; width: 100px;" href="#">
+                        <img style="height: 100%;" src="<%=ResolveClientUrl("images/logo_t.png")%>" alt="ASSMCA SEPS" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div style="margin: auto; max-width: 400px;">
+                                <div class="well well-sm" style="max-width: 400px; text-align: center; margin: 10px;">
+                                    <span class="label-centro-sb"><%= Session["NB_Programa"] %></span>
+                                    <asp:Button ID="Button1" runat="server" CssClass="btn btn-default btn-xs" OnClick="changeProgramClick" Text="Cambiar Programa" CausesValidation="False" UseSubmitBehavior="False" />
+                                </div>
+                            </div>
+                        </li>
+                        <li class="label-li-sb-navbar">Registro de Perfiles</li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?fuente=admision")%>">Admisión</a></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?fuente=evaluacion")%>">Evaluación</a></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?fuente=alta")%>">Alta</a></li>
+                        <li class="label-li-sb-navbar"><span>Personas</span></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?accion=consultar")%>">Buscar</a></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmEditar.aspx?accion=registrar")%>">Registrar</a></li>
+                        <li class="label-li-sb-navbar"><span>Otros Enlaces</span></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("frmPassword.aspx")%>">Modificar Contraseña</a></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Reportes.aspx")%>">Reportes</a></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Documentos.aspx")%>">Documentos</a></li>
+                        <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("frmLogon.aspx?logout=1")%>">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div class="hidden-print" id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand" style="margin-top: 5px">
+                        <a href="<%=ResolveClientUrl("frmHome.aspx")%>">
+                            <img style="width: 100px; height: 70px;" src="<%=ResolveClientUrl("images/logo_t.png")%>" alt="ASSMCA SEPS" />
+                        </a>
+                    </li>
+                    <li style="text-align: center; padding: 5px;">
+                        <div class="well well-sm" style="margin-bottom: 5px; margin-top: 10px">
+                            <span class="label-centro-sb">
+                                <asp:Literal ID="lblCentro" runat="server"></asp:Literal></span>
+                            <asp:Button ID="changeProgram" runat="server" CssClass="btn btn-default btn-xs" OnClick="changeProgramClick" Text="Cambiar Programa" CausesValidation="False" UseSubmitBehavior="False" />
+                        </div>
+                    </li>
+                    <li class="label-li-sb">Registro de Perfiles</li>
+                    <li><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?fuente=admision")%>">Admisión</a></li>
+                    <li><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?fuente=evaluacion")%>">Evaluación</a></li>
+                    <li><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?fuente=alta")%>">Alta</a></li>
+                    <li class="label-li-sb"><span>Personas</span></li>
+                    <li><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?accion=consultar")%>">Buscar</a></li>
+                    <li><a href="<%=ResolveClientUrl("pacientes/frmEditar.aspx?accion=registrar")%>">Registrar</a></li>
+                    <li class="label-li-sb"><span>Otros Enlaces</span></li>
+                    <li><a href="<%=ResolveClientUrl("frmPassword.aspx")%>">Modificar Contraseña</a></li>
+                    <li><a href="<%=ResolveClientUrl("Reportes.aspx")%>">Reportes</a></li>
+                    <li><a href="<%=ResolveClientUrl("Documentos.aspx")%>">Documentos</a></li>
+                    <li><a href="<%=ResolveClientUrl("frmLogon.aspx?logout=1")%>">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+            <div id="page-content-wrapper">
+                <asp:ContentPlaceHolder ID="mainBodyContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+    <div class="modal fade" id="myModalUnclosable" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">SEPS</h4>
+                </div>
+                <div class="modal-body">
+                    <span id="mensageModal">Mensage</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="100" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js") %>"></script>
+    <!--[if IE 10]>
+        <script type='text/javascript' src= "<%= Page.ResolveClientUrl("~/vendor/ie10-viewport-bug-workaround.js") %>"></script>
+        <![endif]-->
+</body>
+</html>

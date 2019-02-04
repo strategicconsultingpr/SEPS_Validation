@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7188BD8F-3856-4C84-BB42-2EEC2EF768B0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEPS</RootNamespace>
+    <AssemblyName>SEPS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\ASPNETDB.MDF" />
+    <Content Include="App_Data\aspnetdb_log.ldf">
+      <DependentUpon>ASPNETDB.MDF</DependentUpon>
+    </Content>
+    <Content Include="PasswordChangeMandatory.aspx" />
+    <Content Include="ErrorView.aspx" />
+    <Content Include="css\global.css" />
+    <Content Include="css\global.min.css" />
+    <Content Include="Documentos.aspx" />
+    <Content Include="Episodios\frmvisualizar.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="frmHome.aspx" />
+    <Content Include="frmLogon.aspx" />
+    <Content Include="frmMantenimiento.aspx" />
+    <Content Include="frmPassword.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\file_pdf.png" />
+    <Content Include="images\graphic_home.png" />
+    <Content Include="images\logo_t.png" />
+    <Content Include="pacientes\frmconsulta.aspx" />
+    <Content Include="pacientes\frmeditar.aspx" />
+    <Content Include="pacientes\frmvisualizar.aspx" />
+    <Content Include="perfiles\frmadmision.aspx" />
+    <Content Include="perfiles\frmalta.aspx" />
+    <Content Include="perfiles\frmdsmi_v.aspx" />
+    <Content Include="perfiles\frmeliminarperfil.aspx" />
+    <Content Include="perfiles\frmevaluacion.aspx" />
+    <Content Include="perfiles\wucdatosadmision.ascx" />
+    <Content Include="perfiles\wucdatosalta.ascx" />
+    <Content Include="perfiles\wucdatosdemograficos.ascx" />
+    <Content Include="perfiles\wucdatosdemograficosperfil.ascx" />
+    <Content Include="perfiles\wucdatosevaluacion.ascx" />
+    <Content Include="perfiles\wucdatospersonales.ascx" />
+    <Content Include="perfiles\wucepisodioadmision.ascx" />
+    <Content Include="perfiles\wucepisodioperfil.ascx" />
+    <Content Include="perfiles\wucotrosdatos.ascx" />
+    <Content Include="perfiles\wucotrosdatosperfil.ascx" />
+    <Content Include="perfiles\wucTakeHome.ascx" />
+    <Content Include="Reportes.aspx" />
+    <Content Include="scripts\Global.js" />
+    <Content Include="scripts\UIFlujo.js" />
+    <Content Include="scripts\UIFlujoPerfil.js" />
+    <Content Include="scripts\UIVal.js" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap-theme.css" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap-theme.min.css" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\js\bootstrap.js" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\js\bootstrap.min.js" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\js\npm.js" />
+    <Content Include="vendor\css3-mediaqueries.js" />
+    <Content Include="vendor\ie10-viewport-bug-workaround.js" />
+    <Content Include="vendor\jquery-1.11.2.min.js" />
+    <Content Include="vendor\jquery-2.1.3.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASSMCA.dsASSMCA.Designer.cs" />
+    <Compile Include="ASSMCA.dsASSMCA1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASSMCA.dsASSMCA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ASSMCA.dsSeguridad.Designer.cs" />
+    <Compile Include="ASSMCA.dsSeguridad1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASSMCA.dsSeguridad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordChangeMandatory.aspx.cs">
+      <DependentUpon>PasswordChangeMandatory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PasswordChangeMandatory.aspx.designer.cs">
+      <DependentUpon>PasswordChangeMandatory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorView.aspx.cs">
+      <DependentUpon>ErrorView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorView.aspx.designer.cs">
+      <DependentUpon>ErrorView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Documentos.aspx.cs">
+      <DependentUpon>Documentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Episodios\frmVisualizar.aspx.cs">
+      <DependentUpon>frmvisualizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Episodios\frmVisualizar.aspx.designer.cs">
+      <DependentUpon>frmvisualizar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmHome.aspx.cs">
+      <DependentUpon>frmHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmHome.aspx.designer.cs">
+      <DependentUpon>frmHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogon.aspx.cs">
+      <DependentUpon>frmLogon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogon.aspx.designer.cs">
+      <DependentUpon>frmLogon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimiento.aspx.cs">
+      <DependentUpon>frmMantenimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMantenimiento.aspx.designer.cs">
+      <DependentUpon>frmMantenimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassword.aspx.cs">
+      <DependentUpon>frmPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPassword.aspx.designer.cs">
+      <DependentUpon>frmPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Main-NotLogged.Master.cs">
+      <DependentUpon>Main-NotLogged.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main-NotLogged.Master.designer.cs">
+      <DependentUpon>Main-NotLogged.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MainUIF.Master.cs">
+      <DependentUpon>MainUIF.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainUIF.Master.designer.cs">
+      <DependentUpon>MainUIF.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MainUIFP.Master.cs">
+      <DependentUpon>MainUIFP.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MainUIFP.Master.designer.cs">
+      <DependentUpon>MainUIFP.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="NewSource.cs" />
+    <Compile Include="pacientes\ASSMCA.Pacientes.dspersona.cs">
+      <DependentUpon>ASSMCA.Pacientes.dspersona.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pacientes\ASSMCA.Pacientes.dspersona.Designer.cs">
+      <DependentUpon>ASSMCA.Pacientes.dspersona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pacientes\ASSMCA.Pacientes.dspersona1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASSMCA.Pacientes.dspersona.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pacientes\frmConsulta.aspx.cs">
+      <DependentUpon>frmconsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pacientes\frmConsulta.aspx.designer.cs">
+      <DependentUpon>frmconsulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pacientes\frmEditar.aspx.cs">
+      <DependentUpon>frmeditar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pacientes\frmEditar.aspx.designer.cs">
+      <DependentUpon>frmeditar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pacientes\frmVisualizar.aspx.cs">
+      <DependentUpon>frmvisualizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pacientes\frmVisualizar.aspx.designer.cs">
+      <DependentUpon>frmvisualizar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\ASSMCA.Perfiles.dsperfil.cs">
+      <DependentUpon>ASSMCA.Perfiles.dsperfil.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\ASSMCA.Perfiles.dsperfil.Designer.cs">
+      <DependentUpon>ASSMCA.Perfiles.dsperfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\ASSMCA.Perfiles.dsperfil1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ASSMCA.Perfiles.dsperfil.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\frmAdmision.aspx.cs">
+      <DependentUpon>frmadmision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\frmAdmision.aspx.designer.cs">
+      <DependentUpon>frmadmision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\frmAlta.aspx.cs">
+      <DependentUpon>frmalta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\frmAlta.aspx.designer.cs">
+      <DependentUpon>frmalta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\frmdsmi_v.aspx.cs">
+      <DependentUpon>frmdsmi_v.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\frmdsmi_v.aspx.designer.cs">
+      <DependentUpon>frmdsmi_v.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\frmEliminarPerfil.aspx.cs">
+      <DependentUpon>frmeliminarperfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\frmEliminarPerfil.aspx.designer.cs">
+      <DependentUpon>frmeliminarperfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\frmEvaluacion.aspx.cs">
+      <DependentUpon>frmevaluacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\frmEvaluacion.aspx.designer.cs">
+      <DependentUpon>frmevaluacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucDatosAdmision.ascx.cs">
+      <DependentUpon>wucdatosadmision.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucDatosAdmision.ascx.designer.cs">
+      <DependentUpon>wucdatosadmision.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucDatosAlta.ascx.cs">
+      <DependentUpon>wucdatosalta.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucDatosAlta.ascx.designer.cs">
+      <DependentUpon>wucdatosalta.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucDatosDemograficos.ascx.cs">
+      <DependentUpon>wucdatosdemograficos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucDatosDemograficos.ascx.designer.cs">
+      <DependentUpon>wucdatosdemograficos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucDatosDemograficosPerfil.ascx.cs">
+      <DependentUpon>wucdatosdemograficosperfil.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucDatosDemograficosPerfil.ascx.designer.cs">
+      <DependentUpon>wucdatosdemograficosperfil.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucDatosEvaluacion.ascx.cs">
+      <DependentUpon>wucdatosevaluacion.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucDatosEvaluacion.ascx.designer.cs">
+      <DependentUpon>wucdatosevaluacion.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucDatosPersonales.ascx.cs">
+      <DependentUpon>wucdatospersonales.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucDatosPersonales.ascx.designer.cs">
+      <DependentUpon>wucdatospersonales.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucEpisodioAdmision.ascx.cs">
+      <DependentUpon>wucepisodioadmision.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucEpisodioAdmision.ascx.designer.cs">
+      <DependentUpon>wucepisodioadmision.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucEpisodioPerfil.ascx.cs">
+      <DependentUpon>wucepisodioperfil.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucEpisodioPerfil.ascx.designer.cs">
+      <DependentUpon>wucepisodioperfil.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucOtrosDatos.ascx.cs">
+      <DependentUpon>wucotrosdatos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucOtrosDatos.ascx.designer.cs">
+      <DependentUpon>wucotrosdatos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucOtrosDatosPerfil.ascx.cs">
+      <DependentUpon>wucotrosdatosperfil.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucOtrosDatosPerfil.ascx.designer.cs">
+      <DependentUpon>wucotrosdatosperfil.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="perfiles\wucTakeHome.ascx.cs">
+      <DependentUpon>wucTakeHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfiles\wucTakeHome.ascx.designer.cs">
+      <DependentUpon>wucTakeHome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes.aspx.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes.aspx.designer.cs">
+      <DependentUpon>Reportes.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ASSMCA.dsASSMCA.xsc">
+      <DependentUpon>ASSMCA.dsASSMCA.xsd</DependentUpon>
+    </Content>
+    <None Include="ASSMCA.dsASSMCA.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ASSMCA.dsASSMCA1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ASSMCA.dsASSMCA.xss">
+      <DependentUpon>ASSMCA.dsASSMCA.xsd</DependentUpon>
+    </Content>
+    <Content Include="ASSMCA.dsSeguridad.xsc">
+      <DependentUpon>ASSMCA.dsSeguridad.xsd</DependentUpon>
+    </Content>
+    <Content Include="ASSMCA.dsSeguridad.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ASSMCA.dsSeguridad1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ASSMCA.dsSeguridad.xss">
+      <DependentUpon>ASSMCA.dsSeguridad.xsd</DependentUpon>
+    </Content>
+    <Content Include="ASSMCA.mdx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ASSMCA.suo" />
+    <Content Include="ASSMCA.wdx" />
+    <Content Include="fonts\Bitter-Bold.ttf" />
+    <Content Include="fonts\Bitter-Italic.ttf" />
+    <Content Include="fonts\Bitter-Regular.ttf" />
+    <Content Include="fonts\bitter.woff" />
+    <Content Include="fonts\Karla-Bold.ttf" />
+    <Content Include="fonts\Karla-BoldItalic.ttf" />
+    <Content Include="fonts\Karla-Italic.ttf" />
+    <Content Include="fonts\Karla-Regular.ttf" />
+    <Content Include="fonts\Karla.woff" />
+    <Content Include="less\global.less" />
+    <Content Include="Main-NotLogged.Master" />
+    <Content Include="Main.Master" />
+    <Content Include="MainUIF.Master" />
+    <Content Include="MainUIFP.Master" />
+    <Content Include="pacientes\ASSMCA.Pacientes.dspersona.xsc">
+      <DependentUpon>ASSMCA.Pacientes.dspersona.xsd</DependentUpon>
+    </Content>
+    <None Include="pacientes\ASSMCA.Pacientes.dspersona.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ASSMCA.Pacientes.dspersona1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="pacientes\ASSMCA.Pacientes.dspersona.xss">
+      <DependentUpon>ASSMCA.Pacientes.dspersona.xsd</DependentUpon>
+    </Content>
+    <Content Include="pdf\Perfil_Alta.pdf" />
+    <Content Include="pdf\Perfil_Evaluación.pdf" />
+    <Content Include="perfiles\ASSMCA.Perfiles.dsperfil.xsc">
+      <DependentUpon>ASSMCA.Perfiles.dsperfil.xsd</DependentUpon>
+    </Content>
+    <Content Include="pdf\Manual.pdf" />
+    <Content Include="pdf\Perfil_Admisión.pdf" />
+    <None Include="perfiles\ASSMCA.Perfiles.dsperfil.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ASSMCA.Perfiles.dsperfil1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="perfiles\ASSMCA.Perfiles.dsperfil.xss">
+      <DependentUpon>ASSMCA.Perfiles.dsperfil.xsd</DependentUpon>
+    </Content>
+    <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap-theme.css.map" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap.css.map" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="vendor\bootstrap-3.3.2-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PasswordChangeMandatory.aspx.resx">
+      <DependentUpon>PasswordChangeMandatory.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorView.aspx.resx">
+      <DependentUpon>ErrorView.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Episodios\frmVisualizar.aspx.resx">
+      <DependentUpon>frmVisualizar.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Error.aspx.resx">
+      <DependentUpon>Error.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.aspx.resx">
+      <DependentUpon>frmHome.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogon.aspx.resx">
+      <DependentUpon>frmLogon.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassword.aspx.resx">
+      <DependentUpon>frmPassword.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pacientes\frmConsulta.aspx.resx">
+      <DependentUpon>frmConsulta.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pacientes\frmEditar.aspx.resx">
+      <DependentUpon>frmEditar.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pacientes\frmVisualizar.aspx.resx">
+      <DependentUpon>frmVisualizar.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\frmAdmision.aspx.resx">
+      <DependentUpon>frmAdmision.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\frmAlta.aspx.resx">
+      <DependentUpon>frmAlta.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\frmdsmi_v.aspx.resx">
+      <DependentUpon>frmdsmi_v.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\frmEliminarPerfil.aspx.resx">
+      <DependentUpon>frmEliminarPerfil.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\frmEvaluacion.aspx.resx">
+      <DependentUpon>frmEvaluacion.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucDatosAdmision.ascx.resx">
+      <DependentUpon>wucDatosAdmision.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucDatosAlta.ascx.resx">
+      <DependentUpon>wucDatosAlta.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucDatosDemograficos.ascx.resx">
+      <DependentUpon>wucDatosDemograficos.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucDatosDemograficosPerfil.ascx.resx">
+      <DependentUpon>wucDatosDemograficosPerfil.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucDatosEvaluacion.ascx.resx">
+      <DependentUpon>wucDatosEvaluacion.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucDatosPersonales.ascx.resx">
+      <DependentUpon>wucDatosPersonales.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucEpisodioAdmision.ascx.resx">
+      <DependentUpon>wucEpisodioAdmision.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucEpisodioPerfil.ascx.resx">
+      <DependentUpon>wucEpisodioPerfil.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucOtrosDatos.ascx.resx">
+      <DependentUpon>wucOtrosDatos.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perfiles\wucOtrosDatosPerfil.ascx.resx">
+      <DependentUpon>wucOtrosDatosPerfil.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.aspx.resx">
+      <DependentUpon>Reportes.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14983</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4205/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
