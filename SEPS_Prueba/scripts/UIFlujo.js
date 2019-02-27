@@ -867,6 +867,8 @@ function ddlCondLaboral() {
     catch (ex) { }
 }
 
+
+/* original
 function ddlFuenteIngreso() {
     try {
         var ddlCondLaboral = document.getElementById("mainBodyContent_WucDatosDemograficos_ddlCondLaboral");
@@ -877,6 +879,26 @@ function ddlFuenteIngreso() {
         }
     }
     catch (ex) {}
+}
+*/
+        // modificado por: strategicconsultingpr. 27-feb-2019
+
+function ddlFuenteIngreso() {
+    try {
+        var ddlCondLaboral = document.getElementById("mainBodyContent_WucDatosDemograficos_ddlCondLaboral");
+        var ddlFuenteIngreso = document.getElementById("mainBodyContent_WucDatosDemograficos_ddlFuenteIngreso");
+        var ValidValue = new Array("1", "2", "13"); 
+        // 1: Salario / Jornal
+        // 2: Pensión (por retiro) / seguro social
+        // 13: seguro social
+
+         if (Number(ddlCondLaboral.value) == 1 && ValidValue.indexOf(ddlFuenteIngreso.value) == -1) {
+            alert("No puede escoger esta opción por su selección en el campo 'Condición laboral'.\nSolo puede seleccionar las opciones:\n'Salario / Jornal' ó \n'Negocio Propio' ó \n'Pensión (por retiro) / seguro social' .");
+        }
+
+    }
+    catch (ex) {
+    }
 }
 
 function ddlMaltratoNinez() {
