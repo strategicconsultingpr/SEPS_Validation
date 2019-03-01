@@ -58,6 +58,7 @@ function startupFunctions() {
         ddlNivelCuidadoSaludMental();
         ddlNivelCuidadoSustancias();
         CO_Tipo();
+        DdlArrestadoDdlArrestado30();
     }
     catch (ex) {
         throw ex;
@@ -881,7 +882,9 @@ function ddlFuenteIngreso() {
     catch (ex) {}
 }
 */
-        // modificado por: strategicconsultingpr. 27-feb-2019
+
+
+// modificado por: strategicconsultingpr. 27-feb-2019
 
 function ddlFuenteIngreso() {
     try {
@@ -1002,6 +1005,8 @@ function ddlArrestado() {
     catch (ex) { }
 }
 function ddlArrestado30() {
+
+    DdlArrestadoDdlArrestado30();
     try {
         var txtArrestos30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtArrestos30");
         var ddlArrestado30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado30");
@@ -1027,6 +1032,48 @@ function ddlArrestado30() {
     }
     catch (ex) { }
 }
+
+
+/*
+Agregado por: strategicconsultingpr. 28-feb-2019
+En el campo ‘¿Ha sido arrestado anteriormente?’, se selecciona la opción ‘NO’ y en el campo ‘¿Ha sido arrestado en los pasados 30 días?’,
+se selecciona la opción ‘NO’, automáticamente se debe seleccionar la opción ‘No aplica’ en el campo ‘Listado de problemas de justicia (Disponibles)’.
+*/
+
+function DdlArrestadoDdlArrestado30() {
+
+    try {
+
+        var ddlArrestado = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado");
+        var ddlArrestado30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado30");
+        var lbxProbJusticiaSeleccion = document.getElementById("mainBodyContent_WucEpisodioAdmision_lbxProbJusticiaSeleccion");
+        var lbxProbJusticiaSeleccionado = document.getElementById("mainBodyContent_WucEpisodioAdmision_lbxProbJusticiaSeleccionado");
+
+        if (ddlArrestado.value == "2" && ddlArrestado30.value == "2") {
+  
+            // se remueve en: Listado de problemas de justicia (Disponibles):
+             $("#mainBodyContent_WucEpisodioAdmision_lbxProbJusticiaSeleccion option[value='99']").remove();
+             $("#mainBodyContent_WucEpisodioAdmision_lbxProbJusticiaSeleccionado option[value='99']").remove();
+            //se adiciona en :Listado de problemas de justicia (Seleccionados):
+ 
+            option = document.createElement('option');
+            option.value = "99";
+            option.text = "No Aplica";
+            lbxProbJusticiaSeleccionado.add(option);
+
+
+        }
+
+    } catch (e) {
+
+    }
+
+     
+
+
+}
+
+
 function ddlReunionesGrupos() {
     try {
         var ddlReunionesGrupos = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlReunionesGrupos");

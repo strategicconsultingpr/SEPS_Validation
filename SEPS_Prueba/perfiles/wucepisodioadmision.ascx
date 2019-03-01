@@ -41,7 +41,7 @@
             <asp:RequiredFieldValidator ID="rfvDíasSustancias" runat="server"  Display="Dynamic" CssClass="rightFloatAsterisk" ControlToValidate="txtDíasSustancias" ErrorMessage="Días de espera para entrar a tratamiento"  ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
         <asp:RangeValidator ID="rvDíasSustancias" runat="server"  Display="Dynamic" CssClass="rightFloatAsterisk" ControlToValidate="txtDíasSustancias" ErrorMessage="Días de espera para entrar a tratamiento"  ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 255" Type="Integer" MaximumValue="255" MinimumValue="0" Text="*"/>
         <div class="expandibleDiv">
-        <asp:TextBox  CssClass="form-control" ID="txtDíasSustancias" runat="server" MaxLength="3" />
+        <asp:TextBox  CssClass="form-control" ID="txtDíasSustancias" runat="server" MaxLength="3" Text="0" />
         <asp:Label ID="lblDíasSustancias" runat="server"/>
     
             </div>
@@ -122,7 +122,7 @@
         <span class="SEPSLabel">¿Ha sido arrestado anteriormente?:</span>
         <asp:RequiredFieldValidator ID="rfvArrestado" runat="server"  CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlArrestado" ErrorMessage="¿Ha sido arrestado anteriormente?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" >
+            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" onChange="DdlArrestadoDdlArrestado30();" >
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
@@ -248,7 +248,7 @@
     <div class="col-md-12 SEPSDivs"><%--Tiempo desde la ultima alta de servicio para abuso de sustancias--%>
         <span class="SEPSLabel">Tiempo desde la última alta de servicio para abuso de sustancias:</span>
         <div class="leftFloat">
-            <asp:TextBox  CssClass="form-control" ID="txtDíasSustUlt" runat="server" MaxLength="3" Width="48px"/>        
+            <asp:TextBox  CssClass="form-control" ID="txtDíasSustUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>        
             <asp:Label ID="lblDíasSustUlt" runat="server"/>
         </div>
         <div class="leftFloat">
@@ -256,7 +256,7 @@
         </div>
         <asp:RangeValidator ID="rvDíasSustUlt" CssClass="leftFloatAsterisk" runat="server" ControlToValidate="txtDíasSustUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 30" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>  
         <div class="leftFloat">
-        <asp:TextBox  CssClass="form-control" ID="txtMesesSustUlt" runat="server" MaxLength="3" Width="48px"/>
+        <asp:TextBox  CssClass="form-control" ID="txtMesesSustUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>
         <asp:Label ID="lblMesesSustUlt" runat="server"/>
          </div>
         <div class="leftFloat">
@@ -308,7 +308,7 @@
     <div class="col-md-12 SEPSDivs"><%--Tiempo desde la última alta de servicio para salud mental--%>
         <span class="SEPSLabel">Tiempo desde la última alta de servicio para salud mental:</span>
         <div class="leftFloat">
-        <asp:TextBox  CssClass="form-control" ID="txtDíasMentUlt" runat="server" MaxLength="3" Width="48px"/>
+        <asp:TextBox  CssClass="form-control" ID="txtDíasMentUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>
         <asp:Label ID="lblDíasMentUlt" runat="server"/>
             </div>
         <div class="leftFloat">
@@ -316,7 +316,7 @@
         </div>
         <asp:RangeValidator ID="rvDíasMentUlt" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtDíasMentUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 255" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
         <div class="leftFloat">
-        <asp:TextBox CssClass="form-control" ID="txtMesesMentUlt" runat="server" MaxLength="3" Width="48px"/>
+        <asp:TextBox CssClass="form-control" ID="txtMesesMentUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>
         <asp:Label ID="lblMesesMentUlt" runat="server"/>
                  </div>
         <div class="leftFloat">
