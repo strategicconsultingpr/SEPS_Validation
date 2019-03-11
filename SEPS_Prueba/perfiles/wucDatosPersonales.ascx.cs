@@ -600,14 +600,30 @@
                 }
             }
         }
+        //public DateTime FE_Episodio
+        //{ 
+        //    get
+        //    {
+        //        string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
+        //        return DateTime.Parse(fe);
+        //    }
+        //}
+        // modificado por: strategicconsultingpr. 
+        // 2.	Campo Fecha de admisión.
+        // De manera similar al punto anterior, si se agrega una fecha de admisión posterior, se genera una alerta, 
+        // pero al intentar corregir el campo, ocurre un error.
+
         public DateTime FE_Episodio
-        { 
+        {
             get
             {
-                string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
-                return DateTime.Parse(fe);
+                DateTime dt = new DateTime(Convert.ToInt32(txtAño.Text),
+                                           Convert.ToInt32(this.ddlMes.SelectedValue.ToString()), 
+                                           Convert.ToInt32(ddlDía.SelectedValue.ToString()));
+                return dt;
             }
         }
+
         public DateTime FE_Nacimiento
         {
             get
