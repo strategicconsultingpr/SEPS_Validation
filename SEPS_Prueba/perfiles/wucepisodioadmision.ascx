@@ -254,7 +254,7 @@
         <div class="leftFloat">
             <span>días</span>
         </div>
-        <asp:RangeValidator ID="rvDíasSustUlt" CssClass="leftFloatAsterisk" runat="server" ControlToValidate="txtDíasSustUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 30" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>  
+        <asp:RangeValidator ID="rvDíasSustUlt" CssClass="leftFloatAsterisk" runat="server" ControlToValidate="txtDíasSustUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 31" Type="Integer" MaximumValue="31" MinimumValue="0" Display="Dynamic" Text="*"/>  
         <div class="leftFloat">
         <asp:TextBox  CssClass="form-control" ID="txtMesesSustUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>
         <asp:Label ID="lblMesesSustUlt" runat="server"/>
@@ -263,7 +263,7 @@
         <span>meses</span>
         </div>
         <asp:RequiredFieldValidator ID="rfvMesesSustUlt" CssClass="leftFloatAsterisk" runat="server" Display="Dynamic"  ControlToValidate="txtMesesSustUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
-        <asp:RangeValidator ID="rvMesesSustUlt" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtMesesSustUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 120" Type="Integer" MaximumValue="119" MinimumValue="0" Display="Dynamic" Text="*"/>
+        <asp:RangeValidator ID="rvMesesSustUlt" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtMesesSustUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 120" Type="Integer" MaximumValue="120" MinimumValue="0" Display="Dynamic" Text="*"/>
     </div>
 </div>
 <div class="row">
@@ -314,7 +314,7 @@
         <div class="leftFloat">
             <span>días</span>
         </div>
-        <asp:RangeValidator ID="rvDíasMentUlt" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtDíasMentUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 255" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
+        <asp:RangeValidator ID="rvDíasMentUlt" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtDíasMentUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 31" Type="Integer" MaximumValue="31" MinimumValue="0" Display="Dynamic" Text="*" />
         <div class="leftFloat">
         <asp:TextBox CssClass="form-control" ID="txtMesesMentUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>
         <asp:Label ID="lblMesesMentUlt" runat="server"/>
@@ -322,7 +322,7 @@
         <div class="leftFloat">
             <span>meses</span>
         </div>
-        <asp:RangeValidator ID="rvMesesMentUlt" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtMesesMentUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 255" Type="Integer" MaximumValue="119" MinimumValue="0" Display="Dynamic" Text="*"/>  
+        <asp:RangeValidator ID="rvMesesMentUlt" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtMesesMentUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 120" Type="Integer" MaximumValue="120" MinimumValue="0" Display="Dynamic" Text="*"/>  
         <asp:RequiredFieldValidator ID="rfvMesesMentUlt" CssClass="leftFloatAsterisk" runat="server"  Display="Dynamic" ControlToValidate="txtMesesMentUlt" ErrorMessage="Tiempo desde la última alta de servicio para abuso de sustancias" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
     </div>
 </div>
