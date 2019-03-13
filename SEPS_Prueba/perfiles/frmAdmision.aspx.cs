@@ -119,11 +119,11 @@ namespace ASSMCA.Perfiles
                 }
             }
             else
-            {
+            { 
                               
                 if (Request.Form["__EVENTTARGET"] != null &&
-
-                    Request.Form["__EVENTTARGET"] != string.Empty && Request.Form["__EVENTTARGET"] != "ctl00$changeProgram")
+                    Request.Form["__EVENTTARGET"] != string.Empty &&
+                    Request.Form["__EVENTTARGET"] != "ctl00$changeProgram")
 
                 {                   
                         this.WucDatosDemograficos.edadAdmisionF(this.WucDatosPersonales.FE_Episodio, this.WucDatosPersonales.FE_Nacimiento.ToString());

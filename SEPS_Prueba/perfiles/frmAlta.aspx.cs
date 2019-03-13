@@ -106,8 +106,8 @@ namespace ASSMCA.Perfiles
             else
             {
                 if (Request.Form["__EVENTTARGET"] != null &&
-
-                    Request.Form["__EVENTTARGET"] != string.Empty)
+                    Request.Form["__EVENTTARGET"] != string.Empty &&
+                    Request.Form["__EVENTTARGET"] != "ctl00$changeProgram")
 
                 {
                     this.WucDatosDemograficosPerfil.edadPerfilF(this.WucOtrosDatosPerfil.FE_Perfil, this.WucDatosPersonales.FE_Nacimiento.ToString());
