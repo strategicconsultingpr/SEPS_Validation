@@ -897,7 +897,10 @@ function ddlFuenteIngreso() {
 
          if (Number(ddlCondLaboral.value) == 1 && ValidValue.indexOf(ddlFuenteIngreso.value) == -1) {
             alert("No puede escoger esta opción por su selección en el campo 'Condición laboral'.\nSolo puede seleccionar las opciones:\n'Salario / Jornal' ó \n'Negocio Propio' ó \n'Pensión (por retiro) / seguro social' .");
-        }
+            ddlFuenteIngreso.selectedIndex = -1;
+
+
+         }
 
     }
     catch (ex) {
