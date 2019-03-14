@@ -1063,20 +1063,21 @@ function DdlArrestadoDdlArrestado30() {
             option.value = "99";
             option.text = "No Aplica";
             lbxProbJusticiaSeleccionado.add(option);
-
+        }
+ 
+        if ((ddlArrestado.value == "1" && ddlArrestado30.value == "2") ||
+            (ddlArrestado.value == "2" && ddlArrestado30.value == "1")) {
+            $("#mainBodyContent_WucEpisodioAdmision_lbxProbJusticiaSeleccion option[value='99']").remove();
+            $("#mainBodyContent_WucEpisodioAdmision_lbxProbJusticiaSeleccionado option[value='99']").remove();
 
         }
 
-    } catch (e) {
+     } catch (e) {
 
     }
+ }
 
-     
-
-
-}
-
-
+ 
 function ddlReunionesGrupos() {
     try {
         var ddlReunionesGrupos = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlReunionesGrupos");
