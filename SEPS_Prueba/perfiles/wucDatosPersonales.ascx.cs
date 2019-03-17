@@ -617,10 +617,20 @@
         {
             get
             {
-                DateTime dt = new DateTime(Convert.ToInt32(txtAño.Text),
+                DateTime dt= new DateTime();
+                try
+                {
+                  dt = new DateTime(Convert.ToInt32(txtAño.Text),
                                            Convert.ToInt32(this.ddlMes.SelectedValue.ToString()), 
                                            Convert.ToInt32(ddlDía.SelectedValue.ToString()));
                 return dt;
+                }
+                catch (Exception)
+                {
+
+                    return dt;
+                }
+
             }
         }
 

@@ -122,7 +122,7 @@
         <span class="SEPSLabel">¿Ha sido arrestado anteriormente?:</span>
         <asp:RequiredFieldValidator ID="rfvArrestado" runat="server"  CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlArrestado" ErrorMessage="¿Ha sido arrestado anteriormente?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" onChange="DdlArrestadoDdlArrestado30();" >
+            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" onChange="DdlArrestadoDdlArrestado30();" OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
@@ -134,7 +134,7 @@
         <span class="SEPSLabel">¿Ha sido arrestado en los pasados 30 días?</span>
          <asp:RequiredFieldValidator ID="rfvArrestado30" runat="server" InitialValue="0" CssClass="rightFloatAsterisk" Display="Dynamic"  ControlToValidate="ddlArrestado30" ErrorMessage="¿Ha sido arrestado en los pasados 30 días?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado30" onChange="ddlArrestado30();" runat="server">
+            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado30" onChange="ddlArrestado30();" runat="server" OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true" >
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>

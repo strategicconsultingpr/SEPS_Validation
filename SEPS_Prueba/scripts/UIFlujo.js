@@ -49,7 +49,8 @@ function startupFunctions() {
         ddlPreviosSustancias();
         ddlUltMental();
         ddlUltSustancias();
-        ddlDrogaPrimF();
+        ddlDrogaPrimFDdlArrestadoDdlArrestado30
+
         ddlReunionesGrupos();
         ddlEstadoLegal();
         //ddlArrestado();
@@ -58,7 +59,7 @@ function startupFunctions() {
         ddlNivelCuidadoSaludMental();
         ddlNivelCuidadoSustancias();
         CO_Tipo();
-        DdlArrestadoDdlArrestado30();
+       //  DdlArrestadoDdlArrestado30();
     }
     catch (ex) {
         throw ex;
@@ -1009,7 +1010,7 @@ function ddlArrestado() {
 }
 function ddlArrestado30() {
 
-    DdlArrestadoDdlArrestado30();
+   // DdlArrestadoDdlArrestado30();
     try {
         var txtArrestos30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtArrestos30");
         var ddlArrestado30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado30");

@@ -65,7 +65,9 @@
                 this.dvwFreqAutoAyuda.Table = this.dsPerfil.SA_LKP_TEDS_FRECUENCIA_AUTOAYUDA;
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
 
-                
+
+                //ListItem li = new ListItem("No Aplica", "99");
+                //this.ddlPreviosMental.Items.Add(li);
 
                 if (this.Session["pk_administracion"].ToString() == "1")
                 {
@@ -1199,6 +1201,9 @@
                 return this.txtDSMVOtrasObs.Text;
             }
         }
+
+
+
         public string @DE_DSMV_Comentarios
         {
             get
@@ -1962,5 +1967,17 @@
         }
 
         #endregion
+      protected void ddlArrestado_SelectedIndexChanged(object sender, EventArgs e)
+    {
+            ListItem li = new ListItem("No aplica", "99");
+           
+            if (ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "2"){
+                this.lbxProbJusticiaSeleccionado.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Remove(li);
+                this.lbxProbJusticiaSeleccionado.Items.Add(li);
+                SortListBox(this.lbxProbJusticiaSeleccionado);
+            }
     }
 }
+
+  }
