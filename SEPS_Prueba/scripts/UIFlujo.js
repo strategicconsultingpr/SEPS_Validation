@@ -49,9 +49,7 @@ function startupFunctions() {
         ddlPreviosSustancias();
         ddlUltMental();
         ddlUltSustancias();
-        ddlDrogaPrimFDdlArrestadoDdlArrestado30
-
-        ddlReunionesGrupos();
+         ddlReunionesGrupos();
         ddlEstadoLegal();
         //ddlArrestado();
         ddlArrestado30();
@@ -1150,9 +1148,11 @@ function ddlDrogaPrimF() {
         var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
         var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
         var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
+
         ddlViaPrim.disabled = false;
         ddlFrecPrim.disabled = false;
         txtEdadPrim.disabled = false;
+
         switch (ddlDrogaPrim.value) {
             case (sustanciasList.Alcohol): case (sustanciasList.Ecstasy): case (sustanciasList.Metadona): case (sustanciasList.Percocet): case (sustanciasList.Xanax):
                 ddlViaPrim.value = viaList.OralBebida;
@@ -1177,6 +1177,7 @@ function ddlDrogaPrimF() {
             case (sustanciasList.Nousaactualmente):
             case (sustanciasList.Noaplica): case (sustanciasList.Noinformó):
             case ("95"): case ("98")://OLDVALUES
+                
                 if (CO_Tipo.value == "1" || CO_Tipo.value == "4" || ddlDSMVDiagDual.value == "1") {
                     ddlDrogaPrim.value = 0;
 
@@ -1184,7 +1185,21 @@ function ddlDrogaPrimF() {
                         alert("Este perfil es de Abuso de Sustancia, no puede seleccionar " + "'" + "No Aplica" + "'" + ".");
                     }
                     else {
-                        alert("Este perfil esta seleccionado como CONCURRENTE, no puede seleccionar " + "'" + "No Aplica" + "'" + ".");
+                         
+                        // alert("Este perfil esta seleccionado como CONCURRENTE, no puede seleccionar " + "'" + "No Aplica" + "'" + ".");
+
+                        ddlDrogaPrim.value = 96;
+                        ddlViaPrim.value = 99;
+                        ddlFrecPrim.value=99;
+                        txtEdadPrim.value = 0;
+
+                        ddlViaPrim.disabled = true;
+                        ddlFrecPrim.disabled = true;
+                        txtEdadPrim.disabled = true;
+
+
+
+
                     }
 
                     ddlDrogaSec.value = sustanciasList.Nousaactualmente;

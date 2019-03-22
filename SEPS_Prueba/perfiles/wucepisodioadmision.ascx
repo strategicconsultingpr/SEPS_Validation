@@ -19,8 +19,7 @@
 
     </div>
     <div class="col-md-12 SEPSDivs"><%--Etapa del servicio--%>
-        <span class="SEPSLabel">Etapa del servicio:</span>
-          <asp:RequiredFieldValidator ID="rfvMenor" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlEtapaServicio" ErrorMessage="Etapa del servicio" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
+        <span class="SEPSLabel">Etapa del servicio:</span>ddlDrogaPrim          <asp:RequiredFieldValidator ID="rfvMenor" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlEtapaServicio" ErrorMessage="Etapa del servicio" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
         <div class="expandibleDiv">
         <asp:DropDownList  CssClass="form-control" ID="ddlEtapaServicio" runat="server" DataSource="<%# dsPerfil %>" DataMember="SA_LKP_TEDS_ETAPA_SERVICIO" DataTextField="DE_EtapaServicio" DataValueField="PK_EtapaServicio" />
         <asp:Label ID="lblEtapaServicio" runat="server" />
