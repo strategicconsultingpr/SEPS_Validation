@@ -1187,19 +1187,16 @@ function ddlDrogaPrimF() {
                     else {
                          
                         // alert("Este perfil esta seleccionado como CONCURRENTE, no puede seleccionar " + "'" + "No Aplica" + "'" + ".");
-
+                                                                   
                         ddlDrogaPrim.value = 96;
-                        ddlViaPrim.value = 99;
+                        ddlViaPrim.value = 95;
                         ddlFrecPrim.value=99;
                         txtEdadPrim.value = 0;
 
                         ddlViaPrim.disabled = true;
                         ddlFrecPrim.disabled = true;
                         txtEdadPrim.disabled = true;
-
-
-
-
+ 
                     }
 
                     ddlDrogaSec.value = sustanciasList.Nousaactualmente;
