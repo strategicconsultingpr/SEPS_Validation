@@ -1149,6 +1149,7 @@ function ddlDrogaPrimF() {
         var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
         var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
 
+        ddlViaPrim.value = 0;
         ddlViaPrim.disabled = false;
         ddlFrecPrim.disabled = false;
         txtEdadPrim.disabled = false;
