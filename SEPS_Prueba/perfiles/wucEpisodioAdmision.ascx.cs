@@ -25,8 +25,6 @@
             
             if (!this.IsPostBack)
             {
-
-
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
                 this.dvwFuenteReferido.Table = this.dsPerfil.SA_LKP_TEDS_REFERIDO;
                 this.dvwEpisPreviosSustancias.Table = this.dsPerfil.SA_LKP_TEDS_EPISODIO_PREVIO;
@@ -1724,8 +1722,15 @@
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
+
+
+
+           if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
             {
+                if (lbxProbJusticiaSeleccion.SelectedItem.Value == "99" &&
+                    (ddlArrestado.SelectedValue == "1" && ddlArrestado30.SelectedValue == "2" || ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "1"))
+                    return;
+
                 System.Web.UI.WebControls.ListItem li = new ListItem(this.lbxProbJusticiaSeleccion.SelectedItem.Text, this.lbxProbJusticiaSeleccion.SelectedItem.Value);
                 this.lbxProbJusticiaSeleccionado.Items.Add(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);
