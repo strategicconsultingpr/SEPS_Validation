@@ -25,6 +25,8 @@
             
             if (!this.IsPostBack)
             {
+
+
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
                 this.dvwFuenteReferido.Table = this.dsPerfil.SA_LKP_TEDS_REFERIDO;
                 this.dvwEpisPreviosSustancias.Table = this.dsPerfil.SA_LKP_TEDS_EPISODIO_PREVIO;
@@ -1970,14 +1972,34 @@
       protected void ddlArrestado_SelectedIndexChanged(object sender, EventArgs e)
     {
             ListItem li = new ListItem("No aplica", "99");
-           
-            if (ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "2"){
+
+            if (ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "2")
+            {
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);
                 this.lbxProbJusticiaSeleccionado.Items.Add(li);
                 SortListBox(this.lbxProbJusticiaSeleccionado);
+
+                lbxProbJusticiaSeleccion.Enabled = false;
+                lbxProbJusticiaSeleccionado.Enabled = false;
+                Button4.Enabled = false;
+                Button3.Enabled = false;
+
             }
-    }
+            else {
+
+                this.lbxProbJusticiaSeleccionado.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Add(li);
+                SortListBox(this.lbxProbJusticiaSeleccionado);
+
+                lbxProbJusticiaSeleccion.Enabled = true;
+                lbxProbJusticiaSeleccionado.Enabled = true;
+                Button4.Enabled = true;
+                Button3.Enabled = true;
+
+            }
+        }
 }
 
   }
