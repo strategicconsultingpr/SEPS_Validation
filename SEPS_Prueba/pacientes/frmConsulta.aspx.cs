@@ -167,8 +167,10 @@ namespace ASSMCA.Pacientes
         {
             string strSQL = this.PrepararClausulaWhere();
 
-            if (this.ddlTipoBusqueda.SelectedValue == "2" | this.ddlTipoBusqueda.SelectedValue == "1") { 
-            strSQL += " AND (Episodio.FK_Programa=" + this.m_PK_Programa + ")";
+
+              if (this.ddlTipoBusqueda.SelectedValue == "2")
+            {
+                strSQL += " AND (Episodio.FK_Programa=" + this.m_PK_Programa + ")";
             } 
            
             if ( strSQL.Trim() != "" )
