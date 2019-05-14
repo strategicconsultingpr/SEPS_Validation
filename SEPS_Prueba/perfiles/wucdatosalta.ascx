@@ -37,7 +37,7 @@
   <div class="panel-body">
         <div class="row">
         <div class="col-xs-12"><%--Comentarios--%>
-            <asp:textbox CssClass="form-control" id="txtComentarios" runat="server" MaxLength="1500" TextMode="MultiLine" Width="100%" Height="64px"/>
+            <asp:textbox CssClass="form-control" id="txtComentarios" runat="server" MaxLength="1500" TextMode="MultiLine" Width="100%" Height="64px"  TabIndex="13"/>
             <asp:Label ID="lblComentario" runat="server" Width="100%"/>
         </div>
     </div>

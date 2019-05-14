@@ -5,8 +5,13 @@
 <%@ Register TagPrefix="uc1" TagName="wucDatosDemograficos" Src="wucDatosDemograficos.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucDatosPersonales" Src="wucDatosPersonales.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucEpisodioAdmision" Src="wucEpisodioAdmision.ascx" %>
+
 <asp:Content ID="mainC" runat="server" ContentPlaceHolderID="mainBodyContent">
     <asp:ScriptManager ID="mainScript" runat="server" />
+
+
+
+
     <%--<h1>Perfil de admisión</h1><asp:Label ID="lblTipoPerfil" runat="server" ></asp:Label>--%>
     <h1 style="display:inline">Perfil de admisión </h1> <h2 style="display:inline"><asp:Label ID="lblTipoPerfil" runat="server" ></asp:Label></h2>
     <h1></h1>
