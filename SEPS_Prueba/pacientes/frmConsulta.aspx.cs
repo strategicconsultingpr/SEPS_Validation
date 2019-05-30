@@ -165,10 +165,38 @@ namespace ASSMCA.Pacientes
         #endregion
         protected void btnConsultar_Click(object sender, System.EventArgs e)
         {
+            LblErrorAñoRangoInicio.Visible = false;
+            LblErrorAñoRangoFin.Visible = false;
+
+            bool errorFecha = false;
+
+            if (this.ddlFiltroDeFecha.SelectedValue.ToString() == "2")//Rango de fechas
+            {
+
+                if (ValidarFecha(ddlDíaRangoInicio.SelectedValue.ToString(), ddlMesRangoInicio.SelectedValue.ToString(), txtAñoRangoInicio.Text) == false && txtAñoRangoInicio.Text != "")
+                {
+                    LblErrorAñoRangoInicio.Visible = true;
+                    errorFecha = true;
+                }
+                if (ValidarFecha(ddlDíaRangoFin.SelectedValue.ToString(), ddlMesRangoFin.SelectedValue.ToString(), txtAñoRangoFin.Text) == false  && txtAñoRangoFin.Text !="")
+                {
+                    LblErrorAñoRangoFin.Visible = true;
+                    errorFecha = true;
+                }
+
+                if (errorFecha == true)
+                {
+                    dgPersonas.DataSource = null;
+                    dgPersonas.DataBind();
+                    return;
+                }
+            }
+
             string strSQL = this.PrepararClausulaWhere();
 
 
-              if (this.ddlTipoBusqueda.SelectedValue == "2")
+
+         if (this.ddlTipoBusqueda.SelectedValue == "2")
             {
                 strSQL += " AND (Episodio.FK_Programa=" + this.m_PK_Programa + ")";
             } 
@@ -194,7 +222,13 @@ namespace ASSMCA.Pacientes
 		{
 			string strSql = "";
             string AND = "";
-			if( this.txtIUP.Text.Trim() != "" )
+
+
+
+
+
+
+            if ( this.txtIUP.Text.Trim() != "" )
 			{
                 strSql += "(Personas.PK_Persona =" + this.txtIUP.Text.Trim() + ")";
 				AND = " AND ";
@@ -295,9 +329,9 @@ namespace ASSMCA.Pacientes
             }
             if (this.ddlFiltroDeFecha.SelectedValue.ToString() == "2")//Rango de fechas
             {
-                if (this.txtAñoRangoFin.Text != "" && this.txtAñoRangoInicio.Text != "")//Inicio y fin activos
+                 if (this.txtAñoRangoFin.Text != "" && this.txtAñoRangoInicio.Text != "")//Inicio y fin activos
                 {
-                    switch (this.ddlRangoTipoFecha.SelectedValue.ToString())
+                     switch (this.ddlRangoTipoFecha.SelectedValue.ToString())
                     { 
                         case ("1")://Admisión
                             strSql += AND + "(Perfil.IN_TI_Perfil='AD' AND Perfil.FE_Perfil<='" + ddlMesRangoFin.SelectedValue.ToString() + "/" + ddlDíaRangoFin.SelectedValue.ToString() + "/" + txtAñoRangoFin.Text + "' AND Perfil.FE_Perfil>='" + ddlMesRangoInicio.SelectedValue.ToString() + "/" + ddlDíaRangoInicio.SelectedValue.ToString() + "/" + txtAñoRangoInicio.Text + "')";
@@ -381,6 +415,21 @@ namespace ASSMCA.Pacientes
             return strSql;
             
 		}
+
+        private bool ValidarFecha( string dia, string mes, string año)
+        {
+            bool resultado =false;
+
+            try
+            {
+                DateTime TempDate = new DateTime( Convert.ToInt32( año), Convert.ToInt32( mes), Convert.ToInt32(dia));
+                 resultado = true;
+            }
+            catch (Exception) {
+             }
+
+            return resultado;
+        }
 		private string PrepararPredicado(string Condicion, string Valor)
 		{
 			switch(Condicion)
