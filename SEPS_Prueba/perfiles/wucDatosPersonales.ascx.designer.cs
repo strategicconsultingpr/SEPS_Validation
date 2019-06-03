@@ -137,7 +137,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGrupoEtnico;
-        
+
         /// <summary>
         /// ddlMes control.
         /// </summary>
@@ -145,7 +145,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMes;
+        public global::System.Web.UI.WebControls.DropDownList ddlMes;
         
         /// <summary>
         /// ddlDía control.
@@ -154,8 +154,8 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDía;
-        
+        public global::System.Web.UI.WebControls.DropDownList ddlDía;
+
         /// <summary>
         /// txtAño control.
         /// </summary>
@@ -163,7 +163,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAño;
+        public global::System.Web.UI.WebControls.TextBox txtAño;
         
         /// <summary>
         /// rfvFechaAdmision control.
@@ -218,7 +218,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtAñoHidden;
-        
+
         /// <summary>
         /// lblFechaError control.
         /// </summary>
@@ -226,7 +226,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaError;
+        public global::System.Web.UI.WebControls.Label lblFechaError;
         
         /// <summary>
         /// divMesesDesdeAdmision control.

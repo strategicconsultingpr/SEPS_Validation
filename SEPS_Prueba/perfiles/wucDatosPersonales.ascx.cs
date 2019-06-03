@@ -825,7 +825,35 @@
                     {
                         this.lblFechaError.Text = "";
                     }
-                   // edadAdmision.Value = FE_Episodio.ToString();
+
+                    // se valida que la fecha no sea mayor a la actual
+
+               
+
+                    try
+                    {
+                        DateTime TempDate = new DateTime(Convert.ToInt32(txtAño), Convert.ToInt32(ddlMes.SelectedValue), Convert.ToInt32(ddlDía.SelectedValue));
+                        if (TempDate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day) )
+                        {
+                            this.lblFechaError.Text = "La fecha de admisión no puede ser mayor a la fecha actual.";
+                            this.lblFechaError.ForeColor = Color.Red;
+
+                        }
+                        else
+                        {
+                            this.lblFechaError.Text = "";
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                          
+                    }
+
+
+
+
+                    // edadAdmision.Value = FE_Episodio.ToString();
                 }
             }
         }
