@@ -104,7 +104,7 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
             if (Date.parse(Fe_Nacimiento.value) > Date.parse(MesHidden.value) || Date.parse(Fe_Nacimiento.value) == Date.parse(MesHidden.value)) {
                 alert("La fecha de admision no puede ser menor o igual a la fecha de nacimiento");
                 día.value = 1;
-               // año.value = '';
+                año.value = '';
                 mes.value = 1;
                 mes.focus();
             }
@@ -112,7 +112,7 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
                 if (!((parseInt(año.value) % 4 == 0 && parseInt(año.value) % 100 != 0) || (parseInt(año.value) % 400 == 0))) {
                     alert("El año insertado no es un año bisiesto");
                     día.value = 1;
-                   // año.value = '';
+                    año.value = '';
                     mes.value = 1;
                     mes.focus();
                 }
@@ -121,7 +121,7 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
             if (Date.parse(MesHidden.value) > Date.parse(FechaActual)) {
                 alert("La fecha de admision no puede ser mayor a la fecha de hoy");
                 día.value = 1;
-                //año.value = '';
+               // año.value = '';
                 mes.value = 1;
                 mes.focus(); 
                    
