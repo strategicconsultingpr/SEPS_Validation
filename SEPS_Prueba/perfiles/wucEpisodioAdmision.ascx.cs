@@ -7,6 +7,7 @@
     using System.Web;
     using System.Web.UI.WebControls;
     using System.Web.UI.HtmlControls;
+    using System.Threading;
     public partial class wucEpisodioAdmision : System.Web.UI.UserControl
     {
         protected ASSMCA.perfiles.dsPerfil dsPerfil;
@@ -1722,8 +1723,7 @@
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-
-
+ 
 
            if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
             {

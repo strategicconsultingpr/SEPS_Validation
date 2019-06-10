@@ -22,6 +22,33 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.WebControls.Label lblUID;
         
         /// <summary>
+        /// valExpediente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valExpediente;
+        
+        /// <summary>
+        /// valExpedienteRango control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator valExpedienteRango;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// txtExpediente control.
         /// </summary>
         /// <remarks>
@@ -137,7 +164,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGrupoEtnico;
-
+        
         /// <summary>
         /// ddlMes control.
         /// </summary>
@@ -155,7 +182,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.DropDownList ddlDía;
-
+        
         /// <summary>
         /// txtAño control.
         /// </summary>
@@ -218,7 +245,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtAñoHidden;
-
+        
         /// <summary>
         /// lblFechaError control.
         /// </summary>
