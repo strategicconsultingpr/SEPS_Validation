@@ -152,8 +152,7 @@
             </div>
     </div>
 </div>
-<asp:UpdatePanel ID="updCompFam" runat="server">
-    <ContentTemplate>
+ 
         <div style="height:160px;"  runat="server" id="divProbJusticia"><%--Multiple seleccion - Faltas--%>
             <div class="multipleLeft"><%--Problema con la justicia/Faltas cometidas--%>
                 <span class="SEPSLabel">Listado de problemas de justicia (Disponibles):</span>
@@ -177,8 +176,7 @@
                 <asp:Label ID="lblProbJusticia" runat="server"/>
             </div>
         </div>
-    </ContentTemplate>
-</asp:UpdatePanel>
+ 
   </div>
 </div>
 
@@ -187,8 +185,7 @@
     <h3 class="panel-title">Datos de salud general</h3>
   </div>
   <div class="panel-body">
-   <asp:UpdatePanel ID="updCondicionDiagnosticada" runat="server">
-    <ContentTemplate>                                 
+                                 
         <div style="height:160px;"  runat="server" id="divCondicionesDiagnosticadas">
             <div class="multipleLeft"> <%-- Listbox left --%>
                 <span class="SEPSLabel">Condiciones (Disponibles)</span>
@@ -212,8 +209,7 @@
                 <asp:Label ID="lblCondicionesDiagnosticadas" runat="server"/>
             </div>
         </div>
-    </ContentTemplate>
-</asp:UpdatePanel>
+ 
   </div>
 </div>
 
@@ -345,8 +341,7 @@
     <h3 class="panel-title">Violencia doméstica</h3>
   </div>
   <div class="panel-body">
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-    <ContentTemplate>
+ 
         <div class="row">
             <div class="col-md-6 SEPSDivs"><%--Existe historial de ideas suicidas?--%>
                 <span class="SEPSLabel">¿Existe historial de ideas suicidas?:</span>
@@ -418,8 +413,7 @@
                 <asp:Label ID="lblMaltrato" runat="server"/>
             </div>
         </div>
-    </ContentTemplate>
-</asp:UpdatePanel>
+ 
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Ha sido victima de violencia doméstica?--%>
         <span class="SEPSLabel">¿Ha sido victima de violencia doméstica?:</span>

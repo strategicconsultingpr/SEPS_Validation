@@ -27,8 +27,7 @@
             </div>
         </div>            </div>
             <div style="height:160px;" class="NoParticipa" runat="server" id="divRazon">
-                          <asp:UpdatePanel ID="updTH" runat="server">
-        <ContentTemplate>
+ 
                 <div class="multipleLeft">  
                     <span class="SEPSLabel">Listado de razones (Disponibles)</span>     
                     <asp:ListBox CssClass="form-control"  ID="lbxRazonSeleccion" runat="server" EnableViewState ="true" Height="130px"/>
@@ -46,8 +45,7 @@
 
                     <asp:ListBox CssClass="form-control"  ID="lbxRazonSeleccionado" runat="server" EnableViewState ="true" CausesValidation="true" Height="130px" DataValueField="PK_" DataTextField="DE_"/>       
                 </div>
-                        </ContentTemplate>
-    </asp:UpdatePanel>
+ 
             </div> 
             <div class="row NoParticipa" runat="server" id="divLblRazon">
                 <div class="col-xs-12 SEPSDivsInfo">

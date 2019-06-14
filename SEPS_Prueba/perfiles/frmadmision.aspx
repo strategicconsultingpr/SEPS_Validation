@@ -8,9 +8,7 @@
 
 <asp:Content ID="mainC" runat="server" ContentPlaceHolderID="mainBodyContent">
     <asp:ScriptManager ID="mainScript" runat="server" />
-
-
-
+  
 
     <%--<h1>Perfil de admisión</h1><asp:Label ID="lblTipoPerfil" runat="server" ></asp:Label>--%>
     <h1 style="display:inline">Perfil de admisión </h1> <h2 style="display:inline"><asp:Label ID="lblTipoPerfil" runat="server" ></asp:Label></h2>
@@ -32,4 +30,6 @@
         </div>
     </div>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowSummary="False" HeaderText="Se han encontrado algunos errores en el formulario que debe revisar antes de registrar el perfil de admisión. Los siguientes campos son requeridos o contienen valores incorrectos:" ShowMessageBox="True" />
+
+ 
 </asp:Content>

@@ -26,8 +26,7 @@
     <h3 class="panel-title">Datos de salud general</h3>
   </div>
   <div class="panel-body">
-    <asp:UpdatePanel ID="updCondicionDiagnosticada" runat="server">
-    <ContentTemplate>                                 
+                               
         <div style="height:160px;" runat="server" id="divCondicionesDiagnosticadas">
             <div class="multipleLeft"> <%-- Listbox left --%>
                 <span class="SEPSLabel">Condiciones (Disponibles)</span>
@@ -51,8 +50,7 @@
                 <asp:Label ID="lblCondicionesDiagnosticadas" runat="server"/>
             </div>
         </div>
-    </ContentTemplate>
-</asp:UpdatePanel>
+ 
   </div>
 </div>
 
@@ -408,8 +406,7 @@
   </div>
   <div class="panel-body">
      <h3 id="h3PracticasBasadasEnEvidenciaNinoOAdulto" runat="server">Niños y adolescentes o adultos</h3>
-    <asp:UpdatePanel ID="updPracticasBasadasEvidencia" runat="server">
-        <ContentTemplate>                                 
+                                
             <div style="height:160px;" runat="server" id="divLbxPracticasBasadasEvidencia"> <%-- List boxes - Practicas Basadas en Evidencia--%>
                 <div class="multipleLeft"> <%-- Listbox left --%>
                     <span class="SEPSLabel">Prácticas (Disponibles)</span>
@@ -433,8 +430,7 @@
                 <asp:Label ID="lblPracticasBasadasEvidencia" runat="server"/>
             </div>
         </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+ 
   </div>
 </div>  
 </div>

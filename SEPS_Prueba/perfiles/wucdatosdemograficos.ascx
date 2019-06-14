@@ -139,8 +139,7 @@
         <h3 class="panel-title">Estructura familiar</h3>
     </div>
     <div class="panel-body">
-        <asp:UpdatePanel ID="updCompFam" runat="server">
-            <ContentTemplate>
+ 
                 <div style="height: 160px;" runat="server" id="divCompFamiliar">
                     <div class="multipleLeft">
                         <%-- Listbox left --%>
@@ -165,8 +164,7 @@
                     <div class="col-xs-12"><span class="SEPSLabel">Composición familiar:</span>
                         <asp:Label ID="lblCompFamiliar" runat="server" /></div>
                 </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+ 
         <div class="row">
             <div class="col-print-6 col-md-6 SEPSDivs">
                 <%-- Tamaño familia --%>
