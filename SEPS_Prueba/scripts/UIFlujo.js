@@ -1821,6 +1821,9 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDual) {
 
 var saving = false;
 function validate() {
+
+    FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id, día_hidden, año_Hidden)
+  
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {
@@ -1837,6 +1840,7 @@ function validate() {
     }
     else { return false; }
 }
+
 function validatePaciente() {
     var isValid = Page_ClientValidate();
     if (!saving) {

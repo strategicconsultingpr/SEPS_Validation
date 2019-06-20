@@ -1566,6 +1566,7 @@ function cvTakeHomeRazonesNoParticipaValidation(oSrc, args) {
 }
 var saving = false;
 function validate() {
+  //  alert(1);
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {

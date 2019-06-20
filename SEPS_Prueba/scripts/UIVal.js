@@ -121,7 +121,7 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
             if (Date.parse(MesHidden.value) > Date.parse(FechaActual)) {
                 alert("La fecha de admision no puede ser mayor a la fecha de hoy");
                 día.value = 1;
-               // año.value = '';
+                año.value = '';
                 mes.value = 1;
                 mes.focus(); 
                    
