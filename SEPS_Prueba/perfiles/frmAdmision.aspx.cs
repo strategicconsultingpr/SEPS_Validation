@@ -35,6 +35,8 @@ namespace ASSMCA.Perfiles
         #endregion
         protected void Page_Load(object sender, System.EventArgs e)
         {
+
+            
             this.Session["Tipo_Perfil"] = "Admision";
             if (this.Session["dsSeguridad"] == null)
             {
@@ -1377,17 +1379,34 @@ namespace ASSMCA.Perfiles
         }
         protected void btnModificar_Click(object sender, System.EventArgs e)
         {
+
+
+            Page.Validate();
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
+
             int PK_Episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO[0]["PK_Episodio"].ToString());
             this.Response.Redirect("frmAdmision.aspx?accion=update&pk_episodio=" + PK_Episodio);
         }
         protected void btnGuardarCambios_Click(object sender, System.EventArgs e)
         {
-            this.GuardarCambios();
+             this.GuardarCambios();
             int PK_Episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO[0]["PK_Episodio"].ToString());
             this.Response.Redirect("frmAdmision.aspx?accion=read&pk_episodio=" + PK_Episodio);
         }
         protected void btnRegistrar_Click(object sender, System.EventArgs e)
         {
+
+            Page.Validate();
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
+
             this.WucDatosPersonales.lblFechaError.Text = "";
             // se valida fecha si la fecha es valida
             if (ValidarFecha(this.WucDatosPersonales.ddlDía.SelectedValue.ToString(),
