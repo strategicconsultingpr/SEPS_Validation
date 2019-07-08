@@ -1381,10 +1381,13 @@ namespace ASSMCA.Perfiles
         {
 
 
-            Page.Validate();
-            if (!Page.IsValid)
+            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
             {
-                return;
+                Page.Validate();
+                if (!Page.IsValid)
+                {
+                    return;
+                }
             }
 
 
@@ -1400,12 +1403,15 @@ namespace ASSMCA.Perfiles
         protected void btnRegistrar_Click(object sender, System.EventArgs e)
         {
 
-            Page.Validate();
-            if (!Page.IsValid)
-            {
-                return;
-            }
 
+            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
+            {
+                Page.Validate();
+                if (!Page.IsValid)
+                {
+                    return;
+                }
+            }
 
             this.WucDatosPersonales.lblFechaError.Text = "";
             // se valida fecha si la fecha es valida
