@@ -1,4 +1,4 @@
-<%@ Page language="c#" Inherits="ASSMCA.Perfiles.frmAlta" Codebehind="frmAlta.aspx.cs" MasterPageFile="~/MainUIFP.Master" %>
+<%@ Page language="c#" Inherits="ASSMCA.Perfiles.frmAlta" Codebehind="frmAlta.aspx.cs" MasterPageFile="~/MainUIFP.Master"  MaintainScrollPositionOnPostback="true" %>
 <%@ Register TagPrefix="uc1" TagName="wucOtrosDatosPerfil" Src="wucOtrosDatosPerfil.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucDatosDemograficosPerfil" Src="wucDatosDemograficosPerfil.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucEpisodioPerfil" Src="wucEpisodioPerfil.ascx" %>

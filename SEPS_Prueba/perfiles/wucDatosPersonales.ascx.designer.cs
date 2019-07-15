@@ -22,6 +22,33 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.WebControls.Label lblUID;
         
         /// <summary>
+        /// valExpediente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valExpediente;
+        
+        /// <summary>
+        /// valExpedienteRango control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator valExpedienteRango;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// txtExpediente control.
         /// </summary>
         /// <remarks>
@@ -145,7 +172,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMes;
+        public global::System.Web.UI.WebControls.DropDownList ddlMes;
         
         /// <summary>
         /// ddlDía control.
@@ -154,7 +181,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDía;
+        public global::System.Web.UI.WebControls.DropDownList ddlDía;
         
         /// <summary>
         /// txtAño control.
@@ -163,7 +190,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAño;
+        public global::System.Web.UI.WebControls.TextBox txtAño;
         
         /// <summary>
         /// rfvFechaAdmision control.
@@ -226,7 +253,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaError;
+        public global::System.Web.UI.WebControls.Label lblFechaError;
         
         /// <summary>
         /// divMesesDesdeAdmision control.
@@ -388,7 +415,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGenero;
+         public global::System.Web.UI.WebControls.RequiredFieldValidator rfvGenero;
         
         /// <summary>
         /// ddlGenero control.

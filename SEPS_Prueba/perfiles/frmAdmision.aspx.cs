@@ -35,6 +35,8 @@ namespace ASSMCA.Perfiles
         #endregion
         protected void Page_Load(object sender, System.EventArgs e)
         {
+
+            
             this.Session["Tipo_Perfil"] = "Admision";
             if (this.Session["dsSeguridad"] == null)
             {
@@ -119,11 +121,11 @@ namespace ASSMCA.Perfiles
                 }
             }
             else
-            {
+            { 
                               
                 if (Request.Form["__EVENTTARGET"] != null &&
-
-                    Request.Form["__EVENTTARGET"] != string.Empty)
+                    Request.Form["__EVENTTARGET"] != string.Empty &&
+                    Request.Form["__EVENTTARGET"] != "ctl00$changeProgram")
 
                 {                   
                         this.WucDatosDemograficos.edadAdmisionF(this.WucDatosPersonales.FE_Episodio, this.WucDatosPersonales.FE_Nacimiento.ToString());
@@ -465,6 +467,12 @@ namespace ASSMCA.Perfiles
 
         private void GuardarCambios()
         {
+
+
+
+
+
+
             this.SPU_EPISODIO.Parameters["@PK_Episodio"].Value = Convert.ToInt32(this.dsPerfil.SA_EPISODIO.DefaultView[0]["PK_Episodio"].ToString());
             this.SPU_EPISODIO.Parameters["@FE_Episodio"].Value = this.WucDatosPersonales.FE_Episodio;
             this.SPU_EPISODIO.Parameters["@FE_FechaConvenio"].Value = this.WucDatosPersonales.FE_FechaConvenio;
@@ -1371,20 +1379,98 @@ namespace ASSMCA.Perfiles
         }
         protected void btnModificar_Click(object sender, System.EventArgs e)
         {
+
+
+            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
+            {
+                Page.Validate();
+                if (!Page.IsValid)
+                {
+                    return;
+                }
+            }
+
+
             int PK_Episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO[0]["PK_Episodio"].ToString());
             this.Response.Redirect("frmAdmision.aspx?accion=update&pk_episodio=" + PK_Episodio);
         }
         protected void btnGuardarCambios_Click(object sender, System.EventArgs e)
         {
-            this.GuardarCambios();
+             this.GuardarCambios();
             int PK_Episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO[0]["PK_Episodio"].ToString());
             this.Response.Redirect("frmAdmision.aspx?accion=read&pk_episodio=" + PK_Episodio);
         }
         protected void btnRegistrar_Click(object sender, System.EventArgs e)
         {
+
+
+            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
+            {
+                Page.Validate();
+                if (!Page.IsValid)
+                {
+                    return;
+                }
+            }
+
+            this.WucDatosPersonales.lblFechaError.Text = "";
+            // se valida fecha si la fecha es valida
+            if (ValidarFecha(this.WucDatosPersonales.ddlDía.SelectedValue.ToString(),
+                             this.WucDatosPersonales.ddlMes.SelectedValue.ToString(),
+                             this.WucDatosPersonales.txtAño.Text)==false)
+            {
+                this.WucDatosPersonales.lblFechaError.Text = "La fecha es  inválida.";
+                this.WucDatosPersonales.lblFechaError.ForeColor = Color.Red;
+                return;
+            }
+
+            // se valida si la fecha en mayor a la fecha actual
+            try
+            {
+                DateTime TempDate = new DateTime(Convert.ToInt32(WucDatosPersonales.txtAño.Text),
+                                                 Convert.ToInt32(WucDatosPersonales.ddlMes.SelectedValue), 
+                                                 Convert.ToInt32(WucDatosPersonales.ddlDía.SelectedValue));
+                if (TempDate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day))
+                {
+                    this.WucDatosPersonales.lblFechaError.Text = "La fecha no puede ser mayor a la fecha actual.";
+                    this.WucDatosPersonales.lblFechaError.ForeColor = Color.Red;
+                    return;
+
+                }
+                else
+                {
+                    this.WucDatosPersonales.lblFechaError.Text = "";
+                }
+
+            }
+            catch ( Exception  )
+            {
+                return;
+            }
+
+
             int PK_Episodio = this.GuardarNuevo();
             this.Response.Redirect("frmAdmision.aspx?accion=read&pk_episodio=" + PK_Episodio);
         }
+
+
+        private bool ValidarFecha(string dia, string mes, string año)
+        {
+            bool resultado = false;
+
+            try
+            {
+                DateTime TempDate = new DateTime(Convert.ToInt32(año), Convert.ToInt32(mes), Convert.ToInt32(dia));
+                resultado = true;
+            }
+            catch (Exception)
+            {
+                
+            }
+
+            return resultado;
+        }
+
         #endregion
     }
 }

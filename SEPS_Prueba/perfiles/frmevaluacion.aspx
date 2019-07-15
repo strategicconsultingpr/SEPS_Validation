@@ -1,4 +1,4 @@
-﻿<%@ Page Language="c#" Inherits="ASSMCA.Perfiles.frmEvaluacion" CodeBehind="frmEvaluacion.aspx.cs" MasterPageFile="~/MainUIFP.Master" %>
+﻿<%@ Page Language="c#" Inherits="ASSMCA.Perfiles.frmEvaluacion" CodeBehind="frmEvaluacion.aspx.cs" MasterPageFile="~/MainUIFP.Master"  MaintainScrollPositionOnPostback="true" %>
 <%@ Register TagPrefix="uc1" TagName="wucDatosPersonales" Src="wucDatosPersonales.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucOtrosDatosPerfil" Src="wucOtrosDatosPerfil.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucDatosEvaluacion" Src="wucDatosEvaluacion.ascx" %>

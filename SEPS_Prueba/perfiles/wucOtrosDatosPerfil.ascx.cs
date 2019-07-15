@@ -139,26 +139,49 @@
 
 		public DateTime FE_Perfil
 		{
-			get
-			{
-                string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
-				return DateTime.Parse(fe);
+            get
+            {
+                DateTime dt = new DateTime();
+                try
+                {
+                    dt = new DateTime(Convert.ToInt32(txtAño.Text),
+                                             Convert.ToInt32(this.ddlMes.SelectedValue.ToString()),
+                                             Convert.ToInt32(ddlDía.SelectedValue.ToString()));
+                    return dt;
+                }
+                catch (Exception)
+                {
+
+                    return dt;
+                }
+
             }
+
+ 
 		}
 
         public DateTime? FE_Contacto
         {
+
             get
             {
-                string fe = this.ddlMesContacto.SelectedValue.ToString() + "/" + this.ddlDíaContacto.SelectedValue.ToString() + "/" + this.txtAñoContacto.Text;
+                DateTime dt = new DateTime();
                 try
                 {
-                    return DateTime.Parse(fe);
+                    dt = new DateTime(Convert.ToInt32(txtAñoContacto.Text),
+                                             Convert.ToInt32(this.ddlMesContacto.SelectedValue.ToString()),
+                                             Convert.ToInt32(ddlDíaContacto.SelectedValue.ToString()));
+                    return dt;
                 }
-                catch {
-                    return null;
+                catch (Exception)
+                {
+
+                    return dt;
                 }
+ 
             }
+
+ 
         }
 
         

@@ -12,9 +12,10 @@
     </div>
     <div class="col-print-6 col-sm-6 col-lg-3 SEPSDivsInfo"><%-- Expediente --%>
         <span class="SEPSLabel" title='Número entero que identifica una persona para un programa particular. Toda persona debe puede tener mas de un número de expediente diferente dado que haya participado en más de un programa.'>Expediente:</span>
-        <%-- <asp:RequiredFieldValidator ID="valExpediente" runat="server" CssClass="rightFloatAsterisk" ErrorMessage="El Expediente en un campo requerido." ControlToValidate="txtExpediente" Display="Dynamic" Text="*"/>
-        <asp:RangeValidator ID="valExpedienteRango" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtExpediente" Display="Dynamic" ErrorMessage="El expediente tiene que se un número entero entre 1 y 999.999.999" MaximumValue="999999999999" MinimumValue="000000000001" Text="*"/>
-        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"  CssClass="rightFloatAsterisk"  ControlToValidate="txtExpediente" Display="Dynamic" ErrorMessage="El expediente tiene que ser un número. No puede contener letras." ValidationExpression="(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?" Text="*" />--%>
+        <asp:RequiredFieldValidator ID="valExpediente" runat="server" ForeColor="red"  ErrorMessage="El Expediente en un campo requerido." ControlToValidate="txtExpediente" Display="Dynamic" Text="El Expediente en un campo requerido."/>
+        <asp:RangeValidator ID="valExpedienteRango" runat="server" ForeColor="red" ControlToValidate="txtExpediente" Display="Dynamic" ErrorMessage="El expediente tiene que se un número entero entre 1 y 999.999.999" MaximumValue="999999999999" MinimumValue="000000000001" Text="El expediente tiene que se un número entero entre 1 y 999.999.999"   />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"   ForeColor="red"  ControlToValidate="txtExpediente" Display="Dynamic" ErrorMessage="El expediente tiene que ser un número. No puede contener letras." ValidationExpression="(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?(\d{1})?" Text="El expediente tiene que ser un número. No puede contener letras."    />
+       
         <div class="expandibleDiv">
             <asp:TextBox  CssClass="form-control" ID="txtExpediente" runat="server" ToolTip="Escriba un número de expediente válido para el programa en que esta usted registrado. Este atributo es requerido para crear un nuevo registro de persona." MaxLength="12"/>        
             <asp:Label ID="lblExpediente" runat="server" Text='<%# DataBinder.Eval(dsPerfil, "Tables[SA_PERSONA].DefaultView.[0].NR_Expediente") %>'/>

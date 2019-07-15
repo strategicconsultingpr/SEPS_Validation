@@ -7,6 +7,7 @@
     using System.Web;
     using System.Web.UI.WebControls;
     using System.Web.UI.HtmlControls;
+    using System.Threading;
     public partial class wucEpisodioAdmision : System.Web.UI.UserControl
     {
         protected ASSMCA.perfiles.dsPerfil dsPerfil;
@@ -65,7 +66,9 @@
                 this.dvwFreqAutoAyuda.Table = this.dsPerfil.SA_LKP_TEDS_FRECUENCIA_AUTOAYUDA;
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
 
-                
+
+                //ListItem li = new ListItem("No Aplica", "99");
+                //this.ddlPreviosMental.Items.Add(li);
 
                 if (this.Session["pk_administracion"].ToString() == "1")
                 {
@@ -1199,6 +1202,9 @@
                 return this.txtDSMVOtrasObs.Text;
             }
         }
+
+
+
         public string @DE_DSMV_Comentarios
         {
             get
@@ -1717,8 +1723,14 @@
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
+ 
+
+           if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
             {
+                if (lbxProbJusticiaSeleccion.SelectedItem.Value == "99" &&
+                    (ddlArrestado.SelectedValue == "1" && ddlArrestado30.SelectedValue == "2" || ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "1"))
+                    return;
+
                 System.Web.UI.WebControls.ListItem li = new ListItem(this.lbxProbJusticiaSeleccion.SelectedItem.Text, this.lbxProbJusticiaSeleccion.SelectedItem.Value);
                 this.lbxProbJusticiaSeleccionado.Items.Add(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);
@@ -1962,5 +1974,37 @@
         }
 
         #endregion
-    }
+      protected void ddlArrestado_SelectedIndexChanged(object sender, EventArgs e)
+    {
+            ListItem li = new ListItem("No aplica", "99");
+
+            if (ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "2")
+            {
+                this.lbxProbJusticiaSeleccionado.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Remove(li);
+                this.lbxProbJusticiaSeleccionado.Items.Add(li);
+                SortListBox(this.lbxProbJusticiaSeleccionado);
+
+                lbxProbJusticiaSeleccion.Enabled = false;
+                lbxProbJusticiaSeleccionado.Enabled = false;
+                Button4.Enabled = false;
+                Button3.Enabled = false;
+
+            }
+            else {
+
+                this.lbxProbJusticiaSeleccionado.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Add(li);
+                SortListBox(this.lbxProbJusticiaSeleccionado);
+
+                lbxProbJusticiaSeleccion.Enabled = true;
+                lbxProbJusticiaSeleccionado.Enabled = true;
+                Button4.Enabled = true;
+                Button3.Enabled = true;
+
+            }
+        }
 }
+
+  }
