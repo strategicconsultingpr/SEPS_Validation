@@ -606,7 +606,7 @@ function AjustesNiveldeCuidado() {
         var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
         var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
 
-     //   alert(ddlNivelCuidadoSustancias.value + "-" + ddlNivelCuidadoSaludMental.value);
+        //   alert(ddlNivelCuidadoSustancias.value + "-" + ddlNivelCuidadoSaludMental.value);
 
         if (ddlNivelCuidadoSustancias.value == "99" && ddlNivelCuidadoSaludMental == "99") return;
 
@@ -721,14 +721,12 @@ function AjustesNiveldeCuidado() {
             }
 
 
-        } catch (e) {
+        }
+    }
+        catch (ex) {
 
         }
-
-
-    }
-
-    }
+    
 }
 function ddlNivelCuidadoSustancias() {
     
