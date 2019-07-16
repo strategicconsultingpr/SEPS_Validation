@@ -1,7 +1,12 @@
 ﻿$(document).ready(function () {
-    frmActionModeSetup();
+    
+   // frmActionModeSetup();
+    
     startupFunctions();
 });
+
+
+
 //window.onload = function () {
 //    alert("Entro 1");
 //    var scrollY = parseInt('<%=Request.Form["scrollY"] %>');
@@ -37,12 +42,13 @@
 
 
 function startupFunctions() {
+   
     try {
-        changeTabOrder();
-        ddlEstadoLegal_Load();
-        ddlVaron();
-        ddlGrado();
-        ddlFuenteReferido();
+         changeTabOrder();
+         ddlEstadoLegal_Load();
+         ddlVaron();
+         ddlGrado();
+         ddlFuenteReferido();
         ddlDSMVPsicoAmbiPrim();
         ddlDSMVPsicoAmbiSec();
         ddlPreviosMental();
@@ -63,6 +69,7 @@ function startupFunctions() {
     }
 }
 function CO_Tipo() {
+
     try {
         var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
         var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
@@ -128,11 +135,15 @@ function CO_Tipo() {
             txtEdadSec.disabled = true;
             txtEdadTerc.disabled = true;
             // Substancias 
-            
+
         }
     }
-    catch (ex) { }
+    catch (ex) {// block }
+        AjustesNiveldeCuidado();
+    }
+
 }
+
 function tabEvent(e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode == 9) {
@@ -322,7 +333,9 @@ function changeTabOrder() {
         $(prefix + "txtEdadSec").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "txtEdadTerc").on('keydown', function (e) { tabEvent(e) });
     }
-    catch (ex) { }
+    catch (ex) {// catch block 
+ 
+        }
 }
 function frmActionModeSetup() {
     try {
@@ -600,136 +613,135 @@ function ddlUltSustancias() {
     }
     catch (ex) { }
 }
-function AjustesNiveldeCuidado() {
+    function AjustesNiveldeCuidado() {
+        
+        try {
+            var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
+            var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
 
-    try {
-        var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
-        var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
+            //   alert(ddlNivelCuidadoSustancias.value + "-" + ddlNivelCuidadoSaludMental.value);
 
-     //   alert(ddlNivelCuidadoSustancias.value + "-" + ddlNivelCuidadoSaludMental.value);
+            var ddlDSMVDiagDual = document.getElementById(txtType + ddlDSMVDiagDual);
+            var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
+            var nivelS = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
+            var opiod = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlMetadona");
+            var txtDíasSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustancias");
 
-        if (ddlNivelCuidadoSustancias.value == "99" && ddlNivelCuidadoSaludMental == "99") return;
+            var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
+            var ddlViaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaPrim");
+            var ddlFrecPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecPrim");
+            var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
 
-        var ddlDSMVDiagDual = document.getElementById(txtType + ddlDSMVDiagDual);
-        var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
-        var nivelS = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
-        var opiod = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlMetadona");
-        var txtDíasSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustancias");
-
-        var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
-        var ddlViaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaPrim");
-        var ddlFrecPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecPrim");
-        var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
-
-        var ddlDrogaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaSec");
-        var ddlDrogaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaTerc");
-        var ddlViaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaSec");
-        var ddlViaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaTerc");
-        var ddlFrecSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecSec");
-        var ddlFrecTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecTerc");
-        var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
-        var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
-        //Substancias
-        var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
+            var ddlDrogaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaSec");
+            var ddlDrogaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaTerc");
+            var ddlViaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaSec");
+            var ddlViaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaTerc");
+            var ddlFrecSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecSec");
+            var ddlFrecTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecTerc");
+            var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
+            var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
+            //Substancias
+            var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
 
 
-        // salud mental
-        if (ddlNivelCuidadoSaludMental != "99") {
-            switch (ddlDSMVDiagDual.value) {
-                case ("1"):
-                    ddlDrogaPrim.value = 0;
-                    ddlViaPrim.value = 0;
-                    ddlFrecPrim.value = 0;
-                    txtEdadPrim.value = "";
-                    ddlDrogaPrim.disabled = false;
-                    ddlViaPrim.disabled = false;
-                    ddlFrecPrim.disabled = false;
-                    txtEdadPrim.disabled = false;
 
-                    ddlDrogaSec.value = sustanciasList.Nousaactualmente;
-                    ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
-                    ddlViaSec.value = viaList.NoAplica;
-                    ddlViaTerc.value = viaList.NoAplica;
-                    ddlFrecSec.value = 99;
-                    ddlFrecTerc.value = 99;
-                    txtEdadSec.value = "0";
-                    txtEdadTerc.value = "0";
-                    ddlDrogaSec.disabled = true;
-                    ddlDrogaTerc.disabled = true;
-                    ddlViaSec.disabled = true;
-                    ddlViaTerc.disabled = true;
-                    ddlFrecSec.disabled = true;
-                    ddlFrecTerc.disabled = true;
-                    txtEdadSec.disabled = true;
-                    txtEdadTerc.disabled = true;
-                    // Substancia
+            alert(ddlNivelCuidadoSaludMental);
+            alert(ddlNivelCuidadoSaludMental.value);
+            // salud mental
+            if (ddlNivelCuidadoSaludMental.value != "99") {
+                switch (ddlDSMVDiagDual.value) {
+                    case ("1"):
+                        ddlDrogaPrim.value = 0;
+                        ddlViaPrim.value = 0;
+                        ddlFrecPrim.value = 0;
+                        txtEdadPrim.value = "";
+                        ddlDrogaPrim.disabled = false;
+                        ddlViaPrim.disabled = false;
+                        ddlFrecPrim.disabled = false;
+                        txtEdadPrim.disabled = false;
 
-                    txtDíasSustancias.disabled = false;
-                    opiod.value = "0";
-                    opiod.disabled = false;
+                        ddlDrogaSec.value = sustanciasList.Nousaactualmente;
+                        ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
+                        ddlViaSec.value = viaList.NoAplica;
+                        ddlViaTerc.value = viaList.NoAplica;
+                        ddlFrecSec.value = 99;
+                        ddlFrecTerc.value = 99;
+                        txtEdadSec.value = "0";
+                        txtEdadTerc.value = "0";
+                        ddlDrogaSec.disabled = true;
+                        ddlDrogaTerc.disabled = true;
+                        ddlViaSec.disabled = true;
+                        ddlViaTerc.disabled = true;
+                        ddlFrecSec.disabled = true;
+                        ddlFrecTerc.disabled = true;
+                        txtEdadSec.disabled = true;
+                        txtEdadTerc.disabled = true;
+                        // Substancia
+
+                        txtDíasSustancias.disabled = false;
+                        opiod.value = "0";
+                        opiod.disabled = false;
+                        //Opiaceos
+                        break;
+                    default:
+                        ddlDrogaPrim.value = sustanciasList.Noaplica;
+                        ddlViaPrim.value = sustanciasList.Noaplica;
+                        ddlFrecPrim.value = 99;
+                        txtEdadPrim.value = "0";
+                        ddlDrogaPrim.disabled = true;
+                        ddlViaPrim.disabled = true;
+                        ddlFrecPrim.disabled = true;
+                        txtEdadPrim.disabled = true;
+
+                        ddlDrogaSec.value = sustanciasList.Noaplica;
+                        ddlDrogaTerc.value = sustanciasList.Noaplica;
+                        ddlViaSec.value = viaList.NoAplica;
+                        ddlViaTerc.value = viaList.NoAplica;
+                        ddlFrecSec.value = 99;
+                        ddlFrecTerc.value = 99;
+                        txtEdadSec.value = "0";
+                        txtEdadTerc.value = "0";
+                        ddlDrogaSec.disabled = true;
+                        ddlDrogaTerc.disabled = true;
+                        ddlViaSec.disabled = true;
+                        ddlViaTerc.disabled = true;
+                        ddlFrecSec.disabled = true;
+                        ddlFrecTerc.disabled = true;
+                        txtEdadSec.disabled = true;
+                        txtEdadTerc.disabled = true;
+                        // Substancia
+
+                        if (nivelS.value == "99") {
+                            txtDíasSustancias.value = "0";
+                            txtDíasSustancias.disabled = true;
+                            opiod.value = "4";
+                            opiod.disabled = true;
+                        }
                     //Opiaceos
-                    break;
-                default:
-                    ddlDrogaPrim.value = sustanciasList.Noaplica;
-                    ddlViaPrim.value = sustanciasList.Noaplica;
-                    ddlFrecPrim.value = 99;
-                    txtEdadPrim.value = "0";
-                    ddlDrogaPrim.disabled = true;
-                    ddlViaPrim.disabled = true;
-                    ddlFrecPrim.disabled = true;
-                    txtEdadPrim.disabled = true;
 
-                    ddlDrogaSec.value = sustanciasList.Noaplica;
-                    ddlDrogaTerc.value = sustanciasList.Noaplica;
-                    ddlViaSec.value = viaList.NoAplica;
-                    ddlViaTerc.value = viaList.NoAplica;
-                    ddlFrecSec.value = 99;
-                    ddlFrecTerc.value = 99;
-                    txtEdadSec.value = "0";
-                    txtEdadTerc.value = "0";
-                    ddlDrogaSec.disabled = true;
-                    ddlDrogaTerc.disabled = true;
-                    ddlViaSec.disabled = true;
-                    ddlViaTerc.disabled = true;
-                    ddlFrecSec.disabled = true;
-                    ddlFrecTerc.disabled = true;
-                    txtEdadSec.disabled = true;
-                    txtEdadTerc.disabled = true;
-                    // Substancia
-
-                    if (nivelS.value == "99") {
-                        txtDíasSustancias.value = "0";
-                        txtDíasSustancias.disabled = true;
-                        opiod.value = "4";
-                        opiod.disabled = true;
-                    }
-                //Opiaceos
-
+                }
             }
-
-
-        }
-        else {
-
-            switch (ddlDSMVDiagDual.value) {
-                case ("1"):
-                    GAF.disabled = false;
-                    break;
-                default:
-                    GAF.value = "";
-                    GAF.disabled = true;
+            else {
+                switch (ddlDSMVDiagDual.value) {
+                    case ("1"):
+                        GAF.disabled = false;
+                        break;
+                    default:
+                        GAF.value = "";
+                        GAF.disabled = true;
+                }
             }
-
 
         } catch (e) {
 
         }
 
 
-    }
+
+
 
     }
-}
+
 function ddlNivelCuidadoSustancias() {
     
 
@@ -2036,11 +2048,11 @@ function showUnlosableModal() {
     }
     $("#myModalUnclosable").modal('show');
 }
-function showUnlosableModalPaciente() {
-    switch ($("#frmActionMode").val()) {
-        case ("registrar"): $("#mensageModal").text("Registrando paciente."); break;
-        case ("editar"): $("#mensageModal").text("Actualizando paciente."); break;
-        default: $("#mensageModal").text("Guardando paciente."); break;
+    function showUnlosableModalPaciente() {
+        switch ($("#frmActionMode").val()) {
+            case ("registrar"): $("#mensageModal").text("Registrando paciente."); break;
+            case ("editar"): $("#mensageModal").text("Actualizando paciente."); break;
+            default: $("#mensageModal").text("Guardando paciente."); break;
+        }
+        $("#myModalUnclosable").modal('show');
     }
-    $("#myModalUnclosable").modal('show');
-}
