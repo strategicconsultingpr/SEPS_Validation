@@ -1381,13 +1381,10 @@ namespace ASSMCA.Perfiles
         {
 
 
-            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
+            Page.Validate();
+            if (!Page.IsValid && m_CO_Tipo != 2)
             {
-                Page.Validate();
-                if (!Page.IsValid)
-                {
-                    return;
-                }
+                return;
             }
 
 
@@ -1404,14 +1401,13 @@ namespace ASSMCA.Perfiles
         {
 
 
-            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
-            {
+ 
                 Page.Validate();
-                if (!Page.IsValid)
+                if (!Page.IsValid && m_CO_Tipo !=2)
                 {
                     return;
                 }
-            }
+  
 
             this.WucDatosPersonales.lblFechaError.Text = "";
             // se valida fecha si la fecha es valida
