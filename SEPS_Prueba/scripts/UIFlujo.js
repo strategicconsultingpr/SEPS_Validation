@@ -611,7 +611,8 @@ function ddlUltSustancias() {
             default: break;
         }
     }
-    catch (ex) { }
+    catch (ex) { //  catch 
+    } 
 }
     function AjustesNiveldeCuidado() {
         
@@ -619,7 +620,14 @@ function ddlUltSustancias() {
             var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
             var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
 
-            //   alert(ddlNivelCuidadoSustancias.value + "-" + ddlNivelCuidadoSaludMental.value);
+ 
+
+            // se aplica la regla abuso de sutancia 
+            if (ddlNivelCuidadoSustancias.value == "99" && ddlNivelCuidadoSaludMental.value == "99") return;
+         // SI NO SE HA SELECCIONADO NIVEL DE CUIDADO GOBIERNA CO_TIPO
+
+
+
 
             var ddlDSMVDiagDual = document.getElementById(txtType + ddlDSMVDiagDual);
             var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
@@ -643,10 +651,7 @@ function ddlUltSustancias() {
             //Substancias
             var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
 
-
-
-            alert(ddlNivelCuidadoSaludMental);
-            alert(ddlNivelCuidadoSaludMental.value);
+ 
             // salud mental
             if (ddlNivelCuidadoSaludMental.value != "99") {
                 switch (ddlDSMVDiagDual.value) {
@@ -733,13 +738,9 @@ function ddlUltSustancias() {
             }
 
         } catch (e) {
-
+            // catch
         }
-
-
-
-
-
+ 
     }
 
 function ddlNivelCuidadoSustancias() {

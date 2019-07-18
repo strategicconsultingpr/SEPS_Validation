@@ -88,7 +88,10 @@ function CO_Tipo() {
 
         }
     }
-    catch (ex) { }
+    catch (ex) {
+        // 
+    }
+    AjustesNiveldeCuidado();
 }
 
 function tabEvent(e) {
@@ -1541,11 +1544,15 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDual) {
         }
 
     }
-    catch (ex) { }
+    catch (ex) {
+        // catch
+    }
 
     AjustesNiveldeCuidado();
 }
 
+// revisar   
+// al seleccionar nivel de cuidado abuso de sustancia
 
 
 
@@ -1556,7 +1563,12 @@ function AjustesNiveldeCuidado() {
         var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
 
  
-        if (ddlNivelCuidadoSustancias.value == "99" && ddlNivelCuidadoSaludMental == "99") return;
+        // se aplica la regla abuso de sutancia 
+        if (ddlNivelCuidadoSustancias.value == "99" && ddlNivelCuidadoSaludMental.value == "99") return;
+        // SI NO SE HA SELECCIONADO NIVEL DE CUIDADO GOBIERNA CO_TIPO
+
+
+
 
         var ddlDSMVDiagDual = document.getElementById(txtType + ddlDSMVDiagDual);
         var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
@@ -1581,8 +1593,8 @@ function AjustesNiveldeCuidado() {
         var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
 
 
-        // salud mental
-        if (ddlNivelCuidadoSaludMental != "99") {
+         // salud mental
+        if (ddlNivelCuidadoSaludMental.value != "99") {
             switch (ddlDSMVDiagDual.value) {
                 case ("1"):
                     ddlDrogaPrim.value = 0;
@@ -1654,11 +1666,8 @@ function AjustesNiveldeCuidado() {
                 //Opiaceos
 
             }
-
-
         }
         else {
-
             switch (ddlDSMVDiagDual.value) {
                 case ("1"):
                     GAF.disabled = false;
@@ -1667,16 +1676,12 @@ function AjustesNiveldeCuidado() {
                     GAF.value = "";
                     GAF.disabled = true;
             }
-
-
-        } catch (e) {
-
         }
 
+    } catch (e) {
 
     }
 
-}
 }
 
 
@@ -1703,7 +1708,7 @@ function cvTakeHomeRazonesNoParticipaValidation(oSrc, args) {
 }
 var saving = false;
 function validate() {
-  //  alert(1);
+  
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {
