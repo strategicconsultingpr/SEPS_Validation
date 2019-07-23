@@ -1558,128 +1558,93 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDual) {
 
 function AjustesNiveldeCuidado() {
 
+
     try {
         var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
         var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
 
- 
+
+
         // se aplica la regla abuso de sutancia 
         if (ddlNivelCuidadoSustancias.value == "99" && ddlNivelCuidadoSaludMental.value == "99") return;
         // SI NO SE HA SELECCIONADO NIVEL DE CUIDADO GOBIERNA CO_TIPO
 
 
 
-
-        var ddlDSMVDiagDual = document.getElementById(txtType + ddlDSMVDiagDual);
         var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
-        var nivelS = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
-        var opiod = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlMetadona");
-        var txtDíasSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustancias");
-
         var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
-        var ddlViaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaPrim");
-        var ddlFrecPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecPrim");
-        var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
-
         var ddlDrogaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaSec");
         var ddlDrogaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaTerc");
+        var ddlViaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaPrim");
         var ddlViaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaSec");
         var ddlViaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaTerc");
+        var ddlFrecPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecPrim");
         var ddlFrecSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecSec");
         var ddlFrecTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecTerc");
+        var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
         var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
         var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
-        //Substancias
         var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
 
 
-         // salud mental
+        // Si usuario selecciona opción de “Nivel de Cuidado (Salud Mental)”
         if (ddlNivelCuidadoSaludMental.value != "99") {
-            switch (ddlDSMVDiagDual.value) {
-                case ("1"):
-                    ddlDrogaPrim.value = 0;
-                    ddlViaPrim.value = 0;
-                    ddlFrecPrim.value = 0;
-                    txtEdadPrim.value = "";
-                    ddlDrogaPrim.disabled = false;
-                    ddlViaPrim.disabled = false;
-                    ddlFrecPrim.disabled = false;
-                    txtEdadPrim.disabled = false;
-
-                    ddlDrogaSec.value = sustanciasList.Nousaactualmente;
-                    ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
-                    ddlViaSec.value = viaList.NoAplica;
-                    ddlViaTerc.value = viaList.NoAplica;
-                    ddlFrecSec.value = 99;
-                    ddlFrecTerc.value = 99;
-                    txtEdadSec.value = "0";
-                    txtEdadTerc.value = "0";
-                    ddlDrogaSec.disabled = true;
-                    ddlDrogaTerc.disabled = true;
-                    ddlViaSec.disabled = true;
-                    ddlViaTerc.disabled = true;
-                    ddlFrecSec.disabled = true;
-                    ddlFrecTerc.disabled = true;
-                    txtEdadSec.disabled = true;
-                    txtEdadTerc.disabled = true;
-                    // Substancia
-
-                    txtDíasSustancias.disabled = false;
-                    opiod.value = "0";
-                    opiod.disabled = false;
-                    //Opiaceos
-                    break;
-                default:
-                    ddlDrogaPrim.value = sustanciasList.Noaplica;
-                    ddlViaPrim.value = sustanciasList.Noaplica;
-                    ddlFrecPrim.value = 99;
-                    txtEdadPrim.value = "0";
-                    ddlDrogaPrim.disabled = true;
-                    ddlViaPrim.disabled = true;
-                    ddlFrecPrim.disabled = true;
-                    txtEdadPrim.disabled = true;
-
-                    ddlDrogaSec.value = sustanciasList.Noaplica;
-                    ddlDrogaTerc.value = sustanciasList.Noaplica;
-                    ddlViaSec.value = viaList.NoAplica;
-                    ddlViaTerc.value = viaList.NoAplica;
-                    ddlFrecSec.value = 99;
-                    ddlFrecTerc.value = 99;
-                    txtEdadSec.value = "0";
-                    txtEdadTerc.value = "0";
-                    ddlDrogaSec.disabled = true;
-                    ddlDrogaTerc.disabled = true;
-                    ddlViaSec.disabled = true;
-                    ddlViaTerc.disabled = true;
-                    ddlFrecSec.disabled = true;
-                    ddlFrecTerc.disabled = true;
-                    txtEdadSec.disabled = true;
-                    txtEdadTerc.disabled = true;
-                    // Substancia
-
-                    if (nivelS.value == "99") {
-                        txtDíasSustancias.value = "0";
-                        txtDíasSustancias.disabled = true;
-                        opiod.value = "4";
-                        opiod.disabled = true;
-                    }
-                //Opiaceos
-
-            }
+            //  alert("entre Nivel de Cuidado (Salud Mental)");
+            ddlDrogaSec.value = sustanciasList.Nousaactualmente;
+            ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
+            ddlViaSec.value = viaList.NoAplica;
+            ddlViaTerc.value = viaList.NoAplica;
+            ddlFrecSec.value = 99;
+            ddlFrecTerc.value = 99;
+            txtEdadSec.value = "0";
+            txtEdadTerc.value = "0";
+            ddlDrogaSec.disabled = true;
+            ddlDrogaTerc.disabled = true;
+            ddlViaSec.disabled = true;
+            ddlViaTerc.disabled = true;
+            ddlFrecSec.disabled = true;
+            ddlFrecTerc.disabled = true;
+            txtEdadSec.disabled = true;
+            txtEdadTerc.disabled = true;
+            GAF.disabled = false;
         }
         else {
-            switch (ddlDSMVDiagDual.value) {
-                case ("1"):
-                    GAF.disabled = false;
-                    break;
-                default:
-                    GAF.value = "";
-                    GAF.disabled = true;
-            }
+            //alert("Nivel de Cuidado (Abuso Sustancia)");
+            ddlDrogaPrim.value = sustanciasList.Noaplica;
+            ddlDrogaSec.value = sustanciasList.Noaplica;
+            ddlDrogaSec.value = sustanciasList.Noaplica;
+            ddlDrogaTerc.value = sustanciasList.Noaplica;
+            ddlViaPrim.value = viaList.NoAplica;
+            ddlViaSec.value = viaList.NoAplica;
+            ddlViaTerc.value = viaList.NoAplica;
+            ddlFrecPrim.value = 99;
+            ddlFrecSec.value = 99;
+            ddlFrecTerc.value = 99;
+            txtEdadPrim.value = "0";
+            txtEdadSec.value = "0";
+            txtEdadTerc.value = "0";
+            ddlDrogaPrim.disabled = false;
+            ddlDrogaSec.disabled = true;
+            ddlDrogaTerc.disabled = true;
+            ddlViaPrim.disabled = false;
+            ddlViaSec.disabled = true;
+            ddlViaTerc.disabled = true;
+            ddlFrecPrim.disabled = false;
+            ddlFrecSec.disabled = true;
+            ddlFrecTerc.disabled = true;
+            txtEdadPrim.disabled = false;
+            txtEdadSec.disabled = true;
+            txtEdadTerc.disabled = true;
+            GAF.disabled = false;
+
         }
 
-    } catch (e) {
 
+    }
+
+
+    catch (e) {
+        // catch
     }
 
 }
