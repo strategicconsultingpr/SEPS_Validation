@@ -60,12 +60,17 @@ namespace ASSMCA.Perfiles
 
             // salud mental 
             if (WucEpisodioAdmision.ddlNivelCuidadoSaludMental.SelectedValue != "99" && WucEpisodioAdmision.ddlNivelCuidadoSaludMental.SelectedValue != "")
+            {
                 dvwResidencia.RowFilter = "PK_Residencia IN (0,12,8,3,4,5,6,7,9,10,13,11,97)";
-
+                lblTipoPerfil.Text = "Salud Mental.";
+            }
 
             // Abuso de sustancia
-            if (WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue != "99"  && WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue !="")
+            if (WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue != "")
+            {
                 dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,8,3,4,7,13,11)";
+                lblTipoPerfil.Text = "Abuso de Sustancias.";
+            }
 
             //WucDatosDemograficos.ddlResidencia.DataValueField = "PK_Residencia";
             //WucDatosDemograficos.ddlResidencia.DataTextField="DE_Residencia";

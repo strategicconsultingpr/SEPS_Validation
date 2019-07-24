@@ -646,23 +646,34 @@ function ddlUltSustancias() {
             // Si usuario selecciona opción de “Nivel de Cuidado (Salud Mental)”
             if (ddlNivelCuidadoSaludMental.value != "99") {
                 alert("entre Nivel de Cuidado (Salud Mental)");
+
+                ddlDrogaPrim.value = sustanciasList.NoSeleccionado;
                 ddlDrogaSec.value = sustanciasList.Nousaactualmente;
                 ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
+                ddlViaPrim.value = viaList.NoSeleccionado;
                 ddlViaSec.value = viaList.NoAplica;
                 ddlViaTerc.value = viaList.NoAplica;
+
+                ddlFrecPrim.value = 0;
                 ddlFrecSec.value = 99;
                 ddlFrecTerc.value = 99;
+                txtEdadPrim.value = "0";
                 txtEdadSec.value = "0";
                 txtEdadTerc.value = "0";
+
+                ddlDrogaPrim.disabled = false;
                 ddlDrogaSec.disabled = true;
                 ddlDrogaTerc.disabled = true;
+                ddlViaPrim.disabled = false;
                 ddlViaSec.disabled = true;
                 ddlViaTerc.disabled = true;
+                ddlFrecPrim.disabled = false;
                 ddlFrecSec.disabled = true;
                 ddlFrecTerc.disabled = true;
+                txtEdadPrim.disabled = false;
                 txtEdadSec.disabled = true;
                 txtEdadTerc.disabled = true;
-                GAF.disabled = false;
+                GAF.disabled = true;
 
             }
             else {
