@@ -30,7 +30,7 @@
         <span class="SEPSLabel">Nivel de cuidado (Abuso de sustancias):</span>
            <asp:RequiredFieldValidator ID="rfvNivelCuidadoSustancias" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlNivelCuidadoSustancias" ErrorMessage="Nivel de cuidado (Abuso de sustancias)" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
         <div class="expandibleDiv">
-        <asp:DropDownList  CssClass="form-control" ID="ddlNivelCuidadoSustancias" runat="server" onChange="ddlNivelCuidadoSustancias();"/>
+        <asp:DropDownList  CssClass="form-control" ID="ddlNivelCuidadoSustancias" runat="server" onChange="ddlNivelCuidadoSustancias();"   AutoPostBack="true"/>
         <asp:Label ID="lblNivelCuidadoSustancias" runat="server" />
      
             </div> 
@@ -77,7 +77,7 @@
         <span class="SEPSLabel">Nivel de cuidado (Salud mental):</span>
                 <asp:RequiredFieldValidator ID="rfvNivelCuidadoSaludMental" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Nivel de cuidado (Salud mental)" ControlToValidate="ddlNivelCuidadoSaludMental" InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
-        <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()"/>
+        <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()"   AutoPostBack="true"/>
         <asp:Label ID="lblNivelCuidadoSaludMental" runat="server"/>
             </div>
     </div>
