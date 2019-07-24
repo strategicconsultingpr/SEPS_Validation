@@ -622,12 +622,10 @@ function ddlUltSustancias() {
             var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
 
  
-
             // se aplica la regla abuso de sutancia 
             if (ddlNivelCuidadoSustancias.value == "99" && ddlNivelCuidadoSaludMental.value == "99") return;
          // SI NO SE HA SELECCIONADO NIVEL DE CUIDADO GOBIERNA CO_TIPO
-
-
+ 
 
             var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
             var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
@@ -647,7 +645,7 @@ function ddlUltSustancias() {
  
             // Si usuario selecciona opción de “Nivel de Cuidado (Salud Mental)”
             if (ddlNivelCuidadoSaludMental.value != "99") {
-              //  alert("entre Nivel de Cuidado (Salud Mental)");
+                alert("entre Nivel de Cuidado (Salud Mental)");
                 ddlDrogaSec.value = sustanciasList.Nousaactualmente;
                 ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
                 ddlViaSec.value = viaList.NoAplica;
@@ -665,22 +663,24 @@ function ddlUltSustancias() {
                 txtEdadSec.disabled = true;
                 txtEdadTerc.disabled = true;
                 GAF.disabled = false;
+
             }
             else {
                 //alert("Nivel de Cuidado (Abuso Sustancia)");
-                ddlDrogaPrim.value = sustanciasList.Noaplica;
-                ddlDrogaSec.value = sustanciasList.Noaplica;
-                ddlDrogaSec.value = sustanciasList.Noaplica;
-                ddlDrogaTerc.value = sustanciasList.Noaplica;
-                ddlViaPrim.value = viaList.NoAplica;
+                ddlDrogaPrim.value = sustanciasList.NoSeleccionado;
+                ddlDrogaSec.value = sustanciasList.Nousaactualmente;
+                ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
+                ddlViaPrim.value = viaList.NoSeleccionado;
                 ddlViaSec.value = viaList.NoAplica;
                 ddlViaTerc.value = viaList.NoAplica;
-                ddlFrecPrim.value = 99;
+
+                ddlFrecPrim.value = 0;
                 ddlFrecSec.value = 99;
                 ddlFrecTerc.value = 99;
                 txtEdadPrim.value = "0";
                 txtEdadSec.value = "0";
                 txtEdadTerc.value = "0";
+
                 ddlDrogaPrim.disabled = false;
                 ddlDrogaSec.disabled = true;
                 ddlDrogaTerc.disabled = true;
@@ -693,7 +693,7 @@ function ddlUltSustancias() {
                 txtEdadPrim.disabled = false;
                 txtEdadSec.disabled = true;
                 txtEdadTerc.disabled = true;
-                GAF.disabled = false;
+                GAF.disabled = true;
 
                 }
    
@@ -1167,6 +1167,7 @@ function ddlReunionesGrupos() {
     catch (ex) { }
 }
 var sustanciasList = {
+    NoSeleccionado: "0",
     Alcohol: "1",
     Anfetaminas: "2",
     Barbitúricos: "3",
@@ -1197,6 +1198,7 @@ var sustanciasList = {
     Noaplica: "99"
 }
 var viaList = {
+    NoSeleccionado: "0",
     Inyectada: "1",
     Nasal: "2",
     OralBebida: "3",

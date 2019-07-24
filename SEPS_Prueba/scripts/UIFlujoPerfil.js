@@ -740,6 +740,7 @@ function ddlDSMVPsicoAmbiSec() {
     catch (ex) { }
 }
 var sustanciasList = {
+    NoSeleccionado: "0",
     Alcohol: "1",
     Anfetaminas: "2",
     Barbitúricos: "3",
@@ -770,6 +771,7 @@ var sustanciasList = {
     Noaplica: "99"
 }
 var viaList = {
+    NoSeleccionado: "0",
     Inyectada: "1",
     Nasal: "2",
     OralBebida: "3",
@@ -1610,19 +1612,20 @@ function AjustesNiveldeCuidado() {
         }
         else {
             //alert("Nivel de Cuidado (Abuso Sustancia)");
-            ddlDrogaPrim.value = sustanciasList.Noaplica;
-            ddlDrogaSec.value = sustanciasList.Noaplica;
-            ddlDrogaSec.value = sustanciasList.Noaplica;
-            ddlDrogaTerc.value = sustanciasList.Noaplica;
-            ddlViaPrim.value = viaList.NoAplica;
+            ddlDrogaPrim.value = sustanciasList.NoSeleccionado;
+            ddlDrogaSec.value = sustanciasList.Nousaactualmente;
+            ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
+            ddlViaPrim.value = viaList.NoSeleccionado;
             ddlViaSec.value = viaList.NoAplica;
             ddlViaTerc.value = viaList.NoAplica;
-            ddlFrecPrim.value = 99;
+
+            ddlFrecPrim.value = 0;
             ddlFrecSec.value = 99;
             ddlFrecTerc.value = 99;
             txtEdadPrim.value = "0";
             txtEdadSec.value = "0";
             txtEdadTerc.value = "0";
+
             ddlDrogaPrim.disabled = false;
             ddlDrogaSec.disabled = true;
             ddlDrogaTerc.disabled = true;
@@ -1635,7 +1638,7 @@ function AjustesNiveldeCuidado() {
             txtEdadPrim.disabled = false;
             txtEdadSec.disabled = true;
             txtEdadTerc.disabled = true;
-            GAF.disabled = false;
+            GAF.disabled = true;
 
         }
 
