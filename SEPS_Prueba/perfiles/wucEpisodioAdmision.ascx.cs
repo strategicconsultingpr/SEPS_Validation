@@ -15,6 +15,7 @@
         protected System.Data.DataView dvwEpisPreviosSustancias, dvwEpisPreviosMental, dvwUltSustancias, dvwUltMental, dvwNivelSustancias, dvwNivelMental, dvwDiagPrimario, dvwDiagSecundario, dvwDiagTerciario, dvwCatTransPrim, dvwCatTransSec, dvwCatTransTerc, dvwCatRMPrim, dvwCatRMSec, dvwCatRMTerc, dvwIVPrim, dvwIVSec, dvwIVTerc, dvwDrogaPrim, dvwDrogaSec, dvwDrogaTerc, dvwViaPrim, dvwViaTerc, dvwViaSec, dvwFrecPrim, dvwFrecSec, dvwFrecTerc, dvwMediPrim, dvwMediTerc, dvwMediSec, dvwNivelMentalAnterior, dvwNivelSustanciasAnterior, dvwFreqAutoAyuda, dvwFuenteReferido, dvw_DSMV_ProblemasPsicosocialesAmbientales1, dvw_DSMV_ProblemasPsicosocialesAmbientales2, dvw_DSMV_ProblemasPsicosocialesAmbientales3;
         public frmAction m_frmAction;
         private int _probJusticiaCount, _maltratoCount, m_pk_perfil, m_pk_episodio, _pkPrograma, m_CO_Tipo;
+        public string accion;
         protected void Page_Load(object sender, System.EventArgs e)
         {
             rvEdadPrim.MaximumValue = Session["edad"].ToString();
@@ -23,7 +24,7 @@
             _pkPrograma = Convert.ToInt32(this.Session["pk_programa"]);
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());            
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
-            
+            this.hAccion.Value = accion;
             if (!this.IsPostBack)
             {
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
@@ -352,7 +353,7 @@
             this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
             this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
             this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
-            this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString();
+            this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
             this.txtDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.txtDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
             this.txtDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
@@ -1036,6 +1037,36 @@
                 catch
                 {
                     return 96;//Default no informo
+                }
+            }
+        }
+
+        public DropDownList NivelCuidadoSaludMental
+        {
+            get
+            {
+                try
+                {
+                    return this.ddlNivelCuidadoSaludMental;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public DropDownList NivelCuidadoSustancias
+        {
+            get
+            {
+                try
+                {
+                    return this.ddlNivelCuidadoSustancias;
+                }
+                catch
+                {
+                    return null;
                 }
             }
         }

@@ -39,7 +39,9 @@ namespace ASSMCA.Perfiles
             System.Data.DataView dvwResidencia = new System.Data.DataView();
             dvwResidencia.Table = this.dsPerfil.SA_LKP_TEDS_RESIDENCIA;
 
+            List<string> SM = new List<string>() { "0", "1", "2", "3", "4", "7", "8", "11", "13", "14" };
 
+            string value = WucDatosDemograficos.ddlResidencia.SelectedValue;
             /*PK_Residencia DE_Residencia
                 ------------ - --------------------------------------------------
                         1             Propia(de los padres, si es menor)
@@ -59,16 +61,30 @@ namespace ASSMCA.Perfiles
                  */
 
             // salud mental 
-            if (WucEpisodioAdmision.ddlNivelCuidadoSaludMental.SelectedValue != "99" && WucEpisodioAdmision.ddlNivelCuidadoSaludMental.SelectedValue != "")
+            if (WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "")
             {
-                dvwResidencia.RowFilter = "PK_Residencia IN (0,12,8,3,4,5,6,7,9,10,13,11,97)";
+                    dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14)";
+                    WucDatosDemograficos.dvwResidencia = dvwResidencia;
+                    WucDatosDemograficos.ddlResidencia.DataBind();
+
+                if (SM.Contains(value))
+                {
+                    WucDatosDemograficos.ddlResidencia.SelectedValue = value;
+                }
+                
+
                 lblTipoPerfil.Text = "Salud Mental.";
             }
 
             // Abuso de sustancia
-            if (WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue != "")
+            if (WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "")
             {
-                dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,8,3,4,7,13,11)";
+                value = WucDatosDemograficos.ddlResidencia.SelectedValue;
+                WucDatosDemograficos.dvwResidencia = dvwResidencia;
+                WucDatosDemograficos.ddlResidencia.DataBind();
+                
+                WucDatosDemograficos.ddlResidencia.SelectedValue = value;
+                
                 lblTipoPerfil.Text = "Abuso de Sustancias.";
             }
 
@@ -77,7 +93,8 @@ namespace ASSMCA.Perfiles
             //WucDatosDemograficos.ddlResidencia.DataSource = dvwResidencia;
             //WucDatosDemograficos.ddlResidencia.DataBind();
 
-            WucDatosDemograficos.dvwResidencia = dvwResidencia;
+            //WucDatosDemograficos.dvwResidencia = dvwResidencia;
+            //WucDatosDemograficos.ddlResidencia.DataBind();
 
         }
 
@@ -102,7 +119,9 @@ namespace ASSMCA.Perfiles
             this.m_PK_Programa = Convert.ToInt32(this.Session["pk_programa"].ToString());
             this.m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             string Accion = this.Request.QueryString["accion"].ToString();
-            if(this.m_CO_Tipo == 1 || this.m_CO_Tipo == 4)
+            WucEpisodioAdmision.accion = Accion;
+
+            if (this.m_CO_Tipo == 1 || this.m_CO_Tipo == 4)
             {
                 this.lblTipoPerfil.Text = " : Abuso de Sustancia";
             }
@@ -159,11 +178,13 @@ namespace ASSMCA.Perfiles
                         this.btnModificarAdmin.Visible = false;
                         this.btnRegistrar.Visible = false;
                         this.btnGuardarCambios.Visible = true;
+                        TipoPerfil();
                         break;
                     case ("read"):
                         this.LeerRegistro();
                         this.btnRegistrar.Visible = false;
                         this.btnGuardarCambios.Visible = false;
+                        TipoPerfil();
                         break;
                     default: break;
                 }
@@ -720,6 +741,20 @@ namespace ASSMCA.Perfiles
             }
         }
         #endregion
+
+        private void TipoPerfil()
+        {
+            string AS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
+            string SM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+            if (SM != "99" && SM != "")
+            {
+                lblTipoPerfil.Text = "Salud Mental.";
+            }
+            else if (AS != "99" && AS != "")
+            {
+                lblTipoPerfil.Text = "Abuso de Sustancias.";
+            }
+        }
         #region Código generado por el Diseñador de Web Forms
         override protected void OnInit(EventArgs e)
         {

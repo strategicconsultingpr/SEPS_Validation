@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="c#" Inherits="ASSMCA.Perfiles.wucEpisodioAdmision" CodeBehind="wucEpisodioAdmision.ascx.cs" %>
 <input id="CO_Tipo" type="hidden" name="Hidden2" runat="server"/>
+<input id="hAccion" type="hidden" name="accion" runat="server"/>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Nivel de cuidado de este episodio</h3>

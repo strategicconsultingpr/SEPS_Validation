@@ -69,79 +69,86 @@ function startupFunctions() {
     }
 }
 function CO_Tipo() {
+    var accion = document.getElementById("mainBodyContent_WucEpisodioAdmision_hAccion");
 
-    try {
-        var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
-        var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
-        var ddlDrogaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaSec");
-        var ddlDrogaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaTerc");
-        var ddlViaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaPrim");
-        var ddlViaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaSec");
-        var ddlViaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaTerc");
-        var ddlFrecPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecPrim");
-        var ddlFrecSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecSec");
-        var ddlFrecTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecTerc");
-        var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
-        var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
-        var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
-        var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
-
-        // programa abuso de sustancias
-        if (CO_Tipo.value == "1" || CO_Tipo.value == "4") {
-            ddlDrogaSec.value = sustanciasList.Nousaactualmente;
-            ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
-            ddlViaSec.value = viaList.NoAplica;
-            ddlViaTerc.value = viaList.NoAplica;
-            ddlFrecSec.value = 99;
-            ddlFrecTerc.value = 99;
-            txtEdadSec.value = "0";
-            txtEdadTerc.value = "0";
-            ddlDrogaSec.disabled = true;
-            ddlDrogaTerc.disabled = true;
-            ddlViaSec.disabled = true;
-            ddlViaTerc.disabled = true;
-            ddlFrecSec.disabled = true;
-            ddlFrecTerc.disabled = true;
-            txtEdadSec.disabled = true;
-            txtEdadTerc.disabled = true;
-            //Substancia
-            GAF.disabled = true;
-        }
-        // programa de servicio de salud mental
-        else if (CO_Tipo.value == "2" || CO_Tipo.value == "3") {
-            ddlDrogaPrim.value = sustanciasList.Noaplica;
-            ddlDrogaSec.value = sustanciasList.Noaplica;
-            ddlDrogaSec.value = sustanciasList.Noaplica;
-            ddlDrogaTerc.value = sustanciasList.Noaplica;
-            ddlViaPrim.value = viaList.NoAplica;
-            ddlViaSec.value = viaList.NoAplica;
-            ddlViaTerc.value = viaList.NoAplica;
-            ddlFrecPrim.value = 99;
-            ddlFrecSec.value = 99;
-            ddlFrecTerc.value = 99;
-            txtEdadPrim.value = "0";
-            txtEdadSec.value = "0";
-            txtEdadTerc.value = "0";
-            ddlDrogaPrim.disabled = true;
-            ddlDrogaSec.disabled = true;
-            ddlDrogaTerc.disabled = true;
-            ddlViaPrim.disabled = true;
-            ddlViaSec.disabled = true;
-            ddlViaTerc.disabled = true;
-            ddlFrecPrim.disabled = true;
-            ddlFrecSec.disabled = true;
-            ddlFrecTerc.disabled = true;
-            txtEdadPrim.disabled = true;
-            txtEdadSec.disabled = true;
-            txtEdadTerc.disabled = true;
-            // Substancias 
-
-        }
+    if (accion.value === "update") {
+        AccionUpdate();
     }
-    catch (ex) {// block }
-      
+    else {
+        try {
+            var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
+            var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
+            var ddlDrogaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaSec");
+            var ddlDrogaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaTerc");
+            var ddlViaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaPrim");
+            var ddlViaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaSec");
+            var ddlViaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaTerc");
+            var ddlFrecPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecPrim");
+            var ddlFrecSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecSec");
+            var ddlFrecTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecTerc");
+            var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
+            var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
+            var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
+            var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
+
+            // programa abuso de sustancias
+            if (CO_Tipo.value == "1" || CO_Tipo.value == "4") {
+                ddlDrogaSec.value = sustanciasList.Nousaactualmente;
+                ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
+                ddlViaSec.value = viaList.NoAplica;
+                ddlViaTerc.value = viaList.NoAplica;
+                ddlFrecSec.value = 99;
+                ddlFrecTerc.value = 99;
+                txtEdadSec.value = "0";
+                txtEdadTerc.value = "0";
+                ddlDrogaSec.disabled = true;
+                ddlDrogaTerc.disabled = true;
+                ddlViaSec.disabled = true;
+                ddlViaTerc.disabled = true;
+                ddlFrecSec.disabled = true;
+                ddlFrecTerc.disabled = true;
+                txtEdadSec.disabled = true;
+                txtEdadTerc.disabled = true;
+                //Substancia
+                GAF.disabled = true;
+            }
+            // programa de servicio de salud mental
+            else if (CO_Tipo.value == "2" || CO_Tipo.value == "3") {
+                ddlDrogaPrim.value = sustanciasList.Noaplica;
+                ddlDrogaSec.value = sustanciasList.Noaplica;
+                ddlDrogaSec.value = sustanciasList.Noaplica;
+                ddlDrogaTerc.value = sustanciasList.Noaplica;
+                ddlViaPrim.value = viaList.NoAplica;
+                ddlViaSec.value = viaList.NoAplica;
+                ddlViaTerc.value = viaList.NoAplica;
+                ddlFrecPrim.value = 99;
+                ddlFrecSec.value = 99;
+                ddlFrecTerc.value = 99;
+                txtEdadPrim.value = "0";
+                txtEdadSec.value = "0";
+                txtEdadTerc.value = "0";
+                ddlDrogaPrim.disabled = true;
+                ddlDrogaSec.disabled = true;
+                ddlDrogaTerc.disabled = true;
+                ddlViaPrim.disabled = true;
+                ddlViaSec.disabled = true;
+                ddlViaTerc.disabled = true;
+                ddlFrecPrim.disabled = true;
+                ddlFrecSec.disabled = true;
+                ddlFrecTerc.disabled = true;
+                txtEdadPrim.disabled = true;
+                txtEdadSec.disabled = true;
+                txtEdadTerc.disabled = true;
+                // Substancias 
+
+            }
+        }
+        catch (ex) {// block }
+
+        }
+        AjustesNiveldeCuidado();
     }
-    AjustesNiveldeCuidado();
+    
 }
 
 function tabEvent(e) {
@@ -614,8 +621,66 @@ function ddlUltSustancias() {
     catch (ex) { //  catch 
     } 
 }
-    function AjustesNiveldeCuidado() {
+function AccionUpdate() {
+    try {
+        var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
+        var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
 
+        var ddlDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim");
+        var ddlDrogaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaSec");
+        var ddlDrogaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaTerc");
+        var ddlViaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaPrim");
+        var ddlViaSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaSec");
+        var ddlViaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlViaTerc");
+        var ddlFrecPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecPrim");
+        var ddlFrecSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecSec");
+        var ddlFrecTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFrecTerc");
+        var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadPrim");
+        var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
+        var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
+        var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
+        alert(ddlNivelCuidadoSaludMental.value);
+        alert(ddlNivelCuidadoSustancias.value);
+        if (ddlNivelCuidadoSaludMental.value !== "99" && ddlNivelCuidadoSustancias.value === "99") {
+            ddlDrogaPrim.disabled = false;
+            ddlDrogaSec.disabled = true;
+            ddlDrogaTerc.disabled = true;
+            ddlViaPrim.disabled = false;
+            ddlViaSec.disabled = true;
+            ddlViaTerc.disabled = true;
+            ddlFrecPrim.disabled = false;
+            ddlFrecSec.disabled = true;
+            ddlFrecTerc.disabled = true;
+            txtEdadPrim.disabled = false;
+            txtEdadSec.disabled = true;
+            txtEdadTerc.disabled = true;
+            GAF.disabled = true;
+        }
+        else if (ddlNivelCuidadoSustancias.value !== "99" && ddlNivelCuidadoSaludMental.value === "99") {
+            ddlDrogaPrim.disabled = true;
+            ddlDrogaSec.disabled = true;
+            ddlDrogaTerc.disabled = true;
+            ddlViaPrim.disabled = true;
+            ddlViaSec.disabled = true;
+            ddlViaTerc.disabled = true;
+            ddlFrecPrim.disabled = true;
+            ddlFrecSec.disabled = true;
+            ddlFrecTerc.disabled = true;
+            txtEdadPrim.disabled = true;
+            txtEdadSec.disabled = true;
+            txtEdadTerc.disabled = true;
+        }
+    }
+    catch (e) {
+        alert(e.text);
+    }
+}
+function AjustesNiveldeCuidado() {
+    var accion = document.getElementById("mainBodyContent_WucEpisodioAdmision_hAccion");
+
+    if (accion.value === "update") {
+        return;
+    }
 
         try {
             var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
@@ -645,7 +710,6 @@ function ddlUltSustancias() {
  
             // Si usuario selecciona opción de “Nivel de Cuidado (Salud Mental)”
             if (ddlNivelCuidadoSaludMental.value != "99") {
-                alert("entre Nivel de Cuidado (Salud Mental)");
 
                 ddlDrogaPrim.value = sustanciasList.NoSeleccionado;
                 ddlDrogaSec.value = sustanciasList.Nousaactualmente;
@@ -719,7 +783,7 @@ function ddlUltSustancias() {
  }
 
 function ddlNivelCuidadoSustancias() {
-    
+   
 
     try {
         var txtDíasSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustancias");
@@ -734,7 +798,9 @@ function ddlNivelCuidadoSustancias() {
                 opiod.disabled = true;
                 break;
             default:
-                opiod.value = "0";
+                if (opiod.value === "4") {
+                    opiod.value = "0";
+                }
                 opiod.disabled = false;
                 txtDíasSustancias.disabled = false;
                 break;
@@ -1837,6 +1903,11 @@ function ddlFrecTerc() {
 
 function ddlDSMVDiagDual(txtType, ddlDSMVDiagDual) {
     try {
+        var accion = document.getElementById("mainBodyContent_WucEpisodioAdmision_hAccion");
+
+        if (accion.value === "update") {
+            return;
+        }
         var ddlDSMVDiagDual = document.getElementById(txtType + ddlDSMVDiagDual);
         var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");
         var nivelS = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
@@ -1960,8 +2031,6 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDual) {
 var saving = false;
 function validate() {
 
-    FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id, día_hidden, año_Hidden)
-  
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {

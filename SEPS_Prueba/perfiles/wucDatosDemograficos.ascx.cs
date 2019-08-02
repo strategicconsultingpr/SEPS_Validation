@@ -24,7 +24,7 @@ namespace ASSMCA.Perfiles
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
-            ddlResidencia.DataBind();
+            //ddlResidencia.DataBind();
 
             if (!this.IsPostBack)
             {

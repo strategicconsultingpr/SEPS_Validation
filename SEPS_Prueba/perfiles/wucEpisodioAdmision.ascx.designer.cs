@@ -22,6 +22,15 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden CO_Tipo;
         
         /// <summary>
+        /// hAccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hAccion;
+        
+        /// <summary>
         /// ddlDSMVDiagDual control.
         /// </summary>
         /// <remarks>
@@ -82,7 +91,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSustancias;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSustancias;
         
         /// <summary>
         /// lblNivelCuidadoSustancias control.
@@ -199,7 +208,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public  global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSaludMental;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSaludMental;
         
         /// <summary>
         /// lblNivelCuidadoSaludMental control.
@@ -1558,7 +1567,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public  global::System.Web.UI.WebControls.DropDownList ddlDrogaPrim;
+        public global::System.Web.UI.WebControls.DropDownList ddlDrogaPrim;
         
         /// <summary>
         /// lblDrogaPrim control.
