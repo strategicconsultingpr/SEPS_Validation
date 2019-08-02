@@ -715,8 +715,8 @@ function ddlUltSustancias() {
         catch (e) {
             // catch
         }
- 
-    }
+
+ }
 
 function ddlNivelCuidadoSustancias() {
     
