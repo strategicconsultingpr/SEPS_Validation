@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainUIF.Master.cs" Inherits="ASSMCA.MainUIF" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainUIF.Master.cs" Inherits="ASSMCA.MainUIF"  %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
     <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     <link href="css/global.css" rel="stylesheet">
     <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/jquery-1.11.2.min.js") %>"></script>
-    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIFlujo.js")%>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIFlujo.js?ver=1")%>"></script>
     <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIVal.js") %>"></script>
     <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js") %>"></script>
 </head>

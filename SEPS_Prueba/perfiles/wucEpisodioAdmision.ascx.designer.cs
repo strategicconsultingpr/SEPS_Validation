@@ -82,7 +82,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSustancias;
+        public global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSustancias;
         
         /// <summary>
         /// lblNivelCuidadoSustancias control.
@@ -199,7 +199,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSaludMental;
+        public  global::System.Web.UI.WebControls.DropDownList ddlNivelCuidadoSaludMental;
         
         /// <summary>
         /// lblNivelCuidadoSaludMental control.

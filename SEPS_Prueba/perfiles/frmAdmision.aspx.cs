@@ -33,6 +33,54 @@ namespace ASSMCA.Perfiles
         } catch (ex) {}
     }";
         #endregion
+
+        protected void ActualizarResidencia( )
+        {
+            System.Data.DataView dvwResidencia = new System.Data.DataView();
+            dvwResidencia.Table = this.dsPerfil.SA_LKP_TEDS_RESIDENCIA;
+
+
+            /*PK_Residencia DE_Residencia
+                ------------ - --------------------------------------------------
+                        1             Propia(de los padres, si es menor)
+                        2             Alquilada(por los padres, si es menor)
+                        3             Familiares
+                        4             Amigos
+                        5             Institución residencial
+                        6             Hogar grupal, orfanato
+                        7             Institución correccional
+                        8             Vivienda pública
+                        9             Hogar de crianza
+                        10            Hogar sustituto
+                        11            Sin hogar(Deambulante)
+                        13            Hogar transicional
+                        97            No informó
+                 *
+                 */
+
+            // salud mental 
+            if (WucEpisodioAdmision.ddlNivelCuidadoSaludMental.SelectedValue != "99" && WucEpisodioAdmision.ddlNivelCuidadoSaludMental.SelectedValue != "")
+            {
+                dvwResidencia.RowFilter = "PK_Residencia IN (0,12,8,3,4,5,6,7,9,10,13,11,97)";
+                lblTipoPerfil.Text = "Salud Mental.";
+            }
+
+            // Abuso de sustancia
+            if (WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.ddlNivelCuidadoSustancias.SelectedValue != "")
+            {
+                dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,8,3,4,7,13,11)";
+                lblTipoPerfil.Text = "Abuso de Sustancias.";
+            }
+
+            //WucDatosDemograficos.ddlResidencia.DataValueField = "PK_Residencia";
+            //WucDatosDemograficos.ddlResidencia.DataTextField="DE_Residencia";
+            //WucDatosDemograficos.ddlResidencia.DataSource = dvwResidencia;
+            //WucDatosDemograficos.ddlResidencia.DataBind();
+
+            WucDatosDemograficos.dvwResidencia = dvwResidencia;
+
+        }
+
         protected void Page_Load(object sender, System.EventArgs e)
         {
 
@@ -180,6 +228,9 @@ namespace ASSMCA.Perfiles
                     this.btnEliminarAdmin.Visible = false;
                 }
             }
+
+
+            ActualizarResidencia();
         }
         #region Metodos
         private void HookOnFocus(Control CurrentControl)
@@ -1381,13 +1432,10 @@ namespace ASSMCA.Perfiles
         {
 
 
-            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
+            Page.Validate();
+            if (!Page.IsValid && m_CO_Tipo != 2)
             {
-                Page.Validate();
-                if (!Page.IsValid)
-                {
-                    return;
-                }
+                return;
             }
 
 
@@ -1404,14 +1452,13 @@ namespace ASSMCA.Perfiles
         {
 
 
-            if (WucEpisodioAdmision.ddlDrogaPrim.Enabled == true)
-            {
+ 
                 Page.Validate();
-                if (!Page.IsValid)
+                if (!Page.IsValid && m_CO_Tipo !=2)
                 {
                     return;
                 }
-            }
+  
 
             this.WucDatosPersonales.lblFechaError.Text = "";
             // se valida fecha si la fecha es valida

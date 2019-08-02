@@ -7,7 +7,7 @@ namespace ASSMCA.Perfiles
     using System.Web;
     using System.Web.UI.WebControls;
     using System.Web.UI.HtmlControls;
-
+    using System.Threading;
     public partial class wucDatosDemograficos : System.Web.UI.UserControl
     {
         protected ASSMCA.perfiles.dsPerfil dsPerfil;
@@ -15,7 +15,7 @@ namespace ASSMCA.Perfiles
         protected System.Data.DataView dvwIngresoFamiliar;
         protected System.Web.UI.WebControls.TextBox txtFeUltimoInfEscolar;
         protected System.Data.DataView dvwFuerzaLaboral;
-        protected System.Data.DataView dvwResidencia;
+        public System.Data.DataView dvwResidencia;
         protected System.Data.DataView dvwUltGrado;
         protected System.Data.DataView dvwFemina;
         private int _compFamCount, m_pk_perfil;
@@ -24,6 +24,8 @@ namespace ASSMCA.Perfiles
 
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            ddlResidencia.DataBind();
+
             if (!this.IsPostBack)
             {
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
@@ -32,7 +34,9 @@ namespace ASSMCA.Perfiles
                 this.dvwIngresoIndividual.Table = this.dsPerfil.SA_LKP_INGRESO_ANUAL;
                 this.dvwFuerzaLaboral.Table = this.dsPerfil.SA_LKP_TEDS_NO_FUERZA_LABORAL;
                 this.dvwUltGrado.Table = this.dsPerfil.SA_LKP_TEDS_GRADO;
+
                 this.dvwResidencia.Table = this.dsPerfil.SA_LKP_TEDS_RESIDENCIA;
+
                 if (this.Session["pk_administracion"].ToString() == "1")//Niños y adolecentes
                 {
                     this.dvwFuerzaLaboral.RowFilter = "PK_NoFuerzaLaboral <> 9";
@@ -42,10 +46,13 @@ namespace ASSMCA.Perfiles
                 {
                     this.dvwFemina.RowFilter = "PK_Femina <> 99";
                 }
+
                 if (this.Session["co_tipo"].ToString() == "1")
                 {
                     this.dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14)";
                 }
+        
+
                 this.DataBind();
                 load();
 
@@ -391,6 +398,11 @@ namespace ASSMCA.Perfiles
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            lbxCompFamiliarSeleccion.Focus();
+
+
+            //Thread.Sleep(5000);
+
             if (this.lbxCompFamiliarSeleccion.SelectedItem != null)
             {
                 System.Web.UI.WebControls.ListItem li = new ListItem(this.lbxCompFamiliarSeleccion.SelectedItem.Text, this.lbxCompFamiliarSeleccion.SelectedItem.Value);
