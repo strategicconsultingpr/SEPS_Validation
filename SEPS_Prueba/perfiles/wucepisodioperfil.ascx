@@ -1,5 +1,8 @@
 ﻿<%@ Control Language="c#" Inherits="ASSMCA.Perfiles.wucEpisodioPerfil" CodeBehind="wucEpisodioPerfil.ascx.cs" %>
 <input id="CO_Tipo" type="hidden" name="Hidden2" runat="server"/>
+<input id="hNivelSM" type="hidden" name="Hidden6" runat="server"/>
+<input id="hNivelAS" type="hidden" name="Hidden7" runat="server"/>
+
 <div runat="server" id="NivelDiv" class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Nivel de cuidado de este episodio</h3>
@@ -14,7 +17,7 @@
     <div class="col-md-6"><%--Nivel de Cuidado Abuso de Sustancias--%>
         <span class="SEPSLabel">Nivel de cuidado (Abuso de Sustancias):</span>
         <asp:Label ID="lblNivelCuidadoSustancias" runat="server"/>
-        <input id="ddlNivelCuidadoSustanciasHidden" type="hidden" name="Hidden2" runat="server" />
+        <input id="ddlNivelCuidadoSustanciasHidden" type="hidden" name="Hidden3" runat="server" />
     </div>
 </div>
 

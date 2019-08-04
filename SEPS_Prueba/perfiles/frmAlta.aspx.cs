@@ -23,6 +23,7 @@ namespace ASSMCA.Perfiles
             SPD_Ref_CondicionesDiagnosticadas, SPU_Ref_CondicionesDiagnosticadas, SPD_Ref_CompFamilia, SPU_Ref_CompFamilia, sqlSelectCommand1, sqlSelectCommand2, sqlSelectCommand3, sqlSelectCommand4;
         protected System.Data.SqlClient.SqlDataAdapter daAdmision, daAlta, daPerfil, daPerfilValidaciones;
         private int m_PK_Episodio, m_PK_Persona, m_PK_Programa, _m_PK_Perfil, m_CO_Tipo;
+        private static string nivelSM, nivelAS;
         private const string SCRIPT_DOFOCUS =
     @"window.setTimeout('DoFocus()', 1);
     function DoFocus()
@@ -55,14 +56,7 @@ namespace ASSMCA.Perfiles
             this.m_PK_Programa = Convert.ToInt32(this.Session["pk_programa"].ToString());
             this.m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             string Accion = this.Request.QueryString["accion"].ToString();
-            if (this.m_CO_Tipo == 1 || this.m_CO_Tipo == 4)
-            {
-                this.lblTipoPerfil.Text = " : Abuso de Sustancia";
-            }
-            else
-            {
-                this.lblTipoPerfil.Text = " : Salud Mental";
-            }
+            
             if (!this.IsPostBack)
             {
                 HookOnFocus(this.Page as Control);
@@ -119,6 +113,15 @@ namespace ASSMCA.Perfiles
                 SCRIPT_DOFOCUS.Replace("REQUEST_LASTFOCUS",
                                        Request["__LASTFOCUS"]),
                 true);
+            }
+
+            if (nivelAS != "99")
+            {
+                this.lblTipoPerfil.Text = " : Abuso de Sustancia";
+            }
+            else if (nivelSM != "99")
+            {
+                this.lblTipoPerfil.Text = " : Salud Mental";
             }
             //Se aplica la seguridad, esta funcionalidad puede sobreescribir la logica basica de la aplicacion.
             //Ej. se puede haber habilitado una facilidad que la seguridad deba eliminar.
@@ -187,6 +190,8 @@ namespace ASSMCA.Perfiles
             this.dsPerfil.SA_PERFIL.Rows.Clear();
             this.daAdmision.SelectCommand.Parameters["@PK_Admision"].Value = PK_Episodio;
             this.daAdmision.Fill(this.dsPerfil);
+            nivelSM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+            nivelAS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
         }
 
         private void LeerPerfil(int PK_Perfil)
@@ -197,6 +202,8 @@ namespace ASSMCA.Perfiles
             this.daPerfil.SelectCommand.Parameters["@PK_Perfil"].Value = PK_Perfil;
             this.daPerfil.Fill(this.dsPerfil);
             Session["FechaAdmision"] = this.dsPerfil.SA_EPISODIO[0]["FE_Episodio"].ToString();
+            nivelSM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+            nivelAS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
         }
 
         private void CargarCombosAlta()
@@ -249,6 +256,8 @@ namespace ASSMCA.Perfiles
             WucDatosPersonales.PK_Programa = this.m_PK_Programa;
             this.Session["dsPerfil"] = this.dsPerfil;
             this.btnRegistrar.Visible = false;
+            nivelSM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+            nivelAS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
         }
 
         private void ModificarRegistro()

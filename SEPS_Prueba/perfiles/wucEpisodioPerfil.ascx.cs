@@ -17,6 +17,7 @@ namespace ASSMCA.Perfiles
 		protected System.Data.SqlClient.SqlDataAdapter daPerfilValidaciones;
 		protected System.Data.SqlClient.SqlConnection cnn;
 		public string TI_Perfil;
+        private static string nivelSM, nivelAS;
         public int m_pk_perfil, m_CO_Tipo;
 		protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
 
@@ -24,7 +25,9 @@ namespace ASSMCA.Perfiles
 		{
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
-
+            
+            this.hNivelSM.Value = nivelSM;
+            this.hNivelAS.Value = nivelAS;
             if (!this.IsPostBack)
 			{
 				this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
@@ -187,7 +190,11 @@ namespace ASSMCA.Perfiles
 		{
 			this.lblNivelCuidadoSaludMental.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_SaludMental"].ToString();
 			this.lblNivelCuidadoSustancias.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_AbusoSustancias"].ToString();
-		}
+
+            nivelSM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+            nivelAS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
+
+        }
 
 		private void ActualizarCamposCrear()
 		{

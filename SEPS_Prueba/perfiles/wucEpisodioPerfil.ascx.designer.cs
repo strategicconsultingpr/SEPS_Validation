@@ -22,6 +22,24 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden CO_Tipo;
         
         /// <summary>
+        /// hNivelSM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hNivelSM;
+        
+        /// <summary>
+        /// hNivelAS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hNivelAS;
+        
+        /// <summary>
         /// NivelDiv control.
         /// </summary>
         /// <remarks>
@@ -965,15 +983,6 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl h3PracticasBasadasEnEvidenciaNinoOAdulto;
-        
-        /// <summary>
-        /// updPracticasBasadasEvidencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updPracticasBasadasEvidencia;
         
         /// <summary>
         /// divLbxPracticasBasadasEvidencia control.
