@@ -329,6 +329,7 @@ function tabEvent(e) {
 function changeTabOrder() {
     try {
         var prefix = "#mainBodyContent_WucEpisodioAdmision_";
+        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) { if (e.keyCode == 9 && $(prefix + "ddlDrogaPrim").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim").focus(); e.preventDefault(); } });
         $(prefix + "ddlDrogaPrim").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaSec").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaTerc").on('keydown', function (e) { tabEvent(e) });
@@ -343,7 +344,7 @@ function changeTabOrder() {
         $(prefix + "txtEdadTerc").on('keydown', function (e) { tabEvent(e) });
     }
     catch (ex) {// catch block 
- 
+        
         }
 }
 function frmActionModeSetup() {
@@ -643,7 +644,7 @@ function AccionUpdate() {
         var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
         
         if (ddlNivelCuidadoSaludMental.value !== "99" && ddlNivelCuidadoSustancias.value === "99") {
-            alert("saludmental");
+            //alert("saludmental");
             ddlDrogaPrim.disabled = false;
             ddlDrogaSec.disabled = true;
             ddlDrogaTerc.disabled = true;
@@ -659,7 +660,7 @@ function AccionUpdate() {
             GAF.disabled = true;
         }
         else if (ddlNivelCuidadoSustancias.value !== "99" && ddlNivelCuidadoSaludMental.value === "99") {
-            alert("sustancia");
+            //alert("sustancia");
             ddlDrogaPrim.disabled = false;
             ddlDrogaSec.disabled = false;
             ddlDrogaTerc.disabled = false;
@@ -783,7 +784,7 @@ function AjustesNiveldeCuidado() {
 
 
         catch (e) {
-            alert(ex.text);
+           // alert(ex.text);
         }
 
  }
@@ -857,7 +858,9 @@ function ddlNivelCuidadoSaludMental() {
             nivelS.disabled = false;
         }  
     }
-    catch (ex) { alert(ex.text); }
+    catch (ex) {
+        //alert(ex.message); 
+    }
     AjustesNiveldeCuidado();
 }
 

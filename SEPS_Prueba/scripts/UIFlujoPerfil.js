@@ -288,6 +288,7 @@ function currentPageName() {
 function changeTabOrder() {
     try {
         var prefix = "#mainBodyContent_WucEpisodioPerfil_";
+        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) { document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim").focus(); e.preventDefault(); });
         $(prefix + "ddlDrogaPrim").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaSec").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaTerc").on('keydown', function (e) { tabEvent(e) });

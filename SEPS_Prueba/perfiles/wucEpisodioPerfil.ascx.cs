@@ -1056,6 +1056,9 @@ namespace ASSMCA.Perfiles
                 case (117):
                 case (122):
 
+                /*Modificado Nov-08-18: Se agrego acceso a los proximos programas*/
+
+                case (80):
                 case (138):
                 case (139):
                 case (141):
@@ -1075,8 +1078,11 @@ namespace ASSMCA.Perfiles
                 case (157):
                 case (158):
                 case (160):
+                case (162):
                 case (163):
+                case (165):
                 case (166):
+                case (175):
 
                     esProgramaMental = true; break;
                 default: break;
