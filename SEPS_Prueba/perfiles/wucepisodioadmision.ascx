@@ -119,10 +119,10 @@
             </div>
     </div>
     <div class="col-md-6 SEPSDivs"><%--Ha sido arrestado anteriormente--%>
-        <span class="SEPSLabel">¿Ha sido arrestado anteriormente?:</span>
+        <span class="SEPSLabel">¿Ha sido arrestado alguna vez en su vida?:</span>
         <asp:RequiredFieldValidator ID="rfvArrestado" runat="server"  CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlArrestado" ErrorMessage="¿Ha sido arrestado anteriormente?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server"  OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true">
+            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" onChange="ddlArrestado();" OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>

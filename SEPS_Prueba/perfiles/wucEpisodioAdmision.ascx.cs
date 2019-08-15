@@ -2009,7 +2009,7 @@
     {
             ListItem li = new ListItem("No aplica", "99");
 
-            if (ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "2")
+            if (ddlArrestado.SelectedValue == "2")
             {
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);
@@ -2022,7 +2022,7 @@
                 Button3.Enabled = false;
 
             }
-            else {
+            else if (ddlArrestado.SelectedValue == "1") {
 
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);

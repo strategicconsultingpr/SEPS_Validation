@@ -965,9 +965,12 @@ function ddlFuenteReferido() {
             ddlFuenteReferido.value = 0;
             nivelS.focus();
         }
-        if (ddlFuenteReferido.value == "3" || ddlFuenteReferido.value == "9" || ddlFuenteReferido.value == "14" || ddlFuenteReferido.value == "37") {
-            ddlEstadoLegal.disabled = false;
-            ddlEstadoLegal.value = 0;
+        if (ddlFuenteReferido.value == "3" || ddlFuenteReferido.value == "9" || ddlFuenteReferido.value == "14" || ddlFuenteReferido.value == "37") {    
+            if (ddlEstadoLegal.value == "99" || ddlEstadoLegal.value == "") {
+                ddlEstadoLegal.disabled = false;
+                ddlEstadoLegal.value = 0;
+            }
+            
         }
         else {
             ddlEstadoLegal.disabled = true;
@@ -1145,18 +1148,18 @@ function ddlEstadoLegal() {
         var ddlArrestado = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado");
         var ddlArrestado30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado30");
         switch (document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlEstadoLegal").value) {
-            case ("1"): case ("2"): case ("3"): case ("5"): case ("6"): case ("9"): case ("11"): case ("12"): case ("14"): case ("15"): case ("22"):             
-                ddlArrestado.value = 1;
-                ddlArrestado.disabled = true;
-                ddlArrestado30.disabled = false;
-                ddlArrestado();
-                ddlArrestado30();
+            case ("1"): case ("2"): case ("3"): case ("5"): case ("6"): case ("9"): case ("11"): case ("12"): case ("14"): case ("15"): case ("22"):   
+                //ddlArrestado.value = 1;
+                //ddlArrestado.disabled = true;
+               // ddlArrestado30.disabled = false;
+                //ddlArrestado();
+                //ddlArrestado30();
                 break;
             default:
-                ddlArrestado.disabled = false;
-               // ddlArrestado.value = 0;
-                ddlArrestado();
-                ddlArrestado30();
+               // ddlArrestado.disabled = false;
+                //ddlArrestado.value = 0;
+               // ddlArrestado();
+               // ddlArrestado30();
                 break;
         }
     }
@@ -1165,7 +1168,7 @@ function ddlEstadoLegal() {
 function ddlEstadoLegal_Load() {
     try {
         switch (document.getElementById("hFKPrograma").value) {
-            case ("27"): case ("31"): case ("32"): case ("33"): case ("34"): case ("35"): case ("36"): case ("37"): case ("38"): case ("39"): case ("40"): case ("41"): case ("42")://TASC
+            case ("27"): case ("31"): case ("32"): case ("33"): case ("34"): case ("35"): case ("36"): case ("37"): case ("38"): case ("39"): case ("40"): case ("41"): case ("42")://TASC             
                 $("#mainBodyContent_WucEpisodioAdmision_ddlEstadoLegal option").filter(function () { return ["0", "1", "2"].indexOf(this.value) < 0; }).remove();
                 break;
             default: break;
@@ -1181,6 +1184,7 @@ function ddlArrestado() {
         var rvArrestos3O = document.getElementById("mainBodyContent_WucEpisodioAdmision_rvArrestos30");
         switch (ddlArrestado.value) {
             case ("1")://Sí
+                ddlArrestado3O.value = 1;
                 txtArrestos3O.disabled = false;
                 ddlArrestado3O.disabled = false;
                 ddlArrestado30();
@@ -1208,27 +1212,66 @@ function ddlArrestado() {
 }
 function ddlArrestado30() {
 
-     try {
+    try {
+        var ddlArrestado = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado");
         var txtArrestos30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtArrestos30");
         var ddlArrestado30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado30");
         var rvArrestos30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_rvArrestos30");       
         switch (ddlArrestado30.value) {
             case ("1")://Sí
-                if (txtArrestos30.value == "0") {
-                    txtArrestos30.value = "";
+                if (ddlArrestado.value == "2" || ddlArrestado.value == "") {
+                    ddlArrestado30.value = "2";
+                    txtArrestos30.value = "0";
+                    rvArrestos30.minimumvalue = "0";
+                    ddlArrestado30.disabled = true;
+                    txtArrestos30.disabled = true;
                 }
-                rvArrestos30.minimumvalue = "1";
-                txtArrestos30.disabled = false;
+                else {
+                    if (txtArrestos30.value == "0") {
+                        txtArrestos30.value = "";
+                        rvArrestos30.minimumvalue = "1";
+                        ddlArrestado30.disabled = false;
+                        txtArrestos30.disabled = false;
+                    }
+                    
+                }
                 break;
-            case ("2"): case ("")://No
+            case ("2")://No  
+                
+                if (ddlArrestado.value == "2" || ddlArrestado.value == "") {
+                    ddlArrestado30.disabled = true;
+                    
+                }
+                else {
+                    ddlArrestado30.disabled = false;
+                }
                 txtArrestos30.value = '0';
                 rvArrestos30.minimumvalue = "0";
                 txtArrestos30.disabled = true;     
                 break;
-            /*default:
-                rvArrestos30.minimumvalue = "0";
-                txtArrestos30.disabled = false;
-                break; */
+
+            default:
+                if (ddlArrestado.value == "1") {
+                    ddlArrestado30.value = "1";
+                    txtArrestos30.value = "";
+                    rvArrestos30.minimumvalue = "1";
+                    txtArrestos30.disabled = false;
+                }
+                else if (ddlArrestado.value == "2")
+                {
+                    ddlArrestado30.value = "2";
+                    txtArrestos30.value = "0";
+                    rvArrestos30.minimumvalue = "0";
+                    ddlArrestado30.disabled = true;
+                    txtArrestos30.disabled = true;
+                }
+                else {
+                    txtArrestos30.value = '0';
+                    rvArrestos30.minimumvalue = "0";
+                    txtArrestos30.disabled = true;
+                }
+                
+                break; 
         }
     }
     catch (ex) { }
