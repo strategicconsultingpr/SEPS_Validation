@@ -516,8 +516,20 @@ function ddlPreviosSustancias() {
         var ddlNivelSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelSustancias");
         var txtDíasSustUlt = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustUlt");
         var txtMesesSustUlt = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtMesesSustUlt");
+        var ddlNivel = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelSustancias");
+        var nivelItem = document.createElement("OPTION");
+
+        nivelItem.text = "No aplica (Este episodio es de Salud Mental)";
+        nivelItem.value = 99;
+
         switch (ddlPreviosSustancias.value) {
             case ("1"): case ("99"):
+                for (var i = ddlNivel.options.length - 1; i >= 0; i--) {
+                    if (ddlNivel.options[i].value == 99) {
+                        continue;
+                    }
+                    else if (i == 0) ddlNivel.add(nivelItem);
+                }
                 ddlUltSustancias.value = 99;
                 ddlNivelSustancias.value = 99;
                 txtDíasSustUlt.value = "0";
@@ -528,6 +540,16 @@ function ddlPreviosSustancias() {
                 txtMesesSustUlt.disabled = true;
                 break;
             default:
+                if (ddlUltSustancias.value == "99") {
+                    ddlUltSustancias.value = "0";
+                }
+                
+                for (var i = ddlNivel.options.length - 1; i >= 0; i--) {
+                    if (ddlNivel.options[i].value == 99) {
+                        ddlNivel.remove(i);
+                    }
+                }
+                
                 ddlUltSustancias.disabled = false;
                 ddlNivelSustancias.disabled = false;
                 txtDíasSustUlt.disabled = false;
@@ -544,8 +566,21 @@ function ddlPreviosMental() {
         var ddlNivelMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelMental");
         var txtDíasMentUlt = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasMentUlt");
         var txtMesesMentUlt = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtMesesMentUlt");
+        var ddlNivel = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelMental");
+        var nivelItem = document.createElement("OPTION");
+
+        nivelItem.text = "No aplica (Este episodio es de use de sustancias)";
+        nivelItem.value = 99;
+        
         switch (ddlPreviosMental.value) {
             case ("1"): case ("99"):
+                 
+                for (var i = ddlNivel.options.length - 1; i >= 0; i--) {
+                    if (ddlNivel.options[i].value == 99) {
+                        continue;
+                    }
+                    else if (i == 0) ddlNivel.add(nivelItem);
+                }
                 ddlUltMental.value = 99;
                 ddlNivelMental.value = 99;
                 txtDíasMentUlt.value = "0";
@@ -556,6 +591,15 @@ function ddlPreviosMental() {
                 txtMesesMentUlt.disabled = true;
                 break;
             default:
+                if (ddlUltMental.value == "99") {
+                    ddlUltMental.value = "0";
+                }
+
+                for (var i = ddlNivel.options.length - 1; i >=0; i--) {
+                    if (ddlNivel.options[i].value == 99) {
+                        ddlNivel.remove(i);
+                    }
+                }
                 ddlUltMental.disabled = false;
                 ddlNivelMental.disabled = false;
                 txtDíasMentUlt.disabled = false;
@@ -567,9 +611,11 @@ function ddlPreviosMental() {
 }
 function ddlUltMental() {
     try {
+        var ddlPreviosMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlPreviosMental");
         var días = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasMentUlt");
         var meses = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtMesesMentUlt");
-        switch (document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlUltMental").value) {
+        var ddlUlt = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlUltMental");
+        switch (ddlUlt.value) {
             case ("0")://Empty string
             case ("1")://Menos de un mes (30 días)
             case ("2")://1 a 3 meses
@@ -583,11 +629,27 @@ function ddlUltMental() {
                 meses.disabled = false;
                 break;
             case ("95")://No información
-            case ("99")://No aplica
                 días.value = 0;
                 meses.value = 0;
                 días.disabled = true;
                 meses.disabled = true;
+                break;
+            case ("99")://No aplica
+                if (ddlPreviosMental.value != "1") {
+                    if (ddlPreviosMental.value == "0") {
+                        alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
+                    }
+                    else {
+                        alert("El paciente tiene episodios anteriores. No puede escoger NO APLICA.");
+                    }
+                    ddlUlt.value = "0";
+                }
+                else {
+                    días.value = 0;
+                    meses.value = 0;
+                    días.disabled = true;
+                    meses.disabled = true;
+                }
                 break;
             default: break;
         }
@@ -596,9 +658,11 @@ function ddlUltMental() {
 }
 function ddlUltSustancias() {
     try {
+        var ddlPreviosSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlPreviosSustancias");
         var días = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustUlt");
         var meses = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtMesesSustUlt");
-        switch (document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlUltSustancias").value) {
+        var ddlUlt = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlUltSustancias");
+        switch (ddlUlt.value) {
             case ("0")://Empty string
             case ("1")://Menos de un mes (30 días)
             case ("2")://1 a 3 meses
@@ -612,11 +676,27 @@ function ddlUltSustancias() {
                 meses.disabled = false;
                 break;
             case ("95")://No información
-            case ("99")://No aplica
                 días.value = 0;
                 meses.value = 0;
                 días.disabled = true;
                 meses.disabled = true;
+                break;
+            case ("99")://No aplica
+                if (ddlPreviosSustancias.value != "1") {
+                    if (ddlPreviosSustancias.value == "0") {
+                        alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
+                    }
+                    else {
+                        alert("El paciente tiene episodios anteriores. No puede escoger NO APLICA.");
+                    }
+                    ddlUlt.value = "0";
+                }
+                else {
+                    días.value = 0;
+                    meses.value = 0;
+                    días.disabled = true;
+                    meses.disabled = true;
+                }
                 break;
             default: break;
         }
