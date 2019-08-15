@@ -735,9 +735,9 @@
     <table class="table table-striped table-hover">
     <tr>
         <th></th>
-        <th><span class="SEPSLabel">Diagnóstico primario</span></th>
-        <th><span class="SEPSLabel">Diagnóstico secundario</span></th>
-        <th><span class="SEPSLabel">Diagnóstico terciario</span></th>
+        <th><span class="SEPSLabel">Droga de uso primario</span></th>
+        <th><span class="SEPSLabel">Droga de uso secundario</span></th>
+        <th><span class="SEPSLabel">Droga de uso terciario</span></th>
     </tr>
     <tr>
         <th><span class="SEPSLabel">Droga</span></th>

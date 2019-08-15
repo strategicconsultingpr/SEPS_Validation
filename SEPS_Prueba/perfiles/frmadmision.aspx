@@ -23,7 +23,7 @@
         <uc1:wucDatosAdmision ID="WucDatosAdmision" runat="server" />
         <div class="btn-group hidden-print" role="group">
             <asp:Button ID="btnGuardarCambios" runat="server" CssClass="btn btn-default" Text="Guardar cambios" CausesValidation="false" OnClientClick="return validate();" OnClick="btnGuardarCambios_Click" />
-            <asp:Button ID="btnRegistrar" runat="server" CssClass="btn btn-default" Text="Registrar perfil de admisión" CausesValidation="false" OnClientClick="return validate();" OnClick="btnRegistrar_Click" />
+            <asp:Button ID="btnRegistrar" runat="server" CssClass="btn btn-default" Text="Registrar perfil de admisión" CausesValidation="false" OnClientClick="return validate();" OnClick="btnRegistrar_Click" TabIndex="14" />
             <asp:Button ID="btnEliminar" runat="server" CssClass="btn btn-default" Text="Eliminar (Fisicamente)" OnClick="btnEliminar_Click" />
             <asp:Button ID="btnEliminarAdmin" runat="server" CssClass="btn btn-default" Text="Eliminar (Logicamente)" OnClick="btnEliminarAdmin_Click" />
             <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-default" Text="Modificar perfil" OnClick="btnModificar_Click" />

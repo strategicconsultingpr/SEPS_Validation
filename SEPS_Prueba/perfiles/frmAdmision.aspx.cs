@@ -1467,11 +1467,11 @@ namespace ASSMCA.Perfiles
         {
 
 
-            Page.Validate();
-            if (!Page.IsValid && m_CO_Tipo != 2)
-            {
-                return;
-            }
+            //Page.Validate();
+            //if (!Page.IsValid)
+            //{
+            //    return;
+            //}
 
 
             int PK_Episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO[0]["PK_Episodio"].ToString());
@@ -1486,14 +1486,14 @@ namespace ASSMCA.Perfiles
         protected void btnRegistrar_Click(object sender, System.EventArgs e)
         {
 
-
- 
+            if (WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "")
+            {
                 Page.Validate();
-                if (!Page.IsValid && m_CO_Tipo !=2)
+                if (!Page.IsValid)
                 {
                     return;
                 }
-  
+            }
 
             this.WucDatosPersonales.lblFechaError.Text = "";
             // se valida fecha si la fecha es valida
