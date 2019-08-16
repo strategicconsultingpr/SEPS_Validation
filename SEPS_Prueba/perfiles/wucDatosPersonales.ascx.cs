@@ -131,6 +131,7 @@
                             if (!(this.dsPerfil.SA_PERSONA[0]["NR_Expediente"] == System.DBNull.Value))
                             {
                                 this.lblExpediente.Visible = true;
+                                this.txtExpediente.Text = this.dsPerfil.SA_PERSONA[0]["NR_Expediente"].ToString();
                                 this.txtExpediente.Visible = false;
                             }
                             this.set_hProgramaAdultos();
