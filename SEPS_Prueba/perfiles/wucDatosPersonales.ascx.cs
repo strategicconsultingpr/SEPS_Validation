@@ -164,6 +164,7 @@
                     case (frmAction.Update):
                         this.dataReadOnly = false;
                         this.txtExpediente.Visible = false;
+                        
                         this.ddlMes.SelectedValue = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Month.ToString(); ;
                         this.ddlDía.SelectedValue = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Day.ToString(); ;
                         this.txtAño.Text = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Year.ToString();
@@ -173,6 +174,8 @@
                         TimeSpan diffResult = dtnow.Date - dt.Date;
                         if (isAdmision)
                         {
+                            this.txtExpediente.Visible = false;
+                            
                             if (!UsaTipoDeAdmision(m_PK_Programa))
                             {
                                 divTipoDeAdmision.Visible = false;

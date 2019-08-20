@@ -381,10 +381,10 @@ namespace ASSMCA.Perfiles
             }
             this.SPC_PERFIL.Parameters["@FE_Perfil"].Value = this.WucDatosPersonales.FE_Episodio;
             this.SPC_PERFIL.Parameters["@FK_TipoAdmision"].Value = this.WucDatosPersonales.FK_TipoAdmision;
-           /* if (this.WucDatosPersonales.NR_Expediente != "0")
+            if (this.WucDatosPersonales.NR_Expediente != "0")
             {
                 this.SPC_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
-            }*/
+            }
             this.SPC_PERFIL.Parameters["@FE_Contacto"].Value = System.DBNull.Value;
             this.SPC_PERFIL.Parameters["@IN_TI_Perfil"].Value = "AD";
             this.SPC_PERFIL.Parameters["@FK_EstadoMarital"].Value = this.WucDatosDemograficos.FK_EstadoMarital;
@@ -589,10 +589,10 @@ namespace ASSMCA.Perfiles
             this.SPU_EPISODIO.Parameters["@IN_TratadoMental"].Value = System.DBNull.Value;
             this.SPU_PERFIL.Parameters["@PK_NR_Perfil"].Value = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
             this.SPU_PERFIL.Parameters["@FE_Perfil"].Value = this.WucDatosPersonales.FE_Episodio;
-            /*if (this.WucDatosPersonales.NR_Expediente != "0")
-            {
-                this.SPU_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
-            }*/
+            //if (this.WucDatosPersonales.NR_Expediente != "0")
+            //{
+            //    this.SPU_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
+            //}
             this.SPU_PERFIL.Parameters["@IN_TI_Perfil"].Value = "AD";
             this.SPU_PERFIL.Parameters["@FE_Contacto"].Value = System.DBNull.Value;
 
