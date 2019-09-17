@@ -39,7 +39,7 @@ namespace ASSMCA.Perfiles
             System.Data.DataView dvwResidencia = new System.Data.DataView();
             dvwResidencia.Table = this.dsPerfil.SA_LKP_TEDS_RESIDENCIA;
 
-            List<string> SM = new List<string>() { "0", "1", "2", "3", "4", "7", "8", "11", "13", "14" };
+            List<string> SM = new List<string>() { "0", "1", "2", "3", "4", "7", "8", "11", "13", "14", "97" };
 
             string value = WucDatosDemograficos.ddlResidencia.SelectedValue;
             /*PK_Residencia DE_Residencia
@@ -63,7 +63,7 @@ namespace ASSMCA.Perfiles
             // salud mental 
             if (WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "")
             {
-                    dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14)";
+                    dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14,97)";
                     WucDatosDemograficos.dvwResidencia = dvwResidencia;
                     WucDatosDemograficos.ddlResidencia.DataBind();
 

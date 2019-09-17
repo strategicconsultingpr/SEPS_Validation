@@ -329,7 +329,10 @@ function tabEvent(e) {
 function changeTabOrder() {
     try {
         var prefix = "#mainBodyContent_WucEpisodioAdmision_";
-        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) { if (e.keyCode == 9 && $(prefix + "ddlDrogaPrim").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim").focus(); e.preventDefault(); } });
+        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) {
+            if (e.keyCode == 9 && $(prefix + "ddlDrogaPrim").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim").focus(); e.preventDefault(); }
+            else if (e.keyCode == 9 && !$(prefix + "ddlDrogaPrim").is(':enabled')) {
+                document.getElementById("mainBodyContent_WucDatosAdmision_txtComentarios").focus(); e.preventDefault(); } });
         $(prefix + "ddlDrogaPrim").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaSec").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaTerc").on('keydown', function (e) { tabEvent(e) });
@@ -1127,13 +1130,17 @@ function ddlGrado() {
 }
 function ddlCondLaboral() {
     try {
+        
         var ddlCondLaboral = document.getElementById("mainBodyContent_WucDatosDemograficos_ddlCondLaboral");
         var ddlNoFueraLaboral = document.getElementById("mainBodyContent_WucDatosDemograficos_ddlNoFueraLaboral");
         var ddlFuenteIngreso = document.getElementById("mainBodyContent_WucDatosDemograficos_ddlFuenteIngreso");
         switch (ddlCondLaboral.value) {
             case ("5"):
-                ddlNoFueraLaboral.disabled = false;
-                ddlNoFueraLaboral.value = 0;
+                if (ddlNoFueraLaboral.disabled) {
+                    ddlNoFueraLaboral.disabled = false;
+                    ddlNoFueraLaboral.value = 0;
+                }
+                
                 break;
             case ("1"): case ("2"):
                 ddlNoFueraLaboral.value = 99;
@@ -1264,7 +1271,7 @@ function ddlArrestado() {
         var rvArrestos3O = document.getElementById("mainBodyContent_WucEpisodioAdmision_rvArrestos30");
         switch (ddlArrestado.value) {
             case ("1")://Sí
-                ddlArrestado3O.value = 1;
+                ddlArrestado3O.value = 2;
                 txtArrestos3O.disabled = false;
                 ddlArrestado3O.disabled = false;
                 ddlArrestado30();
@@ -1369,12 +1376,33 @@ function ddlReunionesGrupos() {
                 ddlFreq_AutoAyuda.disabled = true;
                 break;
             default:
-                ddlFreq_AutoAyuda.disabled = false;
+                if (ddlFreq_AutoAyuda.disabled) {
+                    ddlFreq_AutoAyuda.value = 0;
+                    ddlFreq_AutoAyuda.disabled = false;
+                }
+                
                 break;
         }
     }
     catch (ex) { }
 }
+
+function ddlFreq_AutoAyuda() {
+    try {
+        var ddlReunionesGrupos = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlReunionesGrupos");
+        var ddlFreq_AutoAyuda = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFreq_AutoAyuda");
+        switch (ddlFreq_AutoAyuda.value) {
+            case ("1"): case ("99"):
+                if (ddlReunionesGrupos.value == "1") {
+                    ddlFreq_AutoAyuda.value = "0";
+                    alert("Debe escoger una opción válida, ya que seleccionó que el paciente SI ha participado en reuniones de grupo.");
+                }
+                break;
+        }
+
+    } catch (ex) { }
+}
+
 var sustanciasList = {
     NoSeleccionado: "0",
     Alcohol: "1",
@@ -1462,7 +1490,7 @@ function ddlDrogaPrimF() {
                 ddlViaPrim.disabled = true;
                 break;
             case (sustanciasList.Nousaactualmente):
-            case (sustanciasList.Noaplica): case (sustanciasList.Noinformó):
+            case (sustanciasList.Noaplica): 
             case ("95"): case ("98")://OLDVALUES
                
                     if ((ddlNivelCuidadoSustancias.value !== "99")

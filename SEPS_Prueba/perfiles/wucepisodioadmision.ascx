@@ -459,9 +459,11 @@
     <div class="clearfix visible-xs-block"></div>
     <div class="clearfix visible-sm-block"></div>
     <div class="col-md-6 SEPSDivs"><%--¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?--%>
-        <asp:RequiredFieldValidator ID="rfvFreq_AutoAyuda" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlFreq_AutoAyuda" ErrorMessage="¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?" ToolTip="Seleccione un valor de la lista. Este campo es requerido" Text="*"/>
+        <asp:RequiredFieldValidator ID="rfvFreq_AutoAyuda" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  ControlToValidate="ddlFreq_AutoAyuda" ErrorMessage="¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?" ToolTip="Seleccione un valor de la lista. Este campo es requerido" Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlFreq_AutoAyuda" runat="server"  DataSource="<%# dvwFreqAutoAyuda %>" DataTextField="DE_FreqAutoAyuda" DataValueField="PK_FreqAutoAyuda"/>
+            <asp:DropDownList  CssClass="form-control" ID="ddlFreq_AutoAyuda" runat="server"  DataSource="<%# dvwFreqAutoAyuda %>" DataTextField="DE_FreqAutoAyuda" DataValueField="PK_FreqAutoAyuda" AppendDataBoundItems="true" onChange="ddlFreq_AutoAyuda();">
+            <asp:ListItem></asp:ListItem>
+            </asp:DropDownList>
             <asp:Label ID="lblFreq_AutoAyuda" runat="server" />
         </div>
     </div>

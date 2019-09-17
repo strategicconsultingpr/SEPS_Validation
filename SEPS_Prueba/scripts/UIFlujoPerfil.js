@@ -102,7 +102,8 @@ function tabEvent(e) {
         var prefix = "mainBodyContent_WucEpisodioPerfil_";
         var inputs = [prefix + "ddlDrogaPrim"/*0*/, prefix + "ddlViaPrim"/*1*/, prefix + "ddlFrecPrim"/*2*/, prefix + "txtEdadPrim"/*3*/,
                         prefix + "ddlDrogaSec"/*4*/, prefix + "ddlViaSec"/*5*/, prefix + "ddlFrecSec"/*6*/, prefix + "txtEdadSec"/*7*/,
-                        prefix + "ddlDrogaTerc"/*8*/, prefix + "ddlViaTerc"/*9*/, prefix + "ddlFrecTerc"/*10*/, prefix + "txtEdadTerc"/*11*/];
+            prefix + "ddlDrogaTerc"/*8*/, prefix + "ddlViaTerc"/*9*/, prefix + "ddlFrecTerc"/*10*/, prefix + "txtEdadTerc"/*11*/];
+       
         if (e.shiftKey) {
             switch (e.currentTarget.id) {
                 case (prefix + "ddlDrogaSec"):
@@ -200,6 +201,8 @@ function tabEvent(e) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
                     }
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 case (prefix + "ddlDrogaTerc"):
                     for (var i = 9; i <= 11; i++) {
@@ -207,6 +210,8 @@ function tabEvent(e) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
                     }
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 case (prefix + "ddlViaPrim"):
                     for (var i = 2; i <= 11; i++) {
@@ -255,7 +260,12 @@ function tabEvent(e) {
                         if ($("#" + inputs[i]).is(':enabled')) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
-                    }
+                    }   
+                  
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) {document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
+                    
+                    
                     break;
                 case (prefix + "txtEdadSec"):
                     for (var i = 8; i <= 11; i++) {
@@ -263,6 +273,12 @@ function tabEvent(e) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
                     }
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
+                    break;
+                case (prefix + "txtEdadTerc"):
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 default: break;
             }
@@ -473,8 +489,10 @@ function ddlCondLaboral() {
         var ddlNoFueraLaboral = document.getElementById("mainBodyContent_WucDatosDemograficosPerfil_ddlNoFueraLaboral");
         switch (ddlCondLaboral.value) {
             case ("5"):
-                ddlNoFueraLaboral.disabled = false;
-                ddlNoFueraLaboral.value = 0;
+                if (ddlNoFueraLaboral.disabled) {
+                    ddlNoFueraLaboral.disabled = false;
+                    ddlNoFueraLaboral.value = 0;
+                }
                 break;
             default:
                 ddlNoFueraLaboral.value = 99;
@@ -861,7 +879,7 @@ var viaList = {
                     }
                 }
                 break;
-            case (sustanciasList.Noaplica): case (sustanciasList.Noinformó):
+            case (sustanciasList.Noaplica):
             case ("95"): case ("98")://OLDVALUES
                 if (ddlNivelCuidadoSustancias.value != "99" || ddlDSMVDiagDual.value == "1") {
                     ddlDrogaPrim.value = 0;

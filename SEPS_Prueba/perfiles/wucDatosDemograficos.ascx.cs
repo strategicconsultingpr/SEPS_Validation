@@ -49,7 +49,7 @@ namespace ASSMCA.Perfiles
 
                 if (this.Session["co_tipo"].ToString() == "1")
                 {
-                    this.dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14)";
+                    this.dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14,97)";
                 }
         
 
