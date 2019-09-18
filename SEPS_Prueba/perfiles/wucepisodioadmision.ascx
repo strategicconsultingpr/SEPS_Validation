@@ -10,7 +10,7 @@
     <div class="col-md-12 SEPSDivs">
         <span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span>
         <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" onChange="ddlDSMVDiagDual('mainBodyContent_WucEpisodioAdmision_','ddlDSMVDiagDual');">
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server">
                 <asp:ListItem ></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>

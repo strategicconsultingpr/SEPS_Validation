@@ -32,7 +32,10 @@ namespace ASSMCA.Episodios
 			this.daPerfiles.SelectCommand.Parameters["@PK_Episodio"].Value = PK_Episodio;
 			this.daPerfiles.Fill(this.dsPersona);
 			this.DataBind();
-			if(Request.QueryString["fuente"] != null)
+
+            Session["PK_Episodio"] = this.Request.QueryString["pk_episodio"].ToString();
+
+            if (Request.QueryString["fuente"] != null)
 			{
                 //NOTE::[Evaluacion ley 22 - (Presentencia -> Admisi'on)] -- [Alcoholismo Amb. - (Admisi'ones <-- Charlas --> Altas)]
                 bool esProgramaDeEvaluacionLey22 = EsProgramaDeEvaluacionLey22((PKPrograma)(Convert.ToInt32(Session["pk_programa"].ToString())));

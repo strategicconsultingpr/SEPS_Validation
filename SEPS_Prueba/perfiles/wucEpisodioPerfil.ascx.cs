@@ -25,7 +25,8 @@ namespace ASSMCA.Perfiles
 		{
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
-            
+            this.hDual.Value = this.Session["PK_Episodio"].ToString();
+
             this.hNivelSM.Value = nivelSM;
             this.hNivelAS.Value = nivelAS;
             if (!this.IsPostBack)
