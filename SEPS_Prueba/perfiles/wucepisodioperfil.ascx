@@ -262,7 +262,7 @@
     <tr>
         <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
         <td colspan="3">
-            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" onChange="ddlDSMVDiagDual('mainBodyContent_WucEpisodioPerfil_','ddlDSMVDiagDual');">
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" >
                 <asp:ListItem />
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>

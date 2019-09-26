@@ -1755,11 +1755,11 @@ function validateCOOCURRING() {
 
     if (ddlNivelCuidadoSaludMental.value != "99") {
 
-        if (ddlDrogaPrim.value != sustanciasList.Noaplica && hDual.value != "1") {
+        if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDSMVDiagDual.value != "1") {
             if (ddlDrogaPrim.value != sustanciasList.Noaplica) {
                 campos += "\u2022Seleccionó una droga\n";
             }
-            alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y EN EL PERFIL DE ADMISIÓN SE SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+            alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
             return false;
         }
         else {
@@ -1772,7 +1772,7 @@ function validateCOOCURRING() {
 
             campos += "\u2022Entró algún valor en Funcionamiento Global\n";
 
-            alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y EN EL PERFIL DE ADMISIÓN SE SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+            alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
             return false;
         }
         else {
@@ -1783,10 +1783,7 @@ function validateCOOCURRING() {
 
 var saving = false;
 function validate() {
-    var a = validateCOOCURRING();
-    if (!a) {
-        return a;
-    }
+    
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {
