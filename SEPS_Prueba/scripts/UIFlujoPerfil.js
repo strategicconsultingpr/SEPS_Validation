@@ -39,9 +39,10 @@ function CO_Tipo() {
         var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtEdadSec");
         var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtEdadTerc");
         var GAF = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtDSMVFnGlobal");
-      
+        //alert(ddlNivelCuidadoSustancias.value);
+        //alert(ddlNivelCuidadoSaludMental.value);
         if (ddlNivelCuidadoSustancias.value != "99" && ddlNivelCuidadoSaludMental.value == "99") {
-            alert(ddlNivelCuidadoSustancias.value);
+           
             ddlDrogaSec.value = sustanciasList.Nousaactualmente;
             ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
             ddlViaSec.value = viaList.NoAplica;
@@ -307,7 +308,7 @@ function currentPageName() {
 function changeTabOrder() {
     try {
         var prefix = "#mainBodyContent_WucEpisodioPerfil_";
-        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) { document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim").focus(); e.preventDefault(); });
+        $(prefix + "ddlDSMVDiagDual").on('keydown', function (e) { if (e.keyCode == 9) { document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim").focus(); e.preventDefault(); } });
         $(prefix + "ddlDrogaPrim").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaSec").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaTerc").on('keydown', function (e) { tabEvent(e) });
@@ -1750,17 +1751,25 @@ function validateCOOCURRING() {
     var ddlDSMVDiagDual = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlDSMVDiagDual");
     var GAF = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtDSMVFnGlobal");
     var hDual = document.getElementById("mainBodyContent_WucEpisodioPerfil_hDual");
+    var ClinHD = document.getElementById("mainBodyContent_WucEpisodioPerfil_hDSMVClinPrim");
 
     var campos = "\n";
 
     if (ddlNivelCuidadoSaludMental.value != "99") {
-
+        if (ClinHD.value == '761') {
+            alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
+            return false;
+        }
         if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDSMVDiagDual.value != "1") {
             if (ddlDrogaPrim.value != sustanciasList.Noaplica) {
                 campos += "\u2022Seleccionó una droga\n";
             }
             alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
             return false;
+        }
+        else if (ddlDrogaPrim.value == sustanciasList.Noaplica && ddlDSMVDiagDual.value == "1") {
+            campos += "\u2022NO seleccionó una droga\n";
+            return confirm("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
         }
         else {
             return true;
@@ -1775,6 +1784,15 @@ function validateCOOCURRING() {
             alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
             return false;
         }
+        else if ((GAF.value == "" || ClinHD.value == '761') && ddlDSMVDiagDual.value == "1") {
+            if (ClinHD.value == '761') {
+                campos += "\u2022NO entró algún valor en Diagnostico Primario\n";
+            }
+            if (GAF.value == "") {
+                campos += "\u2022NO entró algún valor en Funcionamiento Global\n";
+            }
+            return confirm("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA NO QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
+        }
         else {
             return true;
         }
@@ -1783,7 +1801,6 @@ function validateCOOCURRING() {
 
 var saving = false;
 function validate() {
-    
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {

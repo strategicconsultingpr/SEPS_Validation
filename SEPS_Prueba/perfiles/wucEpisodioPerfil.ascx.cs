@@ -33,7 +33,9 @@ namespace ASSMCA.Perfiles
 			{
 				this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
                 m_pk_perfil = Convert.ToInt32( dsPerfil.SA_PERFIL[0].PK_NR_Perfil.ToString());
-				this.dvwDiagPrimario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
+                this.hNivelSM.Value = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+                this.hNivelAS.Value = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
+                this.dvwDiagPrimario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
 				this.dvwDiagSecundario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
 				this.dvwDiagTerciario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
 				this.dvwIVPrim.Table = this.dsPerfil.SA_LKP_DSMIV_IV;

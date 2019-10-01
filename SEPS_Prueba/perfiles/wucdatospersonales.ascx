@@ -189,7 +189,7 @@
                 <div class="leftFloat">
                     <asp:TextBox  CssClass="form-control"  ID="txtFechaConvenioAño" runat="server" onBlur="FechaConvenio()" MaxLength="4" Width="80px" AutoPostBack="True"/>
                 </div>
-                <asp:HiddenField ID="hProgramaAdultos" runat="server" Value=""/>
+                <asp:HiddenField ID="hProgramaAdultos" runat="server"/>
                 <asp:Label ID="lblFechaConvenio" runat="server"/>
             </div>
             <div class="col-print-6 col-md-6 SEPSDivs" id="divMilitar" runat="server"><%-- Militar --%>

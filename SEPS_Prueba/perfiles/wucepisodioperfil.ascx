@@ -259,7 +259,7 @@
             <asp:label id="lblDSMVComentarios" runat="server"/>
         </td>
     </tr>
-    <tr>
+    <%--<tr>
         <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
         <td colspan="3">
             <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" >
@@ -269,7 +269,7 @@
             </asp:DropDownList>
             <asp:Label ID="lblDSMVDiagDual" runat="server" />
         </td>
-    </tr>
+    </tr>--%>
     <tr>
         <th><span class="SEPSLabel">Funcionamiento global</span></th>
         <td colspan="3">
@@ -283,7 +283,21 @@
             <asp:textbox CssClass="form-control" id="txtDSMVOtrasObs" runat="server" MaxLength="1500" TextMode="MultiLine" Height="64px"/>
             <asp:label id="lblDSMVOtrasObs" runat="server"/>
         </td>
-    </tr>  
+    </tr> 
+        <tr>
+        <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
+        <td colspan="3">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
+            <div class="expandibleDiv">
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" >
+                <asp:ListItem />
+                <asp:ListItem Value="1">Sí</asp:ListItem>
+                <asp:ListItem Value="2">No</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Label ID="lblDSMVDiagDual" runat="server" />
+                </div>
+        </td>
+    </tr>
 </table>
   </div>
 </div>

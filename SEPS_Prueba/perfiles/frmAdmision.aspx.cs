@@ -36,12 +36,12 @@ namespace ASSMCA.Perfiles
 
         protected void ActualizarResidencia( )
         {
-            System.Data.DataView dvwResidencia = new System.Data.DataView();
-            dvwResidencia.Table = this.dsPerfil.SA_LKP_TEDS_RESIDENCIA;
+            //System.Data.DataView dvwResidencia = new System.Data.DataView();
+            //dvwResidencia.Table = this.dsPerfil.SA_LKP_TEDS_RESIDENCIA;
 
-            List<string> SM = new List<string>() { "0", "1", "2", "3", "4", "7", "8", "11", "13", "14", "97" };
+            //List<string> SM = new List<string>() { "0", "1", "2", "3", "4", "7", "8", "11", "13", "14", "97" };
 
-            string value = WucDatosDemograficos.ddlResidencia.SelectedValue;
+            //string value = WucDatosDemograficos.ddlResidencia.SelectedValue;
             /*PK_Residencia DE_Residencia
                 ------------ - --------------------------------------------------
                         1             Propia(de los padres, si es menor)
@@ -63,14 +63,14 @@ namespace ASSMCA.Perfiles
             // salud mental 
             if (WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "")
             {
-                    dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14,97)";
-                    WucDatosDemograficos.dvwResidencia = dvwResidencia;
-                    WucDatosDemograficos.ddlResidencia.DataBind();
+                //    dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14,97)";
+                //    WucDatosDemograficos.dvwResidencia = dvwResidencia;
+                //    WucDatosDemograficos.ddlResidencia.DataBind();
 
-                if (SM.Contains(value))
-                {
-                    WucDatosDemograficos.ddlResidencia.SelectedValue = value;
-                }
+                //if (SM.Contains(value))
+                //{
+                //    WucDatosDemograficos.ddlResidencia.SelectedValue = value;
+                //}
                 
 
                 lblTipoPerfil.Text = "Salud Mental.";
@@ -79,11 +79,11 @@ namespace ASSMCA.Perfiles
             // Abuso de sustancia
             if (WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "")
             {
-                value = WucDatosDemograficos.ddlResidencia.SelectedValue;
-                WucDatosDemograficos.dvwResidencia = dvwResidencia;
-                WucDatosDemograficos.ddlResidencia.DataBind();
+                //value = WucDatosDemograficos.ddlResidencia.SelectedValue;
+                //WucDatosDemograficos.dvwResidencia = dvwResidencia;
+                //WucDatosDemograficos.ddlResidencia.DataBind();
                 
-                WucDatosDemograficos.ddlResidencia.SelectedValue = value;
+                //WucDatosDemograficos.ddlResidencia.SelectedValue = value;
                 
                 lblTipoPerfil.Text = "Abuso de Sustancias.";
             }

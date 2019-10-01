@@ -329,7 +329,7 @@ function tabEvent(e) {
 function changeTabOrder() {
     try {
         var prefix = "#mainBodyContent_WucEpisodioAdmision_";
-        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) {
+        $(prefix + "ddlDSMVDiagDual").on('keydown', function (e) {
             if (e.keyCode == 9 && $(prefix + "ddlDrogaPrim").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim").focus(); e.preventDefault(); }
             else if (e.keyCode == 9 && !$(prefix + "ddlDrogaPrim").is(':enabled')) {
                 document.getElementById("mainBodyContent_WucDatosAdmision_txtComentarios").focus(); e.preventDefault(); } });
@@ -393,7 +393,7 @@ function showDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
             }
         }
         
-        var url = 'frmdsmi_v.aspx?' + 'txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion
+        var url = 'frmdsmi_v.aspx?' + 'txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion;
         var ventana = window.open(url, "list", "width=620,height=280,resizable=yes,toolbar=no,status=no,menubar=no");    
         
     }
@@ -2238,11 +2238,15 @@ function validateCOOCURRING() {
     var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
     var ddlPreviosSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlPreviosSustancias");
     var ddlPreviosMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlPreviosMental");
-
+    var ClinHD = document.getElementById("mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim");
+    
     var campos = "\n";
-
+   
     if (ddlNivelCuidadoSaludMental.value != "99") {
-        
+        if (ClinHD.value == '761') {
+            alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
+            return false;
+        }
         if ((ddlDrogaPrim.value != sustanciasList.Noaplica || opiod.value != 4) && ddlDSMVDiagDual.value != "1") {
             if (ddlDrogaPrim.value != sustanciasList.Noaplica) {
                 campos += "\u2022Seleccionó una droga\n";
@@ -2253,18 +2257,34 @@ function validateCOOCURRING() {
             alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
             return false;
         }
+        else if (ddlDrogaPrim.value == sustanciasList.Noaplica && opiod.value == 4 && ddlDSMVDiagDual.value == "1")
+        {
+            campos += "\u2022NO seleccionó una droga\n";
+            campos += "\u2022NO seleccionó medicamento para opíaceos\n";
+            return confirm("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
+        }
         else {
             return true;
         }
     }
     else if (ddlNivelCuidadoSustancias.value != "99") {
 
-        if (GAF.value != "" && ddlDSMVDiagDual.value != "1") {
+        if ((GAF.value != "") && ddlDSMVDiagDual.value != "1") {
 
             campos += "\u2022Entró algún valor en Funcionamiento Global\n";
 
             alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
             return false;
+        }
+        else if ((GAF.value == "" || ClinHD.value == '761') && ddlDSMVDiagDual.value == "1")
+        {
+            if (ClinHD.value == '761') {
+                campos += "\u2022NO entró algún valor en Diagnostico Primario\n";
+            }
+            if (GAF.value == "") {
+                campos += "\u2022NO entró algún valor en Funcionamiento Global\n";
+            }
+            return confirm("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
         }
         else {
             return true;
@@ -2274,8 +2294,8 @@ function validateCOOCURRING() {
 
 var saving = false;
 function validate() {
-    
     var isValid = Page_ClientValidate();
+    
     if (!saving) {
         if (isValid) {
             var a = validateCOOCURRING();

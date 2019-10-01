@@ -39,10 +39,10 @@ namespace ASSMCA.Perfiles
                     this.dvwFuerzaLaboral.RowFilter = "PK_NoFuerzaLaboral <> 9";
                     this.dvwUltGrado.RowFilter = "(PK_grado <> 22) AND (PK_grado <> 23) AND (PK_grado <> 24) AND (PK_grado <> 25)";
                 }
-                if (this.Session["co_tipo"].ToString() == "1")
-                {
-                    this.dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14)";
-                }
+                //if (this.Session["co_tipo"].ToString() == "1")
+                //{
+                //    this.dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14)";
+                //}
                 this.DataBind();
                 lbxCompFamiliar();//multi
                 if (this.m_frmAction == frmAction.Create || this.m_frmAction == frmAction.Update)
