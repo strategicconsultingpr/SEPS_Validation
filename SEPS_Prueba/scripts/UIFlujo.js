@@ -329,6 +329,7 @@ function tabEvent(e) {
 function changeTabOrder() {
     try {
         var prefix = "#mainBodyContent_WucEpisodioAdmision_";
+        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) { if (e.keyCode == 9) { document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDSMVDiagDual").focus(); e.preventDefault(); }});
         $(prefix + "ddlDSMVDiagDual").on('keydown', function (e) {
             if (e.keyCode == 9 && $(prefix + "ddlDrogaPrim").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDrogaPrim").focus(); e.preventDefault(); }
             else if (e.keyCode == 9 && !$(prefix + "ddlDrogaPrim").is(':enabled')) {

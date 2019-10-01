@@ -196,7 +196,8 @@ function tabEvent(e) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
                     }
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 case (prefix + "ddlDrogaSec"):
@@ -205,7 +206,9 @@ function tabEvent(e) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
                     }
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    alert("entre sec");
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 case (prefix + "ddlDrogaTerc"):
@@ -214,7 +217,9 @@ function tabEvent(e) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
                     }
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 case (prefix + "ddlViaPrim"):
@@ -281,7 +286,8 @@ function tabEvent(e) {
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 case (prefix + "txtEdadTerc"):
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+                    if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
+                    else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
                     break;
                 default: break;
@@ -308,6 +314,7 @@ function currentPageName() {
 function changeTabOrder() {
     try {
         var prefix = "#mainBodyContent_WucEpisodioPerfil_";
+        $(prefix + "txtDSMVOtrasObs").on('keydown', function (e) { if (e.keyCode == 9) { document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlDSMVDiagDual").focus(); e.preventDefault(); } });
         $(prefix + "ddlDSMVDiagDual").on('keydown', function (e) { if (e.keyCode == 9) { document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim").focus(); e.preventDefault(); } });
         $(prefix + "ddlDrogaPrim").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "ddlDrogaSec").on('keydown', function (e) { tabEvent(e) });
