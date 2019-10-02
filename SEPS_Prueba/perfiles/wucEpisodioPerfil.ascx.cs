@@ -585,6 +585,7 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
+                    this.ddlDrogaTerc.Enabled = true;
                     return Convert.ToSByte(this.ddlDrogaTerc.SelectedValue.ToString());
                 }
                 catch

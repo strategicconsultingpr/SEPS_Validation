@@ -1804,6 +1804,9 @@ function validateCOOCURRING() {
             return true;
         }
     }
+    else {
+        return true;
+    }
 }
 
 var saving = false;
