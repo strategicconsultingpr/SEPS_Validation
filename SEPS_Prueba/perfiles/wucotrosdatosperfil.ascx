@@ -146,6 +146,7 @@
             <asp:Label ID="lblFechaContacto" runat="server" Text='<%# DataBinder.Eval(dsPerfil, "Tables[SA_PERFIL].DefaultView.[0].FE_Contacto", "{0:d}") %>'/>
         </div>
         <asp:RangeValidator ID="rvAñoContacto" CssClass="leftFloatAsterisk"  runat="server" ControlToValidate="txtAñoContacto" Display="Dynamic" ErrorMessage="Fecha Admisión" MaximumValue="0" MinimumValue="0" Type="Integer" Text="*"/>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="txtAñoContacto"  ErrorMessage="Año en Fecha de Contacto" ToolTip="Agrege año de ultimo contacto. Este campo es requerido." Text="*"/>
     </div>
 </div>
   </div>
