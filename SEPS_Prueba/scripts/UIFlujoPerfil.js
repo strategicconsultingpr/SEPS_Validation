@@ -206,7 +206,7 @@ function tabEvent(e) {
                             $("#" + inputs[i]).focus(); e.preventDefault(); return;
                         }
                     }
-                    alert("entre sec");
+                    
                     if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
