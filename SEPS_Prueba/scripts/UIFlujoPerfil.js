@@ -1,6 +1,9 @@
 ﻿$(document).ready(function () {
     frmActionModeSetup();
     startupFunctions();
+    if (IsPostBack() == "False") {
+        CO_Tipo();
+    }
 });
 function startupFunctions() {
     try {
@@ -14,12 +17,19 @@ function startupFunctions() {
         ddlRazonAlta();
         ddlGrado();
         TakeHomeParticipa();
-        CO_Tipo();
+        //CO_Tipo();
     }
     catch (ex) {
         throw ex;
     }
 }
+
+function IsPostBack() {
+    return document.getElementById('postbackControl').value;
+
+}
+
+
 function CO_Tipo() {
     try {
         var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioPerfil_CO_Tipo");
@@ -1017,7 +1027,7 @@ function ddlDrogaSecF() {
         ddlViaSec.disabled = false;
         ddlFrecSec.disabled = false;
         txtEdadSec.disabled = false;
-
+        
         if (!(ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Nousaactualmente || ddlDrogaPrim.value == "0") && (ddlViaPrim.value == "0" || ddlViaPrim.value == viaList.NoAplica || ddlFrecPrim.value == 0 || ddlFrecPrim.value == 99 || txtEdadPrim.value < "1") && !(ddlDrogaSec.value == sustanciasList.Noaplica || ddlDrogaSec.value == sustanciasList.Nousaactualmente)) {
 
             ddlDrogaSec.value = sustanciasList.Nousaactualmente;
@@ -1043,25 +1053,33 @@ function ddlDrogaSecF() {
                     ddlViaSec.value = viaList.OralBebida;
                     ddlDrogaTerc.disabled = false;
                     ddlViaSec.disabled = true;
-                    ddlFrecSec.value = 0;
+                    if (ddlFrecSec.value == 99) {
+                        ddlFrecSec.value = 0;
+                    }
                     break;
                 case (sustanciasList.Inhalantes):
                     ddlViaSec.value = viaList.Nasal;
                     ddlDrogaTerc.disabled = false;
                     ddlViaSec.disabled = true;
-                    ddlFrecSec.value = 0;
+                    if (ddlFrecSec.value == 99) {
+                        ddlFrecSec.value = 0;
+                    }
                     break;
                 case (sustanciasList.Anestesiadecaballo):
                     ddlViaSec.value = viaList.Inyectada;
                     ddlDrogaTerc.disabled = false;
                     ddlViaSec.disabled = true;
-                    ddlFrecSec.value = 0;
+                    if (ddlFrecSec.value == 99) {
+                        ddlFrecSec.value = 0;
+                    }
                     break;
                 case (sustanciasList.Tabacocigarrillo):
                     ddlViaSec.value = viaList.Fumada;
                     ddlDrogaTerc.disabled = false;
                     ddlViaSec.disabled = true;
-                    ddlFrecSec.value = 0;
+                    if (ddlFrecSec.value == 99) {
+                        ddlFrecSec.value = 0;
+                    }
                     break;
                 case (sustanciasList.Nousaactualmente):
                     ddlDrogaSec.value = sustanciasList.Nousaactualmente;
@@ -1124,7 +1142,7 @@ function ddlDrogaSecF() {
                 default:
                     ddlViaSec.disabled = false;
                     ddlDrogaTerc.disabled = false;
-                    txtEdadSec.value = "";
+                    //txtEdadSec.value = "";
                     break;
             }
             if (ddlDrogaSec.value != sustanciasList.Nousaactualmente && ddlDrogaSec.value != sustanciasList.Noaplica && ddlDrogaSec.value != sustanciasList.Noinformó && ddlViaSec.value != 0) {
@@ -1192,22 +1210,30 @@ function ddlDrogaTercF() {
                 case (sustanciasList.Alcohol): case (sustanciasList.Ecstasy): case (sustanciasList.Metadona): case (sustanciasList.Percocet): case (sustanciasList.Xanax):
                     ddlViaTerc.value = viaList.OralBebida;
                     ddlViaTerc.disabled = true;
-                    ddlFrecTerc.value = 0;
+                    if (ddlFrecTerc.value == 99) {
+                        ddlFrecTerc.value = 0;
+                    }
                     break;
                 case (sustanciasList.Inhalantes):
                     ddlViaTerc.value = viaList.Nasal;
                     ddlViaTerc.disabled = true;
-                    ddlFrecTerc.value = 0;
+                    if (ddlFrecTerc.value == 99) {
+                        ddlFrecTerc.value = 0;
+                    }
                     break;
                 case (sustanciasList.Anestesiadecaballo):
                     ddlViaTerc.value = viaList.Inyectada;
                     ddlViaTerc.disabled = true;
-                    ddlFrecTerc.value = 0;
+                    if (ddlFrecTerc.value == 99) {
+                        ddlFrecTerc.value = 0;
+                    }
                     break;
                 case (sustanciasList.Tabacocigarrillo):
                     ddlViaTerc.value = viaList.Fumada;
                     ddlViaTerc.disabled = true;
-                    ddlFrecTerc.value = 0;
+                    if (ddlFrecTerc.value == 99) {
+                        ddlFrecTerc.value = 0;
+                    }
                     break;
                 case (sustanciasList.Nousaactualmente):
                     ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
@@ -1243,7 +1269,7 @@ function ddlDrogaTercF() {
                     break;
                 default:
                     ddlViaTerc.disabled = false;
-                    txtEdadTerc.value = "";
+                    //txtEdadTerc.value = "";
                     break;
             }
         }

@@ -9,6 +9,7 @@
     <h1 style="display:inline">Perfil de alta</h1> <h2 style="display:inline"><asp:Label ID="lblTipoPerfil" runat="server" ></asp:Label></h2>
     <h1></h1>
     <input type="hidden" id="hTipoPagina" value="alta"/>
+    <input type="hidden" id="postbackControl" value="<%=Page.IsPostBack.ToString()%>" />
     <asp:ScriptManager ID="what" runat = "server"/>
     <uc1:wucdatospersonales id="WucDatosPersonales" runat="server"/>
     <uc1:wucotrosdatosperfil id="WucOtrosDatosPerfil" runat="server" />

@@ -3,6 +3,18 @@
    // frmActionModeSetup();
     
     startupFunctions();
+    //if (IsPostBack() == "False") {
+    //    var accion = document.getElementById("mainBodyContent_WucEpisodioAdmision_hAccion");
+
+    //    if (accion.value === "update") {
+    //        AccionUpdate();
+    //    }
+    //    else {
+    //        ddlNivelCuidadoSaludMental();
+    //        ddlNivelCuidadoSustancias();
+    //        CO_Tipo();
+    //    }
+    //}
 });
 
 
@@ -71,11 +83,18 @@ function startupFunctions() {
             CO_Tipo();
         }
         
+        
      }
     catch (ex) {
         throw ex;
     }
 }
+
+function IsPostBack() {
+    return document.getElementById('postbackControl').value;
+
+}
+
 function CO_Tipo() {
         try {
             var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");

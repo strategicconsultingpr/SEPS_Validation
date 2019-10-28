@@ -4,6 +4,7 @@
 <input id="hNivelAS" type="hidden" name="Hidden7" runat="server"/>
 <input id="hDual" type="hidden" name="Hidden8" runat="server" />
 
+
 <div runat="server" id="NivelDiv" class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Nivel de cuidado de este episodio</h3>
