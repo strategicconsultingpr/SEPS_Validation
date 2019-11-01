@@ -7,10 +7,10 @@
   </div>
   <div class="panel-body">
     <div class="row">
-    <div class="col-md-12 SEPSDivs">
+    <%--<div class="col-md-12 SEPSDivs">
         <span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span>
         <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" onChange="ddlDSMVDiagDual('mainBodyContent_WucEpisodioAdmision_','ddlDSMVDiagDual');">
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server">
                 <asp:ListItem ></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
@@ -18,7 +18,7 @@
             <asp:Label ID="lblDSMVDiagDual" runat="server" />
         </div>
 
-    </div>
+    </div>--%>
     <div class="col-md-12 SEPSDivs"><%--Etapa del servicio--%>
         <span class="SEPSLabel">Etapa del servicio:</span>          <asp:RequiredFieldValidator ID="rfvMenor" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlEtapaServicio" ErrorMessage="Etapa del servicio" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
         <div class="expandibleDiv">
@@ -714,6 +714,24 @@
             <asp:label id="lblDSMVOtrasObs" runat="server"/>
         </td>
     </tr>
+        
+         <tr>
+        <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
+              
+        <td colspan="3">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
+            <div class="expandibleDiv">
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server">
+                <asp:ListItem />
+                <asp:ListItem Value="1">Sí</asp:ListItem>
+                <asp:ListItem Value="2">No</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Label ID="lblDSMVDiagDual" runat="server" />
+                </div>
+        </td>
+    </tr>
+
+    
     <%--<tr>
         <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
         <td colspan="3">

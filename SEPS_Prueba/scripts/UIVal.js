@@ -269,7 +269,8 @@ function FechaConvenio() {
         var fechaNacimiento = new Date(document.getElementById("mainBodyContent_WucDatosPersonales_lblFENacimientoHidden").value);
         var now = new Date();
         var fechaActual = new Date((now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear());
-        var fechaConvenio = new Date(mes.value + '/' + día.value + '/' + año.value);    
+        var fechaConvenio = new Date(mes.value + '/' + día.value + '/' + año.value);  
+       
         if (fechaConvenio > fechaActual) {
             alert("La fecha de convenio no puede ser mayor a la fecha de hoy.");
             día.value = 1;
@@ -277,7 +278,8 @@ function FechaConvenio() {
             mes.value = 1;
             mes.focus();
         }
-        else if (esProgramaAdulto.value) {
+        else if (esProgramaAdulto.value == true) {
+            alert("entre mal");
             var fecha18Yrs = new Date((fechaNacimiento.getMonth() + 1) + '/' + fechaNacimiento.getDate() + '/' + (fechaNacimiento.getFullYear() + 18));           
             if (fecha18Yrs > fechaConvenio) {
                 alert("La fecha de convenio no puede ser menor a la fecha en que el paciente cumplio 18 años.");

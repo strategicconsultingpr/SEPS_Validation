@@ -7,6 +7,7 @@
         <div class="row">
         <div class="col-md-12 SEPSDivs"><%--Razón de Alta--%>
             <span class="SEPSLabel SEPSDivs">Razón de alta:</span>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" InitialValue="0" ControlToValidate="ddlRazonAlta"  ErrorMessage="Razón de Alta" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
                 <asp:dropdownlist CssClass="form-control" ID="ddlRazonAlta" runat="server" DataTextField="DE_Alta" DataValueField="PK_Alta" DataMember="SA_LKP_ALTA" DataSource="<%# dvwRazonAlta %>" onChange="ddlRazonAlta();"/>
                 <asp:label id="lblRazonAlta" runat="server"/>

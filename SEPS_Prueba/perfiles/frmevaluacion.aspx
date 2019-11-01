@@ -10,6 +10,7 @@
     <h1 style="display:inline">Perfil de evaluación</h1> <h2 style="display:inline"><asp:Label ID="lblTipoPerfil" runat="server" ></asp:Label></h2>
     <h1></h1>
     <input type="hidden" id="hTipoPagina" value="evaluación"/>
+    <input type="hidden" id="postbackControl" value="<%=Page.IsPostBack.ToString()%>" />
     <uc1:wucDatosPersonales         ID="WucDatosPersonales"         runat="server" />
     <uc1:wucOtrosDatosPerfil        ID="WucOtrosDatosPerfil"        runat="server" />
     <uc1:wucDatosDemograficosPerfil ID="WucDatosDemograficosPerfil" runat="server" />
