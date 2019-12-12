@@ -6,17 +6,21 @@
     }
 });
 function startupFunctions() {
+    var urlParams = new URLSearchParams(window.location.search);
     try {
         changeTabOrder();
         setupFechaPerfilLabel();
-        ddlCondLaboral();
-        ddlArrestado30();
-        ddlDrogaPrimF();
-        ddlDSMVPsicoAmbiPrim();
-        ddlDSMVPsicoAmbiSec();
-        ddlRazonAlta();
-        ddlGrado();
-        TakeHomeParticipa();
+
+        if (urlParams.get('accion') != 'update') {
+            ddlCondLaboral();
+            ddlArrestado30();
+            ddlDrogaPrimF();
+            ddlDSMVPsicoAmbiPrim();
+            ddlDSMVPsicoAmbiSec();
+            ddlRazonAlta();
+            ddlGrado();
+            TakeHomeParticipa();
+        }
         //CO_Tipo();
     }
     catch (ex) {
@@ -876,7 +880,7 @@ var viaList = {
                 break;
             case (sustanciasList.Nousaactualmente):
                 if (ddlNivelCuidadoSustancias.value != "99") {
-                    var a = confirm("Al seleccionar esta opción, significa que el paciente NO utiliza ninguna tipo de droga actualmente. ¿Desea proseguir?")
+                    var a = confirm("Al seleccionar esta opción, significa que el paciente NO utiliza ninguna tipo de droga actualmente. ¿Desea proseguir?");
                     if (a == true) {
                         alert("El paciente NO esta utilizando ninguna droga.");
                         ddlViaPrim.value = viaList.NoAplica;

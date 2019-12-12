@@ -29,6 +29,7 @@ namespace ASSMCA.Perfiles
 
             this.hNivelSM.Value = nivelSM;
             this.hNivelAS.Value = nivelAS;
+            
             if (!this.IsPostBack)
 			{
 				this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
@@ -72,6 +73,7 @@ namespace ASSMCA.Perfiles
                     case (frmAction.Update): 
                         this.EditarRegistro();
                         this.ActualizarCampos();
+                        this.hAccion.Value = "Update";
                         break;
                     default: 
                         break;
