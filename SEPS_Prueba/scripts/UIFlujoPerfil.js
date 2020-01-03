@@ -1840,6 +1840,116 @@ function cvTakeHomeRazonesNoParticipaValidation(oSrc, args) {
     catch (ex) { }
 }
 
+function cvFechaEntrada(oSrc, args) {
+    try {
+       
+        var ddlTHBelong = document.getElementById('mainBodyContent_WucTakeHome_ddlTHBelong');
+        var txtFechaEntradaAño = document.getElementById('mainBodyContent_WucTakeHome_txtFechaEntradaAño');
+        switch (ddlTHBelong.value) {
+            case ("1"):
+                if (txtFechaEntradaAño.value == "") {
+                    args.IsValid = false;
+                }
+                else {
+                    args.IsValid = true;
+                }
+                break;
+            default:
+                args.IsValid = true;
+                break;
+        }
+    }
+    catch (ex) { }
+}
+
+function cvFechaSalida(oSrc, args) {
+    try {
+
+        var ddlTHBelong = document.getElementById('mainBodyContent_WucTakeHome_ddlTHBelong');
+        var txtFechaSalidaAño = document.getElementById('mainBodyContent_WucTakeHome_txtFechaSalidaAño');
+        switch (ddlTHBelong.value) {
+            case ("1"):
+                if (txtFechaSalidaAño.value == "") {
+                    args.IsValid = false;
+                }
+                else {
+                    args.IsValid = true;
+                }
+                break;
+            default:
+                args.IsValid = true;
+                break;
+        }
+    }
+    catch (ex) { }
+}
+
+function cvCantidadBotellas(oSrc, args) {
+    try {
+
+        var ddlTHBelong = document.getElementById('mainBodyContent_WucTakeHome_ddlTHBelong');
+        var txtCantidadBotellas = document.getElementById('mainBodyContent_WucTakeHome_txtCantidadBotellas');
+        switch (ddlTHBelong.value) {
+            case ("1"):
+                if (txtCantidadBotellas.value == "" || txtCantidadBotellas.value < 0) {
+                    args.IsValid = false;
+                }
+                else {
+                    args.IsValid = true;
+                }
+                break;
+            default:
+                args.IsValid = true;
+                break;
+        }
+    }
+    catch (ex) { }
+}
+
+function cvFrecuenciaBotellas(oSrc, args) {
+    try {
+
+        var ddlTHBelong = document.getElementById('mainBodyContent_WucTakeHome_ddlTHBelong');
+        var ddlFrecuenciaBotellas = document.getElementById('mainBodyContent_WucTakeHome_ddlFrecuenciaBotellas');
+        switch (ddlTHBelong.value) {
+            case ("1"):
+                if (ddlFrecuenciaBotellas.value == 0) {
+                    args.IsValid = false;
+                }
+                else {
+                    args.IsValid = true;
+                }
+                break;
+            default:
+                args.IsValid = true;
+                break;
+        }
+    }
+    catch (ex) { }
+}
+
+function cvEtapa(oSrc, args) {
+    try {
+
+        var ddlTHBelong = document.getElementById('mainBodyContent_WucTakeHome_ddlTHBelong');
+        var ddlTHEtapa = document.getElementById('mainBodyContent_WucTakeHome_ddlTHEtapa');
+        switch (ddlTHBelong.value) {
+            case ("1"):
+                if (ddlTHEtapa.value == 0) {
+                    args.IsValid = false;
+                }
+                else {
+                    args.IsValid = true;
+                }
+                break;
+            default:
+                args.IsValid = true;
+                break;
+        }
+    }
+    catch (ex) { }
+}
+
 function validateCOOCURRING() {
     var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioPerfil_hNivelSM");
     var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioPerfil_hNivelAS");
