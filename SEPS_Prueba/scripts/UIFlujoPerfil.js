@@ -1867,9 +1867,11 @@ function cvFechaSalida(oSrc, args) {
 
         var ddlTHBelong = document.getElementById('mainBodyContent_WucTakeHome_ddlTHBelong');
         var txtFechaSalidaAño = document.getElementById('mainBodyContent_WucTakeHome_txtFechaSalidaAño');
+        var tipoDePerfil = $("#hTipoPagina").val();
+        
         switch (ddlTHBelong.value) {
             case ("1"):
-                if (txtFechaSalidaAño.value == "") {
+                if (txtFechaSalidaAño.value == "" && tipoDePerfil == "alta") {
                     args.IsValid = false;
                 }
                 else {
