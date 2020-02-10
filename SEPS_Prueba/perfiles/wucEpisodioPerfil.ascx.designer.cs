@@ -22,6 +22,42 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden CO_Tipo;
         
         /// <summary>
+        /// hNivelSM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hNivelSM;
+        
+        /// <summary>
+        /// hNivelAS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hNivelAS;
+        
+        /// <summary>
+        /// hDual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDual;
+        
+        /// <summary>
+        /// hAccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hAccion;
+        
+        /// <summary>
         /// NivelDiv control.
         /// </summary>
         /// <remarks>
@@ -65,15 +101,6 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden ddlNivelCuidadoSustanciasHidden;
-        
-        /// <summary>
-        /// updCondicionDiagnosticada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updCondicionDiagnosticada;
         
         /// <summary>
         /// divCondicionesDiagnosticadas control.
@@ -553,24 +580,6 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.WebControls.Label lblDSMVComentarios;
         
         /// <summary>
-        /// ddlDSMVDiagDual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDSMVDiagDual;
-        
-        /// <summary>
-        /// lblDSMVDiagDual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDSMVDiagDual;
-        
-        /// <summary>
         /// txtDSMVFnGlobal control.
         /// </summary>
         /// <remarks>
@@ -605,6 +614,33 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDSMVOtrasObs;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// ddlDSMVDiagDual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSMVDiagDual;
+        
+        /// <summary>
+        /// lblDSMVDiagDual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVDiagDual;
         
         /// <summary>
         /// rfvDrogaPrim control.
@@ -974,15 +1010,6 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl h3PracticasBasadasEnEvidenciaNinoOAdulto;
-        
-        /// <summary>
-        /// updPracticasBasadasEvidencia control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updPracticasBasadasEvidencia;
         
         /// <summary>
         /// divLbxPracticasBasadasEvidencia control.

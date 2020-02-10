@@ -1,4 +1,4 @@
-<%@ Page language="c#" Inherits="ASSMCA.Perfiles.frmAlta" Codebehind="frmAlta.aspx.cs" MasterPageFile="~/MainUIFP.Master" %>
+<%@ Page language="c#" Inherits="ASSMCA.Perfiles.frmAlta" Codebehind="frmAlta.aspx.cs" MasterPageFile="~/MainUIFP.Master"  MaintainScrollPositionOnPostback="true" %>
 <%@ Register TagPrefix="uc1" TagName="wucOtrosDatosPerfil" Src="wucOtrosDatosPerfil.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucDatosDemograficosPerfil" Src="wucDatosDemograficosPerfil.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="wucEpisodioPerfil" Src="wucEpisodioPerfil.ascx" %>
@@ -9,6 +9,7 @@
     <h1 style="display:inline">Perfil de alta</h1> <h2 style="display:inline"><asp:Label ID="lblTipoPerfil" runat="server" ></asp:Label></h2>
     <h1></h1>
     <input type="hidden" id="hTipoPagina" value="alta"/>
+    <input type="hidden" id="postbackControl" value="<%=Page.IsPostBack.ToString()%>" />
     <asp:ScriptManager ID="what" runat = "server"/>
     <uc1:wucdatospersonales id="WucDatosPersonales" runat="server"/>
     <uc1:wucotrosdatosperfil id="WucOtrosDatosPerfil" runat="server" />

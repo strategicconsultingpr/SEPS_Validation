@@ -1,5 +1,11 @@
 ﻿<%@ Control Language="c#" Inherits="ASSMCA.Perfiles.wucEpisodioPerfil" CodeBehind="wucEpisodioPerfil.ascx.cs" %>
 <input id="CO_Tipo" type="hidden" name="Hidden2" runat="server"/>
+<input id="hNivelSM" type="hidden" name="Hidden6" runat="server"/>
+<input id="hNivelAS" type="hidden" name="Hidden7" runat="server"/>
+<input id="hDual" type="hidden" name="Hidden8" runat="server" />
+<input id="hAccion" type="hidden" name="HAccion" runat="server" />
+
+
 <div runat="server" id="NivelDiv" class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Nivel de cuidado de este episodio</h3>
@@ -14,7 +20,7 @@
     <div class="col-md-6"><%--Nivel de Cuidado Abuso de Sustancias--%>
         <span class="SEPSLabel">Nivel de cuidado (Abuso de Sustancias):</span>
         <asp:Label ID="lblNivelCuidadoSustancias" runat="server"/>
-        <input id="ddlNivelCuidadoSustanciasHidden" type="hidden" name="Hidden2" runat="server" />
+        <input id="ddlNivelCuidadoSustanciasHidden" type="hidden" name="Hidden3" runat="server" />
     </div>
 </div>
 
@@ -26,8 +32,7 @@
     <h3 class="panel-title">Datos de salud general</h3>
   </div>
   <div class="panel-body">
-    <asp:UpdatePanel ID="updCondicionDiagnosticada" runat="server">
-    <ContentTemplate>                                 
+                               
         <div style="height:160px;" runat="server" id="divCondicionesDiagnosticadas">
             <div class="multipleLeft"> <%-- Listbox left --%>
                 <span class="SEPSLabel">Condiciones (Disponibles)</span>
@@ -51,8 +56,7 @@
                 <asp:Label ID="lblCondicionesDiagnosticadas" runat="server"/>
             </div>
         </div>
-    </ContentTemplate>
-</asp:UpdatePanel>
+ 
   </div>
 </div>
 
@@ -257,17 +261,17 @@
             <asp:label id="lblDSMVComentarios" runat="server"/>
         </td>
     </tr>
-    <tr>
+    <%--<tr>
         <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
         <td colspan="3">
-            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" onChange="ddlDSMVDiagDual('mainBodyContent_WucEpisodioPerfil_','ddlDSMVDiagDual');">
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" >
                 <asp:ListItem />
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="lblDSMVDiagDual" runat="server" />
         </td>
-    </tr>
+    </tr>--%>
     <tr>
         <th><span class="SEPSLabel">Funcionamiento global</span></th>
         <td colspan="3">
@@ -281,7 +285,21 @@
             <asp:textbox CssClass="form-control" id="txtDSMVOtrasObs" runat="server" MaxLength="1500" TextMode="MultiLine" Height="64px"/>
             <asp:label id="lblDSMVOtrasObs" runat="server"/>
         </td>
-    </tr>  
+    </tr> 
+        <tr>
+        <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
+        <td colspan="3">
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
+            <div class="expandibleDiv">
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server" >
+                <asp:ListItem />
+                <asp:ListItem Value="1">Sí</asp:ListItem>
+                <asp:ListItem Value="2">No</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Label ID="lblDSMVDiagDual" runat="server" />
+                </div>
+        </td>
+    </tr>
 </table>
   </div>
 </div>
@@ -294,30 +312,30 @@
     <table class="table table-striped table-hover">
     <tr>
         <th></th>
-        <th><span class="SEPSLabel">Diagnóstico primario</span></th>
-        <th><span class="SEPSLabel">Diagnóstico secundario</span></th>
-        <th><span class="SEPSLabel">Diagnóstico terciario</span></th>
+        <th><span class="SEPSLabel">Droga de uso primario</span></th>
+        <th><span class="SEPSLabel">Droga de uso secundario</span></th>
+        <th><span class="SEPSLabel">Droga de uso terciario</span></th>
     </tr>
     <tr>
         <th><span class="SEPSLabel">Droga</span></th>
         <td><%--Diagnóstico Primario--%>
             <asp:RequiredFieldValidator ID="rfvDrogaPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlDrogaPrim" ErrorMessage="Droga - Diagnóstico Primario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList  CssClass="form-control" ID="ddlDrogaPrim" runat="server" DataSource="<%# dvwDrogaPrim %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaPrimF();"/>
+                <asp:DropDownList TabIndex="1"  CssClass="form-control" ID="ddlDrogaPrim" runat="server" DataSource="<%# dvwDrogaPrim %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaPrimF();"/>
                 <asp:Label ID="lblDrogaPrim" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Secundario--%>
             <asp:RequiredFieldValidator ID="rfvDrogaSec" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlDrogaSec" ErrorMessage="Droga - Diagnóstico Secundario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList  CssClass="form-control" ID="ddlDrogaSec" runat="server" DataSource="<%# dvwDrogaSec %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaSecF();"/>
+                <asp:DropDownList  TabIndex="5"  CssClass="form-control" ID="ddlDrogaSec" runat="server" DataSource="<%# dvwDrogaSec %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaSecF();"/>
                 <asp:Label ID="lblDrogaSec" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Terciario--%>
             <asp:RequiredFieldValidator ID="rfvDrogaTerc" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlDrogaTerc" ErrorMessage="Droga - Diagnóstico Terciario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList CssClass="form-control" ID="ddlDrogaTerc" runat="server" DataSource="<%# dvwDrogaTerc %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaTercF();"/>
+                <asp:DropDownList   TabIndex="9"  CssClass="form-control" ID="ddlDrogaTerc" runat="server" DataSource="<%# dvwDrogaTerc %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaTercF();"/>
                 <asp:Label ID="lblDrogaTerc" runat="server" />
             </div>
         </td>
@@ -327,21 +345,21 @@
         <td><%--Diagnóstico Primario--%>
             <asp:RequiredFieldValidator ID="rfvViaPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlViaPrim" ErrorMessage="Vía de Utilización - Diagnóstico Primario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
             <div class="expandibleDiv">
-                <asp:DropDownList  CssClass="form-control" ID="ddlViaPrim" runat="server" DataSource="<%# dvwViaPrim %>" DataTextField="DE_ViaUtilizacion" DataValueField="PK_ViaUtilizacion" onChange="ddlViaPrimF();"/>
+                <asp:DropDownList  TabIndex="2"    CssClass="form-control" ID="ddlViaPrim" runat="server" DataSource="<%# dvwViaPrim %>" DataTextField="DE_ViaUtilizacion" DataValueField="PK_ViaUtilizacion" onChange="ddlViaPrimF();"/>
                 <asp:Label ID="lblViaPrim" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Secundario--%>
             <asp:RequiredFieldValidator ID="rfvViaSec" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlViaSec" ErrorMessage="Vía de Utilización - Diagnóstico Secundario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList CssClass="form-control" ID="ddlViaSec" runat="server" DataSource="<%# dvwViaSec %>" DataTextField="DE_ViaUtilizacion" DataValueField="PK_ViaUtilizacion" onChange="ddlViaSecF();"/>
+                <asp:DropDownList TabIndex="6" CssClass="form-control" ID="ddlViaSec" runat="server" DataSource="<%# dvwViaSec %>" DataTextField="DE_ViaUtilizacion" DataValueField="PK_ViaUtilizacion" onChange="ddlViaSecF();"/>
                 <asp:Label ID="lblViaSec" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Terciario--%>
             <asp:RequiredFieldValidator ID="rfvViaTerc" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlViaTerc" ErrorMessage="Vía de Utilización - Diagnóstico Terciario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList CssClass="form-control" ID="ddlViaTerc" runat="server" DataSource="<%# dvwViaTerc %>" DataTextField="DE_ViaUtilizacion" DataValueField="PK_ViaUtilizacion" onChange="ddlViaTercF();"/>
+                <asp:DropDownList   TabIndex="10"  CssClass="form-control" ID="ddlViaTerc" runat="server" DataSource="<%# dvwViaTerc %>" DataTextField="DE_ViaUtilizacion" DataValueField="PK_ViaUtilizacion" onChange="ddlViaTercF();"/>
                 <asp:Label ID="lblViaTerc" runat="server" />
             </div>
         </td>
@@ -351,21 +369,21 @@
         <td><%--Diagnóstico Primario--%>
             <asp:RequiredFieldValidator ID="rfvFrecPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlFrecPrim" ErrorMessage="Frecuencia de Uso - Diagnóstico Primario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList  CssClass="form-control" ID="ddlFrecPrim" runat="server" DataSource="<%# dvwFrecPrim %>" DataTextField="DE_Frecuencia" DataValueField="PK_Frecuencia" onChange="ddlFrecPrim();"/>
+                <asp:DropDownList  TabIndex="3"   CssClass="form-control" ID="ddlFrecPrim" runat="server" DataSource="<%# dvwFrecPrim %>" DataTextField="DE_Frecuencia" DataValueField="PK_Frecuencia" onChange="ddlFrecPrim();"/>
                 <asp:Label ID="lblFrecPrim" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Secundario--%>       
             <asp:RequiredFieldValidator ID="rfvFrecSec" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlFrecSec" ErrorMessage="Frecuencua de Uso - Diagnóstico Secundario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList  CssClass="form-control" ID="ddlFrecSec" runat="server" DataSource="<%# dvwFrecSec %>" DataTextField="DE_Frecuencia" DataValueField="PK_Frecuencia" onChange="ddlFrecSec();"/>
+                <asp:DropDownList   TabIndex="7"   CssClass="form-control" ID="ddlFrecSec" runat="server" DataSource="<%# dvwFrecSec %>" DataTextField="DE_Frecuencia" DataValueField="PK_Frecuencia" onChange="ddlFrecSec();"/>
                 <asp:Label ID="lblFrecSec" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Terciario--%>
             <asp:RequiredFieldValidator ID="rfvFrecTerc" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlFrecTerc" ErrorMessage="Frecuencia de Uso - Diagnóstico Terciario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList  CssClass="form-control" ID="ddlFrecTerc" runat="server" DataSource="<%# dvwFrecTerc %>" DataTextField="DE_Frecuencia" DataValueField="PK_Frecuencia" onChange="ddlFrecTerc();"/>
+                <asp:DropDownList   TabIndex="11"   CssClass="form-control" ID="ddlFrecTerc" runat="server" DataSource="<%# dvwFrecTerc %>" DataTextField="DE_Frecuencia" DataValueField="PK_Frecuencia" onChange="ddlFrecTerc();"/>
                 <asp:Label ID="lblFrecTerc" runat="server" />
             </div>
         </td>
@@ -376,7 +394,7 @@
             <asp:RequiredFieldValidator ID="rfvEdadPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
             <asp:RangeValidator ID="rvEdadPrim" CssClass="rightFloatAsterisk" runat="server" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 99" Type="Integer" MaximumValue="99" MinimumValue="0" Display="Dynamic" Text="*"/>
             <div class="expandibleDiv">
-                <asp:TextBox  CssClass="form-control" ID="txtEdadPrim" runat="server" MaxLength="2" />
+                <asp:TextBox   TabIndex="4"  CssClass="form-control" ID="txtEdadPrim" runat="server" MaxLength="2" />
                 <asp:Label ID="lblEdadPrim" runat="server" />
             </div>
         </td>
@@ -384,7 +402,7 @@
             <asp:RequiredFieldValidator ID="rfvEdadSec" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ControlToValidate="txtEdadSec" ErrorMessage="Edad inicio - Diagnóstico Secundario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
             <asp:RangeValidator ID="rvEdadSec" CssClass="rightFloatAsterisk" runat="server" ControlToValidate="txtEdadSec" ErrorMessage="Edad inicio - Diagnóstico Secundario" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 99" Type="Integer" MaximumValue="99" MinimumValue="0" Display="Dynamic" Text="*" />
             <div class="expandibleDiv">
-                <asp:TextBox  CssClass="form-control" ID="txtEdadSec" runat="server" MaxLength="2" />
+                <asp:TextBox   TabIndex="8"   CssClass="form-control" ID="txtEdadSec" runat="server" MaxLength="2" />
                 <asp:Label ID="lblEdadSec" runat="server" />
             </div>
         </td>
@@ -392,7 +410,7 @@
             <asp:RequiredFieldValidator ID="rfvEdadTerc" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ControlToValidate="txtEdadTerc" ErrorMessage="Edad inicio - Diagnóstico Terciario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*" />
             <asp:RangeValidator ID="rvEdadTerc" CssClass="rightFloatAsterisk" runat="server" ControlToValidate="txtEdadTerc" ErrorMessage="Edad inicio - Diagnóstico Terciario" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 99" Type="Integer" MaximumValue="99"  MinimumValue="0" Display="Dynamic" Text="*"/>
             <div class="expandibleDiv">
-                <asp:TextBox  CssClass="form-control" ID="txtEdadTerc" runat="server" MaxLength="2" />
+                <asp:TextBox   TabIndex="12"  CssClass="form-control" ID="txtEdadTerc" runat="server" MaxLength="2" />
                 <asp:Label ID="lblEdadTerc" runat="server" />
             </div>
         </td>
@@ -408,8 +426,7 @@
   </div>
   <div class="panel-body">
      <h3 id="h3PracticasBasadasEnEvidenciaNinoOAdulto" runat="server">Niños y adolescentes o adultos</h3>
-    <asp:UpdatePanel ID="updPracticasBasadasEvidencia" runat="server">
-        <ContentTemplate>                                 
+                                
             <div style="height:160px;" runat="server" id="divLbxPracticasBasadasEvidencia"> <%-- List boxes - Practicas Basadas en Evidencia--%>
                 <div class="multipleLeft"> <%-- Listbox left --%>
                     <span class="SEPSLabel">Prácticas (Disponibles)</span>
@@ -433,8 +450,7 @@
                 <asp:Label ID="lblPracticasBasadasEvidencia" runat="server"/>
             </div>
         </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+ 
   </div>
 </div>  
 </div>

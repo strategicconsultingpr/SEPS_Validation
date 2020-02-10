@@ -312,6 +312,7 @@
                         <asp:TextBox ID="txtAñoRangoInicio" runat="server" CssClass="form-control" onblur="IsFutureDate('','inicio','RangoInicio' )" Width="60px" MaxLength="4"/>
                     </div>
                     <asp:RangeValidator ID="rvRangoInicio" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtAñoRangoInicio" MinimumValue="1800" MaximumValue="2500" Type="Integer" Display="Dynamic" Text="*"/>
+                   <asp:Label ID="LblErrorAñoRangoInicio" runat="server"  ForeColor="Red" Text="Fecha inválida" Visible="false"></asp:Label>
                </div>
           <div class="col-sm-6 SEPSDivs"> 
                     <span class="SEPSLabel">Fin:</span>
@@ -370,7 +371,10 @@
                         <asp:TextBox ID="txtAñoRangoFin" runat="server" CssClass="form-control" Width="60px" MaxLength="4"/>
                     </div>
                     <asp:RangeValidator ID="rvRangoFin" runat="server" CssClass="leftFloatAsterisk" ControlToValidate="txtAñoRangoFin" MinimumValue="1800" MaximumValue="2500" Type="Integer" Display="Dynamic" Text="*"/>
-                </div>
+                    <asp:Label ID="LblErrorAñoRangoFin" runat="server"  ForeColor="Red" Text="Fecha inválida" Visible="false"></asp:Label>
+     
+              
+          </div>
             </div>
       </div>
       <div class="row">

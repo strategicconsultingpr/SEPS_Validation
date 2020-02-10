@@ -21,14 +21,14 @@
                 </div>
         <div class="col-lg-6 SEPSDivs Participa"><%--Etapa--%>
             <span class="SEPSLabel">Fase:</span>
+            <asp:CustomValidator ID="cvEtapa" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvEtapa" ErrorMessage="Debe seleccionar un valor en Fase de Take Home" Text="*"/>
             <div class="expandibleDiv">
                 <asp:DropDownList CssClass="form-control" ID="ddlTHEtapa" runat="server"/>
                 <asp:Label ID="lblTHEtapa" runat="server"/>
             </div>
         </div>            </div>
             <div style="height:160px;" class="NoParticipa" runat="server" id="divRazon">
-                          <asp:UpdatePanel ID="updTH" runat="server">
-        <ContentTemplate>
+ 
                 <div class="multipleLeft">  
                     <span class="SEPSLabel">Listado de razones (Disponibles)</span>     
                     <asp:ListBox CssClass="form-control"  ID="lbxRazonSeleccion" runat="server" EnableViewState ="true" Height="130px"/>
@@ -46,8 +46,7 @@
 
                     <asp:ListBox CssClass="form-control"  ID="lbxRazonSeleccionado" runat="server" EnableViewState ="true" CausesValidation="true" Height="130px" DataValueField="PK_" DataTextField="DE_"/>       
                 </div>
-                        </ContentTemplate>
-    </asp:UpdatePanel>
+ 
             </div> 
             <div class="row NoParticipa" runat="server" id="divLblRazon">
                 <div class="col-xs-12 SEPSDivsInfo">
@@ -111,6 +110,7 @@
                 </asp:DropDownList>
             </div>
             <div class="leftFloat">
+                <asp:CustomValidator ID="cvTxtFechaEntrada" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvFechaEntrada" ErrorMessage="Debe agregar fecha de entrada del Take Home" Text="*"/>
                 <asp:TextBox CssClass="form-control" ID="txtFechaEntradaAño" runat="server" Width="80px" MaxLength="4" onBlur="TakeHomeFechaEntrada()"/>
                 <asp:Label ID="lblFE_In" runat="server"/>
             </div>
@@ -169,6 +169,7 @@
                 </asp:DropDownList>
             </div>
             <div class="leftFloat">
+                <asp:CustomValidator ID="cvFechaSalida" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvFechaSalida" ErrorMessage="Debe agregar fecha de salida del Take Home" Text="*"/>
                 <asp:TextBox CssClass="form-control" onBlur="TakeHomeFechaSalida()" ID="txtFechaSalidaAño" runat="server" MaxLength="4" Width="80px"/>
                 <asp:Label ID="lblFE_Out" runat="server"/>
             </div>
@@ -177,6 +178,7 @@
 
         <div class="col-md-6 SEPSDivs"><%--Número de botellas--%>
             <span class="SEPSLabel">Cantidad de botellas:</span>
+            <asp:CustomValidator ID="cnCantidadBotellas" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvCantidadBotellas" ErrorMessage="Valor erroneo en cantidad de botellas" Text="*"/>
             <div class="expandibleDiv">
                 <asp:TextBox  CssClass="form-control" ID="txtCantidadBotellas" runat="server" MaxLength="4"/>
                 <asp:Label ID="lblCantidadBotellas" runat="server"/>
@@ -184,6 +186,7 @@
         </div>
         <div class="col-md-6 SEPSDivs"><%--Frecuencia de botellas--%>
             <span class="SEPSLabel">Frecuencia de botellas:</span>
+            <asp:CustomValidator ID="cvFrecuenciaBotellas" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvFrecuenciaBotellas" ErrorMessage="Debe seleccionar un valor en frequencia de botellas" Text="*"/>
             <div class="expandibleDiv">
                 <asp:DropDownList CssClass="form-control" ID="ddlFrecuenciaBotellas" runat="server"/>
                 <asp:Label ID="lblFrecuenciaBotellas" runat="server"/>

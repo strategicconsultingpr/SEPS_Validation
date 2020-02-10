@@ -7,8 +7,9 @@
         <div class="row">
         <div class="col-md-12 SEPSDivs"><%--Razón de Alta--%>
             <span class="SEPSLabel SEPSDivs">Razón de alta:</span>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" InitialValue="0" ControlToValidate="ddlRazonAlta"  ErrorMessage="Razón de Alta" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:dropdownlist CssClass="form-control" id=ddlRazonAlta runat="server" DataTextField="DE_Alta" DataValueField="PK_Alta" DataMember="SA_LKP_ALTA" DataSource="<%# dvwRazonAlta %>" onChange="ddlRazonAlta();"/>
+                <asp:dropdownlist CssClass="form-control" ID="ddlRazonAlta" runat="server" DataTextField="DE_Alta" DataValueField="PK_Alta" DataMember="SA_LKP_ALTA" DataSource="<%# dvwRazonAlta %>" onChange="ddlRazonAlta();"/>
                 <asp:label id="lblRazonAlta" runat="server"/>
             </div>
         </div>
@@ -36,8 +37,8 @@
   </div>
   <div class="panel-body">
         <div class="row">
-        <div class="col-xs-12"><%--Comentarios--%>
-            <asp:textbox CssClass="form-control" id="txtComentarios" runat="server" MaxLength="1500" TextMode="MultiLine" Width="100%" Height="64px"/>
+        <div class="col-xs-12"><%--Comentarios TabIndex="13"--%>
+            <asp:textbox CssClass="form-control" id="txtComentarios" runat="server" MaxLength="1500" TextMode="MultiLine" Width="100%" Height="64px"  />
             <asp:Label ID="lblComentario" runat="server" Width="100%"/>
         </div>
     </div>
