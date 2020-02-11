@@ -7,4 +7,36 @@
         <br />
         <img class="center-block img-responsive" src="images/graphic_home.png" />
     </div> 
+
+   <%-- <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>--%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //swal({   title: "Bienvenido a la nueva version SEPS 2G!",
+ 
+            //text: "Se realizaron cambios para poder mejorar la entrada de datos. De ocurrir algún inconveniente favor documentar el problema y comunicarse con la oficina de planificación.",
+ 
+            //type: "warning",
+ 
+            //confirmButtonColor: "#DD6B55",
+ 
+            //confirmButtonText: "Utilizar el sistema SEPS 2G",
+ 
+            //closeOnConfirm: true,
+ 
+            // });
+            var now = new Date();
+            var limit = new Date(2020, 02, 25);
+            if (now <= limit) {
+                Swal.fire(
+                    'Bienvenido a la nueva version SEPS 2G!',
+                    'Se realizaron cambios para poder mejorar la entrada de datos. De ocurrir algún inconveniente favor documentar el problema y comunicarse con la oficina de planificación.',
+                    'warning'
+                )
+            }
+        });
+    </script>
 </asp:Content>
+
