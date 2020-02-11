@@ -82,6 +82,7 @@ function ddlDíaNuevo(wuc, ddlMes, ddlDía, postfix) {
 }
 function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id, día_hidden, año_Hidden) {
     try {
+         
         var mes = document.getElementById("mainBodyContent_" + mes_id);
         var día = document.getElementById("mainBodyContent_" + día_id);
         var año = document.getElementById("mainBodyContent_" + año_id);
@@ -94,8 +95,7 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
         var now = new Date();
         var fe_nacimiento = new Date(Fe_Nacimiento.value);
         var FechaActual;
-        
-        //alert(((((parseInt(año.value) * 12) * 30.4375) + ((parseInt(mes.value) * 30.4375) + parseInt(día.value))) -
+         //alert(((((parseInt(año.value) * 12) * 30.4375) + ((parseInt(mes.value) * 30.4375) + parseInt(día.value))) -
         //    (((fe_nacimiento.getFullYear() * 12) * 30.4375) + ((fe_nacimiento.getMonth() * 30.4375) + fe_nacimiento.getDate()))) / 365.25);
         FechaActual = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
         if (año.value < año_hidden) {
@@ -123,9 +123,10 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
                 día.value = 1;
                 año.value = '';
                 mes.value = 1;
-                mes.focus();
+                mes.focus(); 
+                   
             }
-            //if (año.value != '') {
+            //if (año.value != '') {  s
             //    var diff = (fe_admission.getTime() - fe_nacimiento.getTime()) / 1000;
             //    diff /= (60 * 60 * 24);
             //   // alert(diff / 365.25);
@@ -139,6 +140,7 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
         }
     }
     catch (ex) { alert(ex.message); }
+   
 }
 function FechaAlta(mes_id, día_id, año_id, FechaAdmision_id, FechaAlta_id, FechaEvaluacion_id) {
     try {
@@ -267,7 +269,8 @@ function FechaConvenio() {
         var fechaNacimiento = new Date(document.getElementById("mainBodyContent_WucDatosPersonales_lblFENacimientoHidden").value);
         var now = new Date();
         var fechaActual = new Date((now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear());
-        var fechaConvenio = new Date(mes.value + '/' + día.value + '/' + año.value);    
+        var fechaConvenio = new Date(mes.value + '/' + día.value + '/' + año.value);  
+       
         if (fechaConvenio > fechaActual) {
             alert("La fecha de convenio no puede ser mayor a la fecha de hoy.");
             día.value = 1;
@@ -275,7 +278,8 @@ function FechaConvenio() {
             mes.value = 1;
             mes.focus();
         }
-        else if (esProgramaAdulto.value) {
+        else if (esProgramaAdulto.value == true) {
+            alert("entre mal");
             var fecha18Yrs = new Date((fechaNacimiento.getMonth() + 1) + '/' + fechaNacimiento.getDate() + '/' + (fechaNacimiento.getFullYear() + 18));           
             if (fecha18Yrs > fechaConvenio) {
                 alert("La fecha de convenio no puede ser menor a la fecha en que el paciente cumplio 18 años.");

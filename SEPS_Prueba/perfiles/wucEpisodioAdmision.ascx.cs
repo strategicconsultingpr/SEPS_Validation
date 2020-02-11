@@ -7,6 +7,7 @@
     using System.Web;
     using System.Web.UI.WebControls;
     using System.Web.UI.HtmlControls;
+    using System.Threading;
     public partial class wucEpisodioAdmision : System.Web.UI.UserControl
     {
         protected ASSMCA.perfiles.dsPerfil dsPerfil;
@@ -14,6 +15,7 @@
         protected System.Data.DataView dvwEpisPreviosSustancias, dvwEpisPreviosMental, dvwUltSustancias, dvwUltMental, dvwNivelSustancias, dvwNivelMental, dvwDiagPrimario, dvwDiagSecundario, dvwDiagTerciario, dvwCatTransPrim, dvwCatTransSec, dvwCatTransTerc, dvwCatRMPrim, dvwCatRMSec, dvwCatRMTerc, dvwIVPrim, dvwIVSec, dvwIVTerc, dvwDrogaPrim, dvwDrogaSec, dvwDrogaTerc, dvwViaPrim, dvwViaTerc, dvwViaSec, dvwFrecPrim, dvwFrecSec, dvwFrecTerc, dvwMediPrim, dvwMediTerc, dvwMediSec, dvwNivelMentalAnterior, dvwNivelSustanciasAnterior, dvwFreqAutoAyuda, dvwFuenteReferido, dvw_DSMV_ProblemasPsicosocialesAmbientales1, dvw_DSMV_ProblemasPsicosocialesAmbientales2, dvw_DSMV_ProblemasPsicosocialesAmbientales3;
         public frmAction m_frmAction;
         private int _probJusticiaCount, _maltratoCount, m_pk_perfil, m_pk_episodio, _pkPrograma, m_CO_Tipo;
+        public string accion;
         protected void Page_Load(object sender, System.EventArgs e)
         {
             rvEdadPrim.MaximumValue = Session["edad"].ToString();
@@ -22,7 +24,7 @@
             _pkPrograma = Convert.ToInt32(this.Session["pk_programa"]);
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());            
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
-            
+            this.hAccion.Value = accion;
             if (!this.IsPostBack)
             {
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
@@ -65,7 +67,9 @@
                 this.dvwFreqAutoAyuda.Table = this.dsPerfil.SA_LKP_TEDS_FRECUENCIA_AUTOAYUDA;
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
 
-                
+
+                //ListItem li = new ListItem("No Aplica", "99");
+                //this.ddlPreviosMental.Items.Add(li);
 
                 if (this.Session["pk_administracion"].ToString() == "1")
                 {
@@ -349,8 +353,8 @@
             this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
             this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
             this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
-            this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString();
-            this.txtDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
+            this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
+            this.txtDSMVFnGlobal.Text = (this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString() == "0") ? "" : this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.txtDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
             this.txtDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
             #endregion
@@ -1037,6 +1041,36 @@
             }
         }
 
+        public DropDownList NivelCuidadoSaludMental
+        {
+            get
+            {
+                try
+                {
+                    return this.ddlNivelCuidadoSaludMental;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public DropDownList NivelCuidadoSustancias
+        {
+            get
+            {
+                try
+                {
+                    return this.ddlNivelCuidadoSustancias;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
         #endregion
 
         #region Propiedades del Perfil
@@ -1199,6 +1233,9 @@
                 return this.txtDSMVOtrasObs.Text;
             }
         }
+
+
+
         public string @DE_DSMV_Comentarios
         {
             get
@@ -1717,8 +1754,14 @@
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
+ 
+
+           if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
             {
+                if (lbxProbJusticiaSeleccion.SelectedItem.Value == "99" &&
+                    (ddlArrestado.SelectedValue == "1" && ddlArrestado30.SelectedValue == "2" || ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "1"))
+                    return;
+
                 System.Web.UI.WebControls.ListItem li = new ListItem(this.lbxProbJusticiaSeleccion.SelectedItem.Text, this.lbxProbJusticiaSeleccion.SelectedItem.Value);
                 this.lbxProbJusticiaSeleccionado.Items.Add(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);
@@ -1962,5 +2005,37 @@
         }
 
         #endregion
-    }
+      protected void ddlArrestado_SelectedIndexChanged(object sender, EventArgs e)
+    {
+            ListItem li = new ListItem("No aplica", "99");
+
+            if (ddlArrestado.SelectedValue == "2")
+            {
+                this.lbxProbJusticiaSeleccionado.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Remove(li);
+                this.lbxProbJusticiaSeleccionado.Items.Add(li);
+                SortListBox(this.lbxProbJusticiaSeleccionado);
+
+                lbxProbJusticiaSeleccion.Enabled = false;
+                lbxProbJusticiaSeleccionado.Enabled = false;
+                Button4.Enabled = false;
+                Button3.Enabled = false;
+
+            }
+            else if (ddlArrestado.SelectedValue == "1") {
+
+                this.lbxProbJusticiaSeleccionado.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Remove(li);
+                this.lbxProbJusticiaSeleccion.Items.Add(li);
+                SortListBox(this.lbxProbJusticiaSeleccionado);
+
+                lbxProbJusticiaSeleccion.Enabled = true;
+                lbxProbJusticiaSeleccionado.Enabled = true;
+                Button4.Enabled = true;
+                Button3.Enabled = true;
+
+            }
+        }
 }
+
+  }

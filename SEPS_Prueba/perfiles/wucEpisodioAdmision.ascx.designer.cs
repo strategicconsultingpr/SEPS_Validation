@@ -22,22 +22,13 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden CO_Tipo;
         
         /// <summary>
-        /// ddlDSMVDiagDual control.
+        /// hAccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDSMVDiagDual;
-        
-        /// <summary>
-        /// lblDSMVDiagDual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDSMVDiagDual;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hAccion;
         
         /// <summary>
         /// rfvMenor control.
@@ -391,15 +382,6 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.WebControls.Label lblArrestos30;
         
         /// <summary>
-        /// updCompFam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updCompFam;
-        
-        /// <summary>
         /// divProbJusticia control.
         /// </summary>
         /// <remarks>
@@ -461,15 +443,6 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProbJusticia;
-        
-        /// <summary>
-        /// updCondicionDiagnosticada control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updCondicionDiagnosticada;
         
         /// <summary>
         /// divCondicionesDiagnosticadas control.
@@ -821,15 +794,6 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNivelMental;
-        
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
         /// lblIdeaSuicida control.
@@ -1570,6 +1534,33 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.WebControls.Label lblDSMVOtrasObs;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// ddlDSMVDiagDual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSMVDiagDual;
+        
+        /// <summary>
+        /// lblDSMVDiagDual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVDiagDual;
+        
+        /// <summary>
         /// rfvDrogaPrim control.
         /// </summary>
         /// <remarks>
@@ -1585,7 +1576,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDrogaPrim;
+        public global::System.Web.UI.WebControls.DropDownList ddlDrogaPrim;
         
         /// <summary>
         /// lblDrogaPrim control.

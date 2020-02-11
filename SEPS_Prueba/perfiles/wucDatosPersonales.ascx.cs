@@ -131,6 +131,7 @@
                             if (!(this.dsPerfil.SA_PERSONA[0]["NR_Expediente"] == System.DBNull.Value))
                             {
                                 this.lblExpediente.Visible = true;
+                                this.txtExpediente.Text = this.dsPerfil.SA_PERSONA[0]["NR_Expediente"].ToString();
                                 this.txtExpediente.Visible = false;
                             }
                             this.set_hProgramaAdultos();
@@ -163,6 +164,7 @@
                     case (frmAction.Update):
                         this.dataReadOnly = false;
                         this.txtExpediente.Visible = false;
+                        
                         this.ddlMes.SelectedValue = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Month.ToString(); ;
                         this.ddlDía.SelectedValue = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Day.ToString(); ;
                         this.txtAño.Text = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Year.ToString();
@@ -172,6 +174,8 @@
                         TimeSpan diffResult = dtnow.Date - dt.Date;
                         if (isAdmision)
                         {
+                            this.txtExpediente.Visible = false;
+                            
                             if (!UsaTipoDeAdmision(m_PK_Programa))
                             {
                                 divTipoDeAdmision.Visible = false;
@@ -600,14 +604,40 @@
                 }
             }
         }
+        //public DateTime FE_Episodio
+        //{ 
+        //    get
+        //    {
+        //        string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
+        //        return DateTime.Parse(fe);
+        //    }
+        //}
+        // modificado por: strategicconsultingpr. 
+        // 2.	Campo Fecha de admisión.
+        // De manera similar al punto anterior, si se agrega una fecha de admisión posterior, se genera una alerta, 
+        // pero al intentar corregir el campo, ocurre un error.
+
         public DateTime FE_Episodio
-        { 
+        {
             get
             {
-                string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
-                return DateTime.Parse(fe);
+                DateTime dt= new DateTime();
+                try
+                {
+                  dt = new DateTime(Convert.ToInt32(txtAño.Text),
+                                           Convert.ToInt32(this.ddlMes.SelectedValue.ToString()), 
+                                           Convert.ToInt32(ddlDía.SelectedValue.ToString()));
+                return dt;
+                }
+                catch (Exception)
+                {
+
+                    return dt;
+                }
+
             }
         }
+
         public DateTime FE_Nacimiento
         {
             get
@@ -799,7 +829,35 @@
                     {
                         this.lblFechaError.Text = "";
                     }
-                   // edadAdmision.Value = FE_Episodio.ToString();
+
+                    // se valida que la fecha no sea mayor a la actual
+
+               
+
+                    try
+                    {
+                        DateTime TempDate = new DateTime(Convert.ToInt32(txtAño), Convert.ToInt32(ddlMes.SelectedValue), Convert.ToInt32(ddlDía.SelectedValue));
+                        if (TempDate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day) )
+                        {
+                            this.lblFechaError.Text = "La fecha de admisión no puede ser mayor a la fecha actual.";
+                            this.lblFechaError.ForeColor = Color.Red;
+
+                        }
+                        else
+                        {
+                            this.lblFechaError.Text = "";
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                          
+                    }
+
+
+
+
+                    // edadAdmision.Value = FE_Episodio.ToString();
                 }
             }
         }

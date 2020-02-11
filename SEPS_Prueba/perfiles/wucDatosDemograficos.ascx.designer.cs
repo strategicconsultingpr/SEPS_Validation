@@ -310,15 +310,6 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.WebControls.Label lblSituacionEscolar;
         
         /// <summary>
-        /// updCompFam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updCompFam;
-        
-        /// <summary>
         /// divCompFamiliar control.
         /// </summary>
         /// <remarks>
@@ -460,7 +451,7 @@ namespace ASSMCA.Perfiles {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlResidencia;
+        public global::System.Web.UI.WebControls.DropDownList ddlResidencia;
         
         /// <summary>
         /// lblResidencia control.

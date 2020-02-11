@@ -33,8 +33,75 @@ namespace ASSMCA.Perfiles
         } catch (ex) {}
     }";
         #endregion
+
+        protected void ActualizarResidencia( )
+        {
+            //System.Data.DataView dvwResidencia = new System.Data.DataView();
+            //dvwResidencia.Table = this.dsPerfil.SA_LKP_TEDS_RESIDENCIA;
+
+            //List<string> SM = new List<string>() { "0", "1", "2", "3", "4", "7", "8", "11", "13", "14", "97" };
+
+            //string value = WucDatosDemograficos.ddlResidencia.SelectedValue;
+            /*PK_Residencia DE_Residencia
+                ------------ - --------------------------------------------------
+                        1             Propia(de los padres, si es menor)
+                        2             Alquilada(por los padres, si es menor)
+                        3             Familiares
+                        4             Amigos
+                        5             Institución residencial
+                        6             Hogar grupal, orfanato
+                        7             Institución correccional
+                        8             Vivienda pública
+                        9             Hogar de crianza
+                        10            Hogar sustituto
+                        11            Sin hogar(Deambulante)
+                        13            Hogar transicional
+                        97            No informó
+                 *
+                 */
+
+            // salud mental 
+            if (WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSaludMental.SelectedValue != "")
+            {
+                //    dvwResidencia.RowFilter = "PK_Residencia IN (0,1,2,3,4,7,8,11,13,14,97)";
+                //    WucDatosDemograficos.dvwResidencia = dvwResidencia;
+                //    WucDatosDemograficos.ddlResidencia.DataBind();
+
+                //if (SM.Contains(value))
+                //{
+                //    WucDatosDemograficos.ddlResidencia.SelectedValue = value;
+                //}
+                
+
+                lblTipoPerfil.Text = "Salud Mental.";
+            }
+
+            // Abuso de sustancia
+            if (WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "")
+            {
+                //value = WucDatosDemograficos.ddlResidencia.SelectedValue;
+                //WucDatosDemograficos.dvwResidencia = dvwResidencia;
+                //WucDatosDemograficos.ddlResidencia.DataBind();
+                
+                //WucDatosDemograficos.ddlResidencia.SelectedValue = value;
+                
+                lblTipoPerfil.Text = "Abuso de Sustancias.";
+            }
+
+            //WucDatosDemograficos.ddlResidencia.DataValueField = "PK_Residencia";
+            //WucDatosDemograficos.ddlResidencia.DataTextField="DE_Residencia";
+            //WucDatosDemograficos.ddlResidencia.DataSource = dvwResidencia;
+            //WucDatosDemograficos.ddlResidencia.DataBind();
+
+            //WucDatosDemograficos.dvwResidencia = dvwResidencia;
+            //WucDatosDemograficos.ddlResidencia.DataBind();
+
+        }
+
         protected void Page_Load(object sender, System.EventArgs e)
         {
+
+            
             this.Session["Tipo_Perfil"] = "Admision";
             if (this.Session["dsSeguridad"] == null)
             {
@@ -52,7 +119,9 @@ namespace ASSMCA.Perfiles
             this.m_PK_Programa = Convert.ToInt32(this.Session["pk_programa"].ToString());
             this.m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             string Accion = this.Request.QueryString["accion"].ToString();
-            if(this.m_CO_Tipo == 1 || this.m_CO_Tipo == 4)
+            WucEpisodioAdmision.accion = Accion;
+
+            if (this.m_CO_Tipo == 1 || this.m_CO_Tipo == 4)
             {
                 this.lblTipoPerfil.Text = " : Abuso de Sustancia";
             }
@@ -109,21 +178,23 @@ namespace ASSMCA.Perfiles
                         this.btnModificarAdmin.Visible = false;
                         this.btnRegistrar.Visible = false;
                         this.btnGuardarCambios.Visible = true;
+                        TipoPerfil();
                         break;
                     case ("read"):
                         this.LeerRegistro();
                         this.btnRegistrar.Visible = false;
                         this.btnGuardarCambios.Visible = false;
+                        TipoPerfil();
                         break;
                     default: break;
                 }
             }
             else
-            {
+            { 
                               
                 if (Request.Form["__EVENTTARGET"] != null &&
-
-                    Request.Form["__EVENTTARGET"] != string.Empty)
+                    Request.Form["__EVENTTARGET"] != string.Empty &&
+                    Request.Form["__EVENTTARGET"] != "ctl00$changeProgram")
 
                 {                   
                         this.WucDatosDemograficos.edadAdmisionF(this.WucDatosPersonales.FE_Episodio, this.WucDatosPersonales.FE_Nacimiento.ToString());
@@ -178,6 +249,9 @@ namespace ASSMCA.Perfiles
                     this.btnEliminarAdmin.Visible = false;
                 }
             }
+
+
+            ActualizarResidencia();
         }
         #region Metodos
         private void HookOnFocus(Control CurrentControl)
@@ -307,10 +381,10 @@ namespace ASSMCA.Perfiles
             }
             this.SPC_PERFIL.Parameters["@FE_Perfil"].Value = this.WucDatosPersonales.FE_Episodio;
             this.SPC_PERFIL.Parameters["@FK_TipoAdmision"].Value = this.WucDatosPersonales.FK_TipoAdmision;
-           /* if (this.WucDatosPersonales.NR_Expediente != "0")
+            if (this.WucDatosPersonales.NR_Expediente != "0")
             {
                 this.SPC_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
-            }*/
+            }
             this.SPC_PERFIL.Parameters["@FE_Contacto"].Value = System.DBNull.Value;
             this.SPC_PERFIL.Parameters["@IN_TI_Perfil"].Value = "AD";
             this.SPC_PERFIL.Parameters["@FK_EstadoMarital"].Value = this.WucDatosDemograficos.FK_EstadoMarital;
@@ -465,6 +539,12 @@ namespace ASSMCA.Perfiles
 
         private void GuardarCambios()
         {
+
+
+
+
+
+
             this.SPU_EPISODIO.Parameters["@PK_Episodio"].Value = Convert.ToInt32(this.dsPerfil.SA_EPISODIO.DefaultView[0]["PK_Episodio"].ToString());
             this.SPU_EPISODIO.Parameters["@FE_Episodio"].Value = this.WucDatosPersonales.FE_Episodio;
             this.SPU_EPISODIO.Parameters["@FE_FechaConvenio"].Value = this.WucDatosPersonales.FE_FechaConvenio;
@@ -509,10 +589,10 @@ namespace ASSMCA.Perfiles
             this.SPU_EPISODIO.Parameters["@IN_TratadoMental"].Value = System.DBNull.Value;
             this.SPU_PERFIL.Parameters["@PK_NR_Perfil"].Value = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
             this.SPU_PERFIL.Parameters["@FE_Perfil"].Value = this.WucDatosPersonales.FE_Episodio;
-            /*if (this.WucDatosPersonales.NR_Expediente != "0")
-            {
-                this.SPU_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
-            }*/
+            //if (this.WucDatosPersonales.NR_Expediente != "0")
+            //{
+            //    this.SPU_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
+            //}
             this.SPU_PERFIL.Parameters["@IN_TI_Perfil"].Value = "AD";
             this.SPU_PERFIL.Parameters["@FE_Contacto"].Value = System.DBNull.Value;
 
@@ -661,6 +741,20 @@ namespace ASSMCA.Perfiles
             }
         }
         #endregion
+
+        private void TipoPerfil()
+        {
+            string AS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
+            string SM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+            if (SM != "99" && SM != "")
+            {
+                lblTipoPerfil.Text = "Salud Mental.";
+            }
+            else if (AS != "99" && AS != "")
+            {
+                lblTipoPerfil.Text = "Abuso de Sustancias.";
+            }
+        }
         #region Código generado por el Diseñador de Web Forms
         override protected void OnInit(EventArgs e)
         {
@@ -1371,20 +1465,94 @@ namespace ASSMCA.Perfiles
         }
         protected void btnModificar_Click(object sender, System.EventArgs e)
         {
+
+
+            //Page.Validate();
+            //if (!Page.IsValid)
+            //{
+            //    return;
+            //}
+
+
             int PK_Episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO[0]["PK_Episodio"].ToString());
             this.Response.Redirect("frmAdmision.aspx?accion=update&pk_episodio=" + PK_Episodio);
         }
         protected void btnGuardarCambios_Click(object sender, System.EventArgs e)
         {
-            this.GuardarCambios();
+             this.GuardarCambios();
             int PK_Episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO[0]["PK_Episodio"].ToString());
             this.Response.Redirect("frmAdmision.aspx?accion=read&pk_episodio=" + PK_Episodio);
         }
         protected void btnRegistrar_Click(object sender, System.EventArgs e)
         {
+
+            if (WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "99" && WucEpisodioAdmision.NivelCuidadoSustancias.SelectedValue != "")
+            {
+                Page.Validate();
+                if (!Page.IsValid)
+                {
+                    return;
+                }
+            }
+
+            this.WucDatosPersonales.lblFechaError.Text = "";
+            // se valida fecha si la fecha es valida
+            if (ValidarFecha(this.WucDatosPersonales.ddlDía.SelectedValue.ToString(),
+                             this.WucDatosPersonales.ddlMes.SelectedValue.ToString(),
+                             this.WucDatosPersonales.txtAño.Text)==false)
+            {
+                this.WucDatosPersonales.lblFechaError.Text = "La fecha es  inválida.";
+                this.WucDatosPersonales.lblFechaError.ForeColor = Color.Red;
+                return;
+            }
+
+            // se valida si la fecha en mayor a la fecha actual
+            try
+            {
+                DateTime TempDate = new DateTime(Convert.ToInt32(WucDatosPersonales.txtAño.Text),
+                                                 Convert.ToInt32(WucDatosPersonales.ddlMes.SelectedValue), 
+                                                 Convert.ToInt32(WucDatosPersonales.ddlDía.SelectedValue));
+                if (TempDate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day))
+                {
+                    this.WucDatosPersonales.lblFechaError.Text = "La fecha no puede ser mayor a la fecha actual.";
+                    this.WucDatosPersonales.lblFechaError.ForeColor = Color.Red;
+                    return;
+
+                }
+                else
+                {
+                    this.WucDatosPersonales.lblFechaError.Text = "";
+                }
+
+            }
+            catch ( Exception  )
+            {
+                return;
+            }
+
+
             int PK_Episodio = this.GuardarNuevo();
             this.Response.Redirect("frmAdmision.aspx?accion=read&pk_episodio=" + PK_Episodio);
         }
+
+
+        private bool ValidarFecha(string dia, string mes, string año)
+        {
+            bool resultado = false;
+
+            try
+            {
+                DateTime TempDate = new DateTime(Convert.ToInt32(año), Convert.ToInt32(mes), Convert.ToInt32(dia));
+                resultado = true;
+            }
+            catch (Exception)
+            {
+                
+            }
+
+            return resultado;
+        }
+
         #endregion
     }
 }

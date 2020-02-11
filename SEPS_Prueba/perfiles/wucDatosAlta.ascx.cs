@@ -19,10 +19,10 @@ namespace ASSMCA.Perfiles
             {
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
                 this.dvwRazonAlta.Table = this.dsPerfil.SA_LKP_ALTA;
-                if (this.Session["pk_administracion"].ToString() == "1" && this.pk_programa != 75)//Niños y adolecentes
-                {
-                    this.dvwRazonAlta.RowFilter = " PK_Alta <> 8 ";
-                }
+                //if (this.Session["pk_administracion"].ToString() == "1" && this.pk_programa != 75)//Niños y adolecentes
+                //{
+                //    this.dvwRazonAlta.RowFilter = " PK_Alta <> 8 ";
+                //}
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
                 this.DataBind();
                 ListItem li = new ListItem("", "0");

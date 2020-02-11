@@ -540,7 +540,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
     {
         if (ddlTHBelong.SelectedValue == "2")
         {
-            SortListBox(this.lbxRazonSeleccion);
+            //SortListBox(this.lbxRazonSeleccion);
             SortListBox(this.lbxRazonSeleccionado);
             lbxRazonSeleccion.Attributes.Remove("disabled");
             lbxRazonSeleccionado.Attributes.Remove("disabled");

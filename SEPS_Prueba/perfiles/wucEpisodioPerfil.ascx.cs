@@ -17,6 +17,7 @@ namespace ASSMCA.Perfiles
 		protected System.Data.SqlClient.SqlDataAdapter daPerfilValidaciones;
 		protected System.Data.SqlClient.SqlConnection cnn;
 		public string TI_Perfil;
+        private static string nivelSM, nivelAS;
         public int m_pk_perfil, m_CO_Tipo;
 		protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
 
@@ -24,12 +25,18 @@ namespace ASSMCA.Perfiles
 		{
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
+            this.hDual.Value = this.Session["PK_Episodio"].ToString();
 
+            this.hNivelSM.Value = nivelSM;
+            this.hNivelAS.Value = nivelAS;
+            
             if (!this.IsPostBack)
 			{
 				this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
                 m_pk_perfil = Convert.ToInt32( dsPerfil.SA_PERFIL[0].PK_NR_Perfil.ToString());
-				this.dvwDiagPrimario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
+                this.hNivelSM.Value = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+                this.hNivelAS.Value = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
+                this.dvwDiagPrimario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
 				this.dvwDiagSecundario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
 				this.dvwDiagTerciario.Table = this.dsPerfil.SA_LKP_DIAGNOSTICO;
 				this.dvwIVPrim.Table = this.dsPerfil.SA_LKP_DSMIV_IV;
@@ -66,6 +73,7 @@ namespace ASSMCA.Perfiles
                     case (frmAction.Update): 
                         this.EditarRegistro();
                         this.ActualizarCampos();
+                        this.hAccion.Value = "Update";
                         break;
                     default: 
                         break;
@@ -187,7 +195,11 @@ namespace ASSMCA.Perfiles
 		{
 			this.lblNivelCuidadoSaludMental.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_SaludMental"].ToString();
 			this.lblNivelCuidadoSustancias.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_AbusoSustancias"].ToString();
-		}
+
+            nivelSM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+            nivelAS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
+
+        }
 
 		private void ActualizarCamposCrear()
 		{
@@ -245,9 +257,10 @@ namespace ASSMCA.Perfiles
             this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
             this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
 
-            this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString();
+            //this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString(); -> Este campo proviene del episodio, no del perfil
+            this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
 
-            this.txtDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
+            this.txtDSMVFnGlobal.Text = (this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString() == "0") ? "" : this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.txtDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
             this.txtDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
             #endregion
@@ -575,6 +588,7 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
+                    this.ddlDrogaTerc.Enabled = true;
                     return Convert.ToSByte(this.ddlDrogaTerc.SelectedValue.ToString());
                 }
                 catch
@@ -1049,6 +1063,9 @@ namespace ASSMCA.Perfiles
                 case (117):
                 case (122):
 
+                /*Modificado Nov-08-18: Se agrego acceso a los proximos programas*/
+
+                case (80):
                 case (138):
                 case (139):
                 case (141):
@@ -1068,8 +1085,11 @@ namespace ASSMCA.Perfiles
                 case (157):
                 case (158):
                 case (160):
+                case (162):
                 case (163):
+                case (165):
                 case (166):
+                case (175):
 
                     esProgramaMental = true; break;
                 default: break;
