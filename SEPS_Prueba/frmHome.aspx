@@ -7,4 +7,22 @@
         <br />
         <img class="center-block img-responsive" src="images/graphic_home.png" />
     </div> 
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+           
+            var now = new Date();
+            var limit = new Date(2020, 02, 25);
+            if (now <= limit) {
+                Swal.fire(
+                    'Bienvenido a la nueva version SEPS 2G!',
+                    'Se realizaron cambios para poder mejorar la entrada de datos. De ocurrir algún inconveniente favor documentar el problema y comunicarse con la oficina de planificación.',
+                    'warning'
+                )
+            }
+        });
+    </script>
 </asp:Content>
