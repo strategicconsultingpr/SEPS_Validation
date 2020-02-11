@@ -214,7 +214,7 @@
                 </div>
             </div>
             <div class="col-print-6 col-md-6 SEPSDivs"><%-- Genero --%>
-                <span class="SEPSLabel">Género:</span> 
+                <span class="SEPSLabel">Orientación Sexual:</span> 
                 <asp:RequiredFieldValidator ID="rfvGenero" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Género" ControlToValidate="ddlGenero" InitialValue="0" Text="*"/>
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlGenero" runat="server"/>
