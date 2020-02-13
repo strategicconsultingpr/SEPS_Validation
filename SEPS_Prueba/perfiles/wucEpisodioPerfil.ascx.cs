@@ -1090,7 +1090,9 @@ namespace ASSMCA.Perfiles
                 case (165):
                 case (166):
                 case (175):
-
+                case (179):
+                case (180):
+                case (182):
                     esProgramaMental = true; break;
                 default: break;
             }
