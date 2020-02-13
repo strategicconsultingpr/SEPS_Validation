@@ -10,6 +10,7 @@
 
    <%-- <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>--%>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
     
     <script type="text/javascript">
 
@@ -27,13 +28,19 @@
             //closeOnConfirm: true,
  
             // });
+
+//Se realizaron cambios para poder mejorar la entrada de datos. De ocurrir algún inconveniente favor documentar el problema y comunicarse con la oficina de planificación. '+
+                   // '<br/> Contactos: <br/> *Carlos Morel
             var now = new Date();
             var limit = new Date(2020, 02, 25);
             if (now <= limit) {
                 Swal.fire(
                     'Bienvenido a la nueva version SEPS 2G!',
-                    'Se realizaron cambios para poder mejorar la entrada de datos. De ocurrir algún inconveniente favor documentar el problema y comunicarse con la oficina de planificación.',
-                    'warning'
+                    '<div>'+
+  '<p>Se realizaron cambios para poder mejorar la entrada de datos. De ocurrir algún inconveniente favor documentar el problema y comunicarse con la oficina de planificación.'+
+'<br/><br/> Contactos: <br/><br/> &nbsp&nbsp&nbsp&nbsp <strong>Carlos Morel - ext. 1130 </strong>'+
+'<br/> &nbsp&nbsp&nbsp&nbsp <strong>Vimarys González - ext. 1215</strong></p></div>',
+                    'info'
                 )
             }
         });
