@@ -1255,6 +1255,7 @@ function ddlEstadoLegal() {
     try {
         var ddlArrestado = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado");
         var ddlArrestado30 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlArrestado30");
+        var ddlEstadoLegal = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlEstadoLegal");
         switch (document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlEstadoLegal").value) {
             case ("1"): case ("2"): case ("3"): case ("5"): case ("6"): case ("9"): case ("11"): case ("12"): case ("14"): case ("15"): case ("22"):   
                 //ddlArrestado.value = 1;
@@ -1269,6 +1270,11 @@ function ddlEstadoLegal() {
                // ddlArrestado();
                // ddlArrestado30();
                 break;
+        }
+
+        if (!ddlEstadoLegal.disabled && ddlEstadoLegal.value == 99) {
+            ddlEstadoLegal.value = 0;
+            alert("La selección en Fuente del Referido requiere un referido del Estado Legal. Favor seleccionar una opción correcta");
         }
     }
     catch (ex) { }
