@@ -314,19 +314,27 @@ namespace ASSMCA.Pacientes
 
 		protected void btnActualizarPersona_Click(object sender, System.EventArgs e)
 		{
-			int PK_Persona = this.GuardarCambios();
-            if (Request.QueryString["fuente"] != null)
+            this.lblMensaje.Visible = false;
+            int PK_Persona = this.GuardarCambios();
+            if (PK_Persona != 0)
             {
-                if (Request.QueryString["fuente"].ToString() == "admision")
+                if (Request.QueryString["fuente"] != null)
                 {
-                    Response.Redirect("frmVisualizar.aspx?accion=consultar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                    if (Request.QueryString["fuente"].ToString() == "admision")
+                    {
+                        Response.Redirect("frmVisualizar.aspx?accion=consultar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("frmVisualizar.aspx?accion=consultar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
                 }
             }
             else
             {
-                Response.Redirect("frmVisualizar.aspx?accion=consultar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                this.lblMensaje.Visible = true;
             }
-		}
+        }
 		private int GuardarCambios()
 		{
 			int PK_Persona;
@@ -349,9 +357,11 @@ namespace ASSMCA.Pacientes
 			}
 			catch(Exception ex)
 			{
-				string m = ex.Message;
-				return 0;
-			}
+                if (this.cnn.State != ConnectionState.Closed)
+                    this.cnn.Close();
+                this.lblMensaje.Text = ex.Message;
+                return 0;
+            }
 		}
 		private void PrepararComandoEdicion()
 		{
