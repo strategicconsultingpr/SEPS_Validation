@@ -221,7 +221,7 @@
   <div class="panel-body">
     <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Episodios previos al tratamiento--%>
-        <span class="SEPSLabel">Episodios previos al tratamiento:</span>
+        <span class="SEPSLabel">Número de episodios/servicios de tratamiento que ha recibido anteriormente [TEDS]:</span>
           <asp:RequiredFieldValidator ID="rfvPreviosSustancias" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlPreviosSustancias" ErrorMessage="Episodios previos al tratamiento" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList  CssClass="form-control" ID="ddlPreviosSustancias" onChange="ddlPreviosSustancias()" runat="server" DataSource="<%# dsPerfil %>" DataMember="SA_LKP_TEDS_EPISODIO_PREVIO" DataTextField="DE_EpisodiosPrevios" DataValueField="PK_EpisodiosPrevios" />
@@ -232,7 +232,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Duracion del ultimo episodio de servicio de abuso de sustancias--%>
-        <span class="SEPSLabel">Duración del último episodio de servicio de abuso de sustancias:</span>
+        <span class="SEPSLabel">Duración del último servicio de tratamiento de uso de sustancias:</span>
                 <asp:RequiredFieldValidator ID="rfvUltSustancias" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlUltSustancias" ErrorMessage="Duración del último episodio de servicio de abuso de sustancias" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList  CssClass="form-control" ID="ddlUltSustancias" onChange="ddlUltSustancias()" runat="server" DataSource="<%# dvwUltSustancias %>" DataTextField="DE_TiempoUltTrat" DataValueField="PK_TiempoUltTrat" />
@@ -243,7 +243,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Tiempo desde la ultima alta de servicio para abuso de sustancias--%>
-        <span class="SEPSLabel">Tiempo desde la última alta de servicio para abuso de sustancias:</span>
+        <span class="SEPSLabel">Tiempo desde la última alta de servicio para uso de sustancias:</span>
         <div class="leftFloat">
             <asp:TextBox  CssClass="form-control" ID="txtDíasSustUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>        
             <asp:Label ID="lblDíasSustUlt" runat="server"/>
@@ -282,7 +282,7 @@
   <div class="panel-body">
     <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Episodios previos al tratamiento--%>
-        <span class="SEPSLabel">Episodios previos al tratamiento:</span>
+        <span class="SEPSLabel">Número de episodios/servicios de tratamiento que ha recibido anteriormente:</span>
         <asp:RequiredFieldValidator ID="rfvPreviosMental" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlPreviosMental" ErrorMessage="Episodios previos al tratamiento" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlPreviosMental" onChange="ddlPreviosMental()" runat="server" DataSource="<%# dvwEpisPreviosMental %>" DataTextField="DE_EpisodiosPrevios" DataValueField="PK_EpisodiosPrevios" />
@@ -292,7 +292,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Duración del último episodio de servicio de salud mental--%>
-        <span class="SEPSLabel">Duración del último episodio de servicio de salud mental:</span>
+        <span class="SEPSLabel">Duración del último servicio de tratamiento de uso de salud mental:</span>
          <asp:RequiredFieldValidator ID="rfvUltMental" CssClass="rightFloatAsterisk" runat="server"  Display="Dynamic" InitialValue="0" ControlToValidate="ddlUltMental" ErrorMessage="Duración del último episodio de servicio de abuso de sustancias" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlUltMental"  onChange="ddlUltMental()" runat="server" DataSource="<%# dvwUltMental %>" DataTextField="DE_TiempoUltTrat" DataValueField="PK_TiempoUltTrat"/>
@@ -303,7 +303,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Tiempo desde la última alta de servicio para salud mental--%>
-        <span class="SEPSLabel">Tiempo desde la última alta de servicio para salud mental:</span>
+        <span class="SEPSLabel">Tiempo desde la última alta de servicio para uso de salud mental:</span>
         <div class="leftFloat">
         <asp:TextBox  CssClass="form-control" ID="txtDíasMentUlt" runat="server" MaxLength="3" Width="48px" Text="0"/>
         <asp:Label ID="lblDíasMentUlt" runat="server"/>
