@@ -312,48 +312,58 @@ namespace ASSMCA.Pacientes
 			this.lbxRazaSinSeleccionar.DataBind();
 		}
 
-		protected void btnActualizarPersona_Click(object sender, System.EventArgs e)
-		{
-			int PK_Persona = this.GuardarCambios();
-            if (Request.QueryString["fuente"] != null)
+        protected void btnActualizarPersona_Click(object sender, System.EventArgs e)
+        {
+            this.lblMensaje.Visible = false;
+            int PK_Persona = this.GuardarCambios();
+            if (PK_Persona != 0)
             {
-                if (Request.QueryString["fuente"].ToString() == "admision")
+                if (Request.QueryString["fuente"] != null)
                 {
-                    Response.Redirect("frmVisualizar.aspx?accion=consultar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                    if (Request.QueryString["fuente"].ToString() == "admision")
+                    {
+                        Response.Redirect("frmVisualizar.aspx?accion=consultar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("frmVisualizar.aspx?accion=consultar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
                 }
             }
             else
             {
-                Response.Redirect("frmVisualizar.aspx?accion=consultar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                this.lblMensaje.Visible = true;
             }
-		}
-		private int GuardarCambios()
-		{
-			int PK_Persona;
-			try
-			{
-				this.PrepararComandoEdicion();
-				this.cnn.Open();
-				this.SPU_PERSONA.ExecuteNonQuery();
-				PK_Persona = Convert.ToInt32(this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString());
-				this.SPD_RAZAS_PERSONA.Parameters["@FK_Persona"].Value = PK_Persona;
-				this.SPD_RAZAS_PERSONA.ExecuteNonQuery();
-				for( int i = 0; i<this.lbxRazaSeleccionadas.Items.Count ; i++ )
-				{
-					this.SPC_RAZA_PERSONA.Parameters["@FK_Persona"].Value = PK_Persona;
-					this.SPC_RAZA_PERSONA.Parameters["@FK_Raza"].Value = this.lbxRazaSeleccionadas.Items[i].Value;
-					this.SPC_RAZA_PERSONA.ExecuteNonQuery();
-				}
-				this.cnn.Close();
-				return PK_Persona;
-			}
-			catch(Exception ex)
-			{
-				string m = ex.Message;
-				return 0;
-			}
-		}
-		private void PrepararComandoEdicion()
+        }
+        private int GuardarCambios()
+        {
+            int PK_Persona;
+            try
+            {
+                this.PrepararComandoEdicion();
+                this.cnn.Open();
+                this.SPU_PERSONA.ExecuteNonQuery();
+                PK_Persona = Convert.ToInt32(this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString());
+                this.SPD_RAZAS_PERSONA.Parameters["@FK_Persona"].Value = PK_Persona;
+                this.SPD_RAZAS_PERSONA.ExecuteNonQuery();
+                for (int i = 0; i < this.lbxRazaSeleccionadas.Items.Count; i++)
+                {
+                    this.SPC_RAZA_PERSONA.Parameters["@FK_Persona"].Value = PK_Persona;
+                    this.SPC_RAZA_PERSONA.Parameters["@FK_Raza"].Value = this.lbxRazaSeleccionadas.Items[i].Value;
+                    this.SPC_RAZA_PERSONA.ExecuteNonQuery();
+                }
+                this.cnn.Close();
+                return PK_Persona;
+            }
+            catch (Exception ex)
+            {
+                if (this.cnn.State != ConnectionState.Closed)
+                    this.cnn.Close();
+                this.lblMensaje.Text = ex.Message;
+                return 0;
+            }
+        }
+        private void PrepararComandoEdicion()
 		{
 			string NSS = this.txtNSS1.Text + this.txtNSS2.Text + this.txtNSS3.Text;
 			this.SPU_PERSONA.Parameters["@PK_Persona"].Value = Convert.ToInt32(this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString());

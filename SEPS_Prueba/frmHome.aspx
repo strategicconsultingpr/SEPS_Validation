@@ -23,8 +23,8 @@
                     'Bienvenido a la nueva version SEPS 2G!',
                     '<div>'+
   '<p>Se realizaron cambios para poder mejorar la entrada de datos. De ocurrir algún inconveniente favor documentar el problema y comunicarse con la oficina de planificación.'+
-'<br/><br/> Contactos: <br/><br/> &nbsp&nbsp&nbsp&nbsp <strong>Carlos Morel - ext. 1130 </strong>'+
-'<br/> &nbsp&nbsp&nbsp&nbsp <strong>Vimarys González - ext. 1215</strong></p></div>'+
+'<br/><br/> Contactos: <br/><br/> &nbsp&nbsp&nbsp&nbsp <strong>CARLOS MOREL - ext. 1130 </strong>'+
+'<br/> &nbsp&nbsp&nbsp&nbsp <strong>VIMARYS GONZÁLEZ - ext. 1215</strong>'+
                     '<br/> &nbsp&nbsp&nbsp&nbsp <strong>CARMEN HERNÁNDEZ - ext. 1210</strong>'+
                     '<br/> &nbsp&nbsp&nbsp&nbsp <strong>DAISY GONZÁLEZ - ext. 1214</strong></p></div>',
                     'info'
