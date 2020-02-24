@@ -79,6 +79,7 @@
         </div>
         <div class="col-sm-6 SEPSDivs"><%-- Veterano --%>
             <span class="SEPSLabel">Veterano:</span>
+            <asp:RequiredFieldValidator ID="rfvVeterano" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" InitialValue="0" ControlToValidate="ddlVeterano" ErrorMessage="Veterano es un campo requerido." ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
                 <asp:DropDownList ID="ddlVeterano" runat="server" CssClass="form-control" DataSource="<%# dsPersona %>" DataMember="LKP_Veterano" DataTextField="DE_Veterano" DataValueField="PK_Veterano"/>
             </div>

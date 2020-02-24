@@ -1282,7 +1282,7 @@ function ddlEstadoLegal_Load() {
     try {
         switch (document.getElementById("hFKPrograma").value) {
             case ("27"): case ("31"): case ("32"): case ("33"): case ("34"): case ("35"): case ("36"): case ("37"): case ("38"): case ("39"): case ("40"): case ("41"): case ("42")://TASC             
-                $("#mainBodyContent_WucEpisodioAdmision_ddlEstadoLegal option").filter(function () { return ["0", "1", "2"].indexOf(this.value) < 0; }).remove();
+                $("#mainBodyContent_WucEpisodioAdmision_ddlEstadoLegal option").filter(function () { return ["14", "15"].indexOf(this.value) < 0; }).remove();
                 break;
             default: break;
         }
