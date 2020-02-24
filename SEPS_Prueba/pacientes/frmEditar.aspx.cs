@@ -49,7 +49,9 @@ namespace ASSMCA.Pacientes
 					this.daLkpPersona.Fill(this.dsPersona);
 					this.DataBind();
 					Session["dsPersona"] = this.dsPersona;
-				}
+                    this.ddlVeterano.Items.Insert(0, new ListItem("", "0"));
+                    this.ddlVeterano.SelectedValue = "0";
+                }
 				else if( Request.QueryString["accion"].ToString() == "editar" )
 				{
 					this.btnRegistrar.Visible = false;

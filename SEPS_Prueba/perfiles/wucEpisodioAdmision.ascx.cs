@@ -17,7 +17,7 @@
         private int _probJusticiaCount, _maltratoCount, m_pk_perfil, m_pk_episodio, _pkPrograma, m_CO_Tipo;
         public string accion;
         protected void Page_Load(object sender, System.EventArgs e)
-        {
+        {   
             rvEdadPrim.MaximumValue = Session["edad"].ToString();
             rvEdadSec.MaximumValue = Session["edad"].ToString();
             rvEdadTerc.MaximumValue = Session["edad"].ToString();
