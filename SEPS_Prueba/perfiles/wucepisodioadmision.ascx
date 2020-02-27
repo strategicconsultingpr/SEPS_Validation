@@ -432,7 +432,7 @@
             </div>
     </div>
 </div>
-<div class="row">
+<div id="GruposApoyo" class="row" name="GruposApoyo" runat="server">
     <div class="col-md-6 SEPSDivs">
         <span class="SEPSLabel">¿Ha participado en reuniones de grupos de apoyo, auto-ayuda, religiosas o ha buscado ayuda a su tratamiento de familiares, amigos u otros durante los pasados 30 días?:</span>
     </div>
@@ -647,7 +647,7 @@
             </div>
         </td>
     </tr>
-    <tr>
+    <tr id="Trastornos" name="Trastornos" runat="server">
         <th><span class="SEPSLabel">Trastornos de la personalidad y RM</span></th>
         <td>
 
@@ -678,7 +678,7 @@
             </div>
         </td>
     </tr>
-    <tr>
+    <tr id="Problemas" name="Problemas" runat="server">
         <th><span class="SEPSLabel">Problemas psicosociales y ambientales</span></th>
         <td>
             <asp:DropDownList CssClass="form-control" ID="ddlDSMVPsicoAmbiPrim" runat="server" DataSource="<%# dvw_DSMV_ProblemasPsicosocialesAmbientales1 %>" DataTextField="DE_DSMV_ProblemasPsicosocialesAmbientales" DataValueField="PK_DSMV_ProblemasPsicosocialesAmbientales"  onChange="ddlDSMVPsicoAmbiPrim()" />

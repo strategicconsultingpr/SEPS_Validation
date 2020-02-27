@@ -83,6 +83,9 @@
                         //this.SetTabIndex();
                         this.EditarRegistro();
                         this.DSMIV_DIV.Visible = false;
+                        this.GruposApoyo.Visible = false;
+                        this.Trastornos.Visible = false;
+                        this.Problemas.Visible = false;
                         this.ddlNivelUnavilable(NivelCuidado.Mental);
                         this.ddlNivelUnavilable(NivelCuidado.Sustancias);
                         break;

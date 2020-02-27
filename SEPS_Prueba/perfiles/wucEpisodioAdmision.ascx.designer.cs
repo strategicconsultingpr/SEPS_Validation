@@ -967,6 +967,15 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.WebControls.Label lblVioDomestic;
         
         /// <summary>
+        /// GruposApoyo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GruposApoyo;
+        
+        /// <summary>
         /// rfvReunionesGrupos control.
         /// </summary>
         /// <remarks>
@@ -1291,6 +1300,15 @@ namespace ASSMCA.Perfiles {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVClinTer;
         
         /// <summary>
+        /// Trastornos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Trastornos;
+        
+        /// <summary>
         /// rfvDSMVRMPrim control.
         /// </summary>
         /// <remarks>
@@ -1424,6 +1442,15 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVRMTer;
+        
+        /// <summary>
+        /// Problemas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow Problemas;
         
         /// <summary>
         /// ddlDSMVPsicoAmbiPrim control.

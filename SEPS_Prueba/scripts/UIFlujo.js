@@ -658,7 +658,7 @@ function ddlUltMental() {
                 meses.disabled = true;
                 break;
             case ("99")://No aplica
-                if (ddlPreviosMental.value != "1") {
+                if (ddlPreviosMental.value != "1" || ddlPreviosMental.value != "99") {
                     if (ddlPreviosMental.value == "0") {
                         alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
                     }
@@ -705,7 +705,7 @@ function ddlUltSustancias() {
                 meses.disabled = true;
                 break;
             case ("99")://No aplica
-                if (ddlPreviosSustancias.value != "1") {
+                if (ddlPreviosSustancias.value != "1" || ddlPreviosSustancias.value != "99") {
                     if (ddlPreviosSustancias.value == "0") {
                         alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
                     }
@@ -2273,8 +2273,8 @@ function validateCOOCURRING() {
             alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
             return false;
         }
-        if ((ddlDrogaPrim.value != sustanciasList.Noaplica || opiod.value != 4) && ddlDSMVDiagDual.value != "1") {
-            if (ddlDrogaPrim.value != sustanciasList.Noaplica) {
+        if (((ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) || opiod.value != 4) && ddlDSMVDiagDual.value != "1") {
+            if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) {
                 campos += "\u2022Seleccionó una droga\n";
             }
             if (opiod.value != 4) {
@@ -2283,7 +2283,7 @@ function validateCOOCURRING() {
             alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
             return false;
         }
-        else if (ddlDrogaPrim.value == sustanciasList.Noaplica && opiod.value == 4 && ddlDSMVDiagDual.value == "1")
+        else if ((ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && opiod.value == 4 && ddlDSMVDiagDual.value == "1")
         {
             campos += "\u2022NO seleccionó una droga\n";
             campos += "\u2022NO seleccionó medicamento para opíaceos\n";
