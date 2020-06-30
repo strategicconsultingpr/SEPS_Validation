@@ -809,7 +809,7 @@ function AjustesNiveldeCuidado() {
             var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadSec");
             var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtEdadTerc");
             var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
-
+            var codependiente = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlCodependiente");
  
             // Si usuario selecciona opción de “Nivel de Cuidado (Salud Mental)”
             if (ddlNivelCuidadoSaludMental.value != "99") {
@@ -842,6 +842,9 @@ function AjustesNiveldeCuidado() {
                 txtEdadTerc.disabled = true;
                 //GAF.disabled = false;
 
+                codependiente.value = 2;
+                codependiente.disabled = true;
+
             }
             else {
                 
@@ -872,12 +875,8 @@ function AjustesNiveldeCuidado() {
                 txtEdadSec.disabled = true;
                 txtEdadTerc.disabled = true;
 
-                //if (ddlNivelCuidadoSaludMental.value != "99") {
-                //    GAF.disabled = false;
-                //}
-                //else {
-                //    GAF.disabled = true;
-                //}
+                codependiente.value = 0;
+                codependiente.disabled = false;
 
 
                 }
