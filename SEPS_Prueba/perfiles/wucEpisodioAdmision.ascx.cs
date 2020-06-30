@@ -48,6 +48,7 @@
                 this.dvwIVSec.Table = this.dsPerfil.SA_LKP_DSMIV_IV;
                 this.dvwIVTerc.Table = this.dsPerfil.SA_LKP_DSMIV_IV;
                 this.dvwDrogaPrim.Table = this.dsPerfil.SA_LKP_TEDS_SUSTANCIA;
+                this.dvwDrogaPrim.RowFilter = "PK_Sustancia <> 18";
                 this.dvwDrogaSec.Table = this.dsPerfil.SA_LKP_TEDS_SUSTANCIA;
                 this.dvwDrogaTerc.Table = this.dsPerfil.SA_LKP_TEDS_SUSTANCIA;
                 this.dvwViaPrim.Table = this.dsPerfil.SA_LKP_TEDS_VIA_UTILIZACION;
