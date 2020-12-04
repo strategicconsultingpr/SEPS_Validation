@@ -105,12 +105,12 @@ namespace ASSMCA.Perfiles
             this.lblDSMVClinPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString();
             this.lblDSMVClinSec.Text =  this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString();
             this.lblDSMVClinTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
-            this.lblDSMVRMPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
-            this.lblDSMVRMSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
-            this.lblDSMVRMTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
-            this.lblDSMVPsicoAmbiPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
-            this.lblDSMVPsicoAmbiSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
-            this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
+            //this.lblDSMVRMPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
+            //this.lblDSMVRMSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
+            //this.lblDSMVRMTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
+            //this.lblDSMVPsicoAmbiPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
+            //this.lblDSMVPsicoAmbiSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
+            //this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
             this.lblDSMVDiagDual.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_DiagnosticoDual"].ToString();
             if (this.hDSMVClinPrim.Value == "")
             {
@@ -124,18 +124,18 @@ namespace ASSMCA.Perfiles
             {
                 this.hDSMVClinTer.Value = "761";
             }
-            if (this.hDSMVRMPrim.Value == "")
-            {
-                this.hDSMVRMPrim.Value = "761";
-            }
-            if (this.hDSMVRMSec.Value == "")
-            {
-                this.hDSMVRMSec.Value = "761";
-            }
-            if (this.hDSMVRMTer.Value == "")
-            {
-                this.hDSMVRMTer.Value = "761";
-            }
+            //if (this.hDSMVRMPrim.Value == "")
+            //{
+            //    this.hDSMVRMPrim.Value = "761";
+            //}
+            //if (this.hDSMVRMSec.Value == "")
+            //{
+            //    this.hDSMVRMSec.Value = "761";
+            //}
+            //if (this.hDSMVRMTer.Value == "")
+            //{
+            //    this.hDSMVRMTer.Value = "761";
+            //}
             this.lblDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.lblDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
             this.lblDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
@@ -161,22 +161,22 @@ namespace ASSMCA.Perfiles
             this.txtDSMVClinPrim.Visible = false;
             this.txtDSMVClinSec.Visible = false;
             this.txtDSMVClinTer.Visible = false;
-            this.txtDSMVRMPrim.Visible = false;
-            this.txtDSMVRMSec.Visible = false;
-            this.txtDSMVRMTer.Visible = false;
+            //this.txtDSMVRMPrim.Visible = false;
+            //this.txtDSMVRMSec.Visible = false;
+            //this.txtDSMVRMTer.Visible = false;
             this.txtDSMVOtrasObs.Visible = false;
             this.txtDSMVComentarios.Visible = false;
             this.ddlDSMVDiagDual.Visible = false;
-            this.ddlDSMVPsicoAmbiPrim.Visible = false;
-            this.ddlDSMVPsicoAmbiSec.Visible = false;
-            this.ddlDSMVPsicoAmbiTer.Visible = false;
+            //this.ddlDSMVPsicoAmbiPrim.Visible = false;
+            //this.ddlDSMVPsicoAmbiSec.Visible = false;
+            //this.ddlDSMVPsicoAmbiTer.Visible = false;
             this.txtDSMVFnGlobal.Visible = false;
             this.hlDSMVClinPrim.Visible = false;
             this.hlDSMVClinSec.Visible = false;
             this.hlDSMVClinTer.Visible = false;
-            this.hlDSMVRMPrim.Visible = false;
-            this.hlDSMVRMSec.Visible = false;
-            this.hlDSMVRMTer.Visible = false;
+            //this.hlDSMVRMPrim.Visible = false;
+            //this.hlDSMVRMSec.Visible = false;
+            //this.hlDSMVRMTer.Visible = false;
 
 			this.ddlDrogaPrim.Visible = false;
 			this.ddlDrogaSec.Visible = false;
@@ -247,16 +247,16 @@ namespace ASSMCA.Perfiles
             this.txtDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
             this.hDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString();
 
-            this.txtDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
-            this.hDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM1"].ToString();
-            this.txtDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
-            this.hDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM2"].ToString();
-            this.txtDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
-            this.hDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM3"].ToString();
+            //this.txtDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
+            //this.hDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM1"].ToString();
+            //this.txtDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
+            //this.hDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM2"].ToString();
+            //this.txtDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
+            //this.hDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM3"].ToString();
 
-            this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
-            this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
-            this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
+            //this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
+            //this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
+            //this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
 
             //this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString(); -> Este campo proviene del episodio, no del perfil
             this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
@@ -439,7 +439,7 @@ namespace ASSMCA.Perfiles
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.hDSMVRMPrim.Value.ToString(), out retVal);
+                //Int32.TryParse(this.hDSMVRMPrim.Value.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -448,7 +448,7 @@ namespace ASSMCA.Perfiles
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.hDSMVRMSec.Value.ToString(), out retVal);
+               // Int32.TryParse(this.hDSMVRMSec.Value.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -457,7 +457,7 @@ namespace ASSMCA.Perfiles
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.hDSMVRMTer.Value.ToString(), out retVal);
+                //Int32.TryParse(this.hDSMVRMTer.Value.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -466,7 +466,7 @@ namespace ASSMCA.Perfiles
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.ddlDSMVPsicoAmbiPrim.SelectedValue.ToString(), out retVal);
+                //Int32.TryParse(this.ddlDSMVPsicoAmbiPrim.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -475,7 +475,7 @@ namespace ASSMCA.Perfiles
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.ddlDSMVPsicoAmbiSec.SelectedValue.ToString(), out retVal);
+                //Int32.TryParse(this.ddlDSMVPsicoAmbiSec.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -484,7 +484,7 @@ namespace ASSMCA.Perfiles
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.ddlDSMVPsicoAmbiTer.SelectedValue.ToString(), out retVal);
+               // Int32.TryParse(this.ddlDSMVPsicoAmbiTer.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }

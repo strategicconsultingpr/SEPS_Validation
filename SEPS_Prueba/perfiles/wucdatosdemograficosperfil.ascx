@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="col-md-6 SEPSDivs"><%--Condición laboral--%>
-        <span class="SEPSLabel">Condición laboral:</span>
+        <span class="SEPSLabel">Condición laboral (US-SM-NOM):</span>
         <asp:RequiredFieldValidator ID="rfvCondLaboral"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Condición laboral" ControlToValidate="ddlCondLaboral" InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlCondLaboral" runat="server" DataTextField="DE_CondLaboral" DataValueField="PK_CondLaboral" DataMember="SA_LKP_TEDS_COND_LABORAL" DataSource="<%# dsPerfil %>" onChange="ddlCondLaboral();"/>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="col-md-6 SEPSDivs"><%--Si no participa en la fuerza laboral--%>
-        <span class="SEPSLabel">Si no participa en la fuerza laboral:</span>
+        <span class="SEPSLabel">Si no participa en la fuerza laboral (US-SM-NOM):</span>
         <asp:RequiredFieldValidator ID="rfvNoFueraLaboral"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="ddlNoFueraLaboral" ErrorMessage="Si no participa en la fuerza laboral" ToolTip="Seleccione un valor de la lista. Este campo es requerido." InitialValue="0" Text="*"/>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="ddlNoFueraLaboral" ErrorMessage="Si no participa en la fuerza laboral" ToolTip="Seleccione un valor de la lista. Este campo es requerido." InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
@@ -51,7 +51,7 @@
   <div class="panel-body">
     <div class="row">
     <div class="col-md-6 SEPSDivs"><%--Últ. grado comp.--%>
-        <span class="SEPSLabel">Último grado completado:</span>
+        <span class="SEPSLabel">Educación (SM-NOM):</span>
         <asp:RequiredFieldValidator ID="rfvGrado"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="ddlGrado" ErrorMessage="Último grado completado" ToolTip="Seleccione un valor de la lista. Este campo es requerido." InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlGrado" runat="server" DataSource="<%# dvwUltGrado %>" DataValueField="PK_Grado" DataTextField="DE_Grado"  onChange="ddlGrado();" />
@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="col-print-6 col-md-6 SEPSDivs"><%--Ha recibido educación especial--%>
-        <span class="SEPSLabel">Ha recibido educación especial:</span>
+        <span class="SEPSLabel">¿Ha recibido educación especial?:</span>
         <asp:RequiredFieldValidator ID="rfvEducacionEspecial"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Ha recibido educación especial" ControlToValidate="ddlEducacionEspecial" Text="*"/>
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlEducacionEspecial" runat="server">
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="col-md-6 SEPSDivs"><%-- Situación Escolar--%>
-        <span class="SEPSLabel">Situación escolar:</span>
+        <span class="SEPSLabel">Situación escolar al momento de evaluación (SM-NOM):</span>
         <asp:requiredfieldvalidator id="Requiredfieldvalidator2"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Situación escolar" ControlToValidate="ddlSituacionEscolar" Text="*"/>
         <div class="expandibleDiv">
 	        <asp:dropdownlist  CssClass="form-control" id="ddlSituacionEscolar" runat="server" >
@@ -112,7 +112,7 @@
  
         <div style="height:160px;" runat="server" id="divCompFamiliar">
             <div class="multipleLeft"> <%-- Listbox left --%>
-                <span class="SEPSLabel">Composición familiar (Disponibles)</span>
+                <span class="SEPSLabel">¿Con quién vive la persona? (Disponibles)</span>
                 <asp:ListBox  CssClass="form-control" ID="lbxCompFamiliarSeleccion" runat="server" Height="130px"/>
             </div>
             <div class="multipleCenter text-center"><%--Buttons--%>
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="multipleRight">
-                <span class="SEPSLabel">Composición familiar (Seleccionados):</span>
+                <span class="SEPSLabel">¿Con quién vive la persona? (Seleccionados):</span>
                 <asp:ListBox  CssClass="form-control"  ID="lbxCompFamiliarSeleccionado" runat="server" Height="130px"/>
             </div>
         </div>
@@ -145,7 +145,7 @@
         </div>
     </div>
     <div class="col-md-6 SEPSDivs"><%--Residencia--%>
-        <span class="SEPSLabel">Residencia:</span>
+        <span class="SEPSLabel">Residencia (US-SMNOM):</span>
        <asp:RequiredFieldValidator ID="rfvResidencia"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="ddlResidencia" ErrorMessage="Residencia" ToolTip="Seleccione un valor de la lista. Este campo es requerido." InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control"  ID="ddlResidencia" runat="server" DataSource="<%# dvwResidencia %>" DataValueField="PK_Residencia" DataTextField="DE_Residencia"/>
@@ -156,7 +156,7 @@
 
 <div class="row">
     <div class="col-xs-6 SEPSDivs"><%--¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?--%>
-        <span class="SEPSLabel">¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?</span>
+        <span class="SEPSLabel">¿Cuántas veces ha participado de reuniones de grupos de auto-ayuda durante los pasados 30 días como apoyo a su proceso de recuperación? (SU-NOM, incluye alcohólicos anónimos, narcóticos anónimos, programas pares etc.)</span>
     </div>
     <div class="col-xs-6 SEPSDivs"><%--¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?--%>
         <div class="expandibleDiv">
@@ -168,7 +168,7 @@
 </div>
 <div class="row">
     <div class="col-lg-6 SEPSDivs"><%--Ha sido arrestado durante los pasados 30 días?--%>
-        <span class="SEPSLabel">¿Ha sido arrestado durante los pasados 30 días?</span>
+        <span class="SEPSLabel">¿Ha sido arrestado durante los pasados 30 días? (US-SMNOM)</span>
         <asp:RequiredFieldValidator ID="rfvArrestado" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="ddlArrestado" ErrorMessage="¿Ha sido arrestado durante los pasados 30 días?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>    
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" onChange="ddlArrestado30();">
@@ -180,7 +180,7 @@
         </div>
     </div>
     <div class="col-lg-6 SEPSDivs"><%--Núm. de arrestos en tratamiento o en últimos 30 días--%>
-        <span class="SEPSLabel">Número de arrestos en tratamiento o en últimos 30 días:</span>
+        <span class="SEPSLabel">Número de arrestos en tratamiento o en últimos 30 días (US-SMNOM):</span>
         <asp:RequiredFieldValidator ID="rfvArrestos30" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en tratamiento o en últimos 30 días" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
         <asp:RangeValidator ID="rvArrestos30" CssClass="rightFloatAsterisk"  runat="server" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en tratamiento o en últimos 30 días" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 30" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
         <div class="expandibleDiv">

@@ -170,13 +170,13 @@
             this.lblDSMVClinPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString();
             this.lblDSMVClinSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString();
             this.lblDSMVClinTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
-            this.lblDSMVRMPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
-            this.lblDSMVRMSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
-            this.lblDSMVRMTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
-            this.lblDSMVPsicoAmbiPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
-            this.lblDSMVPsicoAmbiSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
-            this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
-            this.lblDSMVDiagDual.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_DiagnosticoDual"].ToString();
+            //this.lblDSMVRMPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
+            //this.lblDSMVRMSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
+            //this.lblDSMVRMTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
+            //this.lblDSMVPsicoAmbiPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
+            //this.lblDSMVPsicoAmbiSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
+            //this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
+            //this.lblDSMVDiagDual.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_DiagnosticoDual"].ToString();
 
             this.lblDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.lblDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
@@ -210,7 +210,7 @@
             this.lblPreviosMental.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_EpisodiosPreviosMental"].ToString();
             this.lblPreviosSustancias.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_EpisodiosPreviosSustancias"].ToString();
             this.lblFreq_AutoAyuda.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FreqAutoayuda"].ToString();
-            this.lblReunionesGrupos.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_ParticReunGrupos"].ToString();
+            //this.lblReunionesGrupos.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_ParticReunGrupos"].ToString();
             this.lblSuicidios.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_Suicida"].ToString();
             this.lblIdeaSuicida.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_IdeaSuicida"].ToString();
             this.lblUltMental.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_TiempoUltTratMental"].ToString();
@@ -226,22 +226,28 @@
             this.txtDSMVClinPrim.Visible = false;
             this.txtDSMVClinSec.Visible = false;
             this.txtDSMVClinTer.Visible = false;
-            this.txtDSMVRMPrim.Visible = false;
-            this.txtDSMVRMSec.Visible = false;
-            this.txtDSMVRMTer.Visible = false;
+
+            /*Campos eliminados 12/2020 */
+            //this.txtDSMVRMPrim.Visible = false;
+            //this.txtDSMVRMSec.Visible = false;
+            //this.txtDSMVRMTer.Visible = false;
             this.txtDSMVOtrasObs.Visible = false;
             this.txtDSMVComentarios.Visible = false;
             this.ddlDSMVDiagDual.Visible = false;
-            this.ddlDSMVPsicoAmbiPrim.Visible = false;
-            this.ddlDSMVPsicoAmbiSec.Visible = false;
-            this.ddlDSMVPsicoAmbiTer.Visible = false;
+
+            /*Campos eliminados 12/2020 */
+            //this.ddlDSMVPsicoAmbiPrim.Visible = false;
+            //this.ddlDSMVPsicoAmbiSec.Visible = false;
+            //this.ddlDSMVPsicoAmbiTer.Visible = false;
             this.txtDSMVFnGlobal.Visible = false;
             this.hlDSMVClinPrim.Visible = false;
             this.hlDSMVClinSec.Visible = false;
             this.hlDSMVClinTer.Visible = false;
-            this.hlDSMVRMPrim.Visible = false;
-            this.hlDSMVRMSec.Visible = false;
-            this.hlDSMVRMTer.Visible = false;
+
+            /*Campos eliminados 12/2020 */
+            //this.hlDSMVRMPrim.Visible = false;
+            //this.hlDSMVRMSec.Visible = false;
+            //this.hlDSMVRMTer.Visible = false;
 
             this.ddlCodependiente.Visible = false;
             this.ddlDrogaPrim.Visible = false;
@@ -261,7 +267,10 @@
             this.ddlNivelSustancias.Visible = false;
             this.ddlPreviosMental.Visible = false;
             this.ddlPreviosSustancias.Visible = false;
-            this.ddlReunionesGrupos.Visible = false;
+
+            /*Campos eliminados 12/2020 */
+            //this.ddlReunionesGrupos.Visible = false;
+
             this.ddlFreq_AutoAyuda.Visible = false;
             this.ddlSuicidios.Visible = false;
             this.ddlIdeaSuicida.Visible = false;
@@ -321,12 +330,12 @@
             this.hDSMVClinSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos2"].ToString();
             this.txtDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
             this.hDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString();
-            this.txtDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
-            this.hDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM1"].ToString();
-            this.txtDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
-            this.hDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM2"].ToString();
-            this.txtDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
-            this.hDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM3"].ToString();
+            //this.txtDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
+            //this.hDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM1"].ToString();
+            //this.txtDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
+            //this.hDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM2"].ToString();
+            //this.txtDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
+            //this.hDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM3"].ToString();
             if (this.hDSMVClinPrim.Value == "")
             {
                 this.hDSMVClinPrim.Value = "761";
@@ -339,21 +348,21 @@
             {
                 this.hDSMVClinTer.Value = "761";
             }
-            if (this.hDSMVRMPrim.Value == "")
-            {
-                this.hDSMVRMPrim.Value = "761";
-            }
-            if (this.hDSMVRMSec.Value == "")
-            {
-                this.hDSMVRMSec.Value = "761";
-            }
-            if (this.hDSMVRMTer.Value == "")
-            {
-                this.hDSMVRMTer.Value = "761";
-            }
-            this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
-            this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
-            this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
+            //if (this.hDSMVRMPrim.Value == "")
+            //{
+            //    this.hDSMVRMPrim.Value = "761";
+            //}
+            //if (this.hDSMVRMSec.Value == "")
+            //{
+            //    this.hDSMVRMSec.Value = "761";
+            //}
+            //if (this.hDSMVRMTer.Value == "")
+            //{
+            //    this.hDSMVRMTer.Value = "761";
+            //}
+            //this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
+            //this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
+            //this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
             this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
             this.txtDSMVFnGlobal.Text = (this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString() == "0") ? "" : this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.txtDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
@@ -377,7 +386,7 @@
             this.ddlNivelSustancias.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustanciasAnterior"].ToString();
             this.ddlPreviosMental.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_EpisodiosMental"].ToString();
             this.ddlPreviosSustancias.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_EpisodiosSustancias"].ToString();
-            this.ddlReunionesGrupos.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_ParticReunGrupos"].ToString();
+            //this.ddlReunionesGrupos.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_ParticReunGrupos"].ToString();
             this.ddlFreq_AutoAyuda.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_FreqAutoAyuda"].ToString();
             this.ddlSuicidios.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_Suicida"].ToString();
             this.ddlIdeaSuicida.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_IdeaSuicida"].ToString();
@@ -1082,7 +1091,8 @@
             {
                 try
                 {
-                    return Convert.ToSByte(this.ddlReunionesGrupos.SelectedValue.ToString());
+                    return 94;
+                    //return Convert.ToSByte(this.ddlReunionesGrupos.SelectedValue.ToString());
                 }
                 catch
                 {
@@ -1169,7 +1179,7 @@
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.hDSMVRMPrim.Value.ToString(), out retVal);
+                //Int32.TryParse(this.hDSMVRMPrim.Value.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1178,7 +1188,7 @@
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.hDSMVRMSec.Value.ToString(), out retVal);
+                //Int32.TryParse(this.hDSMVRMSec.Value.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1187,7 +1197,7 @@
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.hDSMVRMTer.Value.ToString(), out retVal);
+                //Int32.TryParse(this.hDSMVRMTer.Value.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1196,7 +1206,7 @@
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.ddlDSMVPsicoAmbiPrim.SelectedValue.ToString(), out retVal);
+               // Int32.TryParse(this.ddlDSMVPsicoAmbiPrim.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1205,7 +1215,7 @@
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.ddlDSMVPsicoAmbiSec.SelectedValue.ToString(), out retVal);
+               // Int32.TryParse(this.ddlDSMVPsicoAmbiSec.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1214,7 +1224,7 @@
             get
             {
                 int retVal = 0;
-                Int32.TryParse(this.ddlDSMVPsicoAmbiTer.SelectedValue.ToString(), out retVal);
+               // Int32.TryParse(this.ddlDSMVPsicoAmbiTer.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1470,15 +1480,15 @@
 
         protected void ddlReunionesGrupos_Load(object sender, EventArgs e)
         {
-            if (this.ddlReunionesGrupos.SelectedValue == "2" || this.ddlReunionesGrupos.SelectedValue == "94")
-            {
-                this.ddlFreq_AutoAyuda.SelectedValue = "1";
-                this.ddlFreq_AutoAyuda.Enabled = false;
-            }           
-            else
-            {
-                this.ddlFreq_AutoAyuda.Enabled = true;
-            }
+            //if (this.ddlReunionesGrupos.SelectedValue == "2" || this.ddlReunionesGrupos.SelectedValue == "94")
+            //{
+            //    this.ddlFreq_AutoAyuda.SelectedValue = "1";
+            //    this.ddlFreq_AutoAyuda.Enabled = false;
+            //}           
+            //else
+            //{
+            //    this.ddlFreq_AutoAyuda.Enabled = true;
+            //}
         }
         public void load()
         {

@@ -192,13 +192,13 @@
   <div class="table-panel-body">
     <table class="table table-striped table-hover">
     <tr>
-        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">Diagnóstico DSM-5</th>
         <th><span class="SEPSLabel">Diagnóstico primario</span></th>
         <th><span class="SEPSLabel">Diagnóstico secundario</span></th>
         <th><span class="SEPSLabel">Diagnóstico terciario</span></th>
     </tr>
     <tr>
-        <th><span class="SEPSLabel">Trastornos clínicos</span></th>
+        <th><span class="SEPSLabel">Salud Mental [TEDS]</span></th>
         <td> 
             <TextArea ID="txtDSMVClinPrim" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVClinPrim" runat="server"/>
@@ -218,6 +218,29 @@
             <input id="hDSMVClinTer" type="hidden" value="761" name="hDSMVClinTer" runat="server" />
         </td>
     </tr>
+    <tr>
+        <th><span class="SEPSLabel">Sustancias [TEDS]</span></th>
+        <td> 
+            <TextArea ID="TextArea1" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+            <asp:Label ID="Label1" runat="server"/>
+            <asp:HyperLink ID="HyperLink1" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVClinPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <input id="Hidden1" type="hidden" value="761" name="hDSMVClinPrim" runat="server" />
+        </td>
+        <td>
+            <TextArea ID="TextArea2" class="form-control" onChange="txtClinSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+            <asp:Label ID="Label2" runat="server"/>
+            <asp:HyperLink ID="HyperLink2" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVClinSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <input id="Hidden2" type="hidden" value="761" name="hDSMVClinSec" runat="server" />
+        </td>
+        <td>
+            <TextArea ID="TextArea3" class="form-control" onChange="txtClinTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+            <asp:Label ID="Label3" runat="server"/>
+            <asp:HyperLink ID="HyperLink3" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVClinTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <input id="Hidden3" type="hidden" value="761" name="hDSMVClinTer" runat="server" />
+        </td>
+    </tr>
+
+    <%--
     <tr>
         <th><span class="SEPSLabel">Trastornos de la personalidad y RM</span></th>
         <td>
@@ -254,6 +277,15 @@
             <asp:Label ID="lblDSMVPsicoAmbiTer" runat="server" />
         </td>
     </tr>
+    --%>
+
+    <tr>
+        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">&nbsp;</th>
+    </tr>
+
     <tr>
         <th><span class="SEPSLabel">Comentarios</span></th>
         <td colspan="3">
@@ -273,7 +305,7 @@
         </td>
     </tr>--%>
     <tr>
-        <th><span class="SEPSLabel">Funcionamiento global</span></th>
+        <th><span class="SEPSLabel">Medida de Funcionamiento Global [TEDS, opcional]</span></th>
         <td colspan="3">
             <asp:textbox CssClass="form-control" id="txtDSMVFnGlobal" runat="server" autocomplete="off" onBlur="validateGAF('WucEpisodioPerfil_txtDSMVFnGlobal')" MaxLength="3"/>
             <asp:label id="lblDSMVFnGlobal" runat="server"/>
@@ -287,7 +319,7 @@
         </td>
     </tr> 
         <tr>
-        <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
+        <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias [TEDS]</span></th>
         <td colspan="3">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
@@ -302,6 +334,57 @@
     </tr>
 </table>
   </div>
+</div>
+
+<%-- Campo Agregado 12/2020 --%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Utilización de tabaco o cigarrillo</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-print-6 col-md-6 SEPSDivs">
+                    <%-- Zona Geografica --%>
+                    <span class="SEPSLabel">¿Ha fumado al menos 100 cigarrillos en toda su vida?:</span>
+                    <asp:RequiredFieldValidator ID="rfvZonaGeografia" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Zona geográfica" ControlToValidate="ddlZonaGeografia" Text="*" />
+                    <div class="expandibleDiv">
+                        <asp:DropDownList CssClass="form-control" ID="ddlZonaGeografia" runat="server">
+                            <asp:ListItem />
+                            <%-- IN ZONA > EPISODIO --%>
+                            <asp:ListItem Value="1">Si</asp:ListItem>
+                            <asp:ListItem Value="2">No</asp:ListItem>
+                            <asp:ListItem Value="3">Desconoce</asp:ListItem>
+                            <asp:ListItem Value="4">No informó</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="lblZonaGeografia" runat="server" />
+                    </div>
+                </div>
+            <div class="col-print-6 col-md-6 SEPSDivs">
+                    <%-- Zona Geografica --%>
+                    <span class="SEPSLabel">Si contesto si, ¿con que frecuencia fuma cigarrillos actualmente?:</span>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Zona geográfica" ControlToValidate="ddlZonaGeografia" Text="*" />
+                    <div class="expandibleDiv">
+                        <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
+                            <asp:ListItem />
+                            <%-- IN ZONA > EPISODIO --%>
+                            <asp:ListItem Value="1">Todos los días</asp:ListItem>
+                            <asp:ListItem Value="2">Algunos días</asp:ListItem>
+                            <asp:ListItem Value="3">Nunca</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="Label4" runat="server" />
+                    </div>
+                </div>
+            <div class="col-print-6 col-md-6 SEPSDivs">
+                    <%-- Codigo Postal --%>
+                    <span class="SEPSLabel">¿Si fuma todos o algunos días, cuantos cigarrillos en promedio usted fuma en un día?:</span>
+                    <asp:RegularExpressionValidator ID="revZipCode" runat="server" ValidationExpression="^([0-9])+$" CssClass="rightFloatAsterisk" ToolTip="Debe ser un valor númerico" ErrorMessage="Código postal" ControlToValidate="txtZipCode" Text="*" />
+                    <div class="expandibleDiv">
+                        <asp:TextBox CssClass="form-control" ID="txtZipCode" runat="server" MaxLength="5" />
+                        <asp:Label ID="lblZipCode" runat="server" />
+                    </div>
+                </div>
+        </div>
+    </div>
 </div>
 
 <div class="panel panel-default">

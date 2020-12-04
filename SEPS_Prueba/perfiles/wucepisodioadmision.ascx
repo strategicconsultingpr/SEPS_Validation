@@ -951,6 +951,8 @@
             </div>
         </td>
     </tr>
+
+<%-- Campo Agregado 12/2020 --%>
     <tr>
         <th><span class="SEPSLabel">Confirmado por toxicología</span></th>
         <td>
