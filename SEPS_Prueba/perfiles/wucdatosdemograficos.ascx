@@ -51,7 +51,7 @@
             </div>
             <div class="col-print-12 col-md-6 SEPSDivs">
                 <%-- Condicion laboral --%>
-                <span class="SEPSLabel">Condición laboral:</span>
+                <span class="SEPSLabel">Condición laboral (US-SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="rfvCondLaboral" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Condición laboral" ControlToValidate="ddlCondLaboral" InitialValue="0" Text="*" />
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlCondLaboral" runat="server" DataTextField="DE_CondLaboral" DataValueField="PK_CondLaboral" DataMember="SA_LKP_TEDS_COND_LABORAL" DataSource="<%# dsPerfil %>" onChange="ddlCondLaboral();" />
@@ -60,7 +60,7 @@
             </div>
             <div class="col-print-12 col-md-6 SEPSDivs">
                 <%-- Si no participa en la fuerza laboral --%>
-                <span class="SEPSLabel">Si no participa en la fuerza laboral:</span>
+                <span class="SEPSLabel">Si no participa en la fuerza laboral (US-SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="rfvNoFueraLaboral" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Si no participa en la fuerza laboral" ControlToValidate="ddlNoFueraLaboral" InitialValue="0" Text="*" />
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlNoFueraLaboral" runat="server" DataTextField="DE_NoFuerzaLaboral" DataValueField="PK_NoFuerzaLaboral" DataSource="<%# dvwFuerzaLaboral %>" onChange="ddlNoFueraLaboral();"/>
@@ -79,7 +79,7 @@
         <div class="row">
             <div class="col-print-12 col-xs-12 col-lg-6 SEPSDivs">
                 <%-- Ultimo grado completado --%>
-                <span class="SEPSLabel">Último grado completado:</span>
+                <span class="SEPSLabel">Educación (SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="rfvGrado" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Último grado completado" ControlToValidate="ddlGrado" InitialValue="0" Text="*" />
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlGrado" runat="server" DataTextField="DE_Grado" DataValueField="PK_Grado" DataSource="<%# dvwUltGrado %>" onChange="ddlGrado();" />
@@ -88,7 +88,7 @@
             </div>
             <div class="col-print-12 col-xs-12 col-md-6 SEPSDivs">
                 <%-- Es desertor escolar --%>
-                <span class="SEPSLabel">Es desertor escolar:</span>
+                <span class="SEPSLabel">Desertor escolar:</span>
                 <asp:RequiredFieldValidator ID="rfvDesertorEscolar" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Es desertor escolar" ControlToValidate="ddlDesertorEscolar" InitialValue="0" Enabled="False" Text="*" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="ddlDesertorEscolar" Display="Dynamic" ErrorMessage="Es desertor escolar" Text="*" />
                 <div class="expandibleDiv">
@@ -103,7 +103,7 @@
             </div>
             <div class="col-print-12 col-md-6 SEPSDivs">
                 <%-- Ha recibido eduacion especial --%>
-                <span class="SEPSLabel">Ha recibido educación especial:</span>
+                <span class="SEPSLabel">¿Ha recibido educación especial?:</span>
                 <asp:RequiredFieldValidator ID="rfvEducacionEspecial" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Ha recibido educación especial" ControlToValidate="ddlEducacionEspecial" Text="*" />
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlEducacionEspecial" runat="server">
@@ -117,7 +117,7 @@
             </div>
             <div class="col-print-12 col-xs-12 col-lg-12 SEPSDivs">
                 <%-- Situacion Escolar--%>
-                <span class="SEPSLabel">Situación escolar:</span>
+                <span class="SEPSLabel">Situación escolar al momento de admisión (SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="Requiredfieldvalidator2" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Situación escolar" ControlToValidate="ddlSituacionEscolar" Text="*" />
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlSituacionEscolar" runat="server">
@@ -143,7 +143,7 @@
                 <div style="height: 160px;" runat="server" id="divCompFamiliar">
                     <div class="multipleLeft">
                         <%-- Listbox left --%>
-                        <span class="SEPSLabel">Composición familiar (Disponibles)</span>
+                        <span class="SEPSLabel">¿Con quién vive la persona? (Disponible)</span>
                         <asp:ListBox CssClass="form-control" ID="lbxCompFamiliarSeleccion" runat="server" Height="130px" />
                     </div>
                     <div class="multipleCenter text-center">
@@ -156,12 +156,12 @@
                     </div>
                     <div class="multipleRight">
                         <%-- Listbox right --%>
-                        <span class="SEPSLabel">Composición familiar (Seleccionadas)</span>
+                        <span class="SEPSLabel">¿Con quién vive la persona? (Seleccionadas)</span>
                         <asp:ListBox CssClass="form-control" ID="lbxCompFamiliarSeleccionado" runat="server" Height="130px" />
                     </div>
                 </div>
                 <div class="row" runat="server" id="divLblCompFamiliar">
-                    <div class="col-xs-12"><span class="SEPSLabel">Composición familiar:</span>
+                    <div class="col-xs-12"><span class="SEPSLabel">¿Con quién vive la persona?:</span>
                         <asp:Label ID="lblCompFamiliar" runat="server" /></div>
                 </div>
  
@@ -178,7 +178,7 @@
             </div>
             <div class="col-print-12 col-md-6 SEPSDivs">
                 <%-- Fuente de ingreso --%>
-                <span class="SEPSLabel">Fuente de ingresos:</span>
+                <span class="SEPSLabel">Fuente de ingresos [TEDS]:</span>
                 <asp:RequiredFieldValidator ID="rfvFuenteIngreso" Display="Dynamic" runat="server" CssClass="rightFloatAsterisk" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Fuente de ingresos" ControlToValidate="ddlFuenteIngreso" InitialValue="0" Text="*" />
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlFuenteIngreso" runat="server" DataTextField="DE_FuenteIngreso" DataValueField="PK_FuenteIngreso" DataMember="SA_LKP_TEDS_FUENTE_INGRESO" DataSource="<%# dsPerfil %>" onChange="ddlFuenteIngreso();"/>
@@ -189,7 +189,7 @@
         <div class="row">
             <div class="col-print-6 col-md-6 SEPSDivs">
                 <%-- Residencia --%>
-                <span class="SEPSLabel">Residencia:</span>
+                <span class="SEPSLabel">Residencia (US-SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="rfvResidencia" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Residencia" ControlToValidate="ddlResidencia" InitialValue="0" Text="*" />
                 <div class="expandibleDiv">
                     <asp:DropDownList CssClass="form-control" ID="ddlResidencia" runat="server" DataTextField="DE_Residencia" DataValueField="PK_Residencia" DataSource="<%# dvwResidencia %>" />

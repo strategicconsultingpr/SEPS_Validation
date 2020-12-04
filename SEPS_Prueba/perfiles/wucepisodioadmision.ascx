@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-md-7 SEPSDivs"><%--Nivel de Cuidado Abuso de Sustancias--%>
-        <span class="SEPSLabel">Nivel de cuidado (Abuso de sustancias):</span>
+        <span class="SEPSLabel">Nivel de cuidado de sustancias [TEDS]:</span>
            <asp:RequiredFieldValidator ID="rfvNivelCuidadoSustancias" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlNivelCuidadoSustancias" ErrorMessage="Nivel de cuidado (Abuso de sustancias)" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
         <div class="expandibleDiv">
         <asp:DropDownList  CssClass="form-control" ID="ddlNivelCuidadoSustancias" runat="server" onChange="ddlNivelCuidadoSustancias();"   AutoPostBack="true"/>
@@ -37,7 +37,7 @@
             </div> 
     </div>
     <div class="col-md-5 SEPSDivs"><%--Días de espera para entrar a tratamiento--%>
-        <span class="SEPSLabel">Días de espera para entrar a tratamiento:</span>
+        <span class="SEPSLabel">Días de espera para entrar a tratamiento [TEDS]:</span>
             <asp:RequiredFieldValidator ID="rfvDíasSustancias" runat="server"  Display="Dynamic" CssClass="rightFloatAsterisk" ControlToValidate="txtDíasSustancias" ErrorMessage="Días de espera para entrar a tratamiento"  ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
         <asp:RangeValidator ID="rvDíasSustancias" runat="server"  Display="Dynamic" CssClass="rightFloatAsterisk" ControlToValidate="txtDíasSustancias" ErrorMessage="Días de espera para entrar a tratamiento"  ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 255" Type="Integer" MaximumValue="255" MinimumValue="0" Text="*"/>
         <div class="expandibleDiv">
@@ -47,7 +47,7 @@
             </div>
     </div>
     <div class="col-md-12 SEPSDivs"><%--Usa metadona como parte del tratamiento?--%>
-        <span class="SEPSLabel">¿Usa medicamento como parte del tratamiento contra la dependencia de opiáceos?:</span>
+        <span class="SEPSLabel">¿Usa medicamento como parte del tratamiento contra la dependencia de opiáceos? [TEDS]:</span>
           <asp:RequiredFieldValidator ID="rfvMetadona" runat="server" Display="Dynamic" CssClass="rightFloatAsterisk"  ControlToValidate="ddlMetadona" ErrorMessage="¿Usa medicamento como parte del tratamiento contra la dependencia de opiáceos?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlMetadona" runat="server" onChange="ddlMetadona();">
@@ -62,7 +62,7 @@
             </div>
     </div>
     <div class="col-md-12 SEPSDivs"><%--Co- dependiente?--%>
-        <span class="SEPSLabel">¿Co-dependiente?:</span>
+        <span class="SEPSLabel">¿Co-dependiente? (persona que no tiene problemas de sustancias, pero busca servicios debido a problemas que pueden estar surgiendo en su vida a causa de su relación con usuario) [TEDS]:</span>
            <asp:RequiredFieldValidator ID="rfvCodependiente" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  ControlToValidate="ddlCodependiente" ErrorMessage="¿Co-dependiente?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlCodependiente" runat="server">
@@ -75,7 +75,7 @@
             </div>
     </div>
     <div class="col-md-7 SEPSDivs"><%--Nivel de Cuidado Salud mental--%>
-        <span class="SEPSLabel">Nivel de cuidado (Salud mental):</span>
+        <span class="SEPSLabel">Nivel de cuidado de Salud mental [TEDS]:</span>
                 <asp:RequiredFieldValidator ID="rfvNivelCuidadoSaludMental" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Nivel de cuidado (Salud mental)" ControlToValidate="ddlNivelCuidadoSaludMental" InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()"   AutoPostBack="true"/>
@@ -83,7 +83,7 @@
             </div>
     </div>
     <div class="col-md-5 SEPSDivs"><%--Días de espera para entrar a tratamiento--%>  
-        <span class="SEPSLabel">Días de espera para entrar a tratamiento:</span>
+        <span class="SEPSLabel">Días de espera para entrar a tratamiento [TEDS]:</span>
            <asp:RequiredFieldValidator ID="rfvDíasMental" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="txtDíasMental" ErrorMessage="Días de espera para entrar a tratamiento" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
         <asp:RangeValidator ID="rvDíasMental" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtDíasMental" ErrorMessage="Días de espera para entrar a tratamiento" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 255" Type="Integer" MaximumValue="255" MinimumValue="0" Display="Dynamic" Text="*"/>
         <div class="expandibleDiv">
@@ -417,7 +417,7 @@
  
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Ha sido victima de violencia doméstica?--%>
-        <span class="SEPSLabel">¿Ha sido victima de violencia doméstica?:</span>
+        <span class="SEPSLabel">¿Ha sido victima de violencia doméstica? [violencia de género que sucede en personas que son o fueron pareja, y entre las que existió una relación consensual, Ley num. 54]:</span>
                 <asp:RequiredFieldValidator ID="rfvVioDomestic" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlVioDomestic"  ErrorMessage="¿Ha sido victima de violencia doméstica?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
 
         <div class="expandibleDiv">
@@ -432,13 +432,14 @@
             </div>
     </div>
 </div>
+<%--
 <div class="row">
     <div class="col-md-6 SEPSDivs">
         <span class="SEPSLabel">¿Ha participado en reuniones de grupos de apoyo, auto-ayuda, religiosas o ha buscado ayuda a su tratamiento de familiares, amigos u otros durante los pasados 30 días?:</span>
     </div>
     <div class="clearfix visible-xs-block"></div>
     <div class="clearfix visible-sm-block"></div>    
-    <div class="col-md-6 SEPSDivs"><%--Ha participado en reuniones de grupos de apoyo, auto-ayuda, religiosas o ha buscado ayuda a su tratamiento de familiares, amigos u otros durante los pasados 30 días?--%>
+    <div class="col-md-6 SEPSDivs"><%--Ha participado en reuniones de grupos de apoyo, auto-ayuda, religiosas o ha buscado ayuda a su tratamiento de familiares, amigos u otros durante los pasados 30 días?
          <asp:RequiredFieldValidator ID="rfvReunionesGrupos" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  ControlToValidate="ddlReunionesGrupos" ErrorMessage="¿Ha participado en reuniones de grupos de apoyo, auto-ayuda, religiosas o ha buscado ayuda a su tratamiento de familiares, amigos u otros durante los pasados 30 días?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlReunionesGrupos" runat="server" OnLoad="ddlReunionesGrupos_Load" onChange="ddlReunionesGrupos();">
@@ -451,10 +452,11 @@
         </div>
        
     </div>
-</div>
+</div> 
+--%>
 <div class="row">
     <div class="col-md-6 SEPSDivs">
-        <span class="SEPSLabel">¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?</span>
+        <span class="SEPSLabel">¿Cuántas veces ha participado de reuniones de grupos de auto-ayuda durante los pasados 30 días como apoyo a su proceso de recuperación? (SU-NOM, incluye alcohólicos anónimos, narcóticos anónimos, programas pares etc.)</span>
     </div>
     <div class="clearfix visible-xs-block"></div>
     <div class="clearfix visible-sm-block"></div>
@@ -612,13 +614,13 @@
   <div class="table-panel-body">
     <table class="table table-striped table-hover">
     <tr>
-        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">Diagnóstico DSM-5</th>
         <th><span class="SEPSLabel">Diagnóstico primario</span></th>
         <th><span class="SEPSLabel">Diagnóstico secundario</span></th>
         <th><span class="SEPSLabel">Diagnóstico terciario</span></th>
     </tr>
     <tr>
-        <th><span class="SEPSLabel">Trastornos clínicos</span></th>
+        <th><span class="SEPSLabel">Salud Mental [TEDS]</span></th>
         <td> 
             <asp:RequiredFieldValidator ID="rfvDSMVClinPrim" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVClinPrim" ErrorMessage="Eje I. Diagnóstico Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
             <div class="expandibleDiv">
@@ -647,6 +649,37 @@
             </div>
         </td>
     </tr>
+    <tr>
+        <th><span class="SEPSLabel">Sustancias [TEDS]</span></th>
+        <td> 
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVClinPrim" ErrorMessage="Eje I. Diagnóstico Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
+            <div class="expandibleDiv">
+                <TextArea class="form-control"  ID="TextArea1" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+                <asp:Label ID="Label1" runat="server" />
+                <asp:HyperLink ID="HyperLink1" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                <input id="Hidden1" type="hidden" value="761" name="hDSMVClinPrim" runat="server"/>
+            </div>
+        </td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVClinSec" ErrorMessage="Eje I. Diagnóstico Secundarioario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
+            <div class="expandibleDiv">
+                <TextArea  class="form-control" ID="TextArea2" onChange="txtClinSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+                <asp:Label ID="Label2" runat="server" />
+                <asp:HyperLink ID="HyperLink2" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinSec', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                <input id="Hidden2" type="hidden" value="761" name="hDSMVClinSec" runat="server"/>
+            </div>
+        </td>
+        <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVClinTer" ErrorMessage="Eje I. Diagnóstico Terciario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
+            <div class="expandibleDiv">
+                <TextArea class="form-control"  ID="TextArea3" onChange="txtClinTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+                <asp:Label ID="Label3" runat="server"/>
+                <asp:HyperLink ID="HyperLink3" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinTer', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                <input id="Hidden3" type="hidden" value="761" name="hDSMVClinTer" runat="server"/>
+            </div>
+        </td>
+    </tr>
+    <%--
     <tr>
         <th><span class="SEPSLabel">Trastornos de la personalidad y RM</span></th>
         <td>
@@ -693,6 +726,15 @@
             <asp:Label ID="lblDSMVPsicoAmbiTer" runat="server"/>
         </td>
     </tr>
+    --%>
+
+    <tr>
+        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">&nbsp;</th>
+        <th style="width:250px;">&nbsp;</th>
+    </tr>
+
     <tr>
         <th><span class="SEPSLabel">Comentarios</span></th>
         <td colspan="3">
@@ -701,7 +743,7 @@
         </td>
     </tr> 
     <tr>
-        <th><span class="SEPSLabel">Funcionamiento global</span></th>
+        <th><span class="SEPSLabel">Medida de Funcionamiento Global [TEDS, opcional]</span></th>
         <td colspan="3">
             <asp:textbox CssClass="form-control" id="txtDSMVFnGlobal" runat="server" autocomplete="off" onBlur="validateGAF('WucEpisodioAdmision_txtDSMVFnGlobal')" MaxLength="3" Width="100%"/>
             <asp:label id="lblDSMVFnGlobal" runat="server"/>
@@ -716,7 +758,7 @@
     </tr>
         
          <tr>
-        <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
+        <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias [TEDS]</span></th>
               
         <td colspan="3">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
@@ -745,6 +787,57 @@
     </tr>--%>
 </table>
   </div>
+
+</div>
+<%-- Campo Agregado 12/2020 --%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Utilización de tabaco o cigarrillo</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-print-6 col-md-6 SEPSDivs">
+                    <%-- Zona Geografica --%>
+                    <span class="SEPSLabel">¿Ha fumado al menos 100 cigarrillos en toda su vida?:</span>
+                    <asp:RequiredFieldValidator ID="rfvZonaGeografia" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Zona geográfica" ControlToValidate="ddlZonaGeografia" Text="*" />
+                    <div class="expandibleDiv">
+                        <asp:DropDownList CssClass="form-control" ID="ddlZonaGeografia" runat="server">
+                            <asp:ListItem />
+                            <%-- IN ZONA > EPISODIO --%>
+                            <asp:ListItem Value="1">Si</asp:ListItem>
+                            <asp:ListItem Value="2">No</asp:ListItem>
+                            <asp:ListItem Value="3">Desconoce</asp:ListItem>
+                            <asp:ListItem Value="4">No informó</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="lblZonaGeografia" runat="server" />
+                    </div>
+                </div>
+            <div class="col-print-6 col-md-6 SEPSDivs">
+                    <%-- Zona Geografica --%>
+                    <span class="SEPSLabel">Si contesto si, ¿con que frecuencia fuma cigarrillos actualmente?:</span>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Zona geográfica" ControlToValidate="ddlZonaGeografia" Text="*" />
+                    <div class="expandibleDiv">
+                        <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
+                            <asp:ListItem />
+                            <%-- IN ZONA > EPISODIO --%>
+                            <asp:ListItem Value="1">Todos los días</asp:ListItem>
+                            <asp:ListItem Value="2">Algunos días</asp:ListItem>
+                            <asp:ListItem Value="3">Nunca</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="Label4" runat="server" />
+                    </div>
+                </div>
+            <div class="col-print-6 col-md-6 SEPSDivs">
+                    <%-- Codigo Postal --%>
+                    <span class="SEPSLabel">¿Si fuma todos o algunos días, cuantos cigarrillos en promedio usted fuma en un día?:</span>
+                    <asp:RegularExpressionValidator ID="revZipCode" runat="server" ValidationExpression="^([0-9])+$" CssClass="rightFloatAsterisk" ToolTip="Debe ser un valor númerico" ErrorMessage="Código postal" ControlToValidate="txtZipCode" Text="*" />
+                    <div class="expandibleDiv">
+                        <asp:TextBox CssClass="form-control" ID="txtZipCode" runat="server" MaxLength="5" />
+                        <asp:Label ID="lblZipCode" runat="server" />
+                    </div>
+                </div>
+        </div>
+    </div>
 </div>
 
 <div class="panel panel-default">
@@ -857,6 +950,43 @@
                 <asp:Label ID="lblEdadTerc" runat="server"/>
             </div>
         </td>
+    </tr>
+    <tr>
+        <th><span class="SEPSLabel">Confirmado por toxicología</span></th>
+        <td>
+            <div class="expandibleDiv">
+            <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
+                <asp:ListItem />
+                <%-- IN ZONA > EPISODIO --%>
+                <asp:ListItem Value="1">Si</asp:ListItem>
+                <asp:ListItem Value="2">No</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Label ID="Label5" runat="server" />
+        </div>
+        </td>
+        <td>
+            <div class="expandibleDiv">
+            <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
+                <asp:ListItem />
+                <%-- IN ZONA > EPISODIO --%>
+                <asp:ListItem Value="1">Si</asp:ListItem>
+                <asp:ListItem Value="2">No</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Label ID="Label6" runat="server" />
+        </div>
+        </td>
+        <td>
+            <div class="expandibleDiv">
+            <asp:DropDownList CssClass="form-control" ID="DropDownList4" runat="server">
+                <asp:ListItem />
+                <%-- IN ZONA > EPISODIO --%>
+                <asp:ListItem Value="1">Si</asp:ListItem>
+                <asp:ListItem Value="2">No</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Label ID="Label7" runat="server" />
+        </div>
+        </td>
+        
     </tr>
 </table>
   </div>

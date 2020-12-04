@@ -232,3 +232,56 @@
         </div>
   </div>
 </div>
+
+
+<!-- Sección de Información de contacto -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Información contacto</h3>
+  </div>
+  <div class="table-panel-body">
+    <table class="table table-striped table-hover">
+    <tr>
+        <th><span class="SEPSLabel">Números de teléfono</span></th>
+        <th><span class="SEPSLabel">1. Celular</span></th>
+        <th><span class="SEPSLabel">2. Familiar o contacto autorizado</span></th>
+    </tr>
+    <tr>
+        <th><span class="SEPSLabel"></span></th>
+        <td><%--Diagnóstico Primario--%>
+           <div class="expandibleDiv">
+                <asp:TextBox  CssClass="form-control" ID="txtCelular1" runat="server" MinLenght="10" MaxLength="10"/>
+                <asp:Label ID="lblCelular1" runat="server" />
+            </div>
+        </td>
+        <td><%--Diagnóstico Primario--%>
+           <div class="expandibleDiv">
+                <asp:TextBox  CssClass="form-control" ID="txtCelular2" runat="server" MinLenght="10" MaxLength="10"/>
+                <asp:Label ID="lblCelular2" runat="server" />
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="SEPSLabel">Dirección de correo electrónico</span></th>
+        <th><span class="SEPSLabel">1.</span></th>
+        <th><span class="SEPSLabel">2.</span></th>
+    </tr>
+    <tr>
+        <th><span class="SEPSLabel"></span></th>
+        <td><%--Diagnóstico Primario--%>
+           <div class="expandibleDiv">
+                <asp:TextBox  TabIndex="12" CssClass="form-control" ID="TextBox2" runat="server" MaxLength="2"/>
+                <asp:Label ID="Label2" runat="server" />
+            </div>
+        </td>
+        <td><%--Diagnóstico Primario--%>
+           <div class="expandibleDiv">
+                <asp:TextBox  TabIndex="12" CssClass="form-control" ID="TextBox3" runat="server" MaxLength="2"/>
+                <asp:Label ID="Label3" runat="server" />
+            </div>
+        </td>
+    </tr>
+    </table>
+  </div>
+</div>
