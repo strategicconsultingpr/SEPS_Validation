@@ -250,15 +250,34 @@
     <tr>
         <th><span class="SEPSLabel"></span></th>
         <td><%--Diagnóstico Primario--%>
+            <asp:RequiredFieldValidator ID="rfvCelular1" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" Enabled="false" ToolTip="Este campo es requerido, al seleccionar el cuadrado." ErrorMessage="Celular #1" ControlToValidate="txtCelular1" Text="*"/>
            <div class="expandibleDiv">
-                <asp:TextBox  CssClass="form-control" ID="txtCelular1" runat="server" MinLenght="10" MaxLength="10"/>
-                <asp:Label ID="lblCelular1" runat="server" />
+               <div class="row">
+                   <div class="col-md-4">
+                    ¿Contiene? &nbsp&nbsp&nbsp
+                       <asp:CheckBox ID="chkCelular1" runat="server" class="form-check-input" OnClick="chkCelular1();"/>
+                   </div>
+                   
+                   <div class="col-md-8">
+                        <asp:TextBox  CssClass="form-control" ID="txtCelular1" Enabled="false" runat="server" MinLenght="10" MaxLength="10"/>
+                        <asp:Label ID="lblCelular1" runat="server" />
+                   </div>
+               </div>
+                
             </div>
-        </td>
+        </td> 
         <td><%--Diagnóstico Primario--%>
+            <asp:RequiredFieldValidator ID="rfvCelular2" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" Enabled="false" ToolTip="Este campo es requerido, al seleccionar el cuadrado." ErrorMessage="Celular #2" ControlToValidate="txtCelular1" Text="*"/>
            <div class="expandibleDiv">
-                <asp:TextBox  CssClass="form-control" ID="txtCelular2" runat="server" MinLenght="10" MaxLength="10"/>
-                <asp:Label ID="lblCelular2" runat="server" />
+                <div class="row">
+                   <div class="col-md-4">
+                    ¿Contiene? &nbsp&nbsp&nbsp<asp:CheckBox ID="chkCelular2" runat="server" class="form-check-input" OnClick="chkCelular2();"/>
+                   </div>
+                   <div class="col-md-8">
+                        <asp:TextBox  CssClass="form-control" ID="txtCelular2" Enabled="false" runat="server" MinLenght="10" MaxLength="10"/>
+                        <asp:Label ID="Label1" runat="server" />
+                   </div>
+               </div>
             </div>
         </td>
     </tr>
@@ -270,14 +289,23 @@
     <tr>
         <th><span class="SEPSLabel"></span></th>
         <td><%--Diagnóstico Primario--%>
+            <asp:RequiredFieldValidator ID="rfvEmail1" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" Enabled="false" ToolTip="Este campo es requerido, al seleccionar el cuadrado." ErrorMessage="Email" ControlToValidate="txtEmail1" Text="*"/>
            <div class="expandibleDiv">
-                <asp:TextBox  TabIndex="12" CssClass="form-control" ID="TextBox2" runat="server" MaxLength="2"/>
-                <asp:Label ID="Label2" runat="server" />
+               <div class="row">
+                   <div class="col-md-4">
+                       ¿Contiene? &nbsp&nbsp&nbsp<asp:CheckBox ID="chkEmail" runat="server" class="form-check-input" OnClick="chkEmail();"/>
+                   </div>
+                   <div class="col-md-8">
+                        <asp:TextBox  TabIndex="12" CssClass="form-control" ID="txtEmail1" runat="server" Enabled="false" />
+                        <asp:Label ID="Label2" runat="server" />
+                   </div>
+               </div>
+                
             </div>
         </td>
         <td><%--Diagnóstico Primario--%>
            <div class="expandibleDiv">
-                <asp:TextBox  TabIndex="12" CssClass="form-control" ID="TextBox3" runat="server" MaxLength="2"/>
+                <asp:TextBox  TabIndex="12" CssClass="form-control" ID="txtEmail2" runat="server" Enabled="false" onBlur="email2();"/>
                 <asp:Label ID="Label3" runat="server" />
             </div>
         </td>

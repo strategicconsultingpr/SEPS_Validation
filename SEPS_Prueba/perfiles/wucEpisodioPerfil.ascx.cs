@@ -11,7 +11,7 @@ namespace ASSMCA.Perfiles
 	{
 		public frmAction m_frmAction;
 		protected ASSMCA.perfiles.dsPerfil dsPerfil;
-		protected System.Data.DataView dvwDiagPrimario,dvwDiagSecundario,dvwDiagTerciario,dvwIVPrim,dvwIVSec,dvwIVTerc,dvwDrogaPrim,dvwDrogaSec,dvwDrogaTerc,dvwViaPrim,dvwViaSec,dvwViaTerc,dvwFrecPrim,dvwFrecSec,dvwFrecTerc,dvwMediPrim,dvwMediSec,dvwMediTerc,dvw_DSMV_ProblemasPsicosocialesAmbientales1, dvw_DSMV_ProblemasPsicosocialesAmbientales2, dvw_DSMV_ProblemasPsicosocialesAmbientales3;
+		protected System.Data.DataView dvwNivelMental, dvwDiagPrimario,dvwDiagSecundario,dvwDiagTerciario,dvwIVPrim,dvwIVSec,dvwIVTerc,dvwDrogaPrim,dvwDrogaSec,dvwDrogaTerc,dvwViaPrim,dvwViaSec,dvwViaTerc,dvwFrecPrim,dvwFrecSec,dvwFrecTerc,dvwMediPrim,dvwMediSec,dvwMediTerc,dvw_DSMV_ProblemasPsicosocialesAmbientales1, dvw_DSMV_ProblemasPsicosocialesAmbientales2, dvw_DSMV_ProblemasPsicosocialesAmbientales3;
 		protected System.Web.UI.WebControls.TextBox txtDisposicionReferido;
 		protected System.Web.UI.WebControls.Label lblDisposicionFinal;
 		protected System.Data.SqlClient.SqlDataAdapter daPerfilValidaciones;
@@ -58,7 +58,14 @@ namespace ASSMCA.Perfiles
                 this.dvw_DSMV_ProblemasPsicosocialesAmbientales1.Table = this.dsPerfil.SA_LKP_DSMV_ProblemasPsicosocialesAmbientales;
                 this.dvw_DSMV_ProblemasPsicosocialesAmbientales2.Table = this.dsPerfil.SA_LKP_DSMV_ProblemasPsicosocialesAmbientales;
                 this.dvw_DSMV_ProblemasPsicosocialesAmbientales3.Table = this.dsPerfil.SA_LKP_DSMV_ProblemasPsicosocialesAmbientales;
-				this.DataBind();
+
+                this.dvwNivelMental.Table = this.dsPerfil.SA_LKP_SALUD_MENTAL_ANTERIOR;
+                this.dvwNivelMental.RowFilter = "PK_SaludMental IN (24,25,26,33)";
+                this.DataBind();
+
+                this.ddlNivelRecuperacion.Items.Insert(0, new ListItem("No aplica", "99"));
+                this.ddlNivelRecuperacion.SelectedValue = "99";
+
                 this.ManagePracticasBasadasEnEvidencia(this.m_frmAction);
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
                 switch(this.m_frmAction)
@@ -67,6 +74,7 @@ namespace ASSMCA.Perfiles
                         this.EditarRegistro();
                         this.ActualizarCamposCrear();
                         this.DSMIV_DIV.Visible = false;
+                        this.DSMVRM_DIV.Visible = false;
                         break;
                     case (frmAction.Read): 
                         this.LeerRegistro();
@@ -105,13 +113,17 @@ namespace ASSMCA.Perfiles
             this.lblDSMVClinPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString();
             this.lblDSMVClinSec.Text =  this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString();
             this.lblDSMVClinTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
-            //this.lblDSMVRMPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
-            //this.lblDSMVRMSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
-            //this.lblDSMVRMTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
-            //this.lblDSMVPsicoAmbiPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
-            //this.lblDSMVPsicoAmbiSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
-            //this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
+
+
+            this.lblDSMVRMPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
+            this.lblDSMVRMSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
+            this.lblDSMVRMTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
+            this.lblDSMVPsicoAmbiPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
+            this.lblDSMVPsicoAmbiSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
+            this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
             this.lblDSMVDiagDual.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_DiagnosticoDual"].ToString();
+
+
             if (this.hDSMVClinPrim.Value == "")
             {
                 this.hDSMVClinPrim.Value = "761";
@@ -124,18 +136,29 @@ namespace ASSMCA.Perfiles
             {
                 this.hDSMVClinTer.Value = "761";
             }
-            //if (this.hDSMVRMPrim.Value == "")
-            //{
-            //    this.hDSMVRMPrim.Value = "761";
-            //}
-            //if (this.hDSMVRMSec.Value == "")
-            //{
-            //    this.hDSMVRMSec.Value = "761";
-            //}
-            //if (this.hDSMVRMTer.Value == "")
-            //{
-            //    this.hDSMVRMTer.Value = "761";
-            //}
+
+
+            if (this.hDSMVRMPrim.Value == "")
+            {
+                this.hDSMVRMPrim.Value = "761";
+            }
+            if (this.hDSMVRMSec.Value == "")
+            {
+                this.hDSMVRMSec.Value = "761";
+            }
+            if (this.hDSMVRMTer.Value == "")
+            {
+                this.hDSMVRMTer.Value = "761";
+            }
+
+
+            DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
+            DateTime limite = new DateTime(2021, 1, 1);
+            if (fe_perfil > limite)
+            {
+                DSMVRM_DIV.Visible = false;
+            }
+
             this.lblDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.lblDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
             this.lblDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
@@ -161,24 +184,34 @@ namespace ASSMCA.Perfiles
             this.txtDSMVClinPrim.Visible = false;
             this.txtDSMVClinSec.Visible = false;
             this.txtDSMVClinTer.Visible = false;
-            //this.txtDSMVRMPrim.Visible = false;
-            //this.txtDSMVRMSec.Visible = false;
-            //this.txtDSMVRMTer.Visible = false;
+
+
+            this.txtDSMVRMPrim.Visible = false;
+            this.txtDSMVRMSec.Visible = false;
+            this.txtDSMVRMTer.Visible = false;
+
+
             this.txtDSMVOtrasObs.Visible = false;
             this.txtDSMVComentarios.Visible = false;
             this.ddlDSMVDiagDual.Visible = false;
-            //this.ddlDSMVPsicoAmbiPrim.Visible = false;
-            //this.ddlDSMVPsicoAmbiSec.Visible = false;
-            //this.ddlDSMVPsicoAmbiTer.Visible = false;
+
+
+            this.ddlDSMVPsicoAmbiPrim.Visible = false;
+            this.ddlDSMVPsicoAmbiSec.Visible = false;
+            this.ddlDSMVPsicoAmbiTer.Visible = false;
+
+
             this.txtDSMVFnGlobal.Visible = false;
             this.hlDSMVClinPrim.Visible = false;
             this.hlDSMVClinSec.Visible = false;
             this.hlDSMVClinTer.Visible = false;
-            //this.hlDSMVRMPrim.Visible = false;
-            //this.hlDSMVRMSec.Visible = false;
-            //this.hlDSMVRMTer.Visible = false;
 
-			this.ddlDrogaPrim.Visible = false;
+
+            this.hlDSMVRMPrim.Visible = false;
+            this.hlDSMVRMSec.Visible = false;
+            this.hlDSMVRMTer.Visible = false;
+
+            this.ddlDrogaPrim.Visible = false;
 			this.ddlDrogaSec.Visible = false;
 			this.ddlDrogaTerc.Visible = false;
 			this.ddlFrecPrim.Visible = false;
@@ -200,8 +233,21 @@ namespace ASSMCA.Perfiles
             nivelSM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
             nivelAS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
 
+            //if(nivelSM == "24" || nivelSM == "25" || nivelSM == "26" || nivelSM == "33")
+            //{
+            //    this.RecuperacionDiv.Visible = true;
+            //}
+            //else
+            //{
+            //    this.RecuperacionDiv.Visible = false;
+            //}
+
         }
 
+        private void EditarRecuperacion()
+        {
+
+        }
 		private void ActualizarCamposCrear()
 		{
                 this.ddlDrogaPrim.SelectedValue = "0";
@@ -247,16 +293,16 @@ namespace ASSMCA.Perfiles
             this.txtDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
             this.hDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString();
 
-            //this.txtDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
-            //this.hDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM1"].ToString();
-            //this.txtDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
-            //this.hDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM2"].ToString();
-            //this.txtDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
-            //this.hDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM3"].ToString();
+            this.txtDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
+            this.hDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM1"].ToString();
+            this.txtDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM2"].ToString();
+            this.hDSMVRMSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM2"].ToString();
+            this.txtDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM3"].ToString();
+            this.hDSMVRMTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM3"].ToString();
 
-            //this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
-            //this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
-            //this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
+            this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
+            this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
+            this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
 
             //this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString(); -> Este campo proviene del episodio, no del perfil
             this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
@@ -274,7 +320,14 @@ namespace ASSMCA.Perfiles
                 this.ddlDrogaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DrogaPrimario"].ToString();
                 this.ddlViaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaPrimario"].ToString();
                 this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
-		}
+
+            DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
+            DateTime limite = new DateTime(2021, 1, 1);
+            if (fe_perfil > limite)
+            {
+                DSMVRM_DIV.Visible = false;
+            }
+        }
 
 		#region Código generado por el Diseñador de Web Forms
 		override protected void OnInit(EventArgs e)
@@ -310,7 +363,10 @@ namespace ASSMCA.Perfiles
 			this.daPerfilValidaciones = new System.Data.SqlClient.SqlDataAdapter();
 			this.sqlSelectCommand1 = new System.Data.SqlClient.SqlCommand();
 			this.cnn = new System.Data.SqlClient.SqlConnection();
-			((System.ComponentModel.ISupportInitialize)(this.dsPerfil)).BeginInit();
+
+            this.dvwNivelMental = new System.Data.DataView();
+
+            ((System.ComponentModel.ISupportInitialize)(this.dsPerfil)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dvwDiagPrimario)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dvwDiagSecundario)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dvwDiagTerciario)).BeginInit();
@@ -332,7 +388,10 @@ namespace ASSMCA.Perfiles
             ((System.ComponentModel.ISupportInitialize)(this.dvw_DSMV_ProblemasPsicosocialesAmbientales1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvw_DSMV_ProblemasPsicosocialesAmbientales2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvw_DSMV_ProblemasPsicosocialesAmbientales3)).BeginInit();
-			this.dsPerfil.DataSetName = "dsPerfil";
+
+            ((System.ComponentModel.ISupportInitialize)(this.dvwNivelMental)).BeginInit();
+
+            this.dsPerfil.DataSetName = "dsPerfil";
 			this.dsPerfil.Locale = new System.Globalization.CultureInfo("en-US");
 			this.daPerfilValidaciones.SelectCommand = this.sqlSelectCommand1;
 			this.daPerfilValidaciones.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
@@ -379,7 +438,10 @@ namespace ASSMCA.Perfiles
 			this.sqlSelectCommand1.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Perfil", System.Data.SqlDbType.Int, 4));
 			this.sqlSelectCommand1.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Episodio", System.Data.SqlDbType.Int, 4));
             this.cnn.ConnectionString = NewSource.connectionString;
-			((System.ComponentModel.ISupportInitialize)(this.dsPerfil)).EndInit();
+
+      
+
+            ((System.ComponentModel.ISupportInitialize)(this.dsPerfil)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dvwDiagPrimario)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dvwDiagSecundario)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dvwDiagTerciario)).EndInit();
@@ -401,7 +463,9 @@ namespace ASSMCA.Perfiles
             ((System.ComponentModel.ISupportInitialize)(this.dvw_DSMV_ProblemasPsicosocialesAmbientales2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvw_DSMV_ProblemasPsicosocialesAmbientales3)).EndInit();
 
-		}
+            ((System.ComponentModel.ISupportInitialize)(this.dvwNivelMental)).EndInit();
+
+        }
 		#endregion
 		
 		#region Propiedades del Perfil

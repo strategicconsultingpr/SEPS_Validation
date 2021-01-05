@@ -1131,6 +1131,204 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblDual;
 
         /// <summary>
+        /// DSMVRM_DIV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DSMVRM_DIV;
+
+        /// <summary>
+        /// rfvDSMVRMPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDSMVRMPrim;
+
+        /// <summary>
+        /// txtDSMVRMPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDSMVRMPrim;
+
+        /// <summary>
+        /// lblDSMVRMPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVRMPrim;
+
+        /// <summary>
+        /// hlDSMVRMPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlDSMVRMPrim;
+
+        /// <summary>
+        /// hDSMVRMPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVRMPrim;
+
+        /// <summary>
+        /// rfvDSMVRMSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDSMVRMSec;
+
+        /// <summary>
+        /// txtDSMVRMSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDSMVRMSec;
+
+        /// <summary>
+        /// lblDSMVRMSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVRMSec;
+
+        /// <summary>
+        /// hlDSMVRMSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlDSMVRMSec;
+
+        /// <summary>
+        /// hDSMVRMSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVRMSec;
+
+        /// <summary>
+        /// rfvDSMVRMTer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDSMVRMTer;
+
+        /// <summary>
+        /// txtDSMVRMTer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDSMVRMTer;
+
+        /// <summary>
+        /// lblDSMVRMTer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVRMTer;
+
+        /// <summary>
+        /// hlDSMVRMTer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlDSMVRMTer;
+
+        /// <summary>
+        /// hDSMVRMTer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVRMTer;
+
+        /// <summary>
+        /// ddlDSMVPsicoAmbiPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSMVPsicoAmbiPrim;
+
+        /// <summary>
+        /// lblDSMVPsicoAmbiPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVPsicoAmbiPrim;
+
+        /// <summary>
+        /// ddlDSMVPsicoAmbiSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSMVPsicoAmbiSec;
+
+        /// <summary>
+        /// lblDSMVPsicoAmbiSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVPsicoAmbiSec;
+
+        /// <summary>
+        /// ddlDSMVPsicoAmbiTer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDSMVPsicoAmbiTer;
+
+        /// <summary>
+        /// lblDSMVPsicoAmbiTer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDSMVPsicoAmbiTer;
+
+        /// <summary>
         /// rfvDSMVClinPrim control.
         /// </summary>
         /// <remarks>
@@ -1581,6 +1779,24 @@ namespace ASSMCA.Perfiles
         public global::System.Web.UI.WebControls.DropDownList ddlDrogaPrim;
 
         /// <summary>
+        /// Hogar_DIV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Hogar_DIV;
+
+        /// <summary>
+        /// txtDrogaPrim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDrogaPrim;
+
+        /// <summary>
         /// lblDrogaPrim control.
         /// </summary>
         /// <remarks>
@@ -1608,6 +1824,24 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.DropDownList ddlDrogaSec;
 
         /// <summary>
+        /// Hogar2_DIV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Hogar2_DIV;
+
+        /// <summary>
+        /// txtDrogaSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDrogaSec;
+
+        /// <summary>
         /// lblDrogaSec control.
         /// </summary>
         /// <remarks>
@@ -1633,6 +1867,24 @@ namespace ASSMCA.Perfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDrogaTerc;
+
+        /// <summary>
+        /// Hogar3_DIV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Hogar3_DIV;
+
+        /// <summary>
+        /// txtDrogaTerc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDrogaTerc;
 
         /// <summary>
         /// lblDrogaTerc control.

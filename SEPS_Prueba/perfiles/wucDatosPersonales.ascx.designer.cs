@@ -474,6 +474,24 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblTipoDeAdmision;
 
         /// <summary>
+        /// rfvCelular1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCelular1;
+
+        /// <summary>
+        /// chkCelular1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkCelular1;
+
+        /// <summary>
         /// txtCelular1 control.
         /// </summary>
         /// <remarks>
@@ -492,6 +510,24 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblCelular1;
 
         /// <summary>
+        /// rfvCelular2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCelular2;
+
+        /// <summary>
+        /// chkCelular2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkCelular2;
+
+        /// <summary>
         /// txtCelular2 control.
         /// </summary>
         /// <remarks>
@@ -501,22 +537,40 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.TextBox txtCelular2;
 
         /// <summary>
-        /// lblCelular2 control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCelular2;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// TextBox2 control.
+        /// rfvEmail1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail1;
+
+        /// <summary>
+        /// chkEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkEmail;
+
+        /// <summary>
+        /// txtEmail1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail1;
 
         /// <summary>
         /// Label2 control.
@@ -528,13 +582,13 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// TextBox3 control.
+        /// txtEmail2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail2;
 
         /// <summary>
         /// Label3 control.

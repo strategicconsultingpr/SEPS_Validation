@@ -23,6 +23,26 @@
         <input id="ddlNivelCuidadoSustanciasHidden" type="hidden" name="Hidden3" runat="server" />
     </div>
 </div>
+      <div class="row">
+          &nbsp;
+      </div>
+      <div class="row" id="RecuperacionDiv" runat="server" visible="false">
+          <div class="col-md-2">
+                <span class="SEPSLabel">Nivel de cuidado (Recuperación):</span>
+          </div>
+          <div class="col-md-4">
+                <asp:DropDownList CssClass="form-control" ID="ddlNivelRecuperacion" runat="server" DataSource="<%# dvwNivelMental %>" DataTextField="DE_SaludMental" DataValueField="PK_SaludMental" onChange="ddlNivelRecuperacion()"/>
+                <asp:Label ID="lblNivelRecuperacion" runat="server"/>
+          </div>
+          <div class="col-md-2">
+              <span class="SEPSLabel">Hogar:</span>
+          </div>
+          <div class="col-md-4">
+                <asp:TextBox  TabIndex="12" CssClass="form-control" ID="txtHogar" runat="server" Enabled="false"/>
+                <asp:Label ID="lblHogar" runat="server" />
+          </div>
+            
+      </div>
 
   </div>
 </div>
@@ -189,6 +209,59 @@
   <div class="panel-heading">
     <h3 class="panel-title">Diagnóstico</h3>
   </div>
+
+    <div class="table-panel-body" id="DSMVRM_DIV" name="DSMVRM_DIV" runat="server">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th style="width:250px;">Diagnóstico DSM-5 (Antiguo Personalidad y RM)</th>
+                <th><span class="SEPSLabel">Diagnóstico primario</span></th>
+                <th><span class="SEPSLabel">Diagnóstico secundario</span></th>
+                <th><span class="SEPSLabel">Diagnóstico terciario</span></th>
+            </tr>
+            <tr>
+                <th><span class="SEPSLabel">Trastornos de la personalidad y RM</span></th>
+                <td>
+                    <TextArea ID="txtDSMVRMPrim" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly" >No se recopila la información</TextArea>
+                    <asp:Label ID="lblDSMVRMPrim" runat="server"/>
+                    <asp:HyperLink ID="hlDSMVRMPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVRMPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
+                    <input id="hDSMVRMPrim" type="hidden" value="761" name="hDSMVRMPrim" runat="server" />
+                </td>
+                <td>
+                    <TextArea ID="txtDSMVRMSec" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly" >No se recopila la información</TextArea>
+                    <asp:Label ID="lblDSMVRMSec" runat="server"/>
+                    <asp:HyperLink ID="hlDSMVRMSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVRMSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
+                    <input id="hDSMVRMSec" type="hidden" value="761" name="hDSMVRMSec" runat="server" />
+                </td>
+                <td>
+                    <TextArea ID="txtDSMVRMTer" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly">No se recopila la información</TextArea>
+                    <asp:Label ID="lblDSMVRMTer" runat="server"/>
+                    <asp:HyperLink ID="hlDSMVRMTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVRMTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
+                    <input id="hDSMVRMTer" type="hidden" value="761" name="hDSMVRMTer" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <th><span class="SEPSLabel">Problemas psicosociales y ambientales</span></th>
+                <td>
+                    <asp:DropDownList CssClass="form-control" ID="ddlDSMVPsicoAmbiPrim" runat="server" DataSource="<%# dvw_DSMV_ProblemasPsicosocialesAmbientales1 %>" DataTextField="DE_DSMV_ProblemasPsicosocialesAmbientales" DataValueField="PK_DSMV_ProblemasPsicosocialesAmbientales"  onChange="ddlDSMVPsicoAmbiPrim()"/>
+                    <asp:Label ID="lblDSMVPsicoAmbiPrim" runat="server"/>
+                </td>
+                <td>
+                    <asp:DropDownList CssClass="form-control" ID="ddlDSMVPsicoAmbiSec" runat="server"  DataSource="<%# dvw_DSMV_ProblemasPsicosocialesAmbientales2 %>" DataTextField="DE_DSMV_ProblemasPsicosocialesAmbientales" DataValueField="PK_DSMV_ProblemasPsicosocialesAmbientales" onChange="ddlDSMVPsicoAmbiSec()" />
+                    <asp:Label ID="lblDSMVPsicoAmbiSec" runat="server" />
+                </td>
+                <td>
+                    <asp:DropDownList CssClass="form-control" ID="ddlDSMVPsicoAmbiTer" runat="server" DataSource="<%# dvw_DSMV_ProblemasPsicosocialesAmbientales3 %>" DataTextField="DE_DSMV_ProblemasPsicosocialesAmbientales" DataValueField="PK_DSMV_ProblemasPsicosocialesAmbientales"/>
+                    <asp:Label ID="lblDSMVPsicoAmbiTer" runat="server" />
+                </td>
+            </tr>
+             <tr>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+        </table>
+     </div>
+
   <div class="table-panel-body">
     <table class="table table-striped table-hover">
     <tr>
@@ -404,21 +477,69 @@
         <td><%--Diagnóstico Primario--%>
             <asp:RequiredFieldValidator ID="rfvDrogaPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlDrogaPrim" ErrorMessage="Droga - Diagnóstico Primario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList TabIndex="1"  CssClass="form-control" ID="ddlDrogaPrim" runat="server" DataSource="<%# dvwDrogaPrim %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaPrimF();"/>
+                <div class="col-md-12">
+                    <div class="row">
+                        <asp:DropDownList TabIndex="1"  CssClass="form-control" ID="ddlDrogaPrim" runat="server" DataSource="<%# dvwDrogaPrim %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaPrimF();"/>
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <div class="row" id="Hogar_DIV" name="Hogar_DIV" runat="server" style="visibility:hidden">
+                        <div class="col-md-4">
+                            <span class="SEPSLabel">Nombre</span>
+                        </div>
+                        <div class="col-md-8">
+                            <asp:TextBox CssClass="form-control" ID="txtDrogaPrim" runat="server"/>
+                        </div>
+                        
+                    </div>
+                </div>
                 <asp:Label ID="lblDrogaPrim" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Secundario--%>
             <asp:RequiredFieldValidator ID="rfvDrogaSec" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlDrogaSec" ErrorMessage="Droga - Diagnóstico Secundario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList  TabIndex="5"  CssClass="form-control" ID="ddlDrogaSec" runat="server" DataSource="<%# dvwDrogaSec %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaSecF();"/>
+                 <div class="col-md-12">
+                    <div class="row">
+                        <asp:DropDownList  TabIndex="5" CssClass="form-control" ID="ddlDrogaSec" runat="server" DataSource="<%# dvwDrogaSec %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaSecF();"  />
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <div class="row" id="Hogar2_DIV" name="Hogar2_DIV" runat="server" style="visibility:hidden">
+                        <div class="col-md-4">
+                            <span class="SEPSLabel">Nombre</span>
+                        </div>
+                        <div class="col-md-8">
+                            <asp:TextBox CssClass="form-control" ID="txtDrogaSec" runat="server"/>
+                        </div>
+                        
+                    </div>
+                </div>
                 <asp:Label ID="lblDrogaSec" runat="server" />
             </div>
         </td>
         <td><%--Diagnóstico Terciario--%>
             <asp:RequiredFieldValidator ID="rfvDrogaTerc" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="ddlDrogaTerc" ErrorMessage="Droga - Diagnóstico Terciario" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-                <asp:DropDownList   TabIndex="9"  CssClass="form-control" ID="ddlDrogaTerc" runat="server" DataSource="<%# dvwDrogaTerc %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaTercF();"/>
+                 <div class="col-md-12">
+                    <div class="row">
+                        <asp:DropDownList  TabIndex="9" CssClass="form-control" ID="ddlDrogaTerc" runat="server" DataSource="<%# dvwDrogaTerc %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaTercF();"/>
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <div class="row" id="Hogar3_DIV" name="Hogar3_DIV" runat="server" style="visibility:hidden">
+                        <div class="col-md-4">
+                            <span class="SEPSLabel">Nombre</span>
+                        </div>
+                        <div class="col-md-8">
+                            <asp:TextBox CssClass="form-control" ID="txtDrogaTerc" runat="server"/>
+                        </div>
+                        
+                    </div>
+                </div>
                 <asp:Label ID="lblDrogaTerc" runat="server" />
             </div>
         </td>

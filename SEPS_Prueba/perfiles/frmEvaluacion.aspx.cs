@@ -55,8 +55,10 @@ namespace ASSMCA.Perfiles
             
             if ( !this.IsPostBack )
 			{
-                this.WucEpisodioPerfil.FindControl("NivelDiv").Visible = false;
-                HookOnFocus(this.Page as Control);
+				//this.WucEpisodioPerfil.FindControl("NivelDiv").Visible = false;
+				
+
+				HookOnFocus(this.Page as Control);
                 this.WucTakeHome.PK_Programa = m_PK_Programa;
                 switch (Accion)
                 {
@@ -71,22 +73,21 @@ namespace ASSMCA.Perfiles
 					    this.btnModificarAdmin.Visible = false;
 					    this.btnRegistrar.Visible = true;
 					    this.btnGuardarCambios.Visible = false;
-                        
-                        break;
+						break;
                     case ("update"):
-                _m_PK_Perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
-                this.WucDatosPersonales.PK_Perfil = _m_PK_Perfil;
-                this.WucDatosPersonales.PK_Persona =
-            this.m_PK_Persona = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_Persona"].ToString());
-                this.WucDatosDemograficosPerfil.PK_Perfil = _m_PK_Perfil;
-                this.WucTakeHome.PK_Perfil = _m_PK_Perfil;
-                this.ModificarRegistro();
-                this.btnEliminar.Visible = false;
-                this.btnEliminarAdmin.Visible = false;
-                this.btnModificar.Visible = false;
-                this.btnModificarAdmin.Visible = false;
-                this.btnRegistrar.Visible = false;
-                this.btnGuardarCambios.Visible = true;
+						_m_PK_Perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
+						this.WucDatosPersonales.PK_Perfil = _m_PK_Perfil;
+						this.WucDatosPersonales.PK_Persona =
+						this.m_PK_Persona = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_Persona"].ToString());
+						this.WucDatosDemograficosPerfil.PK_Perfil = _m_PK_Perfil;
+						this.WucTakeHome.PK_Perfil = _m_PK_Perfil;
+						this.ModificarRegistro();
+						this.btnEliminar.Visible = false;
+						this.btnEliminarAdmin.Visible = false;
+						this.btnModificar.Visible = false;
+						this.btnModificarAdmin.Visible = false;
+						this.btnRegistrar.Visible = false;
+						this.btnGuardarCambios.Visible = true;
                         break;
                     case ("read"):
                         this.LeerRegistro();
@@ -95,6 +96,14 @@ namespace ASSMCA.Perfiles
                         break;
                     default: break;
                 }
+
+				string nivelRecuperacion = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
+
+				if (nivelRecuperacion == "24" || nivelRecuperacion == "25" || nivelRecuperacion == "26" || nivelRecuperacion == "33")
+				{
+					this.WucEpisodioPerfil.FindControl("RecuperacionDiv").Visible = true;
+				}
+
 			}
             else
             {
