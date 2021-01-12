@@ -275,7 +275,7 @@
                    </div>
                    <div class="col-md-8">
                         <asp:TextBox  CssClass="form-control" ID="txtCelular2" Enabled="false" runat="server" MinLenght="10" MaxLength="10"/>
-                        <asp:Label ID="Label1" runat="server" />
+                        <asp:Label ID="lblCelular2" runat="server" />
                    </div>
                </div>
             </div>
@@ -297,7 +297,7 @@
                    </div>
                    <div class="col-md-8">
                         <asp:TextBox  TabIndex="12" CssClass="form-control" ID="txtEmail1" runat="server" Enabled="false" />
-                        <asp:Label ID="Label2" runat="server" />
+                        <asp:Label ID="lblEmail1" runat="server" />
                    </div>
                </div>
                 
@@ -306,7 +306,7 @@
         <td><%--Diagnóstico Primario--%>
            <div class="expandibleDiv">
                 <asp:TextBox  TabIndex="12" CssClass="form-control" ID="txtEmail2" runat="server" Enabled="false" onBlur="email2();"/>
-                <asp:Label ID="Label3" runat="server" />
+                <asp:Label ID="lblEmail2" runat="server" />
             </div>
         </td>
     </tr>

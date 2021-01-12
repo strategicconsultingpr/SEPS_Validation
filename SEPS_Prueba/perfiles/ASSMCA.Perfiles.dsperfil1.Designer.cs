@@ -13296,6 +13296,12 @@ namespace SEPS.perfiles {
             
             private global::System.Data.DataColumn columnNR_CelularPrimario;
             
+            private global::System.Data.DataColumn columnNR_CelularContacto;
+            
+            private global::System.Data.DataColumn columnDE_EmailPrimario;
+            
+            private global::System.Data.DataColumn columnDE_EmailSecundario;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_PERFILDataTable() {
@@ -14587,6 +14593,30 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NR_CelularContactoColumn {
+                get {
+                    return this.columnNR_CelularContacto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_EmailPrimarioColumn {
+                get {
+                    return this.columnDE_EmailPrimario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_EmailSecundarioColumn {
+                get {
+                    return this.columnDE_EmailSecundario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -14778,7 +14808,10 @@ namespace SEPS.perfiles {
                         string DE_DSMV_OtrasObservaciones, 
                         string IN_DSMV_DiagnosticoDual, 
                         string DE_DSMV_DiagnosticoDual, 
-                        string NR_CelularPrimario) {
+                        string NR_CelularPrimario, 
+                        string NR_CelularContacto, 
+                        string DE_EmailPrimario, 
+                        string DE_EmailSecundario) {
                 SA_PERFILRow rowSA_PERFILRow = ((SA_PERFILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -14937,7 +14970,10 @@ namespace SEPS.perfiles {
                         DE_DSMV_OtrasObservaciones,
                         IN_DSMV_DiagnosticoDual,
                         DE_DSMV_DiagnosticoDual,
-                        NR_CelularPrimario};
+                        NR_CelularPrimario,
+                        NR_CelularContacto,
+                        DE_EmailPrimario,
+                        DE_EmailSecundario};
                 rowSA_PERFILRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_PERFILRow);
                 return rowSA_PERFILRow;
@@ -15117,6 +15153,9 @@ namespace SEPS.perfiles {
                 this.columnIN_DSMV_DiagnosticoDual = base.Columns["IN_DSMV_DiagnosticoDual"];
                 this.columnDE_DSMV_DiagnosticoDual = base.Columns["DE_DSMV_DiagnosticoDual"];
                 this.columnNR_CelularPrimario = base.Columns["NR_CelularPrimario"];
+                this.columnNR_CelularContacto = base.Columns["NR_CelularContacto"];
+                this.columnDE_EmailPrimario = base.Columns["DE_EmailPrimario"];
+                this.columnDE_EmailSecundario = base.Columns["DE_EmailSecundario"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15436,6 +15475,12 @@ namespace SEPS.perfiles {
                 base.Columns.Add(this.columnDE_DSMV_DiagnosticoDual);
                 this.columnNR_CelularPrimario = new global::System.Data.DataColumn("NR_CelularPrimario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNR_CelularPrimario);
+                this.columnNR_CelularContacto = new global::System.Data.DataColumn("NR_CelularContacto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNR_CelularContacto);
+                this.columnDE_EmailPrimario = new global::System.Data.DataColumn("DE_EmailPrimario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_EmailPrimario);
+                this.columnDE_EmailSecundario = new global::System.Data.DataColumn("DE_EmailSecundario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_EmailSecundario);
                 this.columnPK_NR_Perfil.AutoIncrement = true;
                 this.columnPK_NR_Perfil.ReadOnly = true;
                 this.columnDE_TI_Perfil.ReadOnly = true;
@@ -25594,6 +25639,54 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NR_CelularContacto {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.NR_CelularContactoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NR_CelularContacto\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.NR_CelularContactoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_EmailPrimario {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_EmailPrimarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_EmailPrimario\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_EmailPrimarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_EmailSecundario {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_EmailSecundarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_EmailSecundario\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_EmailSecundarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPK_NR_PerfilNull() {
                 return this.IsNull(this.tableSA_PERFIL.PK_NR_PerfilColumn);
             }
@@ -27474,6 +27567,42 @@ namespace SEPS.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNR_CelularPrimarioNull() {
                 this[this.tableSA_PERFIL.NR_CelularPrimarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNR_CelularContactoNull() {
+                return this.IsNull(this.tableSA_PERFIL.NR_CelularContactoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNR_CelularContactoNull() {
+                this[this.tableSA_PERFIL.NR_CelularContactoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_EmailPrimarioNull() {
+                return this.IsNull(this.tableSA_PERFIL.DE_EmailPrimarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_EmailPrimarioNull() {
+                this[this.tableSA_PERFIL.DE_EmailPrimarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_EmailSecundarioNull() {
+                return this.IsNull(this.tableSA_PERFIL.DE_EmailSecundarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_EmailSecundarioNull() {
+                this[this.tableSA_PERFIL.DE_EmailSecundarioColumn] = global::System.Convert.DBNull;
             }
         }
         

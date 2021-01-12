@@ -163,8 +163,18 @@
 
                         this.lblCelular1.Visible = true;
                         this.lblCelular1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularPrimario"].ToString();
+                        this.lblCelular2.Visible = true;
+                        this.lblCelular2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularContacto"].ToString();
                         this.txtCelular1.Visible = false;
                         this.txtCelular2.Visible = false;
+
+                        this.lblEmail1.Visible = true;
+                        this.lblEmail1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailPrimario"].ToString();
+                        this.lblEmail2.Visible = true;
+                        this.lblEmail2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailSecundario"].ToString();
+                        this.txtEmail1.Visible = false;
+                        this.txtEmail2.Visible = false;
+
                         break;
                     case (frmAction.Update):
                         this.dataReadOnly = false;
@@ -179,6 +189,9 @@
                         TimeSpan diffResult = dtnow.Date - dt.Date;
 
                         this.txtCelular1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularPrimario"].ToString();
+                        this.txtCelular2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularContacto"].ToString();
+                        this.txtEmail1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailPrimario"].ToString();
+                        this.txtEmail2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailSecundario"].ToString();
                         if (isAdmision)
                         {
                             this.txtExpediente.Visible = false;
@@ -743,6 +756,51 @@
                 else
                 {
                     return lblCelular1.Text;
+                }
+            }
+        }
+
+        public String NR_CelularContacto
+        {
+            get
+            {
+                if (this.txtCelular2.Visible)
+                {
+                    return this.txtCelular2.Text;
+                }
+                else
+                {
+                    return lblCelular2.Text;
+                }
+            }
+        }
+
+        public String DE_EmailPrimario
+        {
+            get
+            {
+                if (this.txtEmail1.Visible)
+                {
+                    return this.txtEmail1.Text;
+                }
+                else
+                {
+                    return lblEmail1.Text;
+                }
+            }
+        }
+
+        public String DE_EmailSecundario
+        {
+            get
+            {
+                if (this.txtEmail2.Visible)
+                {
+                    return this.txtEmail2.Text;
+                }
+                else
+                {
+                    return lblEmail2.Text;
                 }
             }
         }

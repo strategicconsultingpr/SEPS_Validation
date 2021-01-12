@@ -642,6 +642,9 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@IN_EdadInicioTerciario"].Value = this.WucEpisodioAdmision.IN_EdadInicioTerciario;
             this.SPU_PERFIL.Parameters["@DE_Comentario"].Value = this.WucDatosAdmision.DE_Comentario;
             this.SPU_PERFIL.Parameters["@NR_CelularPrimario"].Value = this.WucDatosPersonales.NR_CelularPrimario;
+            this.SPU_PERFIL.Parameters["@NR_CelularContacto"].Value = this.WucDatosPersonales.NR_CelularContacto;
+            this.SPU_PERFIL.Parameters["@DE_EmailPrimario"].Value = this.WucDatosPersonales.DE_EmailPrimario;
+            this.SPU_PERFIL.Parameters["@DE_EmailSecundario"].Value = this.WucDatosPersonales.DE_EmailSecundario;
             Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
             this.SPU_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
             this.PK_Perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
@@ -1162,7 +1165,10 @@ namespace ASSMCA.Perfiles
                 new System.Data.Common.DataColumnMapping("DE_DSMV_OtrasObservaciones", "DE_DSMV_OtrasObservaciones"),
                 new System.Data.Common.DataColumnMapping("IN_DSMV_DiagnosticoDual", "IN_DSMV_DiagnosticoDual"),
                 new System.Data.Common.DataColumnMapping("DE_DSMV_DiagnosticoDual", "DE_DSMV_DiagnosticoDual"),
-                new System.Data.Common.DataColumnMapping("NR_CelularPrimario", "NR_CelularPrimario")})});
+                new System.Data.Common.DataColumnMapping("NR_CelularPrimario", "NR_CelularPrimario"),
+                new System.Data.Common.DataColumnMapping("NR_CelularContacto", "NR_CelularContacto"),
+                new System.Data.Common.DataColumnMapping("DE_EmailPrimario", "DE_EmailPrimario"),
+                new System.Data.Common.DataColumnMapping("DE_EmailSecundario", "DE_EmailSecundario")})});
             this.sqlSelectCommand3.CommandText = "[SPR_ADMISION]";
             this.sqlSelectCommand3.CommandType = System.Data.CommandType.StoredProcedure;
             this.sqlSelectCommand3.Connection = this.cnn;
@@ -1441,6 +1447,9 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DSMV_Comentarios", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_DSMV_DiagnosticoDual", System.Data.SqlDbType.SmallInt, 1));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularPrimario", System.Data.SqlDbType.VarChar, 50));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularContacto", System.Data.SqlDbType.VarChar, 50));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailPrimario", System.Data.SqlDbType.VarChar, 1500));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailSecundario", System.Data.SqlDbType.VarChar, 1500));
             #endregion
             this.dsSeguridad.DataSetName = "dsSeguridad";
             this.dsSeguridad.Locale = new System.Globalization.CultureInfo("en-US");

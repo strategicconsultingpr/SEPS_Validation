@@ -537,13 +537,13 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.TextBox txtCelular2;
 
         /// <summary>
-        /// Label1 control.
+        /// lblCelular2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblCelular2;
 
         /// <summary>
         /// rfvEmail1 control.
@@ -573,13 +573,13 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.TextBox txtEmail1;
 
         /// <summary>
-        /// Label2 control.
+        /// lblEmail1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblEmail1;
 
         /// <summary>
         /// txtEmail2 control.
@@ -591,12 +591,12 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.TextBox txtEmail2;
 
         /// <summary>
-        /// Label3 control.
+        /// lblEmail2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblEmail2;
     }
 }
