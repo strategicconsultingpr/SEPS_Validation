@@ -160,6 +160,11 @@
                         this.ddlFechaConvenioMes.Visible = false;
                         this.txtFechaConvenioAño.Visible = false;
                         this.lblFechaAdmision.Text = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).ToShortDateString();
+
+                        this.lblCelular1.Visible = true;
+                        this.lblCelular1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularPrimario"].ToString();
+                        this.txtCelular1.Visible = false;
+                        this.txtCelular2.Visible = false;
                         break;
                     case (frmAction.Update):
                         this.dataReadOnly = false;
@@ -172,6 +177,8 @@
                         dtnow = DateTime.Now;
                         DateTime dt = FE_Episodio;
                         TimeSpan diffResult = dtnow.Date - dt.Date;
+
+                        this.txtCelular1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularPrimario"].ToString();
                         if (isAdmision)
                         {
                             this.txtExpediente.Visible = false;
@@ -721,6 +728,21 @@
                 else
                 {
                     return lblExpediente.Text;
+                }
+            }
+        }
+
+        public String NR_CelularPrimario
+        {
+            get
+            {
+                if (this.txtCelular1.Visible)
+                {
+                    return this.txtCelular1.Text;
+                }
+                else
+                {
+                    return lblCelular1.Text;
                 }
             }
         }

@@ -641,6 +641,7 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@FK_FrecuenciaTerciario"].Value = this.WucEpisodioAdmision.FK_FrecuenciaTerciario;
             this.SPU_PERFIL.Parameters["@IN_EdadInicioTerciario"].Value = this.WucEpisodioAdmision.IN_EdadInicioTerciario;
             this.SPU_PERFIL.Parameters["@DE_Comentario"].Value = this.WucDatosAdmision.DE_Comentario;
+            this.SPU_PERFIL.Parameters["@NR_CelularPrimario"].Value = this.WucDatosPersonales.NR_CelularPrimario;
             Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
             this.SPU_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
             this.PK_Perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
@@ -1160,7 +1161,8 @@ namespace ASSMCA.Perfiles
                 new System.Data.Common.DataColumnMapping("DE_DSMV_Comentarios", "DE_DSMV_Comentarios"),
                 new System.Data.Common.DataColumnMapping("DE_DSMV_OtrasObservaciones", "DE_DSMV_OtrasObservaciones"),
                 new System.Data.Common.DataColumnMapping("IN_DSMV_DiagnosticoDual", "IN_DSMV_DiagnosticoDual"),
-                new System.Data.Common.DataColumnMapping("DE_DSMV_DiagnosticoDual", "DE_DSMV_DiagnosticoDual")})});
+                new System.Data.Common.DataColumnMapping("DE_DSMV_DiagnosticoDual", "DE_DSMV_DiagnosticoDual"),
+                new System.Data.Common.DataColumnMapping("NR_CelularPrimario", "NR_CelularPrimario")})});
             this.sqlSelectCommand3.CommandText = "[SPR_ADMISION]";
             this.sqlSelectCommand3.CommandType = System.Data.CommandType.StoredProcedure;
             this.sqlSelectCommand3.Connection = this.cnn;
@@ -1438,7 +1440,8 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DSMV_OtrasObservaciones", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DSMV_Comentarios", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_DSMV_DiagnosticoDual", System.Data.SqlDbType.SmallInt, 1));
-#endregion
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularPrimario", System.Data.SqlDbType.VarChar, 50));
+            #endregion
             this.dsSeguridad.DataSetName = "dsSeguridad";
             this.dsSeguridad.Locale = new System.Globalization.CultureInfo("en-US");
             ((System.ComponentModel.ISupportInitialize)(this.dsPerfil)).EndInit();

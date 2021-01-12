@@ -13293,7 +13293,9 @@ namespace ASSMCA.perfiles {
             private global::System.Data.DataColumn columnIN_DSMV_DiagnosticoDual;
             
             private global::System.Data.DataColumn columnDE_DSMV_DiagnosticoDual;
-            
+
+            private global::System.Data.DataColumn columnNR_CelularPrimario;
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SA_PERFILDataTable() {
@@ -14574,7 +14576,17 @@ namespace ASSMCA.perfiles {
                     return this.columnDE_DSMV_DiagnosticoDual;
                 }
             }
-            
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NR_CelularPrimarioColumn
+            {
+                get
+                {
+                    return this.columnNR_CelularPrimario;
+                }
+            }
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
@@ -14767,7 +14779,8 @@ namespace ASSMCA.perfiles {
                         string DE_DSMV_Comentarios, 
                         string DE_DSMV_OtrasObservaciones, 
                         string IN_DSMV_DiagnosticoDual, 
-                        string DE_DSMV_DiagnosticoDual) {
+                        string DE_DSMV_DiagnosticoDual,
+                        string NR_CelularPrimario) {
                 SA_PERFILRow rowSA_PERFILRow = ((SA_PERFILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -14925,7 +14938,8 @@ namespace ASSMCA.perfiles {
                         DE_DSMV_Comentarios,
                         DE_DSMV_OtrasObservaciones,
                         IN_DSMV_DiagnosticoDual,
-                        DE_DSMV_DiagnosticoDual};
+                        DE_DSMV_DiagnosticoDual,
+                        NR_CelularPrimario};
                 rowSA_PERFILRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_PERFILRow);
                 return rowSA_PERFILRow;
@@ -15104,6 +15118,7 @@ namespace ASSMCA.perfiles {
                 this.columnDE_DSMV_OtrasObservaciones = base.Columns["DE_DSMV_OtrasObservaciones"];
                 this.columnIN_DSMV_DiagnosticoDual = base.Columns["IN_DSMV_DiagnosticoDual"];
                 this.columnDE_DSMV_DiagnosticoDual = base.Columns["DE_DSMV_DiagnosticoDual"];
+                this.columnNR_CelularPrimario = base.Columns["NR_CelularPrimario"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15421,6 +15436,8 @@ namespace ASSMCA.perfiles {
                 base.Columns.Add(this.columnIN_DSMV_DiagnosticoDual);
                 this.columnDE_DSMV_DiagnosticoDual = new global::System.Data.DataColumn("DE_DSMV_DiagnosticoDual", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDE_DSMV_DiagnosticoDual);
+                this.columnNR_CelularPrimario = new global::System.Data.DataColumn("NR_CelularPrimario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNR_CelularPrimario);
                 this.columnPK_NR_Perfil.AutoIncrement = true;
                 this.columnPK_NR_Perfil.ReadOnly = true;
                 this.columnDE_TI_Perfil.ReadOnly = true;
@@ -25560,7 +25577,28 @@ namespace ASSMCA.perfiles {
                     this[this.tableSA_PERFIL.DE_DSMV_DiagnosticoDualColumn] = value;
                 }
             }
-            
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NR_CelularPrimario
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableSA_PERFIL.NR_CelularPrimarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NR_CelularPrimario\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_PERFIL.NR_CelularPrimarioColumn] = value;
+                }
+            }
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPK_NR_PerfilNull() {
@@ -27431,6 +27469,20 @@ namespace ASSMCA.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDE_DSMV_DiagnosticoDualNull() {
                 this[this.tableSA_PERFIL.DE_DSMV_DiagnosticoDualColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNR_CelularPrimarioNull()
+            {
+                return this.IsNull(this.tableSA_PERFIL.NR_CelularPrimarioColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNR_CelularPrimarioNull()
+            {
+                this[this.tableSA_PERFIL.NR_CelularPrimarioColumn] = global::System.Convert.DBNull;
             }
         }
         
