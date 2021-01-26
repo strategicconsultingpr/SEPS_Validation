@@ -619,7 +619,13 @@ namespace ASSMCA.Perfiles
 			this.SPU_PERFIL.Parameters["@FK_FrecuenciaTerciario"].Value = this.WucEpisodioPerfil.FK_FrecuenciaTerciario;
 			this.SPU_PERFIL.Parameters["@IN_EdadInicioTerciario"].Value = this.WucEpisodioPerfil.IN_EdadInicioTerciario;
 			this.SPU_PERFIL.Parameters["@DE_Comentario"].Value = this.WucDatosEvaluacion.DE_Comentario;
-            Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
+			this.SPU_PERFIL.Parameters["@NR_CelularPrimario"].Value = this.WucDatosPersonales.NR_CelularPrimario;
+			this.SPU_PERFIL.Parameters["@NR_CelularContacto"].Value = this.WucDatosPersonales.NR_CelularContacto;
+			this.SPU_PERFIL.Parameters["@DE_EmailPrimario"].Value = this.WucDatosPersonales.DE_EmailPrimario;
+			this.SPU_PERFIL.Parameters["@DE_EmailSecundario"].Value = this.WucDatosPersonales.DE_EmailSecundario;
+			this.SPU_PERFIL.Parameters["@FK_CatRecuperacionRes"].Value = this.WucEpisodioPerfil.FK_CatRecuperacionRes;
+			this.SPU_PERFIL.Parameters["@HogarRecuperacionRes"].Value = this.WucEpisodioPerfil.HogarRecuperacionRes;
+			Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
             this.SPU_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
 
             //Added New Data
@@ -1116,7 +1122,14 @@ new System.Data.Common.DataTableMapping("Table1", "SA_PERFIL", new System.Data.C
                 new System.Data.Common.DataColumnMapping("DE_DSMV_Comentarios", "DE_DSMV_Comentarios"),
                 new System.Data.Common.DataColumnMapping("DE_DSMV_OtrasObservaciones", "DE_DSMV_OtrasObservaciones"),
                 new System.Data.Common.DataColumnMapping("IN_DSMV_DiagnosticoDual", "IN_DSMV_DiagnosticoDual"),
-                new System.Data.Common.DataColumnMapping("DE_DSMV_DiagnosticoDual", "DE_DSMV_DiagnosticoDual")})});
+                new System.Data.Common.DataColumnMapping("DE_DSMV_DiagnosticoDual", "DE_DSMV_DiagnosticoDual"),
+				new System.Data.Common.DataColumnMapping("NR_CelularPrimario", "NR_CelularPrimario"),
+				new System.Data.Common.DataColumnMapping("NR_CelularContacto", "NR_CelularContacto"),
+				new System.Data.Common.DataColumnMapping("DE_EmailPrimario", "DE_EmailPrimario"),
+				new System.Data.Common.DataColumnMapping("DE_EmailSecundario", "DE_EmailSecundario"),
+				new System.Data.Common.DataColumnMapping("FK_CatRecuperacionRes", "FK_CatRecuperacionRes"),
+				new System.Data.Common.DataColumnMapping("HogarRecuperacionRes", "HogarRecuperacionRes"),
+				new System.Data.Common.DataColumnMapping("DE_CarRecuperacionRes", "DE_CarRecuperacionRes")})});
             #endregion
             #region SPC_PERFIL
             this.SPC_PERFIL.CommandText = "dbo.[SPC_PERFIL]";
@@ -1289,9 +1302,15 @@ new System.Data.Common.DataTableMapping("Table1", "SA_PERFIL", new System.Data.C
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DSMV_OtrasObservaciones", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DSMV_Comentarios", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_DSMV_DiagnosticoDual", System.Data.SqlDbType.SmallInt, 1));
-            #endregion
-            #region daPerfilValidaciones
-            this.daPerfilValidaciones.SelectCommand = this.sqlSelectCommand3;
+			this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularPrimario", System.Data.SqlDbType.VarChar, 50));
+			this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularContacto", System.Data.SqlDbType.VarChar, 50));
+			this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailPrimario", System.Data.SqlDbType.VarChar, 1500));
+			this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailSecundario", System.Data.SqlDbType.VarChar, 1500));
+			this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_CatRecuperacionRes", System.Data.SqlDbType.TinyInt));
+			this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HogarRecuperacionRes", System.Data.SqlDbType.VarChar, 1500));
+			#endregion
+			#region daPerfilValidaciones
+			this.daPerfilValidaciones.SelectCommand = this.sqlSelectCommand3;
 			this.daPerfilValidaciones.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
                 new System.Data.Common.DataTableMapping("Table", "PERFIL_VALIDACIONES", new System.Data.Common.DataColumnMapping[] {
 	                new System.Data.Common.DataColumnMapping("FK_DrogaPrimario", "FK_DrogaPrimario"),
@@ -1573,7 +1592,11 @@ new System.Data.Common.DataTableMapping("Table1", "SA_PERFIL", new System.Data.C
 			    new System.Data.Common.DataColumnMapping("NB_AdministracionActual", "NB_AdministracionActual"),
 			    new System.Data.Common.DataColumnMapping("FK_Persona", "FK_Persona"),
 			    new System.Data.Common.DataColumnMapping("FK_SituacionEscolar", "FK_SituacionEscolar"),
-			    new System.Data.Common.DataColumnMapping("DE_SituacionEscolar", "DE_SituacionEscolar")})});
+			    new System.Data.Common.DataColumnMapping("DE_SituacionEscolar", "DE_SituacionEscolar"),
+				new System.Data.Common.DataColumnMapping("NR_CelularPrimario", "NR_CelularPrimario"),
+				new System.Data.Common.DataColumnMapping("NR_CelularContacto", "NR_CelularContacto"),
+				new System.Data.Common.DataColumnMapping("DE_EmailPrimario", "DE_EmailPrimario"),
+				new System.Data.Common.DataColumnMapping("DE_EmailSecundario", "DE_EmailSecundario")})});
 			// 
 			// sqlSelectCommand4
 			// 

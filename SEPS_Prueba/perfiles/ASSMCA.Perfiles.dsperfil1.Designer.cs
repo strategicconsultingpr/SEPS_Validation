@@ -13302,6 +13302,12 @@ namespace SEPS.perfiles {
             
             private global::System.Data.DataColumn columnDE_EmailSecundario;
             
+            private global::System.Data.DataColumn columnFK_CatRecuperacionRes;
+            
+            private global::System.Data.DataColumn columnHogarRecuperacionRes;
+            
+            private global::System.Data.DataColumn columnDE_CarRecuperacionRes;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_PERFILDataTable() {
@@ -14617,6 +14623,30 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_CatRecuperacionResColumn {
+                get {
+                    return this.columnFK_CatRecuperacionRes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn HogarRecuperacionResColumn {
+                get {
+                    return this.columnHogarRecuperacionRes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_CarRecuperacionResColumn {
+                get {
+                    return this.columnDE_CarRecuperacionRes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -14811,7 +14841,10 @@ namespace SEPS.perfiles {
                         string NR_CelularPrimario, 
                         string NR_CelularContacto, 
                         string DE_EmailPrimario, 
-                        string DE_EmailSecundario) {
+                        string DE_EmailSecundario, 
+                        byte FK_CatRecuperacionRes, 
+                        string HogarRecuperacionRes, 
+                        string DE_CarRecuperacionRes) {
                 SA_PERFILRow rowSA_PERFILRow = ((SA_PERFILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -14973,7 +15006,10 @@ namespace SEPS.perfiles {
                         NR_CelularPrimario,
                         NR_CelularContacto,
                         DE_EmailPrimario,
-                        DE_EmailSecundario};
+                        DE_EmailSecundario,
+                        FK_CatRecuperacionRes,
+                        HogarRecuperacionRes,
+                        DE_CarRecuperacionRes};
                 rowSA_PERFILRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_PERFILRow);
                 return rowSA_PERFILRow;
@@ -15156,6 +15192,9 @@ namespace SEPS.perfiles {
                 this.columnNR_CelularContacto = base.Columns["NR_CelularContacto"];
                 this.columnDE_EmailPrimario = base.Columns["DE_EmailPrimario"];
                 this.columnDE_EmailSecundario = base.Columns["DE_EmailSecundario"];
+                this.columnFK_CatRecuperacionRes = base.Columns["FK_CatRecuperacionRes"];
+                this.columnHogarRecuperacionRes = base.Columns["HogarRecuperacionRes"];
+                this.columnDE_CarRecuperacionRes = base.Columns["DE_CarRecuperacionRes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15481,6 +15520,12 @@ namespace SEPS.perfiles {
                 base.Columns.Add(this.columnDE_EmailPrimario);
                 this.columnDE_EmailSecundario = new global::System.Data.DataColumn("DE_EmailSecundario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDE_EmailSecundario);
+                this.columnFK_CatRecuperacionRes = new global::System.Data.DataColumn("FK_CatRecuperacionRes", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_CatRecuperacionRes);
+                this.columnHogarRecuperacionRes = new global::System.Data.DataColumn("HogarRecuperacionRes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHogarRecuperacionRes);
+                this.columnDE_CarRecuperacionRes = new global::System.Data.DataColumn("DE_CarRecuperacionRes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_CarRecuperacionRes);
                 this.columnPK_NR_Perfil.AutoIncrement = true;
                 this.columnPK_NR_Perfil.ReadOnly = true;
                 this.columnDE_TI_Perfil.ReadOnly = true;
@@ -25687,6 +25732,54 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte FK_CatRecuperacionRes {
+                get {
+                    try {
+                        return ((byte)(this[this.tableSA_PERFIL.FK_CatRecuperacionResColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FK_CatRecuperacionRes\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.FK_CatRecuperacionResColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string HogarRecuperacionRes {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.HogarRecuperacionResColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HogarRecuperacionRes\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.HogarRecuperacionResColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_CarRecuperacionRes {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_CarRecuperacionResColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_CarRecuperacionRes\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_CarRecuperacionResColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPK_NR_PerfilNull() {
                 return this.IsNull(this.tableSA_PERFIL.PK_NR_PerfilColumn);
             }
@@ -27603,6 +27696,42 @@ namespace SEPS.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDE_EmailSecundarioNull() {
                 this[this.tableSA_PERFIL.DE_EmailSecundarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFK_CatRecuperacionResNull() {
+                return this.IsNull(this.tableSA_PERFIL.FK_CatRecuperacionResColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFK_CatRecuperacionResNull() {
+                this[this.tableSA_PERFIL.FK_CatRecuperacionResColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsHogarRecuperacionResNull() {
+                return this.IsNull(this.tableSA_PERFIL.HogarRecuperacionResColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetHogarRecuperacionResNull() {
+                this[this.tableSA_PERFIL.HogarRecuperacionResColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_CarRecuperacionResNull() {
+                return this.IsNull(this.tableSA_PERFIL.DE_CarRecuperacionResColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_CarRecuperacionResNull() {
+                this[this.tableSA_PERFIL.DE_CarRecuperacionResColumn] = global::System.Convert.DBNull;
             }
         }
         

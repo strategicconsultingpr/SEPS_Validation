@@ -72,6 +72,7 @@ namespace ASSMCA.Perfiles
                 {
                     case (frmAction.Create): 
                         this.EditarRegistro();
+                        this.EditarRecuperacion();
                         this.ActualizarCamposCrear();
                         this.DSMIV_DIV.Visible = false;
                         this.DSMVRM_DIV.Visible = false;
@@ -81,6 +82,7 @@ namespace ASSMCA.Perfiles
                         break;
                     case (frmAction.Update): 
                         this.EditarRegistro();
+                        this.EditarRecuperacion();
                         this.ActualizarCampos();
                         this.hAccion.Value = "Update";
                         break;
@@ -159,6 +161,8 @@ namespace ASSMCA.Perfiles
                 DSMVRM_DIV.Visible = false;
             }
 
+            this.RecuperacionDiv.Visible = true;
+
             this.lblDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.lblDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
             this.lblDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
@@ -178,6 +182,10 @@ namespace ASSMCA.Perfiles
 			this.lblViaPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Via_P"].ToString();
 			this.lblViaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Via_S"].ToString();
 			this.lblViaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Via_T"].ToString();
+
+            this.lblNivelRecuperacion.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_CarRecuperacionRes"].ToString();
+            this.lblHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString(); 
+
 
 
             //DSMV
@@ -223,6 +231,9 @@ namespace ASSMCA.Perfiles
 			this.txtEdadPrim.Visible = false;
 			this.txtEdadSec.Visible = false;
 			this.txtEdadTerc.Visible = false;
+
+            this.ddlNivelRecuperacion.Visible = false;
+            this.txtHogar.Visible = false;
 		}
 
 		private void EditarRegistro()
@@ -233,20 +244,18 @@ namespace ASSMCA.Perfiles
             nivelSM = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoMental"].ToString();
             nivelAS = this.dsPerfil.SA_EPISODIO.DefaultView[0]["FK_NivelCuidadoSustancias"].ToString();
 
-            //if(nivelSM == "24" || nivelSM == "25" || nivelSM == "26" || nivelSM == "33")
-            //{
-            //    this.RecuperacionDiv.Visible = true;
-            //}
-            //else
-            //{
-            //    this.RecuperacionDiv.Visible = false;
-            //}
-
         }
 
         private void EditarRecuperacion()
         {
-
+            if (nivelSM == "23" || nivelSM == "24" || nivelSM == "25" || nivelSM == "26" || nivelSM == "33")
+            {
+                this.RecuperacionDiv.Visible = true;
+            }
+            else
+            {
+                this.RecuperacionDiv.Visible = false;
+            }
         }
 		private void ActualizarCamposCrear()
 		{
@@ -320,6 +329,13 @@ namespace ASSMCA.Perfiles
                 this.ddlDrogaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DrogaPrimario"].ToString();
                 this.ddlViaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaPrimario"].ToString();
                 this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+
+            this.ddlNivelRecuperacion.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_CatRecuperacionRes"].ToString();
+            if(this.ddlNivelRecuperacion.SelectedValue != "99")
+            {
+                this.txtHogar.Enabled = true;
+            }
+            this.txtHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
 
             DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
             DateTime limite = new DateTime(2021, 1, 1);
@@ -798,7 +814,30 @@ namespace ASSMCA.Perfiles
             }
         }
 
-		#endregion
+        public sbyte @FK_CatRecuperacionRes
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlNivelRecuperacion.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 99;//Default No aplica
+                }
+            }
+        }
+
+        public string @HogarRecuperacionRes
+        {
+            get
+            {
+                return this.txtHogar.Text;
+            }
+        }
+
+        #endregion
 
         #region Prácticas Basadas en Evidencia
         private void ManagePracticasBasadasEnEvidencia(frmAction _frmAction)
