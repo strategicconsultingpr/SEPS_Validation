@@ -618,112 +618,112 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVClinTer;
 
         /// <summary>
-        /// TextArea1 control.
+        /// txtDSMVSusPrim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextArea1;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDSMVSusPrim;
 
         /// <summary>
-        /// Label1 control.
+        /// lblDSMVSusPrim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblDSMVSusPrim;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// hlDSMVSusPrim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.HyperLink hlDSMVSusPrim;
 
         /// <summary>
-        /// Hidden1 control.
+        /// hDSMVSusPrim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVSusPrim;
 
         /// <summary>
-        /// TextArea2 control.
+        /// txtDSMVSusSec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextArea2;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDSMVSusSec;
 
         /// <summary>
-        /// Label2 control.
+        /// lblDSMVSusSec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblDSMVSusSec;
 
         /// <summary>
-        /// HyperLink2 control.
+        /// hlDSMVSusSec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.HyperLink hlDSMVSusSec;
 
         /// <summary>
-        /// Hidden2 control.
+        /// hDSMVSusSec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVSusSec;
 
         /// <summary>
-        /// TextArea3 control.
+        /// txtDSMVSusTer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextArea3;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDSMVSusTer;
 
         /// <summary>
-        /// Label3 control.
+        /// lblDSMVSusTer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblDSMVSusTer;
 
         /// <summary>
-        /// HyperLink3 control.
+        /// hlDSMVSusTer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+        protected global::System.Web.UI.WebControls.HyperLink hlDSMVSusTer;
 
         /// <summary>
-        /// Hidden3 control.
+        /// hDSMVSusTer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hDSMVSusTer;
 
         /// <summary>
         /// txtDSMVComentarios control.
@@ -807,85 +807,85 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblDSMVDiagDual;
 
         /// <summary>
-        /// rfvZonaGeografia control.
+        /// rfvInFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvZonaGeografia;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvInFumado;
 
         /// <summary>
-        /// ddlZonaGeografia control.
+        /// ddlInFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlZonaGeografia;
+        protected global::System.Web.UI.WebControls.DropDownList ddlInFumado;
 
         /// <summary>
-        /// lblZonaGeografia control.
+        /// lblInFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblZonaGeografia;
+        protected global::System.Web.UI.WebControls.Label lblInFumado;
 
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// rfvFrecuenciaFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFrecuenciaFumado;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlFrecuenciaFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFrecuenciaFumado;
 
         /// <summary>
-        /// Label4 control.
+        /// lblFrecuenciaFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label lblFrecuenciaFumado;
 
         /// <summary>
-        /// revZipCode control.
+        /// revNrFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revZipCode;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revNrFumado;
 
         /// <summary>
-        /// txtZipCode control.
+        /// txtNrFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZipCode;
+        protected global::System.Web.UI.WebControls.TextBox txtNrFumado;
 
         /// <summary>
-        /// lblZipCode control.
+        /// lblNrFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblZipCode;
+        protected global::System.Web.UI.WebControls.Label lblNrFumado;
 
         /// <summary>
         /// rfvDrogaPrim control.

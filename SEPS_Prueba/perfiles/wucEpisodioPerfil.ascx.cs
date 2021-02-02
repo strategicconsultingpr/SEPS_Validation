@@ -76,8 +76,9 @@ namespace ASSMCA.Perfiles
                         this.ActualizarCamposCrear();
                         this.DSMIV_DIV.Visible = false;
                         this.DSMVRM_DIV.Visible = false;
+                        this.Hogar_DIV.Visible = false;
                         break;
-                    case (frmAction.Read): 
+                    case (frmAction.Read):
                         this.LeerRegistro();
                         break;
                     case (frmAction.Update): 
@@ -125,6 +126,16 @@ namespace ASSMCA.Perfiles
             this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
             this.lblDSMVDiagDual.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_DiagnosticoDual"].ToString();
 
+            if ((this.lblDSMVRMPrim.Text == "") && (this.lblDSMVRMSec.Text == "") && (this.lblDSMVRMTer.Text == "") && (this.lblDSMVPsicoAmbiPrim.Text == "") && (this.lblDSMVPsicoAmbiSec.Text == "") && (this.lblDSMVPsicoAmbiTer.Text == ""))
+            {
+                this.DSMVRM_DIV.Visible = false;
+            }
+            
+
+            this.lblDSMVSusPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
+            this.lblDSMVSusSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
+            this.lblDSMVSusTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
+
 
             if (this.hDSMVClinPrim.Value == "")
             {
@@ -154,6 +165,20 @@ namespace ASSMCA.Perfiles
             }
 
 
+            if (this.hDSMVSusPrim.Value == "")
+            {
+                this.hDSMVSusPrim.Value = "761";
+            }
+            if (this.hDSMVSusSec.Value == "")
+            {
+                this.hDSMVSusSec.Value = "761";
+            }
+            if (this.hDSMVSusTer.Value == "")
+            {
+                this.hDSMVSusTer.Value = "761";
+            }
+
+
             DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
             DateTime limite = new DateTime(2021, 1, 1);
             if (fe_perfil > limite)
@@ -168,9 +193,31 @@ namespace ASSMCA.Perfiles
             this.lblDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
             #endregion
 			this.lblDrogaPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Droga_P"].ToString();
+
+            if(this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString() != "")
+            {
+                this.lblDrogaPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString();
+            }
+            this.Hogar_DIV.Visible = false;
+            
+
 			this.lblDrogaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Droga_S"].ToString();
-			this.lblDrogaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Droga_T"].ToString();
-			this.lblEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString() != "")
+            {
+                this.lblDrogaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString();
+            }
+            this.Hogar2_DIV.Visible = false;
+
+            this.lblDrogaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Droga_T"].ToString();
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString() != "")
+            {
+                this.lblDrogaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString();
+            }
+            this.Hogar3_DIV.Visible = false;
+
+            this.lblEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
 			this.lblEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
 			this.lblEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
 			this.lblEscalaGAF.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_EscalaGAF"].ToString();
@@ -183,8 +230,16 @@ namespace ASSMCA.Perfiles
 			this.lblViaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Via_S"].ToString();
 			this.lblViaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Via_T"].ToString();
 
+
             this.lblNivelRecuperacion.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_CarRecuperacionRes"].ToString();
-            this.lblHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString(); 
+            this.lblHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "1") 
+                { this.lblInFumado.Text = "Si"; } 
+            else { this.lblInFumado.Text =  "No"; };
+
+            this.lblFrecuenciaFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
+            this.lblNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
 
 
 
@@ -197,6 +252,10 @@ namespace ASSMCA.Perfiles
             this.txtDSMVRMPrim.Visible = false;
             this.txtDSMVRMSec.Visible = false;
             this.txtDSMVRMTer.Visible = false;
+
+            this.txtDSMVSusPrim.Visible = false;
+            this.txtDSMVSusSec.Visible = false;
+            this.txtDSMVSusTer.Visible = false;
 
 
             this.txtDSMVOtrasObs.Visible = false;
@@ -219,6 +278,10 @@ namespace ASSMCA.Perfiles
             this.hlDSMVRMSec.Visible = false;
             this.hlDSMVRMTer.Visible = false;
 
+            this.hlDSMVSusPrim.Visible = false;
+            this.hlDSMVSusSec.Visible = false;
+            this.hlDSMVSusTer.Visible = false;
+
             this.ddlDrogaPrim.Visible = false;
 			this.ddlDrogaSec.Visible = false;
 			this.ddlDrogaTerc.Visible = false;
@@ -234,7 +297,10 @@ namespace ASSMCA.Perfiles
 
             this.ddlNivelRecuperacion.Visible = false;
             this.txtHogar.Visible = false;
-		}
+            this.ddlInFumado.Visible = false;
+            this.ddlFrecuenciaFumado.Visible = false;
+            this.txtNrFumado.Visible = false;
+        }
 
 		private void EditarRegistro()
 		{
@@ -313,6 +379,18 @@ namespace ASSMCA.Perfiles
             this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
             this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
 
+            if ((this.txtDSMVRMPrim.Value == "") && (this.txtDSMVRMSec.Value == "") && (this.txtDSMVRMTer.Value == "") && (this.ddlDSMVPsicoAmbiPrim.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiSec.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiTer.SelectedValue == "0"))
+            {
+                this.DSMVRM_DIV.Visible = false;
+            }
+
+            this.txtDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
+            this.hDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias1"].ToString();
+            this.txtDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
+            this.hDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias2"].ToString();
+            this.txtDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
+            this.hDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias3"].ToString();
+
             //this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString(); -> Este campo proviene del episodio, no del perfil
             this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
 
@@ -327,7 +405,35 @@ namespace ASSMCA.Perfiles
 				this.ddlViaTerc.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaTerciario"].ToString();
 				this.txtEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
                 this.ddlDrogaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DrogaPrimario"].ToString();
-                this.ddlViaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaPrimario"].ToString();
+
+                if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString() != "")
+                {
+                    this.txtDrogaPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString();
+                }
+                else
+                {
+                    this.Hogar_DIV.Visible = false;
+                }
+
+                if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString() != "")
+                {
+                    this.txtDrogaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString();
+                }
+                else
+                {
+                    this.Hogar2_DIV.Visible = false;
+                }
+
+                if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString() != "")
+                {
+                    this.txtDrogaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString();
+                }
+                else
+                {
+                    this.Hogar3_DIV.Visible = false;
+                }
+
+            this.ddlViaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaPrimario"].ToString();
                 this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
 
             this.ddlNivelRecuperacion.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_CatRecuperacionRes"].ToString();
@@ -337,12 +443,16 @@ namespace ASSMCA.Perfiles
             }
             this.txtHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
 
-            DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
-            DateTime limite = new DateTime(2021, 1, 1);
-            if (fe_perfil > limite)
-            {
-                DSMVRM_DIV.Visible = false;
-            }
+            this.ddlInFumado.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString();
+            this.ddlFrecuenciaFumado.SelectedItem.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
+            this.txtNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
+
+            //DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
+            //DateTime limite = new DateTime(2021, 1, 1);
+            //if (fe_perfil > limite)
+            //{
+            //    DSMVRM_DIV.Visible = false;
+            //}
         }
 
 		#region Código generado por el Diseñador de Web Forms
@@ -600,10 +710,41 @@ namespace ASSMCA.Perfiles
                 return retVal;
             }
         }
-        #endregion
- 
 
-		public sbyte @FK_NivelCuidadoSaludMental
+        /*DSMV Sustancias*/
+
+        public int @FK_DSMV_Sustancias1
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.hDSMVSusPrim.Value.ToString(), out retVal);
+                return retVal;
+            }
+        }
+        public int @FK_DSMV_Sustancias2
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.hDSMVSusSec.Value.ToString(), out retVal);
+                return retVal;
+            }
+        }
+
+        public int @FK_DSMV_Sustancias3
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.hDSMVSusTer.Value.ToString(), out retVal);
+                return retVal;
+            }
+        }
+        #endregion
+
+
+        public sbyte @FK_NivelCuidadoSaludMental
 		{
 			get
 			{
@@ -834,6 +975,63 @@ namespace ASSMCA.Perfiles
             get
             {
                 return this.txtHogar.Text;
+            }
+        }
+
+        public sbyte @IN_Fumado
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlInFumado.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
+                }
+            }
+        }
+
+        public string @DE_FrecuenciaFumado
+        {
+            get
+            {
+                return this.ddlFrecuenciaFumado.SelectedItem.Text;
+            }
+        }
+
+        public int @NR_CigarrosXDias
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.txtNrFumado.Text, out retVal);
+                return retVal;
+            }
+        }
+
+        public string @DE_DrogaNueva1
+        {
+            get
+            {
+                return this.txtDrogaPrim.Text;
+            }
+        }
+
+        public string @DE_DrogaNueva2
+        {
+            get
+            {
+                return this.txtDrogaSec.Text;
+            }
+        }
+
+        public string @DE_DrogaNueva3
+        {
+            get
+            {
+                return this.txtDrogaTerc.Text;
             }
         }
 

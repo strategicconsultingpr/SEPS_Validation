@@ -13308,6 +13308,30 @@ namespace SEPS.perfiles {
             
             private global::System.Data.DataColumn columnDE_CarRecuperacionRes;
             
+            private global::System.Data.DataColumn columnFK_DSMV_Sustancias1;
+            
+            private global::System.Data.DataColumn columnDE_DSMV_Sustancias1;
+            
+            private global::System.Data.DataColumn columnFK_DSMV_Sustancias2;
+            
+            private global::System.Data.DataColumn columnDE__DSMV_Sustancias2;
+            
+            private global::System.Data.DataColumn columnFK_DSMV_Sustancias3;
+            
+            private global::System.Data.DataColumn columnDE_DSMV_Sustancias3;
+            
+            private global::System.Data.DataColumn columnIN_Fumado;
+            
+            private global::System.Data.DataColumn columnDE_FrecuenciaFumado;
+            
+            private global::System.Data.DataColumn columnNR_CigarrosXDias;
+            
+            private global::System.Data.DataColumn columnDE_DrogaNueva1;
+            
+            private global::System.Data.DataColumn columnDE_DrogaNueva2;
+            
+            private global::System.Data.DataColumn columnDE_DrogaNueva3;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_PERFILDataTable() {
@@ -14647,6 +14671,102 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_DSMV_Sustancias1Column {
+                get {
+                    return this.columnFK_DSMV_Sustancias1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_DSMV_Sustancias1Column {
+                get {
+                    return this.columnDE_DSMV_Sustancias1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_DSMV_Sustancias2Column {
+                get {
+                    return this.columnFK_DSMV_Sustancias2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE__DSMV_Sustancias2Column {
+                get {
+                    return this.columnDE__DSMV_Sustancias2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_DSMV_Sustancias3Column {
+                get {
+                    return this.columnFK_DSMV_Sustancias3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_DSMV_Sustancias3Column {
+                get {
+                    return this.columnDE_DSMV_Sustancias3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IN_FumadoColumn {
+                get {
+                    return this.columnIN_Fumado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_FrecuenciaFumadoColumn {
+                get {
+                    return this.columnDE_FrecuenciaFumado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NR_CigarrosXDiasColumn {
+                get {
+                    return this.columnNR_CigarrosXDias;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_DrogaNueva1Column {
+                get {
+                    return this.columnDE_DrogaNueva1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_DrogaNueva2Column {
+                get {
+                    return this.columnDE_DrogaNueva2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_DrogaNueva3Column {
+                get {
+                    return this.columnDE_DrogaNueva3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -14844,7 +14964,19 @@ namespace SEPS.perfiles {
                         string DE_EmailSecundario, 
                         byte FK_CatRecuperacionRes, 
                         string HogarRecuperacionRes, 
-                        string DE_CarRecuperacionRes) {
+                        string DE_CarRecuperacionRes, 
+                        int FK_DSMV_Sustancias1, 
+                        string DE_DSMV_Sustancias1, 
+                        int FK_DSMV_Sustancias2, 
+                        string DE__DSMV_Sustancias2, 
+                        int FK_DSMV_Sustancias3, 
+                        string DE_DSMV_Sustancias3, 
+                        byte IN_Fumado, 
+                        string DE_FrecuenciaFumado, 
+                        int NR_CigarrosXDias, 
+                        string DE_DrogaNueva1, 
+                        string DE_DrogaNueva2, 
+                        string DE_DrogaNueva3) {
                 SA_PERFILRow rowSA_PERFILRow = ((SA_PERFILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -15009,7 +15141,19 @@ namespace SEPS.perfiles {
                         DE_EmailSecundario,
                         FK_CatRecuperacionRes,
                         HogarRecuperacionRes,
-                        DE_CarRecuperacionRes};
+                        DE_CarRecuperacionRes,
+                        FK_DSMV_Sustancias1,
+                        DE_DSMV_Sustancias1,
+                        FK_DSMV_Sustancias2,
+                        DE__DSMV_Sustancias2,
+                        FK_DSMV_Sustancias3,
+                        DE_DSMV_Sustancias3,
+                        IN_Fumado,
+                        DE_FrecuenciaFumado,
+                        NR_CigarrosXDias,
+                        DE_DrogaNueva1,
+                        DE_DrogaNueva2,
+                        DE_DrogaNueva3};
                 rowSA_PERFILRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_PERFILRow);
                 return rowSA_PERFILRow;
@@ -15195,6 +15339,18 @@ namespace SEPS.perfiles {
                 this.columnFK_CatRecuperacionRes = base.Columns["FK_CatRecuperacionRes"];
                 this.columnHogarRecuperacionRes = base.Columns["HogarRecuperacionRes"];
                 this.columnDE_CarRecuperacionRes = base.Columns["DE_CarRecuperacionRes"];
+                this.columnFK_DSMV_Sustancias1 = base.Columns["FK_DSMV_Sustancias1"];
+                this.columnDE_DSMV_Sustancias1 = base.Columns["DE_DSMV_Sustancias1"];
+                this.columnFK_DSMV_Sustancias2 = base.Columns["FK_DSMV_Sustancias2"];
+                this.columnDE__DSMV_Sustancias2 = base.Columns["DE__DSMV_Sustancias2"];
+                this.columnFK_DSMV_Sustancias3 = base.Columns["FK_DSMV_Sustancias3"];
+                this.columnDE_DSMV_Sustancias3 = base.Columns["DE_DSMV_Sustancias3"];
+                this.columnIN_Fumado = base.Columns["IN_Fumado"];
+                this.columnDE_FrecuenciaFumado = base.Columns["DE_FrecuenciaFumado"];
+                this.columnNR_CigarrosXDias = base.Columns["NR_CigarrosXDias"];
+                this.columnDE_DrogaNueva1 = base.Columns["DE_DrogaNueva1"];
+                this.columnDE_DrogaNueva2 = base.Columns["DE_DrogaNueva2"];
+                this.columnDE_DrogaNueva3 = base.Columns["DE_DrogaNueva3"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15526,6 +15682,30 @@ namespace SEPS.perfiles {
                 base.Columns.Add(this.columnHogarRecuperacionRes);
                 this.columnDE_CarRecuperacionRes = new global::System.Data.DataColumn("DE_CarRecuperacionRes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDE_CarRecuperacionRes);
+                this.columnFK_DSMV_Sustancias1 = new global::System.Data.DataColumn("FK_DSMV_Sustancias1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_DSMV_Sustancias1);
+                this.columnDE_DSMV_Sustancias1 = new global::System.Data.DataColumn("DE_DSMV_Sustancias1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_DSMV_Sustancias1);
+                this.columnFK_DSMV_Sustancias2 = new global::System.Data.DataColumn("FK_DSMV_Sustancias2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_DSMV_Sustancias2);
+                this.columnDE__DSMV_Sustancias2 = new global::System.Data.DataColumn("DE__DSMV_Sustancias2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE__DSMV_Sustancias2);
+                this.columnFK_DSMV_Sustancias3 = new global::System.Data.DataColumn("FK_DSMV_Sustancias3", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_DSMV_Sustancias3);
+                this.columnDE_DSMV_Sustancias3 = new global::System.Data.DataColumn("DE_DSMV_Sustancias3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_DSMV_Sustancias3);
+                this.columnIN_Fumado = new global::System.Data.DataColumn("IN_Fumado", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIN_Fumado);
+                this.columnDE_FrecuenciaFumado = new global::System.Data.DataColumn("DE_FrecuenciaFumado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_FrecuenciaFumado);
+                this.columnNR_CigarrosXDias = new global::System.Data.DataColumn("NR_CigarrosXDias", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNR_CigarrosXDias);
+                this.columnDE_DrogaNueva1 = new global::System.Data.DataColumn("DE_DrogaNueva1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_DrogaNueva1);
+                this.columnDE_DrogaNueva2 = new global::System.Data.DataColumn("DE_DrogaNueva2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_DrogaNueva2);
+                this.columnDE_DrogaNueva3 = new global::System.Data.DataColumn("DE_DrogaNueva3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_DrogaNueva3);
                 this.columnPK_NR_Perfil.AutoIncrement = true;
                 this.columnPK_NR_Perfil.ReadOnly = true;
                 this.columnDE_TI_Perfil.ReadOnly = true;
@@ -25780,6 +25960,198 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int FK_DSMV_Sustancias1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSA_PERFIL.FK_DSMV_Sustancias1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FK_DSMV_Sustancias1\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.FK_DSMV_Sustancias1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_DSMV_Sustancias1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_DSMV_Sustancias1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_DSMV_Sustancias1\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_DSMV_Sustancias1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int FK_DSMV_Sustancias2 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSA_PERFIL.FK_DSMV_Sustancias2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FK_DSMV_Sustancias2\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.FK_DSMV_Sustancias2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE__DSMV_Sustancias2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE__DSMV_Sustancias2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE__DSMV_Sustancias2\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE__DSMV_Sustancias2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int FK_DSMV_Sustancias3 {
+                get {
+                    try {
+                        return ((int)(this[this.tableSA_PERFIL.FK_DSMV_Sustancias3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FK_DSMV_Sustancias3\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.FK_DSMV_Sustancias3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_DSMV_Sustancias3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_DSMV_Sustancias3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_DSMV_Sustancias3\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_DSMV_Sustancias3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte IN_Fumado {
+                get {
+                    try {
+                        return ((byte)(this[this.tableSA_PERFIL.IN_FumadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IN_Fumado\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.IN_FumadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_FrecuenciaFumado {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_FrecuenciaFumadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_FrecuenciaFumado\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_FrecuenciaFumadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int NR_CigarrosXDias {
+                get {
+                    try {
+                        return ((int)(this[this.tableSA_PERFIL.NR_CigarrosXDiasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NR_CigarrosXDias\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.NR_CigarrosXDiasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_DrogaNueva1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_DrogaNueva1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_DrogaNueva1\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_DrogaNueva1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_DrogaNueva2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_DrogaNueva2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_DrogaNueva2\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_DrogaNueva2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_DrogaNueva3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.DE_DrogaNueva3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_DrogaNueva3\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.DE_DrogaNueva3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPK_NR_PerfilNull() {
                 return this.IsNull(this.tableSA_PERFIL.PK_NR_PerfilColumn);
             }
@@ -27732,6 +28104,150 @@ namespace SEPS.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDE_CarRecuperacionResNull() {
                 this[this.tableSA_PERFIL.DE_CarRecuperacionResColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFK_DSMV_Sustancias1Null() {
+                return this.IsNull(this.tableSA_PERFIL.FK_DSMV_Sustancias1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFK_DSMV_Sustancias1Null() {
+                this[this.tableSA_PERFIL.FK_DSMV_Sustancias1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_DSMV_Sustancias1Null() {
+                return this.IsNull(this.tableSA_PERFIL.DE_DSMV_Sustancias1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_DSMV_Sustancias1Null() {
+                this[this.tableSA_PERFIL.DE_DSMV_Sustancias1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFK_DSMV_Sustancias2Null() {
+                return this.IsNull(this.tableSA_PERFIL.FK_DSMV_Sustancias2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFK_DSMV_Sustancias2Null() {
+                this[this.tableSA_PERFIL.FK_DSMV_Sustancias2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE__DSMV_Sustancias2Null() {
+                return this.IsNull(this.tableSA_PERFIL.DE__DSMV_Sustancias2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE__DSMV_Sustancias2Null() {
+                this[this.tableSA_PERFIL.DE__DSMV_Sustancias2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFK_DSMV_Sustancias3Null() {
+                return this.IsNull(this.tableSA_PERFIL.FK_DSMV_Sustancias3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFK_DSMV_Sustancias3Null() {
+                this[this.tableSA_PERFIL.FK_DSMV_Sustancias3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_DSMV_Sustancias3Null() {
+                return this.IsNull(this.tableSA_PERFIL.DE_DSMV_Sustancias3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_DSMV_Sustancias3Null() {
+                this[this.tableSA_PERFIL.DE_DSMV_Sustancias3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIN_FumadoNull() {
+                return this.IsNull(this.tableSA_PERFIL.IN_FumadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIN_FumadoNull() {
+                this[this.tableSA_PERFIL.IN_FumadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_FrecuenciaFumadoNull() {
+                return this.IsNull(this.tableSA_PERFIL.DE_FrecuenciaFumadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_FrecuenciaFumadoNull() {
+                this[this.tableSA_PERFIL.DE_FrecuenciaFumadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNR_CigarrosXDiasNull() {
+                return this.IsNull(this.tableSA_PERFIL.NR_CigarrosXDiasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNR_CigarrosXDiasNull() {
+                this[this.tableSA_PERFIL.NR_CigarrosXDiasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_DrogaNueva1Null() {
+                return this.IsNull(this.tableSA_PERFIL.DE_DrogaNueva1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_DrogaNueva1Null() {
+                this[this.tableSA_PERFIL.DE_DrogaNueva1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_DrogaNueva2Null() {
+                return this.IsNull(this.tableSA_PERFIL.DE_DrogaNueva2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_DrogaNueva2Null() {
+                this[this.tableSA_PERFIL.DE_DrogaNueva2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_DrogaNueva3Null() {
+                return this.IsNull(this.tableSA_PERFIL.DE_DrogaNueva3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_DrogaNueva3Null() {
+                this[this.tableSA_PERFIL.DE_DrogaNueva3Column] = global::System.Convert.DBNull;
             }
         }
         

@@ -567,6 +567,30 @@ function showDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
     catch (ex) { }
 }
 
+function showSusDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
+    alert("hh");
+    try {
+        var ClinPrim = document.getElementById('mainBodyContent_WucEpisodioPerfil_hDSMVSusPrim').value;
+        var ClinSec = document.getElementById('mainBodyContent_WucEpisodioPerfil_hDSMVSusSec').value;
+        if (txtDescripcion == "mainBodyContent_WucEpisodioPerfil_txtDSMVSusSec") {
+            if (ClinPrim == '761') {
+                alert("Debe seleccionar un diagnóstico primario válido");
+                return;
+            }
+        }
+        else if (txtDescripcion == "mainBodyContent_WucEpisodioPerfil_txtDSMVSusTer") {
+            if (ClinSec == '761') {
+                alert("Debe seleccionar un diagnóstico secundario válido");
+                return;
+            }
+        }
+
+        var url = 'frmdsmi_v.aspx?' + 'txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion
+        var ventana = window.open(url, "list", "width=620,height=280,resizable=yes,toolbar=no,status=no,menubar=no");
+    }
+    catch (ex) { }
+}
+
 function ddlCondLaboral() {
     try {
         var ddlCondLaboral = document.getElementById("mainBodyContent_WucDatosDemograficosPerfil_ddlCondLaboral");
