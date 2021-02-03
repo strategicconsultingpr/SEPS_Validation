@@ -418,6 +418,11 @@ namespace ASSMCA.Perfiles
             this.SPC_PERFIL.Parameters["@DE_DSMV_OtrasObservaciones"].Value = this.WucEpisodioAdmision.DE_DSMV_Comentarios;
             this.SPC_PERFIL.Parameters["@DE_DSMV_Comentarios"].Value = this.WucEpisodioAdmision.DE_DSMV_OtrasObservaciones;
             this.SPC_PERFIL.Parameters["@IN_DSMV_DiagnosticoDual"].Value = this.WucEpisodioAdmision.IN_DSMV_DiagnosticoDual;
+
+            /*DSMV Sustancias*/
+            this.SPC_PERFIL.Parameters["@FK_DSMV_Sustancias1"].Value = this.WucEpisodioAdmision.FK_DSMV_Sustancias1;
+            this.SPC_PERFIL.Parameters["@FK_DSMV_Sustancias2"].Value = this.WucEpisodioAdmision.FK_DSMV_Sustancias2;
+            this.SPC_PERFIL.Parameters["@FK_DSMV_Sustancias3"].Value = this.WucEpisodioAdmision.FK_DSMV_Sustancias3;
             #endregion
             this.SPC_PERFIL.Parameters["@FK_DrogaPrimario"].Value = this.WucEpisodioAdmision.FK_DrogaPrimario;
             this.SPC_PERFIL.Parameters["@FK_ViaPrimario"].Value = this.WucEpisodioAdmision.FK_ViaPrimario;
@@ -432,6 +437,23 @@ namespace ASSMCA.Perfiles
             this.SPC_PERFIL.Parameters["@FK_FrecuenciaTerciario"].Value = this.WucEpisodioAdmision.FK_FrecuenciaTerciario;
             this.SPC_PERFIL.Parameters["@IN_EdadInicioTerciario"].Value = this.WucEpisodioAdmision.IN_EdadInicioTerciario;
             this.SPC_PERFIL.Parameters["@DE_Comentario"].Value = this.WucDatosAdmision.DE_Comentario;
+
+            this.SPC_PERFIL.Parameters["@NR_CelularPrimario"].Value = this.WucDatosPersonales.NR_CelularPrimario;
+            this.SPC_PERFIL.Parameters["@NR_CelularContacto"].Value = this.WucDatosPersonales.NR_CelularContacto;
+            this.SPC_PERFIL.Parameters["@DE_EmailPrimario"].Value = this.WucDatosPersonales.DE_EmailPrimario;
+            this.SPC_PERFIL.Parameters["@DE_EmailSecundario"].Value = this.WucDatosPersonales.DE_EmailSecundario;
+            this.SPC_PERFIL.Parameters["@FK_CatRecuperacionRes"].Value = 99;
+            this.SPC_PERFIL.Parameters["@HogarRecuperacionRes"].Value = "";
+            this.SPC_PERFIL.Parameters["@IN_Fumado"].Value = this.WucEpisodioAdmision.IN_Fumado;
+            this.SPC_PERFIL.Parameters["@DE_FrecuenciaFumado"].Value = this.WucEpisodioAdmision.DE_FrecuenciaFumado;
+            this.SPC_PERFIL.Parameters["@NR_CigarrosXDias"].Value = this.WucEpisodioAdmision.NR_CigarrosXDias;
+            this.SPC_PERFIL.Parameters["@DE_DrogaNueva1"].Value = this.WucEpisodioAdmision.DE_DrogaNueva1;
+            this.SPC_PERFIL.Parameters["@DE_DrogaNueva2"].Value = this.WucEpisodioAdmision.DE_DrogaNueva2;
+            this.SPC_PERFIL.Parameters["@DE_DrogaNueva3"].Value = this.WucEpisodioAdmision.DE_DrogaNueva3;
+            this.SPC_PERFIL.Parameters["@IN_Toxicologia1"].Value = this.WucEpisodioAdmision.IN_Toxicologia1;
+            this.SPC_PERFIL.Parameters["@IN_Toxicologia2"].Value = this.WucEpisodioAdmision.IN_Toxicologia2;
+            this.SPC_PERFIL.Parameters["@IN_Toxicologia3"].Value = this.WucEpisodioAdmision.IN_Toxicologia3;
+
             Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
             this.SPC_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
             this.SPC_NewData = new System.Data.SqlClient.SqlCommand();
@@ -627,6 +649,13 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@DE_DSMV_OtrasObservaciones"].Value = this.WucEpisodioAdmision.DE_DSMV_Comentarios;
             this.SPU_PERFIL.Parameters["@DE_DSMV_Comentarios"].Value = this.WucEpisodioAdmision.DE_DSMV_OtrasObservaciones;
             this.SPU_PERFIL.Parameters["@IN_DSMV_DiagnosticoDual"].Value = this.WucEpisodioAdmision.IN_DSMV_DiagnosticoDual;
+
+            /*DSMV Sustancias*/
+            this.SPU_PERFIL.Parameters["@FK_DSMV_Sustancias1"].Value = this.WucEpisodioAdmision.FK_DSMV_Sustancias1;
+            this.SPU_PERFIL.Parameters["@FK_DSMV_Sustancias2"].Value = this.WucEpisodioAdmision.FK_DSMV_Sustancias2;
+            this.SPU_PERFIL.Parameters["@FK_DSMV_Sustancias3"].Value = this.WucEpisodioAdmision.FK_DSMV_Sustancias3;
+
+
             #endregion
             this.SPU_PERFIL.Parameters["@FK_DrogaPrimario"].Value = this.WucEpisodioAdmision.FK_DrogaPrimario;
             this.SPU_PERFIL.Parameters["@FK_ViaPrimario"].Value = this.WucEpisodioAdmision.FK_ViaPrimario;
@@ -645,6 +674,19 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@NR_CelularContacto"].Value = this.WucDatosPersonales.NR_CelularContacto;
             this.SPU_PERFIL.Parameters["@DE_EmailPrimario"].Value = this.WucDatosPersonales.DE_EmailPrimario;
             this.SPU_PERFIL.Parameters["@DE_EmailSecundario"].Value = this.WucDatosPersonales.DE_EmailSecundario;
+            this.SPU_PERFIL.Parameters["@FK_CatRecuperacionRes"].Value = 99;
+            this.SPU_PERFIL.Parameters["@HogarRecuperacionRes"].Value = "";
+            this.SPU_PERFIL.Parameters["@IN_Fumado"].Value = this.WucEpisodioAdmision.IN_Fumado;
+            this.SPU_PERFIL.Parameters["@DE_FrecuenciaFumado"].Value = this.WucEpisodioAdmision.DE_FrecuenciaFumado;
+            this.SPU_PERFIL.Parameters["@NR_CigarrosXDias"].Value = this.WucEpisodioAdmision.NR_CigarrosXDias;
+            this.SPU_PERFIL.Parameters["@DE_DrogaNueva1"].Value = this.WucEpisodioAdmision.DE_DrogaNueva1;
+            this.SPU_PERFIL.Parameters["@DE_DrogaNueva2"].Value = this.WucEpisodioAdmision.DE_DrogaNueva2;
+            this.SPU_PERFIL.Parameters["@DE_DrogaNueva3"].Value = this.WucEpisodioAdmision.DE_DrogaNueva3;
+            this.SPU_PERFIL.Parameters["@IN_Toxicologia1"].Value = this.WucEpisodioAdmision.IN_Toxicologia1;
+            this.SPU_PERFIL.Parameters["@IN_Toxicologia2"].Value = this.WucEpisodioAdmision.IN_Toxicologia2;
+            this.SPU_PERFIL.Parameters["@IN_Toxicologia3"].Value = this.WucEpisodioAdmision.IN_Toxicologia3;
+
+
             Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
             this.SPU_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
             this.PK_Perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
@@ -1168,7 +1210,19 @@ namespace ASSMCA.Perfiles
                 new System.Data.Common.DataColumnMapping("NR_CelularPrimario", "NR_CelularPrimario"),
                 new System.Data.Common.DataColumnMapping("NR_CelularContacto", "NR_CelularContacto"),
                 new System.Data.Common.DataColumnMapping("DE_EmailPrimario", "DE_EmailPrimario"),
-                new System.Data.Common.DataColumnMapping("DE_EmailSecundario", "DE_EmailSecundario")})});
+                new System.Data.Common.DataColumnMapping("DE_EmailSecundario", "DE_EmailSecundario"),
+                new System.Data.Common.DataColumnMapping("FK_DSMV_Sustancias1", "FK_DSMV_Sustancias1"),
+                new System.Data.Common.DataColumnMapping("DE_DSMV_Sustancias1", "DE_DSMV_Sustancias1"),
+                new System.Data.Common.DataColumnMapping("FK_DSMV_Sustancias2", "FK_DSMV_Sustancias2"),
+                new System.Data.Common.DataColumnMapping("DE_DSMV_Sustancias2", "DE_DSMV_Sustancias2"),
+                new System.Data.Common.DataColumnMapping("FK_DSMV_Sustancias3", "FK_DSMV_Sustancias3"),
+                new System.Data.Common.DataColumnMapping("DE_DSMV_Sustancias3", "DE_DSMV_Sustancias3"),
+                new System.Data.Common.DataColumnMapping("IN_Fumado", "IN_Fumado"),
+                new System.Data.Common.DataColumnMapping("DE_FrecuenciaFumado", "DE_FrecuenciaFumado"),
+                new System.Data.Common.DataColumnMapping("NR_CigarrosXDias", "NR_CigarrosXDias"),
+                new System.Data.Common.DataColumnMapping("DE_DrogaNueva1", "DE_DrogaNueva1"),
+                new System.Data.Common.DataColumnMapping("DE_DrogaNueva2", "DE_DrogaNueva2"),
+                new System.Data.Common.DataColumnMapping("DE_DrogaNueva3", "DE_DrogaNueva3")})});
             this.sqlSelectCommand3.CommandText = "[SPR_ADMISION]";
             this.sqlSelectCommand3.CommandType = System.Data.CommandType.StoredProcedure;
             this.sqlSelectCommand3.Connection = this.cnn;
@@ -1372,6 +1426,26 @@ namespace ASSMCA.Perfiles
             this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DSMV_Comentarios", System.Data.SqlDbType.VarChar, 1500));
             this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_DSMV_DiagnosticoDual", System.Data.SqlDbType.SmallInt, 1));
 
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularPrimario", System.Data.SqlDbType.VarChar, 50));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularContacto", System.Data.SqlDbType.VarChar, 50));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailPrimario", System.Data.SqlDbType.VarChar, 1500));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailSecundario", System.Data.SqlDbType.VarChar, 1500));
+
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_CatRecuperacionRes", System.Data.SqlDbType.TinyInt));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HogarRecuperacionRes", System.Data.SqlDbType.VarChar, 1500));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_DSMV_Sustancias1", System.Data.SqlDbType.Int, 4));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_DSMV_Sustancias2", System.Data.SqlDbType.Int, 4));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_DSMV_Sustancias3", System.Data.SqlDbType.Int, 4));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Fumado", System.Data.SqlDbType.SmallInt, 3));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_FrecuenciaFumado", System.Data.SqlDbType.VarChar, 1500));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CigarrosXDias", System.Data.SqlDbType.Int, 4));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DrogaNueva1", System.Data.SqlDbType.VarChar, 1500));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DrogaNueva2", System.Data.SqlDbType.VarChar, 1500));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DrogaNueva3", System.Data.SqlDbType.VarChar, 1500));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Toxicologia1", System.Data.SqlDbType.TinyInt, 3));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Toxicologia2", System.Data.SqlDbType.TinyInt, 3));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Toxicologia3", System.Data.SqlDbType.TinyInt, 3));
+
 
             #endregion
             #region SPU PERFIL
@@ -1450,6 +1524,21 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularContacto", System.Data.SqlDbType.VarChar, 50));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailPrimario", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailSecundario", System.Data.SqlDbType.VarChar, 1500));
+
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_CatRecuperacionRes", System.Data.SqlDbType.TinyInt));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HogarRecuperacionRes", System.Data.SqlDbType.VarChar, 1500));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_DSMV_Sustancias1", System.Data.SqlDbType.Int, 4));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_DSMV_Sustancias2", System.Data.SqlDbType.Int, 4));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_DSMV_Sustancias3", System.Data.SqlDbType.Int, 4));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Fumado", System.Data.SqlDbType.SmallInt, 3));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_FrecuenciaFumado", System.Data.SqlDbType.VarChar, 1500));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CigarrosXDias", System.Data.SqlDbType.Int, 4));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DrogaNueva1", System.Data.SqlDbType.VarChar, 1500));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DrogaNueva2", System.Data.SqlDbType.VarChar, 1500));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_DrogaNueva3", System.Data.SqlDbType.VarChar, 1500));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Toxicologia1", System.Data.SqlDbType.TinyInt, 3));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Toxicologia2", System.Data.SqlDbType.TinyInt, 3));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_Toxicologia3", System.Data.SqlDbType.TinyInt, 3));
             #endregion
             this.dsSeguridad.DataSetName = "dsSeguridad";
             this.dsSeguridad.Locale = new System.Globalization.CultureInfo("en-US");

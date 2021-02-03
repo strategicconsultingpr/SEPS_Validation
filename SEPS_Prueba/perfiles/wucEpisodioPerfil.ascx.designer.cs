@@ -1293,6 +1293,60 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblEdadTerc;
 
         /// <summary>
+        /// ddlToxicologia1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlToxicologia1;
+
+        /// <summary>
+        /// lblToxicologia1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblToxicologia1;
+
+        /// <summary>
+        /// ddlToxicologia2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlToxicologia2;
+
+        /// <summary>
+        /// lblToxicologia2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblToxicologia2;
+
+        /// <summary>
+        /// ddlToxicologia3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlToxicologia3;
+
+        /// <summary>
+        /// lblToxicologia3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblToxicologia3;
+
+        /// <summary>
         /// divPracticasBasadasEnEvidencia control.
         /// </summary>
         /// <remarks>

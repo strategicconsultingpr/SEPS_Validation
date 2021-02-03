@@ -13332,6 +13332,12 @@ namespace ASSMCA.perfiles {
 
             private global::System.Data.DataColumn columnDE_DrogaNueva3;
 
+            private global::System.Data.DataColumn columnIN_Toxicologia1;
+
+            private global::System.Data.DataColumn columnIN_Toxicologia2;
+
+            private global::System.Data.DataColumn columnIN_Toxicologia3;
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SA_PERFILDataTable() {
@@ -14804,6 +14810,36 @@ namespace ASSMCA.perfiles {
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IN_Toxicologia1Column
+            {
+                get
+                {
+                    return this.columnIN_Toxicologia1;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IN_Toxicologia2Column
+            {
+                get
+                {
+                    return this.columnIN_Toxicologia2;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IN_Toxicologia3Column
+            {
+                get
+                {
+                    return this.columnIN_Toxicologia3;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
@@ -15014,7 +15050,10 @@ namespace ASSMCA.perfiles {
                         int NR_CigarrosXDias,
                         string DE_DrogaNueva1,
                         string DE_DrogaNueva2,
-                        string DE_DrogaNueva3) {
+                        string DE_DrogaNueva3,
+                        byte IN_Toxicologia1,
+                        byte IN_Toxicologia2,
+                        byte IN_Toxicologia3) {
                 SA_PERFILRow rowSA_PERFILRow = ((SA_PERFILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -15191,7 +15230,10 @@ namespace ASSMCA.perfiles {
                         NR_CigarrosXDias,
                         DE_DrogaNueva1,
                         DE_DrogaNueva2,
-                        DE_DrogaNueva3};
+                        DE_DrogaNueva3,
+                        IN_Toxicologia1,
+                        IN_Toxicologia2,
+                        IN_Toxicologia3};
                 rowSA_PERFILRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_PERFILRow);
                 return rowSA_PERFILRow;
@@ -15389,6 +15431,9 @@ namespace ASSMCA.perfiles {
                 this.columnDE_DrogaNueva1 = base.Columns["DE_DrogaNueva1"];
                 this.columnDE_DrogaNueva2 = base.Columns["DE_DrogaNueva2"];
                 this.columnDE_DrogaNueva3 = base.Columns["DE_DrogaNueva3"];
+                this.columnIN_Toxicologia1 = base.Columns["IN_Toxicologia1"];
+                this.columnIN_Toxicologia2 = base.Columns["IN_Toxicologia2"];
+                this.columnIN_Toxicologia3 = base.Columns["IN_Toxicologia3"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15744,6 +15789,12 @@ namespace ASSMCA.perfiles {
                 base.Columns.Add(this.columnDE_DrogaNueva2);
                 this.columnDE_DrogaNueva3 = new global::System.Data.DataColumn("DE_DrogaNueva3", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDE_DrogaNueva3);
+                this.columnIN_Toxicologia1 = new global::System.Data.DataColumn("IN_Toxicologia1", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIN_Toxicologia1);
+                this.columnIN_Toxicologia2 = new global::System.Data.DataColumn("IN_Toxicologia2", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIN_Toxicologia2);
+                this.columnIN_Toxicologia3 = new global::System.Data.DataColumn("IN_Toxicologia3", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIN_Toxicologia3);
                 this.columnPK_NR_Perfil.AutoIncrement = true;
                 this.columnPK_NR_Perfil.ReadOnly = true;
                 this.columnDE_TI_Perfil.ReadOnly = true;
@@ -26284,6 +26335,69 @@ namespace ASSMCA.perfiles {
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte IN_Toxicologia1
+            {
+                get
+                {
+                    try
+                    {
+                        return ((byte)(this[this.tableSA_PERFIL.IN_Toxicologia1Column]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IN_Toxicologia1\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_PERFIL.IN_Toxicologia1Column] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte IN_Toxicologia2
+            {
+                get
+                {
+                    try
+                    {
+                        return ((byte)(this[this.tableSA_PERFIL.IN_Toxicologia2Column]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IN_Toxicologia2\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_PERFIL.IN_Toxicologia2Column] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte IN_Toxicologia3
+            {
+                get
+                {
+                    try
+                    {
+                        return ((byte)(this[this.tableSA_PERFIL.IN_Toxicologia3Column]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IN_Toxicologia3\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_PERFIL.IN_Toxicologia3Column] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPK_NR_PerfilNull() {
                 return this.IsNull(this.tableSA_PERFIL.PK_NR_PerfilColumn);
@@ -28419,6 +28533,48 @@ namespace ASSMCA.perfiles {
             public void SetDE_DrogaNueva3Null()
             {
                 this[this.tableSA_PERFIL.DE_DrogaNueva3Column] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIN_Toxicologia1Null()
+            {
+                return this.IsNull(this.tableSA_PERFIL.IN_Toxicologia1Column);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIN_Toxicologia1Null()
+            {
+                this[this.tableSA_PERFIL.IN_Toxicologia1Column] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIN_Toxicologia2Null()
+            {
+                return this.IsNull(this.tableSA_PERFIL.IN_Toxicologia2Column);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIN_Toxicologia2Null()
+            {
+                this[this.tableSA_PERFIL.IN_Toxicologia2Column] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIN_Toxicologia3Null()
+            {
+                return this.IsNull(this.tableSA_PERFIL.IN_Toxicologia3Column);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIN_Toxicologia3Null()
+            {
+                this[this.tableSA_PERFIL.IN_Toxicologia3Column] = global::System.Convert.DBNull;
             }
         }
         

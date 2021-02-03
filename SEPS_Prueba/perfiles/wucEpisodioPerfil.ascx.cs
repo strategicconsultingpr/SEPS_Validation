@@ -20,12 +20,18 @@ namespace ASSMCA.Perfiles
         private static string nivelSM, nivelAS;
         public int m_pk_perfil, m_CO_Tipo;
 		protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
+        private bool isEvaluacion, isAlta;
 
-		protected void Page_Load(object sender, System.EventArgs e)
+
+        protected void Page_Load(object sender, System.EventArgs e)
 		{
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
             this.hDual.Value = this.Session["PK_Episodio"].ToString();
+
+            
+            isEvaluacion = this.Session["Tipo_Perfil"].ToString() == "Evaluacion";
+            isAlta = this.Session["Tipo_Perfil"].ToString() == "Alta";
 
             this.hNivelSM.Value = nivelSM;
             this.hNivelAS.Value = nivelAS;
@@ -76,7 +82,9 @@ namespace ASSMCA.Perfiles
                         this.ActualizarCamposCrear();
                         this.DSMIV_DIV.Visible = false;
                         this.DSMVRM_DIV.Visible = false;
-                        this.Hogar_DIV.Visible = false;
+                        this.Hogar_DIV.Style["visibility"] = "hidden";
+                        this.Hogar2_DIV.Style["visibility"] = "hidden";
+                        this.Hogar3_DIV.Style["visibility"] = "hidden";
                         break;
                     case (frmAction.Read):
                         this.LeerRegistro();
@@ -186,7 +194,22 @@ namespace ASSMCA.Perfiles
                 DSMVRM_DIV.Visible = false;
             }
 
-            this.RecuperacionDiv.Visible = true;
+            if (nivelSM == "23" || nivelSM == "24" || nivelSM == "25" || nivelSM == "26" || nivelSM == "33")
+            {
+                if (isEvaluacion)
+                {
+                    this.RecuperacionDiv.Visible = true;
+                }
+                else
+                {
+                    this.RecuperacionDiv.Visible = false;
+                }
+            }
+            else
+            {
+                this.RecuperacionDiv.Visible = false;
+            }
+
 
             this.lblDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.lblDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
@@ -230,6 +253,44 @@ namespace ASSMCA.Perfiles
 			this.lblViaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Via_S"].ToString();
 			this.lblViaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Via_T"].ToString();
 
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia1"].ToString() == "1")
+            {
+                this.lblToxicologia1.Text = "Si";
+            }
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia1"].ToString() == "2")
+            {
+                this.lblToxicologia1.Text = "No";
+            }
+            else
+            {
+                this.lblToxicologia1.Text = "No Aplica";
+            }
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia2"].ToString() == "1")
+            {
+                this.lblToxicologia2.Text = "Si";
+            }
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia2"].ToString() == "2")
+            {
+                this.lblToxicologia2.Text = "No";
+            }
+            else
+            {
+                this.lblToxicologia2.Text = "No Aplica";
+            }
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia3"].ToString() == "1")
+            {
+                this.lblToxicologia3.Text = "Si";
+            }
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia3"].ToString() == "2")
+            {
+                this.lblToxicologia3.Text = "No";
+            }
+            else
+            {
+                this.lblToxicologia3.Text = "No Aplica";
+            }
 
             this.lblNivelRecuperacion.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_CarRecuperacionRes"].ToString();
             this.lblHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
@@ -294,6 +355,9 @@ namespace ASSMCA.Perfiles
 			this.txtEdadPrim.Visible = false;
 			this.txtEdadSec.Visible = false;
 			this.txtEdadTerc.Visible = false;
+            this.ddlToxicologia1.Visible = false;
+            this.ddlToxicologia2.Visible = false;
+            this.ddlToxicologia3.Visible = false;
 
             this.ddlNivelRecuperacion.Visible = false;
             this.txtHogar.Visible = false;
@@ -316,7 +380,14 @@ namespace ASSMCA.Perfiles
         {
             if (nivelSM == "23" || nivelSM == "24" || nivelSM == "25" || nivelSM == "26" || nivelSM == "33")
             {
-                this.RecuperacionDiv.Visible = true;
+                if (isEvaluacion)
+                {
+                    this.RecuperacionDiv.Visible = true;
+                }
+                else
+                {
+                    this.RecuperacionDiv.Visible = false;
+                }
             }
             else
             {
@@ -412,7 +483,7 @@ namespace ASSMCA.Perfiles
                 }
                 else
                 {
-                    this.Hogar_DIV.Visible = false;
+                    this.Hogar_DIV.Style["visibility"] = "hidden";
                 }
 
                 if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString() != "")
@@ -421,7 +492,7 @@ namespace ASSMCA.Perfiles
                 }
                 else
                 {
-                    this.Hogar2_DIV.Visible = false;
+                    this.Hogar2_DIV.Style["visibility"] = "hidden";
                 }
 
                 if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString() != "")
@@ -430,11 +501,15 @@ namespace ASSMCA.Perfiles
                 }
                 else
                 {
-                    this.Hogar3_DIV.Visible = false;
+                    this.Hogar3_DIV.Style["visibility"] = "hidden";
                 }
 
             this.ddlViaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaPrimario"].ToString();
                 this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+
+            this.ddlToxicologia1.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia1"].ToString();
+            this.ddlToxicologia2.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia2"].ToString();
+            this.ddlToxicologia3.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia3"].ToString();
 
             this.ddlNivelRecuperacion.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_CatRecuperacionRes"].ToString();
             if(this.ddlNivelRecuperacion.SelectedValue != "99")
@@ -1032,6 +1107,51 @@ namespace ASSMCA.Perfiles
             get
             {
                 return this.txtDrogaTerc.Text;
+            }
+        }
+
+        public sbyte @IN_Toxicologia1
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlToxicologia1.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
+                }
+            }
+        }
+
+        public sbyte @IN_Toxicologia2
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlToxicologia2.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
+                }
+            }
+        }
+
+        public sbyte @IN_Toxicologia3
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlToxicologia3.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
+                }
             }
         }
 

@@ -189,6 +189,16 @@
                 DSMVRM_DIV.Visible = false;
             }
 
+            if ((this.lblDSMVRMPrim.Text == "") && (this.lblDSMVRMSec.Text == "") && (this.lblDSMVRMTer.Text == "") && (this.lblDSMVPsicoAmbiPrim.Text == "") && (this.lblDSMVPsicoAmbiSec.Text == "") && (this.lblDSMVPsicoAmbiTer.Text == ""))
+            {
+                this.DSMVRM_DIV.Visible = false;
+            }
+
+            this.lblDSMVSusPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
+            this.lblDSMVSusSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
+            this.lblDSMVSusTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
+
+
             this.lblDSMVFnGlobal.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
             this.lblDSMVOtrasObs.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_OtrasObservaciones"].ToString();
             this.lblDSMVComentarios.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Comentarios"].ToString();
@@ -233,6 +243,70 @@
             this.ddlArrestado.Visible = false;
             this.ddlArrestado30.Visible = false;
 
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString() != "")
+            {
+                this.lblDrogaPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString();
+            }
+            this.Hogar_DIV.Visible = false;
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString() != "")
+            {
+                this.lblDrogaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString();
+            }
+            this.Hogar2_DIV.Visible = false;
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString() != "")
+            {
+                this.lblDrogaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString();
+            }
+            this.Hogar3_DIV.Visible = false;
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia1"].ToString() == "1")
+            {
+                this.lblToxicologia1.Text = "Si";
+            }
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia1"].ToString() == "2")
+            {
+                this.lblToxicologia1.Text = "No";
+            }
+            else
+            {
+                this.lblToxicologia1.Text = "No Aplica";
+            }
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia2"].ToString() == "1")
+            {
+                this.lblToxicologia2.Text = "Si";
+            }
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia2"].ToString() == "2")
+            {
+                this.lblToxicologia2.Text = "No";
+            }
+            else
+            {
+                this.lblToxicologia2.Text = "No Aplica";
+            }
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia3"].ToString() == "1")
+            {
+                this.lblToxicologia3.Text = "Si";
+            }
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia3"].ToString() == "2")
+            {
+                this.lblToxicologia3.Text = "No";
+            }
+            else
+            {
+                this.lblToxicologia3.Text = "No Aplica";
+            }
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "1")
+            { this.lblInFumado.Text = "Si"; }
+            else { this.lblInFumado.Text = "No"; };
+
+            this.lblFrecuenciaFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
+            this.lblNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
+
             //DSMV
             this.txtDSMVClinPrim.Visible = false;
             this.txtDSMVClinSec.Visible = false;
@@ -259,6 +333,10 @@
             this.hlDSMVRMPrim.Visible = false;
             this.hlDSMVRMSec.Visible = false;
             this.hlDSMVRMTer.Visible = false;
+
+            this.txtDSMVSusPrim.Visible = false;
+            this.txtDSMVSusSec.Visible = false;
+            this.txtDSMVSusTer.Visible = false;
 
             this.ddlCodependiente.Visible = false;
             this.ddlDrogaPrim.Visible = false;
@@ -301,6 +379,16 @@
             this.txtEdadTerc.Visible = false;
             this.txtMesesMentUlt.Visible = false;
             this.txtMesesSustUlt.Visible = false;
+
+
+            this.ddlToxicologia1.Visible = false;
+            this.ddlToxicologia2.Visible = false;
+            this.ddlToxicologia3.Visible = false;
+
+          
+            this.ddlInFumado.Visible = false;
+            this.ddlFrecuenciaFumado.Visible = false;
+            this.txtNrFumado.Visible = false;
         }
 
         private void EditarRegistro()
@@ -364,6 +452,10 @@
                 this.hDSMVClinTer.Value = "761";
             }
 
+            if ((this.txtDSMVRMPrim.Value == "") && (this.txtDSMVRMSec.Value == "") && (this.txtDSMVRMTer.Value == "") && (this.ddlDSMVPsicoAmbiPrim.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiSec.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiTer.SelectedValue == "0"))
+            {
+                this.DSMVRM_DIV.Visible = false;
+            }
 
             if (this.hDSMVRMPrim.Value == "")
             {
@@ -377,10 +469,30 @@
             {
                 this.hDSMVRMTer.Value = "761";
             }
+
+            if (this.hDSMVSusPrim.Value == "")
+            {
+                this.hDSMVSusPrim.Value = "761";
+            }
+            if (this.hDSMVSusSec.Value == "")
+            {
+                this.hDSMVSusSec.Value = "761";
+            }
+            if (this.hDSMVSusTer.Value == "")
+            {
+                this.hDSMVSusTer.Value = "761";
+            }
+
             this.ddlDSMVPsicoAmbiPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales1"].ToString();
             this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
             this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
 
+            this.txtDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
+            this.hDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias1"].ToString();
+            this.txtDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
+            this.hDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias2"].ToString();
+            this.txtDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
+            this.hDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias3"].ToString();
 
             this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
             this.txtDSMVFnGlobal.Text = (this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString() == "0") ? "" : this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_DSMV_FuncionamientoGlobal"].ToString();
@@ -427,12 +539,48 @@
             this.txtMesesSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_MesesUltimaAltaSustancias"].ToString();
 
 
-            DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
-            DateTime limite = new DateTime(2021, 1, 1);
-            if (fe_perfil > limite)
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString() != "")
             {
-                DSMVRM_DIV.Visible = false;
+                this.txtDrogaPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString();
             }
+            else
+            {
+                this.Hogar_DIV.Style["visibility"] = "hidden";
+            }
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString() != "")
+            {
+                this.txtDrogaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva2"].ToString();
+            }
+            else
+            {
+                this.Hogar2_DIV.Style["visibility"] = "hidden";
+            }
+
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString() != "")
+            {
+                this.txtDrogaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva3"].ToString();
+            }
+            else
+            {
+                this.Hogar3_DIV.Style["visibility"] = "hidden";
+            }
+
+            this.ddlToxicologia1.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia1"].ToString();
+            this.ddlToxicologia2.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia2"].ToString();
+            this.ddlToxicologia3.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia3"].ToString();
+
+            this.ddlInFumado.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString();
+            this.ddlFrecuenciaFumado.SelectedItem.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
+            this.txtNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
+
+
+            //DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
+            //DateTime limite = new DateTime(2021, 1, 1);
+            //if (fe_perfil > limite)
+            //{
+            //    DSMVRM_DIV.Visible = false;
+            //}
         }
 
         #region Código generado por el Diseñador de Web Forms
@@ -1290,6 +1438,37 @@
                 return retVal;
             }
         }
+
+        /*DSMV Sustancias*/
+
+        public int @FK_DSMV_Sustancias1
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.hDSMVSusPrim.Value.ToString(), out retVal);
+                return retVal;
+            }
+        }
+        public int @FK_DSMV_Sustancias2
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.hDSMVSusSec.Value.ToString(), out retVal);
+                return retVal;
+            }
+        }
+
+        public int @FK_DSMV_Sustancias3
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.hDSMVSusTer.Value.ToString(), out retVal);
+                return retVal;
+            }
+        }
         #endregion
 
         public sbyte @FK_NivelCuidadoSaludMental
@@ -1498,6 +1677,108 @@
                 catch
                 {
                     return 0;
+                }
+            }
+        }
+
+        public sbyte @IN_Fumado
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlInFumado.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
+                }
+            }
+        }
+
+        public string @DE_FrecuenciaFumado
+        {
+            get
+            {
+                return this.ddlFrecuenciaFumado.SelectedItem.Text;
+            }
+        }
+
+        public int @NR_CigarrosXDias
+        {
+            get
+            {
+                int retVal = 0;
+                Int32.TryParse(this.txtNrFumado.Text, out retVal);
+                return retVal;
+            }
+        }
+
+        public string @DE_DrogaNueva1
+        {
+            get
+            {
+                return this.txtDrogaPrim.Text;
+            }
+        }
+
+        public string @DE_DrogaNueva2
+        {
+            get
+            {
+                return this.txtDrogaSec.Text;
+            }
+        }
+
+        public string @DE_DrogaNueva3
+        {
+            get
+            {
+                return this.txtDrogaTerc.Text;
+            }
+        }
+
+        public sbyte @IN_Toxicologia1
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlToxicologia1.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
+                }
+            }
+        }
+
+        public sbyte @IN_Toxicologia2
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlToxicologia2.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
+                }
+            }
+        }
+
+        public sbyte @IN_Toxicologia3
+        {
+            get
+            {
+                try
+                {
+                    return Convert.ToSByte(this.ddlToxicologia3.SelectedValue.ToString());
+                }
+                catch
+                {
+                    return 0;//Default No aplica
                 }
             }
         }

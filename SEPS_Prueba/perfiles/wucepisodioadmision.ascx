@@ -716,31 +716,22 @@
     <tr>
         <th><span class="SEPSLabel">Sustancias [TEDS]</span></th>
         <td> 
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVClinPrim" ErrorMessage="Eje I. Diagnóstico Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
-            <div class="expandibleDiv">
-                <TextArea class="form-control"  ID="TextArea1" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
-                <asp:Label ID="Label1" runat="server" />
-                <asp:HyperLink ID="HyperLink1" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
-                <input id="Hidden1" type="hidden" value="761" name="hDSMVClinPrim" runat="server"/>
-            </div>
+            <TextArea ID="txtDSMVSusPrim" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+            <asp:Label ID="lblDSMVSusPrim" runat="server"/>
+            <asp:HyperLink ID="hlDSMVSusPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVSusPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusPrim', 'WucEpisodioAdmision')" Text="Buscar..."/>
+            <input id="hDSMVSusPrim" type="hidden" value="761" name="hDSMVSusPrim" runat="server" />
         </td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVClinSec" ErrorMessage="Eje I. Diagnóstico Secundarioario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
-            <div class="expandibleDiv">
-                <TextArea  class="form-control" ID="TextArea2" onChange="txtClinSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
-                <asp:Label ID="Label2" runat="server" />
-                <asp:HyperLink ID="HyperLink2" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinSec', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
-                <input id="Hidden2" type="hidden" value="761" name="hDSMVClinSec" runat="server"/>
-            </div>
+            <TextArea ID="txtDSMVSusSec" class="form-control" onChange="txtSusSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+            <asp:Label ID="lblDSMVSusSec" runat="server"/>
+            <asp:HyperLink ID="hlDSMVSusSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVSusSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusSec', 'WucEpisodioAdmision')" Text="Buscar..."/>
+            <input id="hDSMVSusSec" type="hidden" value="761" name="hDSMVSusSec" runat="server" />
         </td>
         <td>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVClinTer" ErrorMessage="Eje I. Diagnóstico Terciario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
-            <div class="expandibleDiv">
-                <TextArea class="form-control"  ID="TextArea3" onChange="txtClinTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
-                <asp:Label ID="Label3" runat="server"/>
-                <asp:HyperLink ID="HyperLink3" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinTer', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
-                <input id="Hidden3" type="hidden" value="761" name="hDSMVClinTer" runat="server"/>
-            </div>
+            <TextArea ID="txtDSMVSusTer" class="form-control" onChange="txtSusTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
+            <asp:Label ID="lblDSMVSusTer" runat="server"/>
+            <asp:HyperLink ID="hlDSMVSusTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVSusTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusTer', 'WucEpisodioAdmision')" Text="Buscar..."/>
+            <input id="hDSMVSusTer" type="hidden" value="761" name="hDSMVSusTer" runat="server" />
         </td>
     </tr>
     <%--
@@ -859,13 +850,13 @@
         <h3 class="panel-title">Utilización de tabaco o cigarrillo</h3>
     </div>
     <div class="panel-body">
-        <div class="row">
+       <div class="row">
             <div class="col-print-6 col-md-6 SEPSDivs">
                     <%-- Zona Geografica --%>
                     <span class="SEPSLabel">¿Ha fumado al menos 100 cigarrillos en toda su vida?:</span>
-                    <asp:RequiredFieldValidator ID="rfvZonaGeografia" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Zona geográfica" ControlToValidate="ddlZonaGeografia" Text="*" />
+                    <asp:RequiredFieldValidator ID="rfvInFumado" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Fumado en su vida" ControlToValidate="ddlInFumado" Text="*" />
                     <div class="expandibleDiv">
-                        <asp:DropDownList CssClass="form-control" ID="ddlZonaGeografia" runat="server">
+                        <asp:DropDownList CssClass="form-control" ID="ddlInFumado" runat="server">
                             <asp:ListItem />
                             <%-- IN ZONA > EPISODIO --%>
                             <asp:ListItem Value="1">Si</asp:ListItem>
@@ -873,31 +864,31 @@
                             <asp:ListItem Value="3">Desconoce</asp:ListItem>
                             <asp:ListItem Value="4">No informó</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Label ID="lblZonaGeografia" runat="server" />
+                        <asp:Label ID="lblInFumado" runat="server" />
                     </div>
                 </div>
             <div class="col-print-6 col-md-6 SEPSDivs">
                     <%-- Zona Geografica --%>
                     <span class="SEPSLabel">Si contesto si, ¿con que frecuencia fuma cigarrillos actualmente?:</span>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Zona geográfica" ControlToValidate="ddlZonaGeografia" Text="*" />
+                    <asp:RequiredFieldValidator ID="rfvFrecuenciaFumado" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Frecuencia de fumar" ControlToValidate="ddlFrecuenciaFumado" Text="*" />
                     <div class="expandibleDiv">
-                        <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
+                        <asp:DropDownList CssClass="form-control" ID="ddlFrecuenciaFumado" runat="server">
                             <asp:ListItem />
                             <%-- IN ZONA > EPISODIO --%>
                             <asp:ListItem Value="1">Todos los días</asp:ListItem>
                             <asp:ListItem Value="2">Algunos días</asp:ListItem>
                             <asp:ListItem Value="3">Nunca</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Label ID="Label4" runat="server" />
+                        <asp:Label ID="lblFrecuenciaFumado" runat="server" />
                     </div>
                 </div>
             <div class="col-print-6 col-md-6 SEPSDivs">
                     <%-- Codigo Postal --%>
                     <span class="SEPSLabel">¿Si fuma todos o algunos días, cuantos cigarrillos en promedio usted fuma en un día?:</span>
-                    <asp:RegularExpressionValidator ID="revZipCode" runat="server" ValidationExpression="^([0-9])+$" CssClass="rightFloatAsterisk" ToolTip="Debe ser un valor númerico" ErrorMessage="Código postal" ControlToValidate="txtZipCode" Text="*" />
+                    <asp:RegularExpressionValidator ID="revNrFumado" runat="server" ValidationExpression="^([0-9])+$" CssClass="rightFloatAsterisk" ToolTip="Debe ser un valor númerico" ErrorMessage="Cantidad de Cigarrillos Fumados" ControlToValidate="txtNrFumado" Text="*" />
                     <div class="expandibleDiv">
-                        <asp:TextBox CssClass="form-control" ID="txtZipCode" runat="server" MaxLength="5" />
-                        <asp:Label ID="lblZipCode" runat="server" />
+                        <asp:TextBox CssClass="form-control" ID="txtNrFumado" runat="server" MaxLength="5" />
+                        <asp:Label ID="lblNrFumado" runat="server" />
                     </div>
                 </div>
         </div>
@@ -1072,36 +1063,36 @@
         <th><span class="SEPSLabel">Confirmado por toxicología</span></th>
         <td>
             <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
-                <asp:ListItem />
-                <%-- IN ZONA > EPISODIO --%>
-                <asp:ListItem Value="1">Si</asp:ListItem>
-                <asp:ListItem Value="2">No</asp:ListItem>
-            </asp:DropDownList>
-            <asp:Label ID="Label5" runat="server" />
-        </div>
+                <asp:DropDownList CssClass="form-control" ID="ddlToxicologia1" runat="server">
+                    <asp:ListItem />
+                    <asp:ListItem Value="1">Si</asp:ListItem>
+                    <asp:ListItem Value="2">No</asp:ListItem>
+                    <asp:ListItem Value="99">No Aplica</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Label ID="lblToxicologia1" runat="server" />
+            </div>
         </td>
         <td>
             <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
-                <asp:ListItem />
-                <%-- IN ZONA > EPISODIO --%>
-                <asp:ListItem Value="1">Si</asp:ListItem>
-                <asp:ListItem Value="2">No</asp:ListItem>
-            </asp:DropDownList>
-            <asp:Label ID="Label6" runat="server" />
-        </div>
+                <asp:DropDownList CssClass="form-control" ID="ddlToxicologia2" runat="server">
+                    <asp:ListItem />
+                    <asp:ListItem Value="1">Si</asp:ListItem>
+                    <asp:ListItem Value="2">No</asp:ListItem>
+                    <asp:ListItem Value="99">No Aplica</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Label ID="lblToxicologia2" runat="server" />
+            </div>
         </td>
         <td>
             <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="DropDownList4" runat="server">
-                <asp:ListItem />
-                <%-- IN ZONA > EPISODIO --%>
-                <asp:ListItem Value="1">Si</asp:ListItem>
-                <asp:ListItem Value="2">No</asp:ListItem>
-            </asp:DropDownList>
-            <asp:Label ID="Label7" runat="server" />
-        </div>
+                <asp:DropDownList CssClass="form-control" ID="ddlToxicologia3" runat="server">
+                    <asp:ListItem />
+                    <asp:ListItem Value="1">Si</asp:ListItem>
+                    <asp:ListItem Value="2">No</asp:ListItem>
+                    <asp:ListItem Value="99">No Aplica</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Label ID="lblToxicologia3" runat="server" />
+            </div>
         </td>
         
     </tr>

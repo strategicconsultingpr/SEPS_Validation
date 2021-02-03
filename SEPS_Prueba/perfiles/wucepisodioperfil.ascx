@@ -619,6 +619,42 @@
             </div>
         </td>
     </tr>
+    <tr>
+        <th><span class="SEPSLabel">Confirmado por toxicología</span></th>
+        <td>
+            <div class="expandibleDiv">
+                <asp:DropDownList CssClass="form-control" ID="ddlToxicologia1" runat="server">
+                    <asp:ListItem />
+                    <asp:ListItem Value="1">Si</asp:ListItem>
+                    <asp:ListItem Value="2">No</asp:ListItem>
+                    <asp:ListItem Value="99">No Aplica</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Label ID="lblToxicologia1" runat="server" />
+            </div>
+        </td>
+        <td>
+            <div class="expandibleDiv">
+                <asp:DropDownList CssClass="form-control" ID="ddlToxicologia2" runat="server">
+                    <asp:ListItem />
+                    <asp:ListItem Value="1">Si</asp:ListItem>
+                    <asp:ListItem Value="2">No</asp:ListItem>
+                    <asp:ListItem Value="99">No Aplica</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Label ID="lblToxicologia2" runat="server" />
+            </div>
+        </td>
+        <td>
+            <div class="expandibleDiv">
+                <asp:DropDownList CssClass="form-control" ID="ddlToxicologia3" runat="server">
+                    <asp:ListItem />
+                    <asp:ListItem Value="1">Si</asp:ListItem>
+                    <asp:ListItem Value="2">No</asp:ListItem>
+                    <asp:ListItem Value="99">No Aplica</asp:ListItem>
+                </asp:DropDownList>
+                <asp:Label ID="lblToxicologia3" runat="server" />
+            </div>
+        </td>
+    </tr>
 </table>
   </div>
 </div>
