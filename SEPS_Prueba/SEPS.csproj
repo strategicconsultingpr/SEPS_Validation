@@ -61,10 +61,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ASPNETDB.MDF" />
-    <Content Include="App_Data\aspnetdb_log.ldf">
-      <DependentUpon>ASPNETDB.MDF</DependentUpon>
-    </Content>
     <Content Include="PasswordChangeMandatory.aspx" />
     <Content Include="ErrorView.aspx" />
     <Content Include="css\global.css" />
@@ -416,7 +412,6 @@
     <Content Include="ASSMCA.mdx">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ASSMCA.suo" />
     <Content Include="ASSMCA.wdx" />
     <Content Include="fonts\Bitter-Bold.ttf" />
     <Content Include="fonts\Bitter-Italic.ttf" />
@@ -553,6 +548,9 @@
     <EmbeddedResource Include="Reportes.aspx.resx">
       <DependentUpon>Reportes.aspx.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
