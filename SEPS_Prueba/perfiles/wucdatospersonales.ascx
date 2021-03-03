@@ -296,7 +296,7 @@
                        ¿Contiene? &nbsp&nbsp&nbsp<asp:CheckBox ID="chkEmail" runat="server" class="form-check-input" OnClick="chkEmail();"/>
                    </div>
                    <div class="col-md-8">
-                        <asp:TextBox  TabIndex="12" CssClass="form-control" ID="txtEmail1" runat="server" Enabled="false" />
+                        <asp:TextBox  CssClass="form-control" ID="txtEmail1" runat="server" Enabled="false" />
                         <asp:Label ID="lblEmail1" runat="server" />
                    </div>
                </div>
@@ -305,7 +305,7 @@
         </td>
         <td><%--Diagnóstico Primario--%>
            <div class="expandibleDiv">
-                <asp:TextBox  TabIndex="12" CssClass="form-control" ID="txtEmail2" runat="server" Enabled="false" onBlur="email2();"/>
+                <asp:TextBox  CssClass="form-control" ID="txtEmail2" runat="server" Enabled="false" onBlur="email2();"/>
                 <asp:Label ID="lblEmail2" runat="server" />
             </div>
         </td>
