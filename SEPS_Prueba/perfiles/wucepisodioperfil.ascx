@@ -223,19 +223,19 @@
                 <td>
                     <TextArea ID="txtDSMVRMPrim" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly" >No se recopila la información</TextArea>
                     <asp:Label ID="lblDSMVRMPrim" runat="server"/>
-                    <asp:HyperLink ID="hlDSMVRMPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVRMPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
+                    <asp:HyperLink ID="hlDSMVRMPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('NONE','mainBodyContent_WucEpisodioPerfil_txtDSMVRMPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
                     <input id="hDSMVRMPrim" type="hidden" value="761" name="hDSMVRMPrim" runat="server" />
                 </td>
                 <td>
                     <TextArea ID="txtDSMVRMSec" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly" >No se recopila la información</TextArea>
                     <asp:Label ID="lblDSMVRMSec" runat="server"/>
-                    <asp:HyperLink ID="hlDSMVRMSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVRMSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
+                    <asp:HyperLink ID="hlDSMVRMSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('NONE','mainBodyContent_WucEpisodioPerfil_txtDSMVRMSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
                     <input id="hDSMVRMSec" type="hidden" value="761" name="hDSMVRMSec" runat="server" />
                 </td>
                 <td>
                     <TextArea ID="txtDSMVRMTer" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly">No se recopila la información</TextArea>
                     <asp:Label ID="lblDSMVRMTer" runat="server"/>
-                    <asp:HyperLink ID="hlDSMVRMTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVRMTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
+                    <asp:HyperLink ID="hlDSMVRMTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('NONE','mainBodyContent_WucEpisodioPerfil_txtDSMVRMTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVRMTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
                     <input id="hDSMVRMTer" type="hidden" value="761" name="hDSMVRMTer" runat="server" />
                 </td>
             </tr>
@@ -275,19 +275,19 @@
         <td> 
             <TextArea ID="txtDSMVClinPrim" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVClinPrim" runat="server"/>
-            <asp:HyperLink ID="hlDSMVClinPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVClinPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVClinPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('SM','mainBodyContent_WucEpisodioPerfil_txtDSMVClinPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
             <input id="hDSMVClinPrim" type="hidden" value="761" name="hDSMVClinPrim" runat="server" />
         </td>
         <td>
             <TextArea ID="txtDSMVClinSec" class="form-control" onChange="txtClinSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVClinSec" runat="server"/>
-            <asp:HyperLink ID="hlDSMVClinSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVClinSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVClinSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('SM','mainBodyContent_WucEpisodioPerfil_txtDSMVClinSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
             <input id="hDSMVClinSec" type="hidden" value="761" name="hDSMVClinSec" runat="server" />
         </td>
         <td>
             <TextArea ID="txtDSMVClinTer" class="form-control" onChange="txtClinTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVClinTer" runat="server"/>
-            <asp:HyperLink ID="hlDSMVClinTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVClinTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVClinTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('SM','mainBodyContent_WucEpisodioPerfil_txtDSMVClinTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVClinTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
             <input id="hDSMVClinTer" type="hidden" value="761" name="hDSMVClinTer" runat="server" />
         </td>
     </tr>
@@ -296,19 +296,19 @@
         <td> 
             <TextArea ID="txtDSMVSusPrim" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVSusPrim" runat="server"/>
-            <asp:HyperLink ID="hlDSMVSusPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVSusPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVSusPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVSusPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('SUST','mainBodyContent_WucEpisodioPerfil_txtDSMVSusPrim', 'mainBodyContent_WucEpisodioPerfil_hDSMVSusPrim', 'WucEpisodioPerfil')" Text="Buscar..."/>
             <input id="hDSMVSusPrim" type="hidden" value="761" name="hDSMVSusPrim" runat="server" />
         </td>
         <td>
             <TextArea ID="txtDSMVSusSec" class="form-control" onChange="txtSusSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVSusSec" runat="server"/>
-            <asp:HyperLink ID="hlDSMVSusSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVSusSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVSusSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVSusSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('SUST','mainBodyContent_WucEpisodioPerfil_txtDSMVSusSec', 'mainBodyContent_WucEpisodioPerfil_hDSMVSusSec', 'WucEpisodioPerfil')" Text="Buscar..."/>
             <input id="hDSMVSusSec" type="hidden" value="761" name="hDSMVSusSec" runat="server" />
         </td>
         <td>
             <TextArea ID="txtDSMVSusTer" class="form-control" onChange="txtSusTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVSusTer" runat="server"/>
-            <asp:HyperLink ID="hlDSMVSusTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioPerfil_txtDSMVSusTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVSusTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVSusTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('SUST','mainBodyContent_WucEpisodioPerfil_txtDSMVSusTer', 'mainBodyContent_WucEpisodioPerfil_hDSMVSusTer', 'WucEpisodioPerfil')" Text="Buscar..."/>
             <input id="hDSMVSusTer" type="hidden" value="761" name="hDSMVSusTer" runat="server" />
         </td>
     </tr>

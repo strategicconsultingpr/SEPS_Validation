@@ -546,7 +546,7 @@ function DSMV() {
     }
     catch (ex) { }
 }
-function showDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
+function showDSMV(filtro, txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
     try {
         var ClinPrim = document.getElementById('mainBodyContent_WucEpisodioPerfil_hDSMVClinPrim').value;
         var ClinSec = document.getElementById('mainBodyContent_WucEpisodioPerfil_hDSMVClinSec').value;
@@ -578,14 +578,14 @@ function showDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
         //    }
         //}
 
-        var url = 'frmdsmi_v.aspx?' + 'txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion
+        var url = 'frmdsmi_v.aspx?' + 'txtfiltro=' + filtro + '&txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion
         var ventana = window.open(url, "list", "width=620,height=280,resizable=yes,toolbar=no,status=no,menubar=no");
     }
     catch (ex) { }
 }
 
-function showSusDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
-   
+function showSusDSMV(filtro, txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
+
     try {
         var ClinPrim = document.getElementById('mainBodyContent_WucEpisodioPerfil_hDSMVSusPrim').value;
         var ClinSec = document.getElementById('mainBodyContent_WucEpisodioPerfil_hDSMVSusSec').value;
@@ -602,7 +602,7 @@ function showSusDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
             }
         }
 
-        var url = 'frmdsmi_v.aspx?' + 'txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion
+        var url = 'frmdsmi_v.aspx?' + 'txtfiltro=' + filtro + '&txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion
         var ventana = window.open(url, "list", "width=620,height=280,resizable=yes,toolbar=no,status=no,menubar=no");
     }
     catch (ex) { }

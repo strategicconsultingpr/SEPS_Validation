@@ -629,7 +629,7 @@
                     <div class="expandibleDiv">
                         <TextArea class="form-control"  ID="txtDSMVRMPrim" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly" >No se recopila la información</TextArea>
                         <asp:Label ID="lblDSMVRMPrim" runat="server" />
-                        <asp:HyperLink ID="hlDSMVRMPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVRMPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVRMPrim', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                        <asp:HyperLink ID="hlDSMVRMPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('NONE','mainBodyContent_WucEpisodioAdmision_txtDSMVRMPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVRMPrim', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
                         <input id="hDSMVRMPrim" type="hidden" value="761" name="hDSMVRMPrim" runat="server"/>
                     </div>
                 </td>
@@ -638,7 +638,7 @@
                     <div class="expandibleDiv">
                         <TextArea class="form-control"  ID="txtDSMVRMSec" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly" >No se recopila la información</TextArea>
                         <asp:Label ID="lblDSMVRMSec" runat="server" />
-                        <asp:HyperLink ID="hlDSMVRMSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVRMSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVRMSec', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                        <asp:HyperLink ID="hlDSMVRMSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('NONE','mainBodyContent_WucEpisodioAdmision_txtDSMVRMSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVRMSec', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
                         <input id="hDSMVRMSec" type="hidden" value="761" name="hDSMVRMSec" runat="server" />
                     </div>
                 </td>
@@ -647,7 +647,7 @@
                     <div class="expandibleDiv">
                         <TextArea class="form-control"  ID="txtDSMVRMTer"  TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
                         <asp:Label ID="lblDSMVRMTer" runat="server" />
-                        <asp:HyperLink ID="hlDSMVRMTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVRMTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVRMTer', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                        <asp:HyperLink ID="hlDSMVRMTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('NONE','mainBodyContent_WucEpisodioAdmision_txtDSMVRMTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVRMTer', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
                         <input id="hDSMVRMTer" type="hidden" value="761" name="hDSMVRMTer" runat="server"/>
                     </div>
                 </td>
@@ -690,7 +690,7 @@
             <div class="expandibleDiv">
                 <TextArea class="form-control"  ID="txtDSMVClinPrim" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
                 <asp:Label ID="lblDSMVClinPrim" runat="server" />
-                <asp:HyperLink ID="hlDSMVClinPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                <asp:HyperLink ID="hlDSMVClinPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('SM','mainBodyContent_WucEpisodioAdmision_txtDSMVClinPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
                 <input id="hDSMVClinPrim" type="hidden" value="761" name="hDSMVClinPrim" runat="server"/>
             </div>
         </td>
@@ -699,7 +699,7 @@
             <div class="expandibleDiv">
                 <TextArea  class="form-control" ID="txtDSMVClinSec" onChange="txtClinSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
                 <asp:Label ID="lblDSMVClinSec" runat="server" />
-                <asp:HyperLink ID="hlDSMVClinSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinSec', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                <asp:HyperLink ID="hlDSMVClinSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('SM','mainBodyContent_WucEpisodioAdmision_txtDSMVClinSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinSec', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
                 <input id="hDSMVClinSec" type="hidden" value="761" name="hDSMVClinSec" runat="server"/>
             </div>
         </td>
@@ -708,7 +708,7 @@
             <div class="expandibleDiv">
                 <TextArea class="form-control"  ID="txtDSMVClinTer" onChange="txtClinTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
                 <asp:Label ID="lblDSMVClinTer" runat="server"/>
-                <asp:HyperLink ID="hlDSMVClinTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVClinTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinTer', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
+                <asp:HyperLink ID="hlDSMVClinTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('SM','mainBodyContent_WucEpisodioAdmision_txtDSMVClinTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVClinTer', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
                 <input id="hDSMVClinTer" type="hidden" value="761" name="hDSMVClinTer" runat="server"/>
             </div>
         </td>
@@ -718,19 +718,19 @@
         <td> 
             <TextArea ID="txtDSMVSusPrim" class="form-control" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVSusPrim" runat="server"/>
-            <asp:HyperLink ID="hlDSMVSusPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVSusPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusPrim', 'WucEpisodioAdmision')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVSusPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('SUST','mainBodyContent_WucEpisodioAdmision_txtDSMVSusPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusPrim', 'WucEpisodioAdmision')" Text="Buscar..."/>
             <input id="hDSMVSusPrim" type="hidden" value="761" name="hDSMVSusPrim" runat="server" />
         </td>
         <td>
             <TextArea ID="txtDSMVSusSec" class="form-control" onChange="txtSusSec()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVSusSec" runat="server"/>
-            <asp:HyperLink ID="hlDSMVSusSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVSusSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusSec', 'WucEpisodioAdmision')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVSusSec" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('SUST','mainBodyContent_WucEpisodioAdmision_txtDSMVSusSec', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusSec', 'WucEpisodioAdmision')" Text="Buscar..."/>
             <input id="hDSMVSusSec" type="hidden" value="761" name="hDSMVSusSec" runat="server" />
         </td>
         <td>
             <TextArea ID="txtDSMVSusTer" class="form-control" onChange="txtSusTer()" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
             <asp:Label ID="lblDSMVSusTer" runat="server"/>
-            <asp:HyperLink ID="hlDSMVSusTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('mainBodyContent_WucEpisodioAdmision_txtDSMVSusTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusTer', 'WucEpisodioAdmision')" Text="Buscar..."/>
+            <asp:HyperLink ID="hlDSMVSusTer" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showSusDSMV('SUST','mainBodyContent_WucEpisodioAdmision_txtDSMVSusTer', 'mainBodyContent_WucEpisodioAdmision_hDSMVSusTer', 'WucEpisodioAdmision')" Text="Buscar..."/>
             <input id="hDSMVSusTer" type="hidden" value="761" name="hDSMVSusTer" runat="server" />
         </td>
     </tr>

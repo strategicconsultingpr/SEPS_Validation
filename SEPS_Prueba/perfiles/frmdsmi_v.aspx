@@ -21,6 +21,9 @@
             <input id="txtDescripcionHidden" type="hidden" name="Hidden1" runat="server"/>
             <input id="tipoDescripcion" type="hidden" name="Hidden3" runat="server"/>
 
+         <%-- Anadi esta variable para recoger el tipo de filtro --%>
+        <input id="txtFiltroTipo" type="hidden" name="Hidden2" runat="server"/>
+
             <input id="ClinHD" type="hidden" name="Hidden2" runat="server"/>
             <input id="ClinHD1" type="hidden" name="Hidden2" runat="server"/>
             <input id="ClinTxt1" type="hidden" name="Hidden2" runat="server"/>
@@ -42,7 +45,8 @@
                     </div>
                 </div>
                 <div class="col-xs-12" style="padding:5px 25px 5px 50px">
-                     <asp:ListBox ID="lbxDSMV" runat="server" CssClass="form-control" Height="175px" DataSource="<%# dsPerfil %>" DataMember="SA_LKP_DSMV" DataTextField="CONCAT_DSMV" DataValueField="_PK_DSMV"/>
+                       <%-- Quite el data memeber y el source y lo inicialice en el code behind --%>
+                     <asp:ListBox ID="lbxDSMV"  runat="server" CssClass="form-control" Height="175px" DataValueField="_PK_DSMV"/>
                 </div>
                 <div class="col-xs-12" style="text-align:center; padding:5px 25px 5px 50px">
                     <asp:Button id="btnSeleccionar" runat="server" CssClass="btn btn-default" Text="Seleccionar diagnóstico" OnClientClick="DSMV();"/>

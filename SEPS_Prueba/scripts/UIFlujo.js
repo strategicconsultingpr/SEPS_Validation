@@ -381,17 +381,21 @@ function frmActionModeSetup() {
     catch (ex) { }
 }
 
-function showDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
+//modifique la funcion y anadi el parametro de filtro
+function showDSMV(filtro, txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
     try {
         var ClinPrim = document.getElementById('mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim').value;
-       
-        var ClinSec = document.getElementById('mainBodyContent_WucEpisodioAdmision_hDSMVClinSec').value;   
-      
+
+        var ClinSec = document.getElementById('mainBodyContent_WucEpisodioAdmision_hDSMVClinSec').value;
+
+
+
+
         //var RMPrim = document.getElementById('mainBodyContent_WucEpisodioAdmision_hDSMVRMPrim').value;
         //var RMSec = document.getElementById('mainBodyContent_WucEpisodioAdmision_hDSMVRMSec').value;
-        
-        if (txtDescripcion == "mainBodyContent_WucEpisodioAdmision_txtDSMVClinSec") {           
-            if (ClinPrim == '761') {  
+
+        if (txtDescripcion == "mainBodyContent_WucEpisodioAdmision_txtDSMVClinSec") {
+            if (ClinPrim == '761') {
                 alert("Debe seleccionar un diagnóstico primario válido");
                 return;
             }
@@ -414,15 +418,18 @@ function showDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
         //        return;
         //    }
         //}
-        
-        var url = 'frmdsmi_v.aspx?' + 'txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion;
-        var ventana = window.open(url, "list", "width=620,height=280,resizable=yes,toolbar=no,status=no,menubar=no");    
-        
+
+        //Agrege el txtFiltro en el URL
+        var url = 'frmdsmi_v.aspx?' + 'txtfiltro=' + filtro + '&txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion;
+        var ventana = window.open(url, "list", "width=620,height=280,resizable=yes,toolbar=no,status=no,menubar=no");
+
     }
     catch (ex) { }
 }
 
-function showSusDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
+
+
+function showSusDSMV(filtro, txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
 
     try {
         var ClinPrim = document.getElementById('mainBodyContent_WucEpisodioAdmision_hDSMVSusPrim').value;
@@ -440,7 +447,7 @@ function showSusDSMV(txtDescripcion, txtDescripcionHidden, tipoDescripcion) {
             }
         }
 
-        var url = 'frmdsmi_v.aspx?' + 'txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion
+        var url = 'frmdsmi_v.aspx?' + 'txtfiltro=' + filtro + '&txtDescripcion=' + txtDescripcion + '&txtDescripcionHidden=' + txtDescripcionHidden + '&tipoDescripcion=' + tipoDescripcion;
         var ventana = window.open(url, "list", "width=620,height=280,resizable=yes,toolbar=no,status=no,menubar=no");
     }
     catch (ex) { }

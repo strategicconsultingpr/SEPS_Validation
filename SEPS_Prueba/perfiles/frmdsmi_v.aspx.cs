@@ -8,6 +8,7 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using ASSMCA.perfiles;
 
 namespace ASSMCA.Perfiles
 {
@@ -23,12 +24,14 @@ namespace ASSMCA.Perfiles
 			}
 			if(!this.IsPostBack)
 			{
-                if (this.Request.QueryString["txtDescripcion"] != null && this.Request.QueryString["txtDescripcionHidden"] != null)
+                if (this.Request.QueryString["txtfiltro"] != null && this.Request.QueryString["txtDescripcion"] != null && this.Request.QueryString["txtDescripcionHidden"] != null)
                 {
                     this.txtDescripcion.Value = this.Request.QueryString["txtDescripcion"].ToString();
                     this.txtDescripcionHidden.Value = this.Request.QueryString["txtDescripcionHidden"].ToString();
                     this.tipoDescripcion.Value = this.Request.QueryString["tipoDescripcion"].ToString();
-                   
+
+                    this.txtFiltroTipo.Value = this.Request.QueryString["txtfiltro"].ToString();
+
                     ClinHD.Value = "mainBodyContent_"+ this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMVClinPrim";
                     ClinTxt1.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_txtDSMVClinSec";
                     ClinHD1.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMVClinSec";
@@ -72,7 +75,17 @@ namespace ASSMCA.Perfiles
 
                 }
 				this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
-				this.DataBind();
+
+                SA_LKP_DSMV1TableAdapter SA_LKP_DSMV = new SA_LKP_DSMV1TableAdapter();
+
+                if (txtFiltroTipo.Value == "NONE")
+                    lbxDSMV.DataSource = SA_LKP_DSMV.GetData();
+                else
+                    lbxDSMV.DataSource = SA_LKP_DSMV.GetData().Where(x => x.CAT_DSMV == txtFiltroTipo.Value || x.CAT_DSMV == "Other");
+
+                lbxDSMV.DataTextField = "DE_DSMV";
+
+                this.DataBind();
 			}
 			else
 			{                
