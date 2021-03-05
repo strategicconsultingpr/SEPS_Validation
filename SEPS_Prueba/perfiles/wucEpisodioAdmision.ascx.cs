@@ -1,4 +1,6 @@
-﻿namespace ASSMCA.Perfiles
+﻿using System.Collections.Generic;
+
+namespace ASSMCA.Perfiles
 {
     using System;
     using System.Collections.Generic;
@@ -15,14 +17,18 @@
         protected System.Data.DataView dvwEpisPreviosSustancias, dvwEpisPreviosMental, dvwUltSustancias, dvwUltMental, dvwNivelSustancias, dvwNivelMental, dvwDiagPrimario, dvwDiagSecundario, dvwDiagTerciario, dvwCatTransPrim, dvwCatTransSec, dvwCatTransTerc, dvwCatRMPrim, dvwCatRMSec, dvwCatRMTerc, dvwIVPrim, dvwIVSec, dvwIVTerc, dvwDrogaPrim, dvwDrogaSec, dvwDrogaTerc, dvwViaPrim, dvwViaTerc, dvwViaSec, dvwFrecPrim, dvwFrecSec, dvwFrecTerc, dvwMediPrim, dvwMediTerc, dvwMediSec, dvwNivelMentalAnterior, dvwNivelSustanciasAnterior, dvwFreqAutoAyuda, dvwFuenteReferido, dvw_DSMV_ProblemasPsicosocialesAmbientales1, dvw_DSMV_ProblemasPsicosocialesAmbientales2, dvw_DSMV_ProblemasPsicosocialesAmbientales3;
         public frmAction m_frmAction;
         private int _probJusticiaCount, _maltratoCount, m_pk_perfil, m_pk_episodio, _pkPrograma, m_CO_Tipo;
+
+
+        private List<DropDownAgeAbusoDeSustancia> ListAgeAbusoDeSustancia = new List<DropDownAgeAbusoDeSustancia>();
+
         public string accion;
         protected void Page_Load(object sender, System.EventArgs e)
         {
-            rvEdadPrim.MaximumValue = Session["edad"].ToString();
+            // rvEdadPrim.MaximumValue = Session["edad"].ToString();
             rvEdadSec.MaximumValue = Session["edad"].ToString();
             rvEdadTerc.MaximumValue = Session["edad"].ToString();
             _pkPrograma = Convert.ToInt32(this.Session["pk_programa"]);
-            m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());            
+            m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
             this.hAccion.Value = accion;
             if (!this.IsPostBack)
@@ -68,9 +74,22 @@
                 this.dvwFreqAutoAyuda.Table = this.dsPerfil.SA_LKP_TEDS_FRECUENCIA_AUTOAYUDA;
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
 
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 96, Text = "No Aplica" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 97, Text = "Desconocida" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 98, Text = "No Recogida" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
 
-                //ListItem li = new ListItem("No Aplica", "99");
-                //this.ddlPreviosMental.Items.Add(li);
+                for (int i = 1; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
+                    ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
+
+
+                txtEdadPrim.DataSource = ListAgeAbusoDeSustancia;
+                txtEdadPrim.DataValueField = "Value";
+                txtEdadPrim.DataTextField = "Text";
+              
+                txtEdadPrim.DataBind();
+                
+
 
                 if (this.Session["pk_administracion"].ToString() == "1")
                 {
@@ -87,6 +106,7 @@
                         this.DSMVRM_DIV.Visible = false;
                         this.ddlNivelUnavilable(NivelCuidado.Mental);
                         this.ddlNivelUnavilable(NivelCuidado.Sustancias);
+                       
                         break;
                     case (frmAction.Update):
                         //this.SetTabIndex();
@@ -102,10 +122,10 @@
                         break;
                 }
 
-//                SetEdadChk(!chkEdadPrim.Checked, txtEdadPrim);
-//                SetEdadChk(!chkEdadSec.Checked, txtEdadSec);
-             
-//SetEdadChk(chkEdadPrim.Checked, txtEdadTerc);
+                //                SetEdadChk(!chkEdadPrim.Checked, txtEdadPrim);
+                //                SetEdadChk(!chkEdadSec.Checked, txtEdadSec);
+
+                //SetEdadChk(chkEdadPrim.Checked, txtEdadTerc);
 
 
             }
@@ -392,7 +412,7 @@
             this.ddlToxicologia2.Visible = false;
             this.ddlToxicologia3.Visible = false;
 
-          
+
             this.ddlInFumado.Visible = false;
             this.ddlFrecuenciaFumado.Visible = false;
             this.txtNrFumado.Visible = false;
@@ -541,15 +561,12 @@
             this.txtDíasSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasUltimaAltaSustancias"].ToString();
 
 
-            
-            
-            
-            this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+            this.txtEdadPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
             this.txtEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
             this.txtEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
-            
-            
-            
+
+
+
             this.txtMesesMentUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_MesesUltimaAltaMental"].ToString();
             this.txtMesesSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_MesesUltimaAltaSustancias"].ToString();
 
@@ -1299,7 +1316,7 @@
                 {
                     return Convert.ToSByte(this.ddlFreq_AutoAyuda.SelectedValue.ToString());
                 }
-                catch 
+                catch
                 {
                     return 99; //Default No aplica
                 }
@@ -1396,7 +1413,7 @@
             get
             {
                 int retVal = 0;
-               // Int32.TryParse(this.ddlDSMVPsicoAmbiPrim.SelectedValue.ToString(), out retVal);
+                // Int32.TryParse(this.ddlDSMVPsicoAmbiPrim.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1405,7 +1422,7 @@
             get
             {
                 int retVal = 0;
-               // Int32.TryParse(this.ddlDSMVPsicoAmbiSec.SelectedValue.ToString(), out retVal);
+                // Int32.TryParse(this.ddlDSMVPsicoAmbiSec.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1414,7 +1431,7 @@
             get
             {
                 int retVal = 0;
-               // Int32.TryParse(this.ddlDSMVPsicoAmbiTer.SelectedValue.ToString(), out retVal);
+                // Int32.TryParse(this.ddlDSMVPsicoAmbiTer.SelectedValue.ToString(), out retVal);
                 return retVal;
             }
         }
@@ -1606,7 +1623,7 @@
             }
         }
 
-      
+
 
         public sbyte @FK_FrecuenciaPrimario
         {
@@ -1659,7 +1676,7 @@
             {
                 try
                 {
-                    return Convert.ToSByte(this.txtEdadPrim.Text.Trim());
+                    return Convert.ToSByte(this.txtEdadPrim.SelectedValue);
                 }
                 catch
                 {
@@ -1818,7 +1835,7 @@
         public void load()
         {
             lbxMaltrato();
-            lbxProbJusticia();         
+            lbxProbJusticia();
             ddlNivelMentalAdded(_pkPrograma);
             ddlNivelSustanciaAdded(_pkPrograma);
         }
@@ -1886,9 +1903,9 @@
             DataTable Dt = new DataTable();
             Dt = NS.getNivel("SP_DROP_NivelCuidadoSustancia", pk);
 
-            if(Dt == null) { return 0; }
-            else { return Dt.Rows.Count;}
-            
+            if (Dt == null) { return 0; }
+            else { return Dt.Rows.Count; }
+
         }
 
         private void ddlNivelMentalAdded(int pk)
@@ -1910,15 +1927,15 @@
                 this.ddlNivelCuidadoSaludMental.SelectedValue = "99";
             }
             if (Dt.Rows.Count == 1 && Dt != null && countNivelSustancia(pk) == 0)
-              {
-                  this.ddlNivelCuidadoSaludMental.SelectedIndex = 1;
-              }
-              else if(Dt.Rows.Count > 0 && Dt != null && countNivelSustancia(pk) != 0)
-              {
-                  ListItem li = new ListItem("No aplica", "99");
-                  this.ddlNivelCuidadoSaludMental.Items.Insert(0, li);
-                  this.ddlNivelCuidadoSaludMental.SelectedIndex = 0;
-              } 
+            {
+                this.ddlNivelCuidadoSaludMental.SelectedIndex = 1;
+            }
+            else if (Dt.Rows.Count > 0 && Dt != null && countNivelSustancia(pk) != 0)
+            {
+                ListItem li = new ListItem("No aplica", "99");
+                this.ddlNivelCuidadoSaludMental.Items.Insert(0, li);
+                this.ddlNivelCuidadoSaludMental.SelectedIndex = 0;
+            }
 
             Dt = null;
             NS = null;
@@ -1943,14 +1960,15 @@
                 this.ddlNivelCuidadoSustancias.SelectedValue = "99";
             }
             if (Dt.Rows.Count == 1 && Dt != null && countNivelMental(pk) == 0)
-            {   
-                   this.ddlNivelCuidadoSustancias.SelectedIndex = 1;
-            }            
+            {
+                this.ddlNivelCuidadoSustancias.SelectedIndex = 1;
+            }
             else if (Dt.Rows.Count > 0 && Dt != null && countNivelMental(pk) != 0)
-            {      ListItem li = new ListItem("No aplica", "99");
-                   this.ddlNivelCuidadoSustancias.Items.Insert(0, li);
-                   this.ddlNivelCuidadoSustancias.SelectedIndex = 0;
-            } 
+            {
+                ListItem li = new ListItem("No aplica", "99");
+                this.ddlNivelCuidadoSustancias.Items.Insert(0, li);
+                this.ddlNivelCuidadoSustancias.SelectedIndex = 0;
+            }
 
             Dt = null;
             NS = null;
@@ -1987,8 +2005,8 @@
                 DataTable Dt = new DataTable();
                 Dt = NS.getAll("SPR_DROP_ProbJusticia");
                 this.lbxProbJusticiaSeleccion.DataSource = Dt;
-               
-                
+
+
                 this.lbxProbJusticiaSeleccion.DataValueField = "PK_ProbJusticia";
                 this.lbxProbJusticiaSeleccion.DataTextField = "DE_ProbJusticia";
                 this.lbxProbJusticiaSeleccion.DataBind();
@@ -2092,9 +2110,9 @@
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
- 
 
-           if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
+
+            if (this.lbxProbJusticiaSeleccion.SelectedItem != null)
             {
                 if (lbxProbJusticiaSeleccion.SelectedItem.Value == "99" &&
                     (ddlArrestado.SelectedValue == "1" && ddlArrestado30.SelectedValue == "2" || ddlArrestado.SelectedValue == "2" && ddlArrestado30.SelectedValue == "1"))
@@ -2174,8 +2192,8 @@
         protected void ddlMaltratoNinez_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.ddlMaltratoNinez.SelectedValue == "2") //NO
-            {               
-                if(this.lbxMaltratoSeleccionado.Items.Count > 0)
+            {
+                if (this.lbxMaltratoSeleccionado.Items.Count > 0)
                 {
                     this.lbxMaltratoSeleccionado.Items.Clear();
                     this.lbxMaltratoSeleccion.Items.Clear();
@@ -2198,17 +2216,17 @@
                 {
                     ListItem li = new ListItem("No aplica", "99");
                     this.lbxMaltratoSeleccionado.Items.Add(li);
-                    this.lbxMaltratoSeleccion.Items.Remove(li);                   
+                    this.lbxMaltratoSeleccion.Items.Remove(li);
                 }
                 this.Button1.Enabled = false;
-                this.Button2.Enabled = false;               
+                this.Button2.Enabled = false;
             }
             else
             {
                 ListItem item = this.lbxMaltratoSeleccionado.Items.FindByValue("99");
                 if (item != null)
                 {
-                    this.lbxMaltratoSeleccionado.Items.Remove(item);                    
+                    this.lbxMaltratoSeleccionado.Items.Remove(item);
                 }
                 this.Button1.Enabled = true;
                 this.Button2.Enabled = true;
@@ -2271,7 +2289,7 @@
                 this.lbxCondicionesDiagnosticadasSeleccion.DataValueField = "PK_Diagnostico";
                 this.lbxCondicionesDiagnosticadasSeleccion.DataTextField = "DE_Diagnostico";
                 this.lbxCondicionesDiagnosticadasSeleccion.DataBind();
-                
+
                 if (m_frmAction == frmAction.Update)
                 {
                     //Response.Write("<script>alert(' Entro a Update');</script>");
@@ -2343,8 +2361,8 @@
         }
 
         #endregion
-      protected void ddlArrestado_SelectedIndexChanged(object sender, EventArgs e)
-    {
+        protected void ddlArrestado_SelectedIndexChanged(object sender, EventArgs e)
+        {
             ListItem li = new ListItem("No aplica", "99");
 
             if (ddlArrestado.SelectedValue == "2")
@@ -2360,7 +2378,8 @@
                 Button3.Enabled = false;
 
             }
-            else if (ddlArrestado.SelectedValue == "1") {
+            else if (ddlArrestado.SelectedValue == "1")
+            {
 
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);
@@ -2374,64 +2393,18 @@
 
             }
         }
-
-
-        protected void chkEdadPrim_CheckedChanged(object sender, EventArgs e)
-        {
-            var chk = sender as CheckBox;
-
-            if (chk != null)
-            {
-
-                switch (chk.ID)
-                {
-                    case "chkEdadPrim":
-                        SetEdadChk(chk.Checked, txtEdadPrim);
-                        break;
-                    case "chkEdadSec":
-                        SetEdadChk(chk.Checked, txtEdadSec);
-                        break;
-                    case "chkEdadTerc":
-                        SetEdadChk(chk.Checked, txtEdadTerc);
-                        break;
-
-
-
-
-                }
-
-
-
-
-
-            }
-
-
-        }
-
-        void SetEdadChk(bool flag, TextBox txtbox)
-        {
-            if (flag)
-            {
-                txtbox.Visible = false;
-                txtbox.Text = "97";
-
-                
-
-            }
-            else
-            {
-                txtbox.Visible = true;
-                txtbox.Text = "0";
-
-            }
-
-
-        }
-
-
-
     }
-    }
+
+
+  
+}
+
+public class DropDownAgeAbusoDeSustancia
+{
+
+    public int Value { get; set; }
+    public string Text { get; set; }
+
+}
 
   

@@ -931,7 +931,7 @@
                             <span class="SEPSLabel">Nombre</span>
                         </div>
                         <div class="col-md-8">
-                            <asp:TextBox CssClass="form-control" ID="txtDrogaPrim" runat="server"/>
+                            <asp:TextBox CssClass="form-control" ID="txtDrogaPrim" runat="server"/>s
                         </div>
                         
                     </div>
@@ -1040,10 +1040,14 @@
     <tr>
         <th><span class="SEPSLabel">Edad de inicio</span></th>
         <td><%--Diagnóstico Primario--%>
-             <asp:RequiredFieldValidator ID="rfvEdadPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
-            <asp:RangeValidator ID="rvEdadPrim" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 99" Type="Integer" MaximumValue="99" MinimumValue="0" Display="Dynamic" Text="*"/>
+<%--             <asp:RequiredFieldValidator ID="rfvEdadPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>--%>
+<%--            <asp:RangeValidator ID="rvEdadPrim" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 99" Type="Integer" MaximumValue="99" MinimumValue="0" Display="Dynamic" Text="*"/>--%>
             <div class="expandibleDiv">
-             <asp:DropDownList  CssClass="form-control"  ID="DropDownList1" runat="server" onChange="ddlFrecTerc();"/>
+               
+<%--                <asp:TextBox  CssClass="form-control"  ID="txtEdadPrim" runat="server" MaxLength="2"/>--%>
+                  <asp:DropDownList  CssClass="form-control"  ID="txtEdadPrim" runat="server">
+                  </asp:DropDownList>
+
                 <asp:Label ID="lblEdadPrim" runat="server"/>
             </div>
         </td>
