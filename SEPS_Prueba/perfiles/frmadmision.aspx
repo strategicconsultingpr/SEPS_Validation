@@ -16,6 +16,7 @@
     <input type="hidden" id="hTipoPagina" value="admisión" />
     <input type="hidden" id="postbackControl" value="<%=Page.IsPostBack.ToString()%>" />
     <div>
+      
         <uc1:wucDatosPersonales ID="WucDatosPersonales" runat="server" />
         <uc1:wucOtrosDatos ID="WucOtrosDatos" runat="server" />
         <uc1:wucDatosDemograficos ID="WucDatosDemograficos" runat="server" />

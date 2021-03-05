@@ -101,6 +101,13 @@
                     default:
                         break;
                 }
+
+//                SetEdadChk(!chkEdadPrim.Checked, txtEdadPrim);
+//                SetEdadChk(!chkEdadSec.Checked, txtEdadSec);
+             
+//SetEdadChk(chkEdadPrim.Checked, txtEdadTerc);
+
+
             }
         }
 
@@ -532,9 +539,17 @@
             this.txtDíasMentUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasUltimaAltaMental"].ToString();
             this.txtDíasSustancias.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasEsperaSustancias"].ToString();
             this.txtDíasSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasUltimaAltaSustancias"].ToString();
+
+
+            
+            
+            
             this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
             this.txtEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
             this.txtEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
+            
+            
+            
             this.txtMesesMentUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_MesesUltimaAltaMental"].ToString();
             this.txtMesesSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_MesesUltimaAltaSustancias"].ToString();
 
@@ -1591,6 +1606,8 @@
             }
         }
 
+      
+
         public sbyte @FK_FrecuenciaPrimario
         {
             get
@@ -1970,6 +1987,8 @@
                 DataTable Dt = new DataTable();
                 Dt = NS.getAll("SPR_DROP_ProbJusticia");
                 this.lbxProbJusticiaSeleccion.DataSource = Dt;
+               
+                
                 this.lbxProbJusticiaSeleccion.DataValueField = "PK_ProbJusticia";
                 this.lbxProbJusticiaSeleccion.DataTextField = "DE_ProbJusticia";
                 this.lbxProbJusticiaSeleccion.DataBind();
@@ -2355,6 +2374,64 @@
 
             }
         }
-}
 
-  }
+
+        protected void chkEdadPrim_CheckedChanged(object sender, EventArgs e)
+        {
+            var chk = sender as CheckBox;
+
+            if (chk != null)
+            {
+
+                switch (chk.ID)
+                {
+                    case "chkEdadPrim":
+                        SetEdadChk(chk.Checked, txtEdadPrim);
+                        break;
+                    case "chkEdadSec":
+                        SetEdadChk(chk.Checked, txtEdadSec);
+                        break;
+                    case "chkEdadTerc":
+                        SetEdadChk(chk.Checked, txtEdadTerc);
+                        break;
+
+
+
+
+                }
+
+
+
+
+
+            }
+
+
+        }
+
+        void SetEdadChk(bool flag, TextBox txtbox)
+        {
+            if (flag)
+            {
+                txtbox.Visible = false;
+                txtbox.Text = "97";
+
+                
+
+            }
+            else
+            {
+                txtbox.Visible = true;
+                txtbox.Text = "0";
+
+            }
+
+
+        }
+
+
+
+    }
+    }
+
+  

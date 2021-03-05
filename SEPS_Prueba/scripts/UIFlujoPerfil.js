@@ -944,12 +944,20 @@ var viaList = {
         var txtEdadPrim = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtEdadPrim");
         var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtEdadSec");
          var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtEdadTerc");
-         var ddlToxicologia1 = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlToxicologia1");
+         var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtchkEdadPrim");
+        
          var ddlToxicologia2 = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlToxicologia2");
          var ddlToxicologia3 = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlToxicologia3");
+
+
+        
+
+
         ddlViaPrim.disabled = false;
         ddlFrecPrim.disabled = false;
          txtEdadPrim.disabled = false;
+       
+
 
          var txtDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtDrogaPrim");
 

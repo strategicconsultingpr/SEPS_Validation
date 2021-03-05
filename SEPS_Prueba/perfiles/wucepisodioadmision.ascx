@@ -49,8 +49,8 @@
     <div class="col-md-12 SEPSDivs"><%--Usa metadona como parte del tratamiento?--%>
         <span class="SEPSLabel">¿Usa medicamento como parte del tratamiento contra la dependencia de opiáceos? [TEDS]:</span>
           <asp:RequiredFieldValidator ID="rfvMetadona" runat="server" Display="Dynamic" CssClass="rightFloatAsterisk"  ControlToValidate="ddlMetadona" ErrorMessage="¿Usa medicamento como parte del tratamiento contra la dependencia de opiáceos?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
-        <div class="expandibleDiv">
-        <asp:DropDownList CssClass="form-control" ID="ddlMetadona" runat="server" onChange="ddlMetadona();">
+       
+        <asp:DropDownList CssClass="form-control" ID="ddlMetadona"  Width="100%" runat="server" onChange="ddlMetadona();">
             <asp:ListItem></asp:ListItem>
             <asp:ListItem Value="1">Metadona</asp:ListItem>         
             <asp:ListItem Value="3">Buprenorfina</asp:ListItem>
@@ -59,20 +59,19 @@
         </asp:DropDownList>
         <asp:Label ID="lblMetadona" runat="server" />
       
-            </div>
     </div>
     <div class="col-md-12 SEPSDivs"><%--Co- dependiente?--%>
-        <span class="SEPSLabel">¿Co-dependiente? (persona que no tiene problemas de sustancias, pero busca servicios debido a problemas que pueden estar surgiendo en su vida a causa de su relación con usuario) [TEDS]:</span>
+        <label class="SEPSLabel">¿Co-dependiente? (persona que no tiene problemas de sustancias, pero busca servicios debido a problemas que pueden estar surgiendo en su vida a causa de su relación con usuario) [TEDS]:</label>
            <asp:RequiredFieldValidator ID="rfvCodependiente" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  ControlToValidate="ddlCodependiente" ErrorMessage="¿Co-dependiente?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
-        <div class="expandibleDiv">
-        <asp:DropDownList CssClass="form-control" ID="ddlCodependiente" runat="server">
+       
+        <asp:DropDownList CssClass="form-control" Width="100%" ID="ddlCodependiente" runat="server">
             <asp:ListItem></asp:ListItem>
             <asp:ListItem Value="1">Sí</asp:ListItem>
             <asp:ListItem Value="2">No</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="lblCodependiente" runat="server"/>
-     
-            </div>
+     <br />
+         
     </div>
     <div class="col-md-7 SEPSDivs"><%--Nivel de Cuidado Salud mental--%>
         <span class="SEPSLabel">Nivel de cuidado de Salud mental [TEDS]:</span>
@@ -159,6 +158,7 @@
             <div class="multipleLeft"><%--Problema con la justicia/Faltas cometidas--%>
                 <span class="SEPSLabel">Listado de problemas de justicia (Disponibles):</span>
                 <asp:ListBox CssClass="form-control" ID="lbxProbJusticiaSeleccion" runat="server"  Height="130px"/>
+              
             </div>
             <div class="multipleCenter text-center"><%--Buttons--%>
                 <div style="height:60px;"></div>
@@ -170,6 +170,8 @@
             <div class="multipleRight">  <%--Listbox right--%>   
                 <span class="SEPSLabel">Listado de problemas de justicia (Seleccionados):</span>
                 <asp:ListBox CssClass="form-control" ID="lbxProbJusticiaSeleccionado" runat="server" Height="130px"/>
+             
+                   
             </div>
         </div>
         <div class="row" runat="server" id="divLblProbJusticia">
@@ -408,21 +410,23 @@
                 <span class="SEPSLabel">Listado de tipos de maltrato (Seleccionados):</span>
                 <asp:ListBox CssClass="form-control"  ID="lbxMaltratoSeleccionado" runat="server" Height="130px"/>
             </div>
-        </div>      
+        </div>  
+      
         <div class="row" runat="server" id="divLblMaltrato">
             <div class="col-xs-12">
                 <span class="SEPSLabel">Tipos de maltrato:</span>
                 <asp:Label ID="lblMaltrato" runat="server"/>
             </div>
         </div>
+      <br />
  
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Ha sido victima de violencia doméstica?--%>
         <span class="SEPSLabel">¿Ha sido victima de violencia doméstica? [violencia de género que sucede en personas que son o fueron pareja, y entre las que existió una relación consensual, Ley num. 54]:</span>
                 <asp:RequiredFieldValidator ID="rfvVioDomestic" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlVioDomestic"  ErrorMessage="¿Ha sido victima de violencia doméstica?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
 
-        <div class="expandibleDiv">
-        <asp:DropDownList CssClass="form-control" ID="ddlVioDomestic" runat="server">
+        <div>
+        <asp:DropDownList CssClass="form-control" Width="100%" ID="ddlVioDomestic" runat="server">
             <asp:ListItem ></asp:ListItem>
             <asp:ListItem Value="1">Sí</asp:ListItem>
             <asp:ListItem Value="2">No</asp:ListItem>
@@ -461,10 +465,10 @@
     </div>
     <div class="clearfix visible-xs-block"></div>
     <div class="clearfix visible-sm-block"></div>
-    <div class="col-md-6 SEPSDivs"><%--¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?--%>
+    <div class="col-md-12 SEPSDivs"><%--¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?--%>
         <asp:RequiredFieldValidator ID="rfvFreq_AutoAyuda" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  ControlToValidate="ddlFreq_AutoAyuda" ErrorMessage="¿Cuántas veces ha participado de reuniones de grupo de apoyo, de auto-ayuda, religiosos o ha buscado ayuda de familiares, amigos u otros durante los pasados 30 días como apoyo a su proceso de recuperación?" ToolTip="Seleccione un valor de la lista. Este campo es requerido" Text="*"/>
-        <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlFreq_AutoAyuda" runat="server"  DataSource="<%# dvwFreqAutoAyuda %>" DataTextField="DE_FreqAutoAyuda" DataValueField="PK_FreqAutoAyuda" AppendDataBoundItems="true" onChange="ddlFreq_AutoAyuda();">
+        <div >
+            <asp:DropDownList Width="100%"  CssClass="form-control" ID="ddlFreq_AutoAyuda" runat="server"  DataSource="<%# dvwFreqAutoAyuda %>" DataTextField="DE_FreqAutoAyuda" DataValueField="PK_FreqAutoAyuda" AppendDataBoundItems="true" onChange="ddlFreq_AutoAyuda();">
             <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="lblFreq_AutoAyuda" runat="server" />
@@ -818,8 +822,8 @@
         <td colspan="3">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
             <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" runat="server">
-                <asp:ListItem />
+            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual"  runat="server">
+                <asp:ListItem  />
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
             </asp:DropDownList>
@@ -944,7 +948,7 @@
                         <asp:DropDownList  CssClass="form-control" ID="ddlDrogaSec" runat="server" DataSource="<%# dvwDrogaSec %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaSecF();"  />
                     </div>
                     <div class="row">
-                        &nbsp;
+                        &nbsp;                                                                                  
                     </div>
                     <div class="row" id="Hogar2_DIV" name="Hogar2_DIV" runat="server">
                         <div class="col-md-4">
@@ -1039,7 +1043,7 @@
              <asp:RequiredFieldValidator ID="rfvEdadPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
             <asp:RangeValidator ID="rvEdadPrim" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtEdadPrim" ErrorMessage="Edad de inicio - Diagnóstico Primario" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 99" Type="Integer" MaximumValue="99" MinimumValue="0" Display="Dynamic" Text="*"/>
             <div class="expandibleDiv">
-                <asp:TextBox  CssClass="form-control"  ID="txtEdadPrim" runat="server" MaxLength="2"/>
+             <asp:DropDownList  CssClass="form-control"  ID="DropDownList1" runat="server" onChange="ddlFrecTerc();"/>
                 <asp:Label ID="lblEdadPrim" runat="server"/>
             </div>
         </td>
@@ -1047,7 +1051,7 @@
             <asp:RequiredFieldValidator ID="rfvEdadSec" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" ControlToValidate="txtEdadSec" ErrorMessage="Edad inicio - Diagnóstico Secundario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
             <asp:RangeValidator ID="rvEdadSec" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtEdadSec" ErrorMessage="Edad inicio - Diagnóstico Secundario" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 99" Type="Integer" MaximumValue="99" MinimumValue="0" Display="Dynamic" Text="*"/>
             <div class="expandibleDiv">
-                <asp:TextBox CssClass="form-control" ID="txtEdadSec" runat="server" MaxLength="2"/>
+                <asp:TextBox CssClass="form-control"  ID="txtEdadSec" runat="server" MaxLength="2"/>
                 <asp:Label ID="lblEdadSec" runat="server"/>
             </div>
         </td>
