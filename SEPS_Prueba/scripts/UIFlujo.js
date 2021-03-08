@@ -505,9 +505,9 @@ function tabEvent(e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode == 9) {
         var prefix = "mainBodyContent_WucEpisodioAdmision_";
-        var inputs = [prefix + "ddlDrogaPrim"/*0*/, prefix + "txtDrogaPrim"/*1*/, prefix + "ddlViaPrim"/*2*/, prefix + "ddlFrecPrim"/*3*/, prefix + "txtEdadPrim"/*4*/, prefix + "ddlToxicologia1"/*5*/,
-            prefix + "ddlDrogaSec"/*6*/, prefix + "txtDrogaSec"/*1*/, prefix + "ddlViaSec"/*7*/, prefix + "ddlFrecSec"/*8*/, prefix + "txtEdadSec"/*9*/, prefix + "ddlToxicologia2"/*10*/,
-            prefix + "ddlDrogaTerc"/*10*/, prefix + "txtDrogaTerc"/*1*/, prefix + "ddlViaTerc"/*11*/, prefix + "ddlFrecTerc"/*12*/, prefix + "txtEdadTerc"/*13*/, prefix + "ddlToxicologia3"/*14*/];
+        var inputs = [prefix + "ddlDrogaPrim"/*0*/, prefix + "ddlViaPrim"/*1*/, prefix + "ddlFrecPrim"/*2*/, prefix + "txtEdadPrim"/*3*/, prefix + "ddlToxicologia1"/*4*/,
+        prefix + "ddlDrogaSec"/*5*/, prefix + "ddlViaSec"/*6*/, prefix + "ddlFrecSec"/*7*/, prefix + "txtEdadSec"/*8*/, prefix + "ddlToxicologia2"/*9*/,
+        prefix + "ddlDrogaTerc"/*10*/, prefix + "ddlViaTerc"/*11*/, prefix + "ddlFrecTerc"/*12*/, prefix + "txtEdadTerc"/*13*/, prefix + "ddlToxicologia3"/*14*/];
         if (e.shiftKey) {
             switch (e.currentTarget.id) {
                 case (prefix + "ddlViaPrim"):

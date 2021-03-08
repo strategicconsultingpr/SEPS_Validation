@@ -561,6 +561,8 @@ namespace ASSMCA.Perfiles
             this.txtDíasSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasUltimaAltaSustancias"].ToString();
 
 
+      
+
             this.txtEdadPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
             this.txtEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
             this.txtEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();

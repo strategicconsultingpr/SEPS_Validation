@@ -931,7 +931,7 @@
                             <span class="SEPSLabel">Nombre</span>
                         </div>
                         <div class="col-md-8">
-                            <asp:TextBox CssClass="form-control" ID="txtDrogaPrim" runat="server"/>s
+                            <asp:TextBox CssClass="form-control" ID="txtDrogaPrim" runat="server"/>
                         </div>
                         
                     </div>
