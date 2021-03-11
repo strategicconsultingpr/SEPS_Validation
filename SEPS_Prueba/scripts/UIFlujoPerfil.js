@@ -188,198 +188,208 @@ function CO_Tipo_Update() {
     
 }
 
+/**
+ * File: UIFlujoPerfil.js
+ * Fecha: 11/MAR/2021
+ * Editado por: Jose A. Ramos De La Cruz
+ * Proposito: Manejar los eventos del tab index relacionados a la ventana de Abuso de sustancias
+ * flag:boolean - identifica el tipo de accion a ejecutarce
+ * arr: arr[String] - contiene el nombres de los controles
+ * i:int - indice del control en el arreglo inicializado
+ *
+ */
+
+function TabFocusAbusoDeSustancia(flag, arr, i, e) {
+    if (flag) {
+        for (var j = i; j <= 14; j++) {
+            if ($("#" + arr[j]).is(':enabled')) {
+                $("#" + arr[j]).focus(); e.preventDefault(); return;
+            }
+        }
+
+        if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
+        else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
+        else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
+        else document.getElementById("mainBodyContent_WucDatosEvaluacion_txtComentarios").focus(); e.preventDefault();
+
+    } else {
+        for (var j = i; j >= 0; j--) {
+            if ($("#" + arr[j]).is(':enabled')) {
+                $("#" + arr[j]).focus(); e.preventDefault(); return;
+            }
+        }
+
+    }
+
+}
+
+/**
+ * File: UIFlujoPerfil.js
+ * Fecha: 11/MAR/2021
+ * Editado por: Jose A. Ramos De La Cruz
+ * Cambios:
+ * 1)Se anadieron los campos ddlToxicologia1,ddlToxicologia2,ddlToxicologia3
+ * 2)Se creo metodo generico para manejar los eventos relacionados al tab
+ *   con el proposito de eliminar codigo repetitivo que contenia la funcion
+ *
+ */
+
 function tabEvent(e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode == 9) {
         var prefix = "mainBodyContent_WucEpisodioPerfil_";
-        var inputs = [prefix + "ddlDrogaPrim"/*0*/, prefix + "ddlViaPrim"/*1*/, prefix + "ddlFrecPrim"/*2*/, prefix + "txtEdadPrim"/*3*/,
-                        prefix + "ddlDrogaSec"/*4*/, prefix + "ddlViaSec"/*5*/, prefix + "ddlFrecSec"/*6*/, prefix + "txtEdadSec"/*7*/,
-            prefix + "ddlDrogaTerc"/*8*/, prefix + "ddlViaTerc"/*9*/, prefix + "ddlFrecTerc"/*10*/, prefix + "txtEdadTerc"/*11*/];
-       
+        var inputs = [prefix + "ddlDrogaPrim"/*0*/, prefix + "ddlViaPrim"/*1*/, prefix + "ddlFrecPrim"/*2*/, prefix + "txtEdadPrim"/*3*/, prefix + "ddlToxicologia1"/*4*/,
+        prefix + "ddlDrogaSec"/*5*/, prefix + "ddlViaSec"/*6*/, prefix + "ddlFrecSec"/*7*/, prefix + "txtEdadSec"/*8*/, prefix + "ddlToxicologia2"/*9*/,
+        prefix + "ddlDrogaTerc"/*10*/, prefix + "ddlViaTerc"/*11*/, prefix + "ddlFrecTerc"/*12*/, prefix + "txtEdadTerc"/*13*/, prefix + "ddlToxicologia3"/*14*/];
         if (e.shiftKey) {
             switch (e.currentTarget.id) {
-                case (prefix + "ddlDrogaSec"):
-                    for (var i = 3; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
+
+                case (prefix + "ddlDrogaPrim"):
+                    if ($("#" + prefix + "txtNrFumado").is(':enabled')) {
+                        $("#" + prefix + "txtNrFumado").focus(); e.preventDefault(); return;
                     }
+                    else { $("#" + prefix + "ddlInFumado").focus(); e.preventDefault(); return; }
                     break;
-                case (prefix + "ddlDrogaTerc"):
-                    for (var i = 7; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
+
                 case (prefix + "ddlViaPrim"):
-                    for (var i = 0; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
+                    TabFocusAbusoDeSustancia(false, inputs, 0, e);
                     break;
-                case (prefix + "ddlViaSec"):
-                    for (var i = 4; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
-                case (prefix + "ddlViaTerc"):
-                    for (var i = 8; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
+
                 case (prefix + "ddlFrecPrim"):
-                    for (var i = 1; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
-                case (prefix + "ddlFrecSec"):
-                    for (var i = 5; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
-                case (prefix + "ddlFrecTerc"):
-                    for (var i = 9; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
+                    TabFocusAbusoDeSustancia(false, inputs, 1, e);
                     break;
                 case (prefix + "txtEdadPrim"):
-                    for (var i = 2; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
+                    TabFocusAbusoDeSustancia(false, inputs, 2, e);
+                    break;
+                case (prefix + "ddlToxicologia1"):
+                    TabFocusAbusoDeSustancia(false, inputs, 3, e);
+                    break;
+                case (prefix + "ddlDrogaSec"):
+                    TabFocusAbusoDeSustancia(false, inputs, 4, e);
+                    break;
+                case (prefix + "ddlViaSec"):
+                    TabFocusAbusoDeSustancia(false, inputs, 5, e);
+                    break;
+                case (prefix + "ddlFrecSec"):
+                    TabFocusAbusoDeSustancia(false, inputs, 6, e);
                     break;
                 case (prefix + "txtEdadSec"):
-                    for (var i = 6; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
+                    TabFocusAbusoDeSustancia(false, inputs, 7, e);
+                    break;
+                case (prefix + "ddlToxicologia2"):
+                    TabFocusAbusoDeSustancia(false, inputs, 8, e);
+                    break;
+                case (prefix + "ddlDrogaTerc"):
+                    TabFocusAbusoDeSustancia(false, inputs, 9, e);
+                    break;
+                case (prefix + "ddlViaTerc"):
+                    TabFocusAbusoDeSustancia(false, inputs, 10, e);
+                    break;
+                case (prefix + "ddlFrecTerc"):
+                    TabFocusAbusoDeSustancia(false, inputs, 11, e);
                     break;
                 case (prefix + "txtEdadTerc"):
-                    for (var i = 10; i >= 0; i--) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
+                    TabFocusAbusoDeSustancia(false, inputs, 12, e);
+                    break;
+                case (prefix + "ddlToxicologia3"):
+                    TabFocusAbusoDeSustancia(false, inputs, 13, e);
                     break;
                 default: break;
             }
         }
         else {
             switch (e.currentTarget.id) {
+
                 case (prefix + "ddlDrogaPrim"):
-                    for (var i = 1; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
+                    var div = document.getElementById("mainBodyContent_WucEpisodioPerfil_Hogar_DIV");
+
+                    if (div.style.visibility == 'hidden') {
+                        TabFocusAbusoDeSustancia(true, inputs, 1, e);
                     }
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
-                    break;
-                case (prefix + "ddlDrogaSec"):
-                    for (var i = 5; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
+                    else {
+                        $('#mainBodyContent_WucEpisodioPerfil_txtDrogaPrim').focus();
                     }
-                    
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
+
                     break;
-                case (prefix + "ddlDrogaTerc"):
-                    for (var i = 9; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
+                case (prefix + "txtDrogaPrim"):
+                    TabFocusAbusoDeSustancia(true, inputs, 1, e);
                     break;
+
                 case (prefix + "ddlViaPrim"):
-                    for (var i = 2; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
-                case (prefix + "ddlViaSec"):
-                    for (var i = 6; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
-                case (prefix + "ddlViaTerc"):
-                    for (var i = 10; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
+                    TabFocusAbusoDeSustancia(true, inputs, 2, e);
                     break;
                 case (prefix + "ddlFrecPrim"):
-                    for (var i = 3; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
-                case (prefix + "ddlFrecSec"):
-                    for (var i = 7; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
-                    break;
-                case (prefix + "ddlFrecTerc"):
-                    for (var i = 11; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }
+                    TabFocusAbusoDeSustancia(true, inputs, 3, e);
                     break;
                 case (prefix + "txtEdadPrim"):
-                    for (var i = 4; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
-                    }   
-                  
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) {document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
-                    
-                    
+                    TabFocusAbusoDeSustancia(true, inputs, 4, e);
+
+                    break;
+                case (prefix + "ddlToxicologia1"):
+                    TabFocusAbusoDeSustancia(true, inputs, 5, e);
+                    break;
+                case (prefix + "ddlDrogaSec"):
+                    var div = document.getElementById("mainBodyContent_WucEpisodioPerfil_Hogar2_DIV");
+
+                    if (div.style.visibility == 'hidden') {
+                        TabFocusAbusoDeSustancia(true, inputs, 6, e);
+                    }
+                    else {
+                        $('#mainBodyContent_WucEpisodioPerfil_txtDrogaSec').focus();
+                    }
+
+                    break;
+                case (prefix + "txtDrogaSec"):
+                    TabFocusAbusoDeSustancia(true, inputs, 6, e);
+                    break;
+                case (prefix + "ddlViaSec"):
+                    TabFocusAbusoDeSustancia(true, inputs, 7, e);
+                    break;
+                case (prefix + "ddlFrecSec"):
+
+                    TabFocusAbusoDeSustancia(true, inputs, 8, e);
                     break;
                 case (prefix + "txtEdadSec"):
-                    for (var i = 8; i <= 11; i++) {
-                        if ($("#" + inputs[i]).is(':enabled')) {
-                            $("#" + inputs[i]).focus(); e.preventDefault(); return;
-                        }
+                    TabFocusAbusoDeSustancia(true, inputs, 9, e);
+
+                    break;
+                case (prefix + "ddlToxicologia2"):
+                    TabFocusAbusoDeSustancia(true, inputs, 10, e);
+                    break;
+
+                case (prefix + "ddlDrogaTerc"):
+                    var div = document.getElementById("mainBodyContent_WucEpisodioPerfil_Hogar3_DIV");
+
+                    if (div.style.visibility == 'hidden') {
+                        TabFocusAbusoDeSustancia(true, inputs, 11, e);
                     }
-                    if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
-                    else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
+                    else {
+                        $('#mainBodyContent_WucEpisodioPerfil_txtDrogaTerc').focus();
+                    }
+
+                    break;
+
+
+                case (prefix + "txtDrogaTerc"):
+                    TabFocusAbusoDeSustancia(true, inputs, 11, e);
+                    break;
+                case (prefix + "ddlViaTerc"):
+                    TabFocusAbusoDeSustancia(true, inputs, 12, e);
+                    break;
+                case (prefix + "ddlFrecTerc"):
+                    TabFocusAbusoDeSustancia(true, inputs, 13, e);
                     break;
                 case (prefix + "txtEdadTerc"):
+                    TabFocusAbusoDeSustancia(true, inputs, 14, e);
+
+                    break;
+                case (prefix + "ddlToxicologia3"):
                     if (e.keyCode == 9 && $("#mainBodyContent_WucEpisodioPerfil_btnAgregarPracticasBasadasEvidencia").is(':enabled')) { document.getElementById("mainBodyContent_WucEpisodioPerfil_lbxPracticasBasadasEvidenciaSeleccion").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucTakeHome_ddlTHBelong").is(':enabled')) { document.getElementById("mainBodyContent_WucTakeHome_ddlTHBelong").focus(); e.preventDefault(); }
                     else if (e.keyCode == 9 && $("#mainBodyContent_WucDatosAlta_ddlRazonAlta").is(':enabled')) { document.getElementById("mainBodyContent_WucDatosAlta_ddlRazonAlta").focus(); e.preventDefault(); }
+                    else document.getElementById("mainBodyContent_WucDatosEvaluacion_txtComentarios").focus(); e.preventDefault();
                     break;
+
                 default: break;
             }
         }
@@ -448,6 +458,9 @@ function changeTabOrder() {
         $(prefix + "txtEdadPrim").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "txtEdadSec").on('keydown', function (e) { tabEvent(e) });
         $(prefix + "txtEdadTerc").on('keydown', function (e) { tabEvent(e) });
+        $(prefix + "ddlToxicologia1").on('keydown', function (e) { tabEvent(e) });
+        $(prefix + "ddlToxicologia2").on('keydown', function (e) { tabEvent(e) });
+        $(prefix + "ddlToxicologia3").on('keydown', function (e) { tabEvent(e) });
     }
     catch (ex) { }
 }
