@@ -24,9 +24,9 @@ namespace ASSMCA.Perfiles
         public string accion;
         protected void Page_Load(object sender, System.EventArgs e)
         {
-            // rvEdadPrim.MaximumValue = Session["edad"].ToString();
-            rvEdadSec.MaximumValue = Session["edad"].ToString();
-            rvEdadTerc.MaximumValue = Session["edad"].ToString();
+            //rvEdadPrim.MaximumValue = Session["edad"].ToString();
+            //rvEdadSec.MaximumValue = Session["edad"].ToString();
+            //rvEdadTerc.MaximumValue = Session["edad"].ToString();
             _pkPrograma = Convert.ToInt32(this.Session["pk_programa"]);
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
@@ -74,21 +74,52 @@ namespace ASSMCA.Perfiles
                 this.dvwFreqAutoAyuda.Table = this.dsPerfil.SA_LKP_TEDS_FRECUENCIA_AUTOAYUDA;
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
 
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 96, Text = "No Aplica" });
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 97, Text = "Desconocida" });
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 98, Text = "No Recogida" });
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
 
-                for (int i = 1; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
+
+                /**
+                * File: wuEpisodioAdmision.ascx.cs
+                * Fecha: 8/MAR/2021
+                * Editado por: Jose A. Ramos De La Cruz
+                * Proposito: Poblar los label segun la edad escogida.        
+                */
+
+                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 96, Text = "No Aplica" });
+                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 97, Text = "Desconocida" });
+                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 98, Text = "No Recogida" });
+                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
+
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 97, Text = "Desconocida" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 96, Text = "No Aplica" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 98, Text = "No Recogida" });
+
+                for (int i = 0; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
                     ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
 
 
                 txtEdadPrim.DataSource = ListAgeAbusoDeSustancia;
                 txtEdadPrim.DataValueField = "Value";
                 txtEdadPrim.DataTextField = "Text";
-              
+
+
+
                 txtEdadPrim.DataBind();
-                
+
+                txtEdadSec.DataSource = ListAgeAbusoDeSustancia;
+                txtEdadSec.DataValueField = "Value";
+                txtEdadSec.DataTextField = "Text";
+
+                txtEdadSec.DataBind();
+
+
+                txtEdadTerc.DataSource = ListAgeAbusoDeSustancia;
+                txtEdadTerc.DataValueField = "Value";
+                txtEdadTerc.DataTextField = "Text";
+
+                txtEdadTerc.DataBind();
+
+
+
+
 
 
                 if (this.Session["pk_administracion"].ToString() == "1")
@@ -122,10 +153,7 @@ namespace ASSMCA.Perfiles
                         break;
                 }
 
-                //                SetEdadChk(!chkEdadPrim.Checked, txtEdadPrim);
-                //                SetEdadChk(!chkEdadSec.Checked, txtEdadSec);
-
-                //SetEdadChk(chkEdadPrim.Checked, txtEdadTerc);
+            
 
 
             }
@@ -238,9 +266,24 @@ namespace ASSMCA.Perfiles
             this.lblDrogaPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Droga_P"].ToString();
             this.lblDrogaSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Droga_S"].ToString();
             this.lblDrogaTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Droga_T"].ToString();
-            this.lblEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
-            this.lblEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
-            this.lblEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
+
+
+            /**
+             * File: wuEpisodioAdmision.ascx.cs
+             * Fecha: 8/MAR/2021
+             * Editado por: Jose A. Ramos De La Cruz
+             * Proposito: Poblar los label segun la edad escogida.        
+             */
+
+            SetReadLblEdadInicio(lblEdadPrim, this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString());
+            SetReadLblEdadInicio(lblEdadSec, this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString());
+            SetReadLblEdadInicio(lblEdadTerc, this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString());
+
+
+            //this.lblEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+            //this.lblEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
+            //this.lblEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
+            
             this.lblEstadoLegal.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_EstadoLegal"].ToString();
             this.lblEtapaServicio.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_EtapaServicio"].ToString();
             this.lblFrecPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Frecuencia_P"].ToString();
@@ -561,11 +604,21 @@ namespace ASSMCA.Perfiles
             this.txtDíasSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasUltimaAltaSustancias"].ToString();
 
 
-      
 
+            /**
+            * File: wuEpisodioAdmision.ascx.cs
+            * Fecha: 8/MAR/2021
+            * Editado por: Jose A. Ramos De La Cruz
+            * Proposito: Poblar los label segun la edad escogida.        
+            */
             this.txtEdadPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
-            this.txtEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
-            this.txtEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
+            this.txtEdadSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
+            this.txtEdadTerc.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
+
+
+            //this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+            //this.txtEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
+            //this.txtEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
 
 
 
@@ -615,6 +668,28 @@ namespace ASSMCA.Perfiles
             //{
             //    DSMVRM_DIV.Visible = false;
             //}
+        }
+
+        void SetReadLblEdadInicio(Label lbl, string str)
+        {
+            //if (str == "97")
+            //    lbl.Text = "Desconocida";
+            //else if (str == "96")
+            //    lbl.Text = "No Aplica";
+            //else if (str == "98")
+            //    lbl.Text = "No recogida";
+            //else if (str == "00" || str == "0")
+            //    lbl.Text = "Recién nacido";
+            //else
+
+            if (str == "97")
+                lbl.Text = "Desconocida";
+            else if (str == "96")
+                lbl.Text = "No aplica";
+            else if(str == "98")
+                lbl.Text = "No recogida";
+            else
+            lbl.Text = str;
         }
 
         #region Código generado por el Diseñador de Web Forms
@@ -1625,7 +1700,7 @@ namespace ASSMCA.Perfiles
             }
         }
 
-
+     
 
         public sbyte @FK_FrecuenciaPrimario
         {
@@ -1641,6 +1716,7 @@ namespace ASSMCA.Perfiles
                 }
             }
         }
+
 
         public sbyte @FK_FrecuenciaSecundario
         {
@@ -1678,7 +1754,8 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
-                    return Convert.ToSByte(this.txtEdadPrim.SelectedValue);
+                    return Convert.ToSByte(this.txtEdadPrim.SelectedValue.ToString());
+                    //return Convert.ToSByte(this.txtEdadPrim.Text);
                 }
                 catch
                 {
@@ -1693,7 +1770,8 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
-                    return Convert.ToSByte(this.txtEdadSec.Text.Trim());
+                    //return Convert.ToSByte(this.txtEdadSec.Text.Trim()); 
+                    return Convert.ToSByte(this.txtEdadSec.SelectedValue.ToString());
                 }
                 catch
                 {
@@ -1708,7 +1786,8 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
-                    return Convert.ToSByte(this.txtEdadTerc.Text.Trim());
+                    //return Convert.ToSByte(this.txtEdadTerc.Text.Trim());
+                    return Convert.ToSByte(this.txtEdadTerc.SelectedValue.ToString());
                 }
                 catch
                 {
@@ -2395,10 +2474,12 @@ namespace ASSMCA.Perfiles
 
             }
         }
+        
+        
+       
     }
+    
 
-
-  
 }
 
 public class DropDownAgeAbusoDeSustancia

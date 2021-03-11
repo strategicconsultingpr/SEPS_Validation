@@ -1185,31 +1185,13 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblFrecTerc;
 
         /// <summary>
-        /// rfvEdadPrim control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEdadPrim;
-
-        /// <summary>
-        /// rvEdadPrim control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvEdadPrim;
-
-        /// <summary>
         /// txtEdadPrim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEdadPrim;
+        protected global::System.Web.UI.WebControls.DropDownList txtEdadPrim;
 
         /// <summary>
         /// lblEdadPrim control.
@@ -1221,31 +1203,13 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblEdadPrim;
 
         /// <summary>
-        /// rfvEdadSec control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEdadSec;
-
-        /// <summary>
-        /// rvEdadSec control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvEdadSec;
-
-        /// <summary>
         /// txtEdadSec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEdadSec;
+        protected global::System.Web.UI.WebControls.DropDownList txtEdadSec;
 
         /// <summary>
         /// lblEdadSec control.
@@ -1257,31 +1221,13 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblEdadSec;
 
         /// <summary>
-        /// rfvEdadTerc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEdadTerc;
-
-        /// <summary>
-        /// rvEdadTerc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rvEdadTerc;
-
-        /// <summary>
         /// txtEdadTerc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEdadTerc;
+        protected global::System.Web.UI.WebControls.DropDownList txtEdadTerc;
 
         /// <summary>
         /// lblEdadTerc control.

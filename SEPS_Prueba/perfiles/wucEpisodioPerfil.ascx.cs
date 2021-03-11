@@ -9,7 +9,9 @@ namespace ASSMCA.Perfiles
 	using System.Web.UI.HtmlControls;
 	public partial class wucEpisodioPerfil : System.Web.UI.UserControl
 	{
-		public frmAction m_frmAction;
+        private List<DropDownAgeAbusoDeSustancia> ListAgeAbusoDeSustancia = new List<DropDownAgeAbusoDeSustancia>();
+
+        public frmAction m_frmAction;
 		protected ASSMCA.perfiles.dsPerfil dsPerfil;
 		protected System.Data.DataView dvwNivelMental, dvwDiagPrimario,dvwDiagSecundario,dvwDiagTerciario,dvwIVPrim,dvwIVSec,dvwIVTerc,dvwDrogaPrim,dvwDrogaSec,dvwDrogaTerc,dvwViaPrim,dvwViaSec,dvwViaTerc,dvwFrecPrim,dvwFrecSec,dvwFrecTerc,dvwMediPrim,dvwMediSec,dvwMediTerc,dvw_DSMV_ProblemasPsicosocialesAmbientales1, dvw_DSMV_ProblemasPsicosocialesAmbientales2, dvw_DSMV_ProblemasPsicosocialesAmbientales3;
 		protected System.Web.UI.WebControls.TextBox txtDisposicionReferido;
@@ -72,6 +74,35 @@ namespace ASSMCA.Perfiles
                 this.ddlNivelRecuperacion.Items.Insert(0, new ListItem("No aplica", "99"));
                 this.ddlNivelRecuperacion.SelectedValue = "99";
 
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 97, Text = "Desconocida" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 96, Text = "No Aplica" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 98, Text = "No Recogida" });
+
+                for (int i = 0; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
+                    ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
+
+
+                txtEdadPrim.DataSource = ListAgeAbusoDeSustancia;
+                txtEdadPrim.DataValueField = "Value";
+                txtEdadPrim.DataTextField = "Text";
+
+
+
+                txtEdadPrim.DataBind();
+
+                txtEdadSec.DataSource = ListAgeAbusoDeSustancia;
+                txtEdadSec.DataValueField = "Value";
+                txtEdadSec.DataTextField = "Text";
+
+                txtEdadSec.DataBind();
+
+
+                txtEdadTerc.DataSource = ListAgeAbusoDeSustancia;
+                txtEdadTerc.DataValueField = "Value";
+                txtEdadTerc.DataTextField = "Text";
+
+                txtEdadTerc.DataBind();
+
                 this.ManagePracticasBasadasEnEvidencia(this.m_frmAction);
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
                 switch(this.m_frmAction)
@@ -98,7 +129,9 @@ namespace ASSMCA.Perfiles
                     default: 
                         break;
                 }
-			}
+
+               
+            }
 		}
 
 		private void LeerRegistro()
@@ -240,10 +273,21 @@ namespace ASSMCA.Perfiles
             }
             this.Hogar3_DIV.Visible = false;
 
-            this.lblEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
-			this.lblEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
-			this.lblEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
-			this.lblEscalaGAF.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_EscalaGAF"].ToString();
+            /**
+            * File: wuEpisodioAdmision.ascx.cs
+            * Fecha: 9/MAR/2021
+            * Editado por: Jose A. Ramos De La Cruz
+            * Proposito: Poblar los label segun la edad escogida.        
+            */
+
+            SetReadLblEdadInicio(lblEdadPrim, this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString());
+            SetReadLblEdadInicio(lblEdadSec, this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString());
+            SetReadLblEdadInicio(lblEdadTerc, this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString());
+
+            //         this.lblEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+            //this.lblEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
+            //this.lblEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
+            this.lblEscalaGAF.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_EscalaGAF"].ToString();
 			this.lblFrecPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Frecuencia_P"].ToString();
 			this.lblFrecSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Frecuencia_S"].ToString();
 			this.lblFrecTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Frecuencia_T"].ToString();
@@ -398,16 +442,37 @@ namespace ASSMCA.Perfiles
 		{
                 this.ddlDrogaPrim.SelectedValue = "0";
                 this.ddlViaPrim.SelectedValue = "0";
-                this.txtEdadPrim.Text = "";
+                this.txtEdadPrim.SelectedValue = "97";
                 this.ddlDrogaSec.SelectedValue = "0";
                 this.ddlViaSec.SelectedValue = "0";
-                this.txtEdadSec.Text = "";
+                this.txtEdadSec.SelectedValue = "97";
                 this.ddlDrogaTerc.SelectedValue = "0";
                 this.ddlViaTerc.SelectedValue = "0";
-                this.txtEdadTerc.Text = "";
+            this.txtEdadTerc.SelectedValue ="97";
 		}
+        void SetReadLblEdadInicio(Label lbl, string str)
+        {
+            //if (str == "97")
+            //    lbl.Text = "Desconocida";
+            //else if (str == "96")
+            //    lbl.Text = "No Aplica";
+            //else if (str == "98")
+            //    lbl.Text = "No recogida";
+            //else if (str == "00" || str == "0")
+            //    lbl.Text = "Recién nacido";
+            //else
 
-		private void ActualizarCampos()
+            if (str == "97")
+                lbl.Text = "Desconocida";
+            else if (str == "96")
+                lbl.Text = "No aplica";
+            else if (str == "98")
+                lbl.Text = "No recogida";
+            else
+                lbl.Text = str;
+        }
+
+        private void ActualizarCampos()
 		{
 			this.ddlFrecPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_FrecuenciaPrimario"].ToString();
 			this.ddlFrecSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_FrecuenciaSecundario"].ToString();
@@ -471,10 +536,10 @@ namespace ASSMCA.Perfiles
             #endregion
                 this.ddlDrogaSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DrogaSecundario"].ToString();
                 this.ddlViaSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaSecundario"].ToString();
-                this.txtEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
+                this.txtEdadSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
 				this.ddlDrogaTerc.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DrogaTerciario"].ToString();
 				this.ddlViaTerc.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaTerciario"].ToString();
-				this.txtEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
+				this.txtEdadTerc.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
                 this.ddlDrogaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DrogaPrimario"].ToString();
 
                 if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString() != "")
@@ -505,7 +570,7 @@ namespace ASSMCA.Perfiles
                 }
 
             this.ddlViaPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_ViaPrimario"].ToString();
-                this.txtEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
+                this.txtEdadPrim.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
 
             this.ddlToxicologia1.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia1"].ToString();
             this.ddlToxicologia2.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia2"].ToString();
@@ -991,7 +1056,8 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
-                    return Convert.ToSByte(this.txtEdadPrim.Text.Trim());
+                    //    return Convert.ToSByte(this.txtEdadPrim.Text.Trim());
+                    return Convert.ToSByte(this.txtEdadPrim.SelectedValue.ToString());
                 }
                 catch
                 {
@@ -1006,7 +1072,8 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
-                    return Convert.ToSByte(this.txtEdadSec.Text.Trim());
+                    //return Convert.ToSByte(this.txtEdadSec.Text.Trim());
+                    return Convert.ToSByte(this.txtEdadSec.SelectedValue.ToString());
                 }
                 catch
                 {
@@ -1021,7 +1088,8 @@ namespace ASSMCA.Perfiles
             {
                 try
                 {
-                    return Convert.ToSByte(this.txtEdadTerc.Text.Trim());
+                    //return Convert.ToSByte(this.txtEdadTerc.Text.Trim());
+                    return Convert.ToSByte(this.txtEdadTerc.SelectedValue.ToString());
                 }
                 catch
                 {
@@ -1520,6 +1588,13 @@ namespace ASSMCA.Perfiles
             }
             return esProgramaMental;
         }
+
+    }
+    public class DropDownAgeAbusoDeSustancia
+    {
+
+        public int Value { get; set; }
+        public string Text { get; set; }
 
     }
 }
