@@ -218,6 +218,7 @@ namespace ASSMCA
                     }
                     else if (this.dsSeguridad.SA_USUARIO.Rows.Count > 1)//Se ha obtenido un usuario asociado a varios programas
                     {
+                        
                         this.ddlPrograma.DataBind();
                         this.divMsg1.Visible = false;
                         this.divPrograma.Visible = true;
@@ -228,6 +229,7 @@ namespace ASSMCA
                         this.ddlPrograma.Visible = true;
                         this.btnAutenticarPrograma.Visible = true;
                         this.btnLogin.Visible = false;
+                        
                     }
                 }
             }
@@ -236,6 +238,11 @@ namespace ASSMCA
                 this.lblMsg.Text = "Verifique que el nombre de usuario y la contraseña sean correctos e intente denuevo.";
                 this.lblMsg.Visible = true;
             }
+        }
+
+        protected void BtnSubmit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

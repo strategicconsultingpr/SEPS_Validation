@@ -83,7 +83,7 @@ namespace ASSMCA.Perfiles
                 else
                     lbxDSMV.DataSource = SA_LKP_DSMV.GetData().Where(x => x.CAT_DSMV == txtFiltroTipo.Value || x.CAT_DSMV == "Other");
 
-                lbxDSMV.DataTextField = "DE_DSMV";
+                lbxDSMV.DataTextField = "FullDescription";
 
                 this.DataBind();
 			}

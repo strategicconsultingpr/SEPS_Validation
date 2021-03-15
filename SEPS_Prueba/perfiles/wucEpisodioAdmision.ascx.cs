@@ -10,6 +10,8 @@ namespace ASSMCA.Perfiles
     using System.Web.UI.WebControls;
     using System.Web.UI.HtmlControls;
     using System.Threading;
+    using SEPS.Constante;
+
     public partial class wucEpisodioAdmision : System.Web.UI.UserControl
     {
         protected ASSMCA.perfiles.dsPerfil dsPerfil;
@@ -83,18 +85,19 @@ namespace ASSMCA.Perfiles
                 * Proposito: Poblar los label segun la edad escogida.        
                 */
 
-                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 96, Text = "No Aplica" });
-                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 97, Text = "Desconocida" });
-                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 98, Text = "No Recogida" });
-                //ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 127, Text = "Desconocida" });
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 126, Text = "No Aplica" });
 
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 97, Text = "Desconocida" });
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 96, Text = "No Aplica" });
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 98, Text = "No Recogida" });
 
-                for (int i = 0; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
-                    ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
-
+                if (DateTime.Now.Date >= Const.EdadInicioFechaCambioNuevo.Date)
+                {
+                    ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
+                    for (int i = 1; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
+                        ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
+                }
+                else
+                    for (int i = 0; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
+                        ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
 
                 txtEdadPrim.DataSource = ListAgeAbusoDeSustancia;
                 txtEdadPrim.DataValueField = "Value";
@@ -672,24 +675,14 @@ namespace ASSMCA.Perfiles
 
         void SetReadLblEdadInicio(Label lbl, string str)
         {
-            //if (str == "97")
-            //    lbl.Text = "Desconocida";
-            //else if (str == "96")
-            //    lbl.Text = "No Aplica";
-            //else if (str == "98")
-            //    lbl.Text = "No recogida";
-            //else if (str == "00" || str == "0")
-            //    lbl.Text = "Recién nacido";
-            //else
-
-            if (str == "97")
+            if (str == "127")
                 lbl.Text = "Desconocida";
-            else if (str == "96")
-                lbl.Text = "No aplica";
-            else if(str == "98")
-                lbl.Text = "No recogida";
+            else if (str == "126")
+                lbl.Text = "No Aplica";
+            else if (str == "00" || str == "0" && DateTime.Now.Date >= Const.EdadInicioFechaCambioNuevo.Date)
+                lbl.Text = "Recién nacido";
             else
-            lbl.Text = str;
+                lbl.Text = str;
         }
 
         #region Código generado por el Diseñador de Web Forms

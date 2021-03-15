@@ -31,6 +31,9 @@ function ddInFumadoChange()
         {
             $(ddlFrecuenciaFumado).prop("disabled", false);
             $(txtNrFumado).prop("disabled", false);
+            $(ddlFrecuenciaFumado).val(" ");
+            $(txtNrFumado).val(" ");
+
             
         }
         else
@@ -40,7 +43,7 @@ function ddInFumadoChange()
             $(txtNrFumado).prop("disabled", true);
 
             $(ddlFrecuenciaFumado).val("3");
-            $(txtNrFumado).val("");
+            $(txtNrFumado).val("0");
         
             
         }
@@ -154,8 +157,8 @@ function CO_Tipo() {
                 ddlViaTerc.value = viaList.NoAplica;
                 ddlFrecSec.value = 99;
                 ddlFrecTerc.value = 99;
-                txtEdadSec.value = "97";
-                txtEdadTerc.value = "97";
+                txtEdadSec.value = "126";
+                txtEdadTerc.value = "126";
                 ddlDrogaSec.disabled = true;
                 ddlDrogaTerc.disabled = true;
                 ddlViaSec.disabled = true;
@@ -179,9 +182,9 @@ function CO_Tipo() {
                 ddlFrecPrim.value = 99;
                 ddlFrecSec.value = 99;
                 ddlFrecTerc.value = 99;
-                txtEdadPrim.value = "97";
-                txtEdadSec.value = "97";
-                txtEdadTerc.value = "97";
+                txtEdadPrim.value = "126";
+                txtEdadSec.value = "126";
+                txtEdadTerc.value = "126";
                 //ddlDrogaPrim.disabled = true;
                 ddlDrogaSec.disabled = true;
                 ddlDrogaTerc.disabled = true;
@@ -1228,9 +1231,9 @@ function AjustesNiveldeCuidado() {
                 ddlFrecPrim.value = 99;
                 ddlFrecSec.value = 99;
                 ddlFrecTerc.value = 99;
-                txtEdadPrim.value = "97";
-                txtEdadSec.value = "97";
-                txtEdadTerc.value = "97";
+                txtEdadPrim.value = "126";
+                txtEdadSec.value = "126";
+                txtEdadTerc.value = "126";
 
                 ddlToxicologia1.value = "99";
                 ddlToxicologia2.value = "99";
@@ -1270,9 +1273,9 @@ function AjustesNiveldeCuidado() {
                 ddlFrecPrim.value = 0;
                 ddlFrecSec.value = 99;
                 ddlFrecTerc.value = 99;
-                txtEdadPrim.value = "97";
-                txtEdadSec.value = "97";
-                txtEdadTerc.value = "97";
+                txtEdadPrim.value = "126";
+                txtEdadSec.value = "126";
+                txtEdadTerc.value = "126";
 
                 ddlToxicologia1.value = "99";
                 ddlToxicologia2.value = "99";
@@ -1921,6 +1924,7 @@ function ddlDrogaPrimF() {
         ddlViaPrim.disabled = false;
         ddlFrecPrim.disabled = false;
         txtEdadPrim.disabled = false;
+        txtEdadPrim.value = "";
 
 
         if ((ddlNivelCuidadoSaludMental.value !== "99" || (ddlNivelCuidadoSustancias.value === "99" && (CO_Tipo.value === "2" || CO_Tipo.value === "3"))) && ddlDrogaPrim.value != sustanciasList.Noaplica) {
@@ -2026,7 +2030,7 @@ function ddlDrogaPrimF() {
                     ddlViaPrim.disabled = true;
                     ddlFrecPrim.value = 99;
                     ddlFrecPrim.disabled = true;
-                    txtEdadPrim.value = "97";
+                    txtEdadPrim.value = "126";
                     txtEdadPrim.disabled = true;
 
                     ddlToxicologia1.value = "99";
@@ -2037,8 +2041,8 @@ function ddlDrogaPrimF() {
                 ddlViaTerc.value = viaList.NoAplica;
                 ddlFrecSec.value = 99;
                 ddlFrecTerc.value = 99;
-                txtEdadSec.value = "97";
-                txtEdadTerc.value = "97";
+                txtEdadSec.value = "126";
+                txtEdadTerc.value = "126";
                 ddlDrogaSec.disabled = true;
                 ddlDrogaTerc.disabled = true;
                 ddlViaSec.disabled = true;
@@ -2060,7 +2064,7 @@ function ddlDrogaPrimF() {
                     //ddlViaPrim.disabled = true;
                     ddlFrecPrim.value = 0;
                     //ddlFrecPrim.disabled = true;
-                    txtEdadPrim.value = "97";
+                    txtEdadPrim.value = "126";
                     //txtEdadPrim.disabled = true;
                     ddlDrogaSec.value = sustanciasList.Nousaactualmente;
                     ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
@@ -2068,8 +2072,8 @@ function ddlDrogaPrimF() {
                     ddlViaTerc.value = viaList.NoAplica;
                     ddlFrecSec.value = 99;
                     ddlFrecTerc.value = 99;
-                    txtEdadSec.value = "97";
-                    txtEdadTerc.value = "97";
+                    txtEdadSec.value = "126";
+                    txtEdadTerc.value = "126";
                     ddlDrogaSec.disabled = true;
                     ddlDrogaTerc.disabled = true;
                     ddlViaSec.disabled = true;
@@ -2135,6 +2139,8 @@ function ddlDrogaSecF() {
         ddlFrecSec.disabled = false;
         txtEdadSec.disabled = false;
 
+        txtEdadSec.value = "";
+
         if (!(ddlDrogaPrim.value === sustanciasList.Noaplica || ddlDrogaPrim.value === sustanciasList.Nousaactualmente || ddlDrogaPrim.value === "0") && (ddlViaPrim.value === "0" || ddlViaPrim.value == viaList.NoAplica || ddlFrecPrim.value === 0 || ddlFrecPrim.value === 99 || txtEdadPrim.value < "0") && !(ddlDrogaSec.value === sustanciasList.Noaplica || ddlDrogaSec.value === sustanciasList.Nousaactualmente)) {
            
             ddlDrogaSec.value = sustanciasList.Nousaactualmente;
@@ -2142,12 +2148,12 @@ function ddlDrogaSecF() {
             ddlViaSec.disabled = true;
             ddlFrecSec.value = 99;
             ddlFrecSec.disabled = true;
-            txtEdadSec.value = "97";
+            txtEdadSec.value = "126";
             txtEdadSec.disabled = true;
             ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
             ddlViaTerc.value = viaList.NoAplica;
             ddlFrecTerc.value = 99;
-            txtEdadTerc.value = "97";
+            txtEdadTerc.value = "126";
             ddlDrogaTerc.disabled = true;
             ddlViaTerc.disabled = true;
             ddlFrecTerc.disabled = true;
@@ -2224,11 +2230,11 @@ function ddlDrogaSecF() {
                     ddlViaSec.disabled = true;
                     ddlFrecSec.value = 99;
                     ddlFrecSec.disabled = true;
-                    txtEdadSec.value = "97";
+                    txtEdadSec.value = "126";
                     txtEdadSec.disabled = true;
                     ddlViaTerc.value = viaList.NoAplica;
                     ddlFrecTerc.value = 99;
-                    txtEdadTerc.value = "97";
+                    txtEdadTerc.value = "126";
                     ddlDrogaTerc.disabled = true;
                     ddlViaTerc.disabled = true;
                     ddlFrecTerc.disabled = true;
@@ -2249,12 +2255,12 @@ function ddlDrogaSecF() {
                     ddlViaSec.disabled = true;
                     ddlFrecSec.value = 99;
                     ddlFrecSec.disabled = true;
-                    txtEdadSec.value = "97";
+                    txtEdadSec.value = "126";
                     txtEdadSec.disabled = true;
                     ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
                     ddlViaTerc.value = viaList.NoAplica;
                     ddlFrecTerc.value = 99;
-                    txtEdadTerc.value = "97";
+                    txtEdadTerc.value = "126";
                     ddlDrogaTerc.disabled = true;
                     ddlViaTerc.disabled = true;
                     ddlFrecTerc.disabled = true;
@@ -2272,7 +2278,7 @@ function ddlDrogaSecF() {
                 default:
                     ddlViaSec.disabled = false;
                     ddlDrogaTerc.disabled = false;
-                    txtEdadSec.value = "97";
+                    txtEdadSec.value = "126";
                     txtDrogaSec.value = "";
                     ddlToxicologia2.value = "";
                     ddlToxicologia2.disabled = false;
@@ -2286,7 +2292,7 @@ function ddlDrogaSecF() {
                     ddlDrogaSec.value = sustanciasList.Nousaactualmente;
                     ddlViaSec.value = viaList.NoAplica;
                     ddlFrecSec.value = 99;
-                    txtEdadSec.value = "97";
+                    txtEdadSec.value = "126";
                     ddlViaSec.disabled = true;
                     ddlFrecSec.disabled = true;
                     txtEdadSec.disabled = true;
@@ -2294,7 +2300,7 @@ function ddlDrogaSecF() {
                     ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
                     ddlViaTerc.value = viaList.NoAplica;
                     ddlFrecTerc.value = 99;
-                    txtEdadTerc.value = "97";
+                    txtEdadTerc.value = "126";
                     ddlDrogaTerc.disabled = true;
                     ddlViaTerc.disabled = true;
                     ddlFrecTerc.disabled = true;
@@ -2342,6 +2348,7 @@ function ddlDrogaTercF() {
         ddlFrecTerc.disabled = false;
         txtEdadTerc.disabled = false;
 
+
         var txtDrogaTerc = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDrogaTerc");
 
         var ddlToxicologia1 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlToxicologia1");
@@ -2351,11 +2358,13 @@ function ddlDrogaTercF() {
 
         var hogarDiv = document.getElementById("mainBodyContent_WucEpisodioAdmision_Hogar3_DIV");
 
+        txtEdadTerc.value = "";
+
         if (!(ddlDrogaSec.value === sustanciasList.Noaplica || ddlDrogaSec.value === "0" || ddlDrogaSec.value === sustanciasList.Nousaactualmente) && (ddlViaSec.value === "0" || ddlViaSec.value === viaList.NoAplica || ddlFrecSec.value === 0 || ddlFrecSec.value === 99 || txtEdadSec.value < "0") && !(ddlDrogaTerc.value === sustanciasList.Noaplica || ddlDrogaTerc.value === sustanciasList.Nousaactualmente)) {
             ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
             ddlViaTerc.value = viaList.NoAplica;
             ddlFrecTerc.value = 99;
-            txtEdadTerc.value = "97";
+            txtEdadTerc.value = "126";
            // ddlDrogaTerc.disabled = true;
             ddlViaTerc.disabled = true;
             ddlFrecTerc.disabled = true;
@@ -2426,7 +2435,7 @@ function ddlDrogaTercF() {
                     ddlViaTerc.disabled = true;
                     ddlFrecTerc.value = 99;
                     ddlFrecTerc.disabled = true;
-                    txtEdadTerc.value = "97";
+                    txtEdadTerc.value = "126";
                     txtEdadTerc.disabled = true;
                     txtDrogaTerc.value = "";
                     ddlToxicologia3.value = "99";
@@ -2438,7 +2447,7 @@ function ddlDrogaTercF() {
                     ddlViaTerc.disabled = true;
                     ddlFrecTerc.value = 99;
                     ddlFrecTerc.disabled = true;
-                    txtEdadTerc.value = "97";
+                    txtEdadTerc.value = "126";
                     txtEdadTerc.disabled = true;
                     txtDrogaTerc.value = "";
                     ddlToxicologia3.value = "99";
@@ -2447,7 +2456,7 @@ function ddlDrogaTercF() {
                     break;
                 default:
                     ddlViaTerc.disabled = false;
-                    txtEdadTerc.value = "97";
+                    txtEdadTerc.value = "126";
                     txtDrogaTerc.value = "";
                     ddlToxicologia3.value = "";
                     ddlToxicologia3.disabled = false;
@@ -2461,7 +2470,7 @@ function ddlDrogaTercF() {
                 ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
                 ddlViaTerc.value = viaList.NoAplica;
                 ddlFrecTerc.value = 99;
-                txtEdadTerc.value = "97";
+                txtEdadTerc.value = "126";
                 ddlViaTerc.disabled = true;
                 ddlFrecTerc.disabled = true;
                 txtEdadTerc.disabled = true;
@@ -2474,7 +2483,7 @@ function ddlDrogaTercF() {
                 ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
                 ddlViaTerc.value = viaList.NoAplica;
                 ddlFrecTerc.value = 99;
-                txtEdadTerc.value = "97";
+                txtEdadTerc.value = "126";
                 ddlViaTerc.disabled = true;
                 ddlFrecTerc.disabled = true;
                 txtEdadTerc.disabled = true;
@@ -2760,7 +2769,7 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDualP) {
                     ddlDrogaPrim.value = 0;
                     ddlViaPrim.value = 0;
                     ddlFrecPrim.value = 0;
-                    txtEdadPrim.value = "97";
+                    txtEdadPrim.value = "126";
                     ddlDrogaPrim.disabled = false;
                     ddlViaPrim.disabled = false;
                     ddlFrecPrim.disabled = false;
@@ -2772,8 +2781,8 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDualP) {
                     ddlViaTerc.value = viaList.NoAplica;
                     ddlFrecSec.value = 99;
                     ddlFrecTerc.value = 99;
-                    txtEdadSec.value = "97";
-                    txtEdadTerc.value = "97";
+                    txtEdadSec.value = "126";
+                    txtEdadTerc.value = "126";
                     ddlDrogaSec.disabled = true;
                     ddlDrogaTerc.disabled = true;
                     ddlViaSec.disabled = true;
@@ -2793,7 +2802,7 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDualP) {
                     ddlDrogaPrim.value = sustanciasList.Noaplica;
                     ddlViaPrim.value = sustanciasList.Noaplica;
                     ddlFrecPrim.value = 99;
-                    txtEdadPrim.value = "97";
+                    txtEdadPrim.value = "126";
                     ddlDrogaPrim.disabled = true;
                     ddlViaPrim.disabled = true;
                     ddlFrecPrim.disabled = true;
@@ -2805,8 +2814,8 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDualP) {
                     ddlViaTerc.value = viaList.NoAplica;
                     ddlFrecSec.value = 99;
                     ddlFrecTerc.value = 99;
-                    txtEdadSec.value = "97";
-                    txtEdadTerc.value = "97";
+                    txtEdadSec.value = "126";
+                    txtEdadTerc.value = "126";
                     ddlDrogaSec.disabled = true;
                     ddlDrogaTerc.disabled = true;
                     ddlViaSec.disabled = true;

@@ -37,6 +37,7 @@
                 <div class="panel-body">
                     <h2>Antes de iniciar, recuerde los siguientes puntos:</h2>
                     <ol>
+                        <li><b>NO</b> se recomienda el uso de Internet Explorer para el uso de este sistema. Favor de utilizar los siguientes navegadores para mejor experiencia: <b>Chrome </b>, <b>Firefox </b>o <b>Microsoft Edge</b>.</li>
                         <li>El nombre de usuario debe existir en la base de datos ASSMCA. El administrador del sistema debe haberle otorgado un nombre de usuario para que usted pueda autenticarse en el sistema.</li>
                         <li>La contraseña es inicialmente otorgada por el administrador del sistema, usted podrá modificar su contraseña una vez autenticado en el sistema.</li>
                     </ol>
@@ -50,10 +51,18 @@
                 <h3 class="panel-title">Selección de programa</h3>
             </div>
             <div class="panel-body">
-                <span class="SEPSLabel">Programa:</span>
-                <div class="expandibleDiv">
-                    <asp:DropDownList ID="ddlPrograma" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa" DataSource="<%# dsSeguridad %>" DataMember="SA_USUARIO" />
-                </div>
+
+                <div class="form-inline">
+       <asp:TextBox ID="txtFilter" runat="server"  CssClass="form-control" ToolTip="Buscar Programa"/>
+        <asp:Button ID="BtnSubmit" CssClass= "btn btn-default" runat="server" OnClick="BtnSubmit_Click" Text="Refrescar"/>
+</div>
+            
+            <br />
+               <label>Programa:</label>
+                <%--div class="expandibleDiv">--%>
+        <asp:ListBox ID="ddlPrograma" Height="400" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa" DataSource="<%# dsSeguridad %>" DataMember="SA_USUARIO" />
+<%--                    <asp:DropDownList ID="ddlPrograma" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa" DataSource="<%# dsSeguridad %>" DataMember="SA_USUARIO" />--%>
+                 
                 <div id="divBotones" style="padding-top: 10px;">
                     <asp:Button ID="btnAutenticarPrograma" CssClass="btn btn-default" runat="server" Text="Seleccionar" OnClick="btnAutenticarPrograma_Click" />
                 </div>

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ASSMCA {
-    
-    
-    public partial class frmLogon {
-        
+namespace ASSMCA
+{
+
+
+    public partial class frmLogon
+    {
+
         /// <summary>
         /// LoginBox control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoginBox;
-        
+
         /// <summary>
         /// rfvUsuario control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsuario;
-        
+
         /// <summary>
         /// txtUsuario control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
-        
+
         /// <summary>
         /// lblLogin control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLogin;
-        
+
         /// <summary>
         /// rfvPassword control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
-        
+
         /// <summary>
         /// txtPassword control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
-        
+
         /// <summary>
         /// btnLogin control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
-        
+
         /// <summary>
         /// divMsg1 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMsg1;
-        
+
         /// <summary>
         /// divPrograma control.
         /// </summary>
@@ -92,7 +94,25 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPrograma;
-        
+
+        /// <summary>
+        /// txtFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilter;
+
+        /// <summary>
+        /// BtnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSubmit;
+
         /// <summary>
         /// ddlPrograma control.
         /// </summary>
@@ -100,8 +120,8 @@ namespace ASSMCA {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPrograma;
-        
+        protected global::System.Web.UI.WebControls.ListBox ddlPrograma;
+
         /// <summary>
         /// btnAutenticarPrograma control.
         /// </summary>
@@ -110,7 +130,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAutenticarPrograma;
-        
+
         /// <summary>
         /// ValidationSummary1 control.
         /// </summary>
@@ -119,7 +139,7 @@ namespace ASSMCA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
-        
+
         /// <summary>
         /// lblMsg control.
         /// </summary>

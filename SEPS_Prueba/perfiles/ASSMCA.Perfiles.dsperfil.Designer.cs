@@ -21923,6 +21923,18 @@ namespace ASSMCA.perfiles
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FullDescription
+            {
+                get
+                {
+                    return this.PK_DSMV +" - "+DE_DSMV;
+                }
+   
+            }
+
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string PK_DSMV
             {
                 get
