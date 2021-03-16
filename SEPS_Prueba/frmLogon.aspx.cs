@@ -17,6 +17,7 @@ namespace ASSMCA
         protected ASSMCA.dsSeguridad dsSeguridad;
         protected System.Data.SqlClient.SqlCommand SPD_SESION;
         protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
+        
         protected void Page_Load(object sender, System.EventArgs e)
         {
             if (!this.IsPostBack)
@@ -24,7 +25,9 @@ namespace ASSMCA
                 if (Request.QueryString["changeProg"] == "yes")
                 {
                     this.dsSeguridad = (ASSMCA.dsSeguridad)Session["dsSeguridad"];
+                    ddlPrograma.DataSource = this.dsSeguridad.SA_USUARIO;                  
                     this.ddlPrograma.DataBind();
+                    lblTotalPrograma.Text = "Total: " + ddlPrograma.Items.Count;
                     this.LoginBox.Visible = false;
                     this.divMsg1.Visible = false;
                     this.divPrograma.Visible = true;
@@ -90,6 +93,8 @@ namespace ASSMCA
                     this.ddlPrograma.Visible = true;
                     this.btnAutenticarPrograma.Visible = true;
                     this.btnLogin.Visible = false;
+
+
                 }
             }
         }
@@ -218,8 +223,9 @@ namespace ASSMCA
                     }
                     else if (this.dsSeguridad.SA_USUARIO.Rows.Count > 1)//Se ha obtenido un usuario asociado a varios programas
                     {
-                        
+                        this.ddlPrograma.DataSource = this.dsSeguridad.SA_USUARIO;
                         this.ddlPrograma.DataBind();
+                        lblTotalPrograma.Text = "Total: " + ddlPrograma.Items.Count;
                         this.divMsg1.Visible = false;
                         this.divPrograma.Visible = true;
                         this.LoginBox.Visible = false;
@@ -242,7 +248,26 @@ namespace ASSMCA
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
+           
 
+            var str = txtFilter.Text;
+
+            if (!string.IsNullOrEmpty(str))
+                this.ddlPrograma.DataSource = this.dsSeguridad.SA_USUARIO.Where(x => x.NB_Programa.ToLower().Contains(str.Trim().ToLower()));
+            else
+                ddlPrograma.DataSource = this.dsSeguridad.SA_USUARIO;
+            
+            this.ddlPrograma.DataBind();
+            lblTotalPrograma.Text = "Total: " + ddlPrograma.Items.Count;
+        }
+
+
+        protected void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            txtFilter.Text = "";
+            ddlPrograma.DataSource = this.dsSeguridad.SA_USUARIO;
+            this.ddlPrograma.DataBind();
+            lblTotalPrograma.Text = "Total: " + ddlPrograma.Items.Count;
         }
     }
 }

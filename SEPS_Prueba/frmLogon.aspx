@@ -53,14 +53,21 @@
             <div class="panel-body">
 
                 <div class="form-inline">
-       <asp:TextBox ID="txtFilter" runat="server"  CssClass="form-control" ToolTip="Buscar Programa"/>
-        <asp:Button ID="BtnSubmit" CssClass= "btn btn-default" runat="server" OnClick="BtnSubmit_Click" Text="Refrescar"/>
+                    <%--
+                        Por: Jose A. Ramos De La Cruz
+                        Agregado el 3/16/2021
+                        Proposito: Filtrar programas
+                        --%>
+                     <asp:TextBox ID="txtFilter" Width="400px" runat="server"  CssClass="form-control" ToolTip="Buscar Programa"/>
+                     <asp:Button ID="BtnSubmit" CssClass= "btn btn-default" runat="server" OnClick="BtnSubmit_Click" Text="Buscar"/>
+                      <asp:Button ID="BtnRefresh" CssClass= "btn btn-default" runat="server" OnClick="BtnRefresh_Click" Text="Refrescar"/>   
 </div>
             
             <br />
                <label>Programa:</label>
                 <%--div class="expandibleDiv">--%>
-        <asp:ListBox ID="ddlPrograma" Height="400" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa" DataSource="<%# dsSeguridad %>" DataMember="SA_USUARIO" />
+        <asp:ListBox ID="ddlPrograma" Height="400" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa"/>
+                <asp:Label ID="lblTotalPrograma"  runat="server"></asp:Label>
 <%--                    <asp:DropDownList ID="ddlPrograma" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa" DataSource="<%# dsSeguridad %>" DataMember="SA_USUARIO" />--%>
                  
                 <div id="divBotones" style="padding-top: 10px;">

@@ -114,6 +114,15 @@ namespace ASSMCA
         protected global::System.Web.UI.WebControls.Button BtnSubmit;
 
         /// <summary>
+        /// BtnRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRefresh;
+
+        /// <summary>
         /// ddlPrograma control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace ASSMCA
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox ddlPrograma;
+
+        /// <summary>
+        /// lblTotalPrograma control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPrograma;
 
         /// <summary>
         /// btnAutenticarPrograma control.
