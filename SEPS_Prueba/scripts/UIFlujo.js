@@ -111,14 +111,16 @@ function startupFunctions() {
             AccionUpdate();
         }
         else {
-            ddlNivelCuidadoSaludMental();
-            ddlNivelCuidadoSustancias();
+
+          
+                ddlNivelCuidadoSaludMental();
+            if (CheckIsPostBack() == "False") {
+                ddlNivelCuidadoSustancias();
+            }
             CO_Tipo();
         }
 
         ddInFumadoChange();
-        
-        
      }
     catch (ex) {
         throw ex;
@@ -129,6 +131,12 @@ function startupFunctions() {
 
 function IsPostBack() {
     return document.getElementById('postbackControl').value;
+
+}
+
+
+function CheckIsPostBack() {
+    return document.getElementById('mainBodyContent_WucEpisodioAdmision_ispostback').value;
 
 }
 
@@ -1316,6 +1324,7 @@ function AjustesNiveldeCuidado() {
 
 function ddlNivelCuidadoSustancias() {
    
+
 
     try {
         var txtDíasSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustancias");

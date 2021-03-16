@@ -23,7 +23,6 @@
                             <asp:TextBox ID="txtPassword" runat="server" MaxLength="15" class="form-control" TextMode="Password" />
                         </div>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-xs-12 SEPSDivs">

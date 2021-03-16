@@ -20,6 +20,7 @@ namespace ASSMCA.Perfiles
         public frmAction m_frmAction;
         private int _probJusticiaCount, _maltratoCount, m_pk_perfil, m_pk_episodio, _pkPrograma, m_CO_Tipo;
 
+       
 
         private List<DropDownAgeAbusoDeSustancia> ListAgeAbusoDeSustancia = new List<DropDownAgeAbusoDeSustancia>();
 
@@ -33,8 +34,12 @@ namespace ASSMCA.Perfiles
             m_CO_Tipo = Convert.ToInt32(this.Session["co_tipo"].ToString());
             this.CO_Tipo.Value = this.Session["co_tipo"].ToString();
             this.hAccion.Value = accion;
+
+            ispostback.Value = this.IsPostBack.ToString();
+
             if (!this.IsPostBack)
             {
+                ispostback.Value = this.IsPostBack.ToString();
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
                 this.dvwFuenteReferido.Table = this.dsPerfil.SA_LKP_TEDS_REFERIDO;
                 this.dvwEpisPreviosSustancias.Table = this.dsPerfil.SA_LKP_TEDS_EPISODIO_PREVIO;

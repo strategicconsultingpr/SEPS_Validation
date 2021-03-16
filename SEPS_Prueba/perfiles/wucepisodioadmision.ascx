@@ -19,6 +19,9 @@
         </div>
 
     </div>--%>
+
+     
+
     <div class="col-md-12 SEPSDivs"><%--Etapa del servicio--%>
         <span class="SEPSLabel">Etapa del servicio:</span>          <asp:RequiredFieldValidator ID="rfvMenor" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlEtapaServicio" ErrorMessage="Etapa del servicio" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
         <div class="expandibleDiv">
@@ -50,7 +53,7 @@
         <span class="SEPSLabel">¿Usa medicamento como parte del tratamiento contra la dependencia de opiáceos? [TEDS]:</span>
           <asp:RequiredFieldValidator ID="rfvMetadona" runat="server" Display="Dynamic" CssClass="rightFloatAsterisk"  ControlToValidate="ddlMetadona" ErrorMessage="¿Usa medicamento como parte del tratamiento contra la dependencia de opiáceos?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
        
-        <asp:DropDownList CssClass="form-control" ID="ddlMetadona"  Width="100%" runat="server" onChange="ddlMetadona();">
+        <asp:DropDownList CssClass="form-control"  ID="ddlMetadona" EnableViewState="true" ViewStateMode="Enabled"  Width="100%" runat="server" onChange="ddlMetadona();">
             <asp:ListItem></asp:ListItem>
             <asp:ListItem Value="1">Metadona</asp:ListItem>         
             <asp:ListItem Value="3">Buprenorfina</asp:ListItem>
@@ -390,7 +393,12 @@
                 <span class="SEPSLabel">¿Existe historial de maltrato en la niñez?:</span>
                  <asp:RequiredFieldValidator ID="rfvMaltratoNinez" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  ControlToValidate="ddlMaltratoNinez" ErrorMessage="¿Existe historial de maltrato en la niñez?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
               
-                <asp:DropDownList Width="100%" CssClass="form-control"  ID="ddlMaltratoNinez" runat="server" AutoPostBack="True" OnChange="return ddlMaltratoNinez();" OnSelectedIndexChanged="ddlMaltratoNinez_SelectedIndexChanged">
+
+                <%-- Cambio por: Jose A Ramos De La Cruz 
+                     Fecha: 3/16/2021
+                     Proposito: Se quito el event del onchange para quitar la validacion--%>
+<%--                <asp:DropDownList Width="100%" CssClass="form-control"  ID="ddlMaltratoNinez" runat="server" AutoPostBack="True" OnChange="return ddlMaltratoNinez();" OnSelectedIndexChanged="ddlMaltratoNinez_SelectedIndexChanged">--%>
+                <asp:DropDownList Width="100%" CssClass="form-control"  ID="ddlMaltratoNinez" runat="server" AutoPostBack="True"  OnSelectedIndexChanged="ddlMaltratoNinez_SelectedIndexChanged">
                     <asp:ListItem />
                     <asp:ListItem Value="1">Sí</asp:ListItem>
                     <asp:ListItem Value="2">No</asp:ListItem>
@@ -1114,3 +1122,4 @@
 </table>
   </div>
 </div>
+   <input type="hidden" id="ispostback" runat="server" />
