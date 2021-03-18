@@ -304,7 +304,7 @@
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Duración del último episodio de servicio de salud mental--%>
         <span class="SEPSLabel">Duración del último servicio de tratamiento de uso de salud mental:</span>
-         <asp:RequiredFieldValidator ID="rfvUltMental" CssClass="rightFloatAsterisk" runat="server"  Display="Dynamic" InitialValue="0" ControlToValidate="ddlUltMental" ErrorMessage="Duración del último episodio de servicio de abuso de sustancias" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
+         <asp:RequiredFieldValidator ID="rfvUltMental" CssClass="rightFloatAsterisk" runat="server"  Display="Dynamic" InitialValue="0" ControlToValidate="ddlUltMental" ErrorMessage="Duración del último episodio de servicio de salud mental" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlUltMental"  onChange="ddlUltMental()" runat="server" DataSource="<%# dvwUltMental %>" DataTextField="DE_TiempoUltTrat" DataValueField="PK_TiempoUltTrat"/>
         <asp:Label ID="lblUltMental" runat="server"/>
@@ -651,7 +651,7 @@
 
                     <asp:RequiredFieldValidator ID="rfvDSMVRMPrim" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic" InitialValue="0" ControlToValidate="txtDSMVRMPrim" ErrorMessage="Trastornos de la personalidad y RM Primario" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
                     <div class="expandibleDiv">
-                        <TextArea class="form-control"  ID="txtDSMVRMPrim" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;" ReadOnly="readonly" >No se recopila la información</TextArea>
+                        <TextArea class="form-control"  ID="txtDSMVRMPrim" TabIndex="-1" runat="server" style="min-height:50px;resize:vertical;"  ReadOnly="readonly" >No se recopila la información</TextArea>
                         <asp:Label ID="lblDSMVRMPrim" runat="server" />
                         <asp:HyperLink ID="hlDSMVRMPrim" ForeColor="DarkGreen" runat="server" NavigateUrl="javascript:showDSMV('NONE','mainBodyContent_WucEpisodioAdmision_txtDSMVRMPrim', 'mainBodyContent_WucEpisodioAdmision_hDSMVRMPrim', 'WucEpisodioAdmision')">Buscar...</asp:HyperLink>
                         <input id="hDSMVRMPrim" type="hidden" value="761" name="hDSMVRMPrim" runat="server"/>
@@ -702,7 +702,7 @@
   <div class="table-panel-body">
     <table class="table table-striped table-hover">
     <tr>
-        <th style="width:250px;">Diagnóstico DSM-5</th>
+        <th style="width:250px;">Diagnóstico DSM-5/ICD-10</th>
         <th><span class="SEPSLabel">Diagnóstico primario</span></th>
         <th><span class="SEPSLabel">Diagnóstico secundario</span></th>
         <th><span class="SEPSLabel">Diagnóstico terciario</span></th>
@@ -831,14 +831,14 @@
         
      <li class="list-group-item">
         <p><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias [TEDS]</span></p>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
-           
-            <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" Width="100%"  runat="server">
-                <asp:ListItem  />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" CssClass="rightFloatAsterisk"   Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
+         <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" Width="100%"  runat="server">
+                <asp:ListItem />
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="lblDSMVDiagDual" runat="server" />
+                  <asp:CustomValidator ID="ddlDSMVDiagDualVal" Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ClientValidationFunction="diagnosticoConcurrente" runat="server" ></asp:CustomValidator>
     </li>
 </ul>
     
@@ -1122,4 +1122,3 @@
 </table>
   </div>
 </div>
-   <input type="hidden" id="ispostback" runat="server" />

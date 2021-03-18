@@ -15,7 +15,10 @@
     //        CO_Tipo();
     //    }
     //}
+
 });
+
+
 
 
 function ddInFumadoChange()
@@ -44,12 +47,31 @@ function ddInFumadoChange()
 
             $(ddlFrecuenciaFumado).val("3");
             $(txtNrFumado).val("0");
+            $(txtNrFumado).val("0");
         
             
         }
     }
 
 
+}
+
+
+
+function diagnosticoConcurrente(source, arguments)
+{
+    var ddlDSMVDiagDual = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlDSMVDiagDual");
+    var hDSMVClinPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim");
+    var hDSMVSusPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_hDSMVSusPrim");
+
+    if (ddlDSMVDiagDual.value != "1" && hDSMVClinPrim.value != "761" && hDSMVSusPrim.value != "761") {
+        alert("Este diagnósticos es concurrente de salud mental y uso de sustancias.");
+        arguments.IsValid = false;
+    }
+    else
+    { arguments.IsValid = true; }
+
+    
 }
 
 //window.onload = function () {
@@ -91,8 +113,11 @@ function startupFunctions() {
     try {
          changeTabOrder();
          ddlEstadoLegal_Load();
-         ddlVaron();
-         ddlGrado();
+        ddlVaron();
+       
+        if (IsPostBack() == "False" ) {
+            ddlGrado();
+        }
          ddlFuenteReferido();
         ddlDSMVPsicoAmbiPrim();
         ddlDSMVPsicoAmbiSec();
@@ -113,14 +138,15 @@ function startupFunctions() {
         else {
 
           
-                ddlNivelCuidadoSaludMental();
-            if (CheckIsPostBack() == "False") {
+            ddlNivelCuidadoSaludMental();
+            if (IsPostBack()== "False") {
                 ddlNivelCuidadoSustancias();
             }
             CO_Tipo();
         }
 
         ddInFumadoChange();
+        
      }
     catch (ex) {
         throw ex;
@@ -135,10 +161,8 @@ function IsPostBack() {
 }
 
 
-function CheckIsPostBack() {
-    return document.getElementById('mainBodyContent_WucEpisodioAdmision_ispostback').value;
 
-}
+
 
 function CO_Tipo() {
         try {
@@ -912,10 +936,12 @@ function DSMV() {
                 RMTxt2Padre.value = "761 - NO SE RECOPILA LA INFORMACIÓN";
             }
         }
-
+        
         txtDescripcionHiddenPadre.value = lbx.value;
         txtDescripcionPadre.value = lbx[lbx.selectedIndex].text;
-        window.close();
+        
+        window.close();     
+        
     }
     catch (ex) { }
 }
@@ -2999,6 +3025,7 @@ function email2() {
 
 var saving = false;
 function validate() {
+    
     var isValid = Page_ClientValidate();
     
     if (!saving) {

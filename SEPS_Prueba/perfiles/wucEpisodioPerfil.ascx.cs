@@ -76,47 +76,18 @@ namespace ASSMCA.Perfiles
                 this.ddlNivelRecuperacion.Items.Insert(0, new ListItem("No aplica", "99"));
                 this.ddlNivelRecuperacion.SelectedValue = "99";
 
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 127, Text = "Desconocida" });
-                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 126, Text = "No Aplica" });
+          
 
 
-                if (DateTime.Now.Date >= Const.EdadInicioFechaCambioNuevo.Date)
-                {
-                    ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
-                    for (int i = 1; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
-                        ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
-                }
-                else
-                    for (int i = 0; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
-                        ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
-
-
-                txtEdadPrim.DataSource = ListAgeAbusoDeSustancia;
-                txtEdadPrim.DataValueField = "Value";
-                txtEdadPrim.DataTextField = "Text";
-
-
-
-                txtEdadPrim.DataBind();
-
-                txtEdadSec.DataSource = ListAgeAbusoDeSustancia;
-                txtEdadSec.DataValueField = "Value";
-                txtEdadSec.DataTextField = "Text";
-
-                txtEdadSec.DataBind();
-
-
-                txtEdadTerc.DataSource = ListAgeAbusoDeSustancia;
-                txtEdadTerc.DataValueField = "Value";
-                txtEdadTerc.DataTextField = "Text";
-
-                txtEdadTerc.DataBind();
 
                 this.ManagePracticasBasadasEnEvidencia(this.m_frmAction);
                 this.ManageCondicionesDiagnosticadas(this.m_frmAction);
                 switch(this.m_frmAction)
                 {
-                    case (frmAction.Create): 
+                    case (frmAction.Create):
+
+                        LoadtxtEdad(DateTime.Now.Date);
+
                         this.EditarRegistro();
                         this.EditarRecuperacion();
                         this.ActualizarCamposCrear();
@@ -125,25 +96,75 @@ namespace ASSMCA.Perfiles
                         this.Hogar_DIV.Style["visibility"] = "hidden";
                         this.Hogar2_DIV.Style["visibility"] = "hidden";
                         this.Hogar3_DIV.Style["visibility"] = "hidden";
+                        
+
+
+                        
                         break;
                     case (frmAction.Read):
                         this.LeerRegistro();
                         break;
-                    case (frmAction.Update): 
+                    case (frmAction.Update):
+
+                        LoadtxtEdad(DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString()));
+
+
                         this.EditarRegistro();
                         this.EditarRecuperacion();
                         this.ActualizarCampos();
                         this.hAccion.Value = "Update";
+                        
+
+
+                        
                         break;
                     default: 
                         break;
                 }
+             
 
-               
             }
 		}
 
-		private void LeerRegistro()
+        void LoadtxtEdad(DateTime date)
+        {
+            ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 127, Text = "Desconocida" });
+            ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 126, Text = "No Aplica" });
+
+            if (date.Date >= Const.EdadInicioFechaCambioNuevo.Date)
+            {
+
+                ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
+                for (int i = 1; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
+                    ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
+            }
+            else
+                for (int i = 0; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
+                    ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
+
+            txtEdadPrim.DataSource = ListAgeAbusoDeSustancia;
+            txtEdadPrim.DataValueField = "Value";
+            txtEdadPrim.DataTextField = "Text";
+
+
+
+            txtEdadPrim.DataBind();
+
+            txtEdadSec.DataSource = ListAgeAbusoDeSustancia;
+            txtEdadSec.DataValueField = "Value";
+            txtEdadSec.DataTextField = "Text";
+
+            txtEdadSec.DataBind();
+
+
+            txtEdadTerc.DataSource = ListAgeAbusoDeSustancia;
+            txtEdadTerc.DataValueField = "Value";
+            txtEdadTerc.DataTextField = "Text";
+
+            txtEdadTerc.DataBind();
+        }
+
+        private void LeerRegistro()
 		{
             this.lblIVPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMIV_IV_P"].ToString();
             this.lblIVSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMIV_IV_S"].ToString();
@@ -465,7 +486,7 @@ namespace ASSMCA.Perfiles
                 lbl.Text = "Desconocida";
             else if (str == "126")
                 lbl.Text = "No Aplica";
-            else if (str == "00" || str == "0" && DateTime.Now.Date >= Const.EdadInicioFechaCambioNuevo.Date)
+            else if (str == "00" || str == "0" && DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString()) >= Const.EdadInicioFechaCambioNuevo.Date)
                 lbl.Text = "Recién nacido";
             else
                 lbl.Text = str;

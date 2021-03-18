@@ -36,6 +36,7 @@
             this.daPersona.Fill(this.dsPerfil, "SA_PERSONA");
             if (!this.IsPostBack)
             {
+
                 if (!tieneConvenio)
                 {
                     divFechaConvenio.Visible = false;

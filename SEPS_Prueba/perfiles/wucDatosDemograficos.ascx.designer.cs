@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ASSMCA.Perfiles {
-    
-    
-    public partial class wucDatosDemograficos {
-        
+namespace ASSMCA.Perfiles
+{
+
+
+    public partial class wucDatosDemograficos
+    {
+
         /// <summary>
         /// edadAdmision control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden edadAdmision;
-        
+
         /// <summary>
         /// rfvEstadoMarital control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEstadoMarital;
-        
+
         /// <summary>
         /// ddlEstadoMarital control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstadoMarital;
-        
+
         /// <summary>
         /// lblEstadoMarital control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstadoMarital;
-        
+
         /// <summary>
         /// rfvFemina control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFemina;
-        
+
         /// <summary>
         /// ddlFemina control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFemina;
-        
+
         /// <summary>
         /// lblFemina control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFemina;
-        
+
         /// <summary>
         /// rfvVaron control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvVaron;
-        
+
         /// <summary>
         /// ddlVaron control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlVaron;
-        
+
         /// <summary>
         /// lblVaron control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblVaron;
-        
+
         /// <summary>
         /// rfvNumNinos control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNumNinos;
-        
+
         /// <summary>
         /// rvNumNinos control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator rvNumNinos;
-        
+
         /// <summary>
         /// txtNumNinos control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumNinos;
-        
+
         /// <summary>
         /// lblNumNinos control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNumNinos;
-        
+
         /// <summary>
         /// rfvCondLaboral control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCondLaboral;
-        
+
         /// <summary>
         /// ddlCondLaboral control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCondLaboral;
-        
+
         /// <summary>
         /// lblCondLaboral control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCondLaboral;
-        
+
         /// <summary>
         /// rfvNoFueraLaboral control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNoFueraLaboral;
-        
+
         /// <summary>
         /// ddlNoFueraLaboral control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlNoFueraLaboral;
-        
+
         /// <summary>
         /// lblNoFueraLaboral control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoFueraLaboral;
-        
+
         /// <summary>
         /// rfvGrado control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvGrado;
-        
+
         /// <summary>
         /// ddlGrado control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGrado;
-        
+
         /// <summary>
         /// lblGrado control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGrado;
-        
+
         /// <summary>
         /// rfvDesertorEscolar control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDesertorEscolar;
-        
+
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// ddlDesertorEscolar control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDesertorEscolar;
-        
+
         /// <summary>
         /// lblDesertorEscolar control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDesertorEscolar;
-        
+
         /// <summary>
         /// rfvEducacionEspecial control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEducacionEspecial;
-        
+
         /// <summary>
         /// ddlEducacionEspecial control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEducacionEspecial;
-        
+
         /// <summary>
         /// lblEducacionEspecial control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEducacionEspecial;
-        
+
         /// <summary>
         /// Requiredfieldvalidator2 control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator Requiredfieldvalidator2;
-        
+
         /// <summary>
         /// ddlSituacionEscolar control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSituacionEscolar;
-        
+
         /// <summary>
         /// lblSituacionEscolar control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSituacionEscolar;
-        
+
         /// <summary>
         /// divCompFamiliar control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCompFamiliar;
-        
+
         /// <summary>
         /// lbxCompFamiliarSeleccion control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbxCompFamiliarSeleccion;
-        
+
         /// <summary>
         /// btnEliminar control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEliminar;
-        
+
         /// <summary>
         /// btnAgregar control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregar;
-        
+
         /// <summary>
         /// lbxCompFamiliarSeleccionado control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbxCompFamiliarSeleccionado;
-        
+
         /// <summary>
         /// divLblCompFamiliar control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLblCompFamiliar;
-        
+
         /// <summary>
         /// lblCompFamiliar control.
         /// </summary>
@@ -371,7 +373,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCompFamiliar;
-        
+
         /// <summary>
         /// rfvNumFamilia control.
         /// </summary>
@@ -380,7 +382,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNumFamilia;
-        
+
         /// <summary>
         /// rvNumFamilia control.
         /// </summary>
@@ -389,7 +391,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator rvNumFamilia;
-        
+
         /// <summary>
         /// txtNumFamilia control.
         /// </summary>
@@ -398,7 +400,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumFamilia;
-        
+
         /// <summary>
         /// lblNumFamilia control.
         /// </summary>
@@ -407,7 +409,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNumFamilia;
-        
+
         /// <summary>
         /// rfvFuenteIngreso control.
         /// </summary>
@@ -416,7 +418,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFuenteIngreso;
-        
+
         /// <summary>
         /// ddlFuenteIngreso control.
         /// </summary>
@@ -425,7 +427,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFuenteIngreso;
-        
+
         /// <summary>
         /// lblFuenteIngreso control.
         /// </summary>
@@ -434,7 +436,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFuenteIngreso;
-        
+
         /// <summary>
         /// rfvResidencia control.
         /// </summary>
@@ -443,7 +445,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvResidencia;
-        
+
         /// <summary>
         /// ddlResidencia control.
         /// </summary>
@@ -452,7 +454,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.DropDownList ddlResidencia;
-        
+
         /// <summary>
         /// lblResidencia control.
         /// </summary>
@@ -461,7 +463,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResidencia;
-        
+
         /// <summary>
         /// rfvTiempoResidencia control.
         /// </summary>
@@ -470,7 +472,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTiempoResidencia;
-        
+
         /// <summary>
         /// ddlTiempoResidencia control.
         /// </summary>
@@ -479,7 +481,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTiempoResidencia;
-        
+
         /// <summary>
         /// lblTiempoResidencia control.
         /// </summary>
@@ -488,7 +490,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTiempoResidencia;
-        
+
         /// <summary>
         /// rfvMunicipio control.
         /// </summary>
@@ -497,7 +499,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMunicipio;
-        
+
         /// <summary>
         /// ddlMunicipio control.
         /// </summary>
@@ -506,7 +508,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMunicipio;
-        
+
         /// <summary>
         /// lblMunicipio control.
         /// </summary>
@@ -515,7 +517,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMunicipio;
-        
+
         /// <summary>
         /// rfvZonaGeografia control.
         /// </summary>
@@ -524,7 +526,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvZonaGeografia;
-        
+
         /// <summary>
         /// ddlZonaGeografia control.
         /// </summary>
@@ -533,7 +535,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlZonaGeografia;
-        
+
         /// <summary>
         /// lblZonaGeografia control.
         /// </summary>
@@ -542,7 +544,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblZonaGeografia;
-        
+
         /// <summary>
         /// revZipCode control.
         /// </summary>
@@ -551,7 +553,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revZipCode;
-        
+
         /// <summary>
         /// txtZipCode control.
         /// </summary>
@@ -560,7 +562,7 @@ namespace ASSMCA.Perfiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtZipCode;
-        
+
         /// <summary>
         /// lblZipCode control.
         /// </summary>

@@ -1,4 +1,4 @@
- <%@ Page Language="c#" Inherits="ASSMCA.Perfiles.frmDSMI_V" CodeBehind="frmdsmi_v.aspx.cs" %>
+ <%@ Page Language="c#" Inherits="ASSMCA.Perfiles.frmDSMI_V" CodeBehind="frmdsmi_v.aspx.cs"  %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@
     <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/scripts/UIFlujo.js")%>"></script>
     <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/scripts/UIVal.js") %>"></script>
 </head>
-<body style="overflow:hidden;">
+<body style="overflow:hidden;" >
     <form id="Form1" method="post" runat="server" defaultbutton="btnSeleccionar" defaultfocus="txtFilter">
             <input id="txtDescripcion" type="hidden" name="Hidden2" runat="server"/>
             <input id="txtDescripcionHidden" type="hidden" name="Hidden1" runat="server"/>
@@ -90,6 +90,6 @@
     <script type='text/javascript' src= "<%= Page.ResolveClientUrl("~/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js") %>"></script>
     <!--[if IE 10]>
         <script type='text/javascript' src= "<%= Page.ResolveClientUrl("~/vendor/ie10-viewport-bug-workaround.js") %>"></script>
-    <![endif]-->
+    <![endif]-->ipt>
 </body>
-</html>
+</hl>

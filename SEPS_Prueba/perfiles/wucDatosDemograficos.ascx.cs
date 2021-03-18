@@ -25,7 +25,6 @@ namespace ASSMCA.Perfiles
         protected void Page_Load(object sender, System.EventArgs e)
         {
             //ddlResidencia.DataBind();
-
             if (!this.IsPostBack)
             {
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];

@@ -24,6 +24,7 @@ function startupFunctions() {
             ddlDSMVPsicoAmbiPrim();
             ddlDSMVPsicoAmbiSec();
             ddlRazonAlta();
+
             ddlGrado();
             TakeHomeParticipa();
         }
@@ -37,6 +38,20 @@ function startupFunctions() {
 
 function IsPostBack() {
     return document.getElementById('postbackControl').value;
+
+}
+
+function diagnosticoConcurrente(source, arguments) {
+    var ddlDSMVDiagDual = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlDSMVDiagDual");
+    var hDSMVClinPrim = document.getElementById("mainBodyContent_WucEpisodioPerfil_hDSMVClinPrim");
+    var hDSMVSusPrim = document.getElementById("mainBodyContent_WucEpisodioPerfil_hDSMVSusPrim");
+
+    if (ddlDSMVDiagDual.value != "1" && hDSMVClinPrim.value != "761" && hDSMVSusPrim.value != "761") {
+        alert("Este diagnósticos es concurrente de salud mental y uso de sustancias.");
+        arguments.IsValid = false;
+    }
+    else { arguments.IsValid = true; }
+
 
 }
 

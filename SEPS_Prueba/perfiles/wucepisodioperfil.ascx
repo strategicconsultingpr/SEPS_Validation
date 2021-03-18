@@ -265,7 +265,7 @@
   <div class="table-panel-body">
     <table class="table table-striped table-hover">
     <tr>
-        <th style="width:250px;">Diagnóstico DSM-5</th>
+        <th style="width:250px;">Diagnóstico DSM-5/ICD-10</th>
         <th><span class="SEPSLabel">Diagnóstico primario</span></th>
         <th><span class="SEPSLabel">Diagnóstico secundario</span></th>
         <th><span class="SEPSLabel">Diagnóstico terciario</span></th>
@@ -402,6 +402,7 @@
                 <asp:ListItem Value="2">No</asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="lblDSMVDiagDual" runat="server" />
+             <asp:CustomValidator ID="ddlDSMVDiagDualVal" Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ClientValidationFunction="diagnosticoConcurrente" runat="server" ></asp:CustomValidator>
                 </div>
         </td>
     </tr>
