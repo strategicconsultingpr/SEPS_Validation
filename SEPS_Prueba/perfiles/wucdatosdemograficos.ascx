@@ -82,7 +82,7 @@
                 <span class="SEPSLabel">Educación (SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="rfvGrado" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Último grado completado" ControlToValidate="ddlGrado" InitialValue="0" Text="*" />
                 <div class="expandibleDiv">
-                    <asp:DropDownList CssClass="form-control" ID="ddlGrado" runat="server" DataTextField="DE_Grado" DataValueField="PK_Grado" DataSource="<%# dvwUltGrado %>" onChange="ddlGrado();" />
+                    <asp:DropDownList CssClass="form-control" ID="ddlGrado" runat="server" DataTextField="DE_Grado" DataValueField="PK_Grado" DataSource="<%# dvwUltGrado %>" AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="ddlGrado_SelectedIndexChanged" />
                     <asp:Label ID="lblGrado" runat="server" />
                 </div>
             </div>
@@ -90,9 +90,9 @@
                 <%-- Es desertor escolar --%>
                 <span class="SEPSLabel">Desertor escolar:</span>
                 <asp:RequiredFieldValidator ID="rfvDesertorEscolar" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Es desertor escolar" ControlToValidate="ddlDesertorEscolar" InitialValue="0" Enabled="False" Text="*" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="ddlDesertorEscolar" Display="Dynamic" ErrorMessage="Es desertor escolar" Text="*" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="rightFloatAsterisk"  ControlToValidate="ddlDesertorEscolar" Display="Dynamic" ErrorMessage="Es desertor escolar" Text="*" />
                 <div class="expandibleDiv">
-                    <asp:DropDownList CssClass="form-control" ID="ddlDesertorEscolar" runat="server">
+                    <asp:DropDownList CssClass="form-control" ID="ddlDesertorEscolar" AutoPostBack="true" ViewStateMode="Enabled" OnSelectedIndexChanged="ddlDesertorEscolar_SelectedIndexChanged" runat="server">
                         <asp:ListItem />
                         <asp:ListItem Value="1">Sí</asp:ListItem>
                         <asp:ListItem Value="2">No</asp:ListItem>

@@ -54,7 +54,7 @@
         <span class="SEPSLabel">Educación (SM-NOM):</span>
         <asp:RequiredFieldValidator ID="rfvGrado"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="ddlGrado" ErrorMessage="Último grado completado" ToolTip="Seleccione un valor de la lista. Este campo es requerido." InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlGrado" runat="server" DataSource="<%# dvwUltGrado %>" DataValueField="PK_Grado" DataTextField="DE_Grado"  onChange="ddlGrado();" />
+            <asp:DropDownList  CssClass="form-control" ID="ddlGrado" runat="server" DataSource="<%# dvwUltGrado %>" DataValueField="PK_Grado" DataTextField="DE_Grado"  AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="ddlGrado_SelectedIndexChanged" />
             <asp:Label ID="lblGrado" runat="server"/>
         </div>
     </div> 
@@ -63,7 +63,7 @@
         <asp:RequiredFieldValidator ID="rfvDesertorEscolar"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Es desertor escolar" ControlToValidate="ddlDesertorEscolar" InitialValue="0" Text="*"/>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="ddlDesertorEscolar" Display="Dynamic" ErrorMessage="Es desertor escolar" Text="*" />
         <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="ddlDesertorEscolar" runat="server">
+            <asp:DropDownList CssClass="form-control" ID="ddlDesertorEscolar" AutoPostBack="true" ViewStateMode="Enabled" OnSelectedIndexChanged="ddlDesertorEscolar_SelectedIndexChanged" runat="server">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>

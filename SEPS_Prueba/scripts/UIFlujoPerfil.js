@@ -25,7 +25,9 @@ function startupFunctions() {
             ddlDSMVPsicoAmbiSec();
             ddlRazonAlta();
 
-            ddlGrado();
+            if (IsPostBack() == "False") {
+                ddlGrado();
+            }
             TakeHomeParticipa();
         }
         //CO_Tipo();
