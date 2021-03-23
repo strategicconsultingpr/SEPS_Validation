@@ -56,6 +56,19 @@ function ddInFumadoChange()
 
 }
 
+function nivelCuidadoValidation(source, arguments) {
+    var ddlNivelCuidadoSaludMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
+    var ddlNivelCuidadoSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
+
+    if (ddlNivelCuidadoSaludMental.value == '99' && ddlNivelCuidadoSustancias.value == '99') {
+        alert("Favor elegir un nivel de cuidado. Ambos no pueden ser no aplica.");
+        arguments.IsValid = false;
+    }
+    else { arguments.IsValid = true; }
+
+
+}
+
 
 
 function diagnosticoConcurrente(source, arguments)
@@ -840,12 +853,130 @@ function showSusDSMV(filtro, txtDescripcion, txtDescripcionHidden, tipoDescripci
     catch (ex) { }
 }
 
+function typeDSMV()
+{
+    var tipo = document.getElementById("txtFiltroTipo");
+
+    if (tipo.value == "SUST") {
+
+        try {
+            var lbx = document.getElementById("lbxDSMV");
+            var txtDescripcion = document.getElementById("txtDescripcion");
+            var txtDescripcionHidden = document.getElementById("txtDescripcionHidden");
+            var tipoDescripcion = document.getElementById("tipoDescripcion");
+
+            var txtDescripcionPadre = window.opener.document.getElementById(txtDescripcion.value);
+            var txtDescripcionHiddenPadre = window.opener.document.getElementById(txtDescripcionHidden.value);
+            /* Codigo añadido para obtener los valores de los demas diagnosticos y poder compararlos */
+            /* Transtornos Clinicos */
+            var ClinHD = window.opener.document.getElementById(document.getElementById("ClinHD").value);
+            var ClinTxt1 = document.getElementById("ClinTxt1");
+            var ClinHD1 = document.getElementById("ClinHD1");
+            var ClinTxt2 = document.getElementById("ClinTxt2");
+            var ClinHD2 = document.getElementById("ClinHD2");
+            var ClinTxt1Padre = window.opener.document.getElementById(ClinTxt1.value);
+            var ClinHD1Padre = window.opener.document.getElementById(ClinHD1.value);
+            var ClinTxt2Padre = window.opener.document.getElementById(ClinTxt2.value);
+            var ClinHD2Padre = window.opener.document.getElementById(ClinHD2.value);
+
+            /* Transtornos de Personalidad y RM */
+            var RMHD = window.opener.document.getElementById(document.getElementById("RMHD").value);
+            var RMTxt1 = document.getElementById("RMTxt1");
+            var RMHD1 = document.getElementById("RMHD1");
+            var RMTxt2 = document.getElementById("RMTxt2");
+            var RMHD2 = document.getElementById("RMHD2");
+            var RMTxt1Padre = window.opener.document.getElementById(RMTxt1.value);
+            var RMHD1Padre = window.opener.document.getElementById(RMHD1.value);
+            var RMTxt2Padre = window.opener.document.getElementById(RMTxt2.value);
+            var RMHD2Padre = window.opener.document.getElementById(RMHD2.value);
+
+            if (txtDescripcion.value == "mainBodyContent_" + tipoDescripcion.value + "_txtDSMVSusTer" && lbx.value != '761') {
+                if (lbx.value == ClinHD.value) {
+                    alert("El Diagnostico seleccionado es igual al primer Diagnostico seleccionado");
+                    window.close();
+                    return;
+                }
+                else if (lbx.value == ClinHD1Padre.value) {
+                    alert("El Diagnostico seleccionado es igual al segundo Diagnostico seleccionado");
+                    window.close();
+                    return;
+                }
+            }
+            else if (txtDescripcion.value == "mainBodyContent_" + tipoDescripcion.value + "_txtDSMVSusSec") {
+                if (lbx.value == '761' && ClinHD2.value != '761') {
+                    ClinHD2Padre.value = '761';
+                    ClinTxt2Padre.value = "761 - NO SE RECOPILA LA INFORMACIÓN";
+                }
+                if (lbx.value != '761' && lbx.value == ClinHD.value) {
+                    alert("El Diagnostico seleccionado es igual al primer Diagnostico seleccionado");
+                    window.close();
+                    return;
+                }
+            }
+            else if (txtDescripcion.value == "mainBodyContent_" + tipoDescripcion.value + "_txtDSMVSusPrim" && lbx.value == '761' && ClinHD1.value != '761') {
+                ClinHD1Padre.value = '761';
+                ClinTxt1Padre.value = "761 - NO SE RECOPILA LA INFORMACIÓN";
+
+                if (ClinHD2.value != '761') {
+                    ClinHD2Padre.value = '761';
+                    ClinTxt2Padre.value = "761 - NO SE RECOPILA LA INFORMACIÓN";
+                }
+            }
+
+            if (txtDescripcion.value == "mainBodyContent_" + tipoDescripcion.value + "_txtDSMVRMTer" && lbx.value != '761') {
+                if (lbx.value == RMHD.value) {
+                    alert("El Diagnostico seleccionado es igual al primer Diagnostico seleccionado");
+                    window.close();
+                    return;
+                }
+                else if (lbx.value == RMHD1Padre.value) {
+                    alert("El Diagnostico seleccionado es igual al segundo Diagnostico seleccionado");
+                    window.close();
+                    return;
+                }
+            }
+            else if (txtDescripcion.value == "mainBodyContent_" + tipoDescripcion.value + "_txtDSMVRMSec") {
+                if (lbx.value == '761' && RMHD2.value != '761') {
+                    RMHD2Padre.value = '761';
+                    RMTxt2Padre.value = "761 - NO SE RECOPILA LA INFORMACIÓN";
+                }
+                if (lbx.value != '761' && lbx.value == RMHD.value) {
+                    alert("El Diagnostico seleccionado es igual al primer Diagnostico seleccionado");
+                    window.close();
+                    return;
+                }
+            }
+            else if (txtDescripcion.value == "mainBodyContent_" + tipoDescripcion.value + "_txtDSMVRMPrim" && lbx.value == '761' && RMHD1.value != '761') {
+                RMHD1Padre.value = '761';
+                RMTxt1Padre.value = "761 - NO SE RECOPILA LA INFORMACIÓN";
+
+                if (RMHD2.value != '761') {
+                    RMHD2Padre.value = '761';
+                    RMTxt2Padre.value = "761 - NO SE RECOPILA LA INFORMACIÓN";
+                }
+            }
+
+            txtDescripcionHiddenPadre.value = lbx.value;
+            txtDescripcionPadre.value = lbx[lbx.selectedIndex].text;
+
+            window.close();
+
+        }
+        catch (ex) { }
+      
+    }
+    else { DSMV();}
+
+
+}
+
 function DSMV() {
     try {
         var lbx = document.getElementById("lbxDSMV");
         var txtDescripcion = document.getElementById("txtDescripcion");
         var txtDescripcionHidden = document.getElementById("txtDescripcionHidden");
         var tipoDescripcion = document.getElementById("tipoDescripcion");
+      
         var txtDescripcionPadre = window.opener.document.getElementById(txtDescripcion.value);
         var txtDescripcionHiddenPadre = window.opener.document.getElementById(txtDescripcionHidden.value); 
 /* Codigo añadido para obtener los valores de los demas diagnosticos y poder compararlos */
@@ -870,7 +1001,7 @@ function DSMV() {
         var RMHD1Padre = window.opener.document.getElementById(RMHD1.value);
         var RMTxt2Padre = window.opener.document.getElementById(RMTxt2.value);
         var RMHD2Padre = window.opener.document.getElementById(RMHD2.value);
-
+        
         if (txtDescripcion.value == "mainBodyContent_" + tipoDescripcion.value + "_txtDSMVClinTer" && lbx.value != '761') {
             if (lbx.value == ClinHD.value) {
                 alert("El Diagnostico seleccionado es igual al primer Diagnostico seleccionado");

@@ -633,6 +633,7 @@
                     <asp:ListItem />
                     <asp:ListItem Value="1">Si</asp:ListItem>
                     <asp:ListItem Value="2">No</asp:ListItem>
+                     <asp:ListItem Value="97">No informó</asp:ListItem>
                     <asp:ListItem Value="99">No Aplica</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Label ID="lblToxicologia1" runat="server" />
@@ -644,6 +645,7 @@
                     <asp:ListItem />
                     <asp:ListItem Value="1">Si</asp:ListItem>
                     <asp:ListItem Value="2">No</asp:ListItem>
+                     <asp:ListItem Value="97">No informó</asp:ListItem>
                     <asp:ListItem Value="99">No Aplica</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Label ID="lblToxicologia2" runat="server" />
@@ -655,6 +657,7 @@
                     <asp:ListItem />
                     <asp:ListItem Value="1">Si</asp:ListItem>
                     <asp:ListItem Value="2">No</asp:ListItem>
+                     <asp:ListItem Value="97">No informó</asp:ListItem>
                     <asp:ListItem Value="99">No Aplica</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Label ID="lblToxicologia3" runat="server" />

@@ -34,8 +34,9 @@
         <span class="SEPSLabel">Nivel de cuidado de sustancias [TEDS]:</span>
            <asp:RequiredFieldValidator ID="rfvNivelCuidadoSustancias" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlNivelCuidadoSustancias" ErrorMessage="Nivel de cuidado (Abuso de sustancias)" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
         <div class="expandibleDiv">
-        <asp:DropDownList  CssClass="form-control" ID="ddlNivelCuidadoSustancias" runat="server" onChange="ddlNivelCuidadoSustancias();"   AutoPostBack="true"/>
+        <asp:DropDownList  CssClass="form-control" ID="ddlNivelCuidadoSustancias" runat="server"  onChange="ddlNivelCuidadoSustancias();"   AutoPostBack="true"/>
         <asp:Label ID="lblNivelCuidadoSustancias" runat="server" />
+         <asp:CustomValidator ID="ddlNivelCuidadoSustanciasVal" Display="Dynamic" ControlToValidate="ddlNivelCuidadoSustancias"  ClientValidationFunction="nivelCuidadoValidation" runat="server" ></asp:CustomValidator>
      
             </div> 
     </div>
@@ -82,6 +83,8 @@
         <div class="expandibleDiv">
                 <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()"   AutoPostBack="true"/>
                 <asp:Label ID="lblNivelCuidadoSaludMental" runat="server"/>
+                     <asp:CustomValidator ID="lblNivelCuidadoSaludMentalVal" Display="Dynamic" ControlToValidate="ddlNivelCuidadoSaludMental"  ClientValidationFunction="nivelCuidadoValidation" runat="server" ></asp:CustomValidator>
+
         
             </div>
     </div>
@@ -1090,6 +1093,7 @@
                     <asp:ListItem />
                     <asp:ListItem Value="1">Si</asp:ListItem>
                     <asp:ListItem Value="2">No</asp:ListItem>
+                    <asp:ListItem Value="97">No informó</asp:ListItem>
                     <asp:ListItem Value="99">No Aplica</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Label ID="lblToxicologia1" runat="server" />
@@ -1101,6 +1105,7 @@
                     <asp:ListItem />
                     <asp:ListItem Value="1">Si</asp:ListItem>
                     <asp:ListItem Value="2">No</asp:ListItem>
+                     <asp:ListItem Value="97">No informó</asp:ListItem>
                     <asp:ListItem Value="99">No Aplica</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Label ID="lblToxicologia2" runat="server" />
@@ -1112,6 +1117,7 @@
                     <asp:ListItem />
                     <asp:ListItem Value="1">Si</asp:ListItem>
                     <asp:ListItem Value="2">No</asp:ListItem>
+                     <asp:ListItem Value="97">No informó</asp:ListItem>
                     <asp:ListItem Value="99">No Aplica</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Label ID="lblToxicologia3" runat="server" />

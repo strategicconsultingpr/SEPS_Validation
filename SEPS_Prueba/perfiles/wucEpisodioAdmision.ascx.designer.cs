@@ -87,6 +87,15 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblNivelCuidadoSustancias;
 
         /// <summary>
+        /// ddlNivelCuidadoSustanciasVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator ddlNivelCuidadoSustanciasVal;
+
+        /// <summary>
         /// rfvDíasSustancias control.
         /// </summary>
         /// <remarks>
@@ -193,6 +202,15 @@ namespace ASSMCA.Perfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNivelCuidadoSaludMental;
+
+        /// <summary>
+        /// lblNivelCuidadoSaludMentalVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator lblNivelCuidadoSaludMentalVal;
 
         /// <summary>
         /// rfvDíasMental control.

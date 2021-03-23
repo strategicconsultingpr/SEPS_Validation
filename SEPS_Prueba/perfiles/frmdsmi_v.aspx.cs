@@ -32,11 +32,17 @@ namespace ASSMCA.Perfiles
 
                     this.txtFiltroTipo.Value = this.Request.QueryString["txtfiltro"].ToString();
 
-                    ClinHD.Value = "mainBodyContent_"+ this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMVClinPrim";
-                    ClinTxt1.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_txtDSMVClinSec";
-                    ClinHD1.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMVClinSec";
-                    ClinTxt2.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_txtDSMVClinTer";
-                    ClinHD2.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMVClinTer";
+                    var sub = "Clin";
+
+                    if (txtFiltroTipo.Value == "SUST")
+                        sub = "Sus";
+
+
+                    ClinHD.Value = "mainBodyContent_"+ this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMV"+sub+"Prim";
+                    ClinTxt1.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_txtDSMV"+sub+"Sec";
+                    ClinHD1.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMV" + sub + "Sec";
+                    ClinTxt2.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_txtDSMV" + sub + "Ter";
+                    ClinHD2.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMV"+sub+"Ter";
 
                     RMHD.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_hDSMVRMPrim";
                     RMTxt1.Value = "mainBodyContent_" + this.Request.QueryString["tipoDescripcion"].ToString() + "_txtDSMVRMSec";

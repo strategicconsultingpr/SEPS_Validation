@@ -49,7 +49,7 @@
                      <asp:ListBox ID="lbxDSMV"  runat="server" CssClass="form-control" Height="175px" DataValueField="_PK_DSMV"/>
                 </div>
                 <div class="col-xs-12" style="text-align:center; padding:5px 25px 5px 50px">
-                    <asp:Button id="btnSeleccionar" runat="server" CssClass="btn btn-default" Text="Seleccionar diagnóstico" OnClientClick="DSMV();"/>
+                    <asp:Button id="btnSeleccionar" runat="server" CssClass="btn btn-default" Text="Seleccionar diagnóstico" OnClientClick="typeDSMV();"/>
                 </div>
             </div>
         
@@ -90,6 +90,6 @@
     <script type='text/javascript' src= "<%= Page.ResolveClientUrl("~/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js") %>"></script>
     <!--[if IE 10]>
         <script type='text/javascript' src= "<%= Page.ResolveClientUrl("~/vendor/ie10-viewport-bug-workaround.js") %>"></script>
-    <![endif]-->ipt>
+    <![endif]-->
 </body>
-</hl>
+</html>
