@@ -8,6 +8,8 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using ASSMCA.perfiles;
+
 namespace ASSMCA
 {
 	public partial class frmHome : System.Web.UI.Page
@@ -18,12 +20,14 @@ namespace ASSMCA
 		protected System.Data.SqlClient.SqlDataAdapter daLkpPerfil;
 		protected System.Data.SqlClient.SqlCommand sqlSelectCommand2;
 		protected ASSMCA.perfiles.dsPerfil dsPerfil;
+		
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
 			if(!this.IsPostBack)
 			{
-                //Response.Write("<script>alert('" + this.Session["co_tipo"].ToString() + "');</script>");
-                if (this.Session["dsSeguridad"] == null)
+				
+				//Response.Write("<script>alert('" + this.Session["co_tipo"].ToString() + "');</script>");
+				if (this.Session["dsSeguridad"] == null)
                 {
                     this.Response.Redirect("~/Error.aspx?errMsg=sesion");
                     return;
@@ -35,8 +39,15 @@ namespace ASSMCA
 					this.daLkpPerfil.Fill(this.dsPerfil);
 					this.Session["dsPerfil"] = this.dsPerfil;
 				}
+
+				
+
 			}
 		}
+
+		
+
+
 		private void PreapararCombos()
         {
             #region Tablas del episodio y perfil de admision

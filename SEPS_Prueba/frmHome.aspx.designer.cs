@@ -7,9 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ASSMCA {
-    
-    
-    public partial class frmHome {
+namespace ASSMCA
+{
+
+
+    public partial class frmHome
+    {
     }
 }
