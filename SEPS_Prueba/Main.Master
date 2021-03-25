@@ -52,7 +52,7 @@
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?accion=consultar")%>">Buscar</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmEditar.aspx?accion=registrar")%>">Registrar</a></li>
                         <li class="label-li-sb-navbar"><span>Otros Enlaces</span></li>
-                        
+                        <li><a onclick="popup()">Evaluaciones de Progreso</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("frmPassword.aspx")%>">Modificar Contraseña</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Reportes.aspx")%>">Reportes</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Documentos.aspx")%>">Documentos</a></li>
@@ -100,34 +100,65 @@
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
 <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3 class="modal-title">Sistema de Alerta de Evaluaciones de Progreso</h3>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3 class="modal-title text-center" >Reporte de Alerta de Evaluaciones de Progreso</h3>
 </div>
 <div class="modal-body">
     <div style="overflow-x:auto;">
 
         <style>
             .table-responsive {
-    max-height:300px;}
-
-            .table-th {position:static}
+    max-height:400px;}
         </style>
-
+        
+     <div id="printdivcontent">
 <div id="divtable" class="table-responsive" runat="server">
    </div>
-        <asp:Label id="lblTotalEvProgreso" runat="server"></asp:Label>   
+         </div>
+
+        <asp:Label id="lblMessage" Visible="false" runat="server"></asp:Label>  
+        <asp:Label id="lblTotalEvProgreso" runat="server"></asp:Label>  
+        <br />
+        <div class="pull-right">
+        <asp:Button Id="BtnPrint" runat="server"  OnClientClick="PrintDiv()" CssClass="btn" Text="Imprimir"></asp:Button>
+        <asp:Button Id="BtnExportExcel" runat="server" OnClick="BtnExportExcel_Click" CssClass="btn" Text="Exportar Excel"></asp:Button>
+        </div>
     </div>
 </div>
+    <div class="modal-footer">
+        <p Class="text-center">&copy; ASSMCA <%= DateTime.Now.Year.ToString() %>  </p>
+    </div>
 </div>
     </div>
     </div>
+        <label hidden id="lblNbPrograma"><%= Session["NB_Programa"] %></label>
 
     </form>
     <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js") %>"></script>
     <script>
+
+        function PrintDiv() {
+            var d = new Date();
+            var divContents = document.getElementById("printdivcontent").innerHTML;
+            var nombrePrograma = document.getElementById("lblNbPrograma").textContent;
+
+            var printWindow = window.open();
+            printWindow.document.write('<html><head>');
+            printWindow.document.write('</head><body style="font-family:courier;"><style>h2 {text-align: center;} a {text-decoration:none; color:black;}  table { font-size: 12px; width:100%; border-collapse:collapse; } table, td, th { border: 1px solid black;}</style>');
+            printWindow.document.write('<h2 >Reporte de Alerta de Evaluaciones de Progreso</h2>');
+            printWindow.document.write('<p>Programa: ' + nombrePrograma + '</p>');
+            printWindow.document.write('<p>Fecha: ' + d.toDateString() + '</p>');
+            printWindow.document.write('</br>');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }  
        
         function popup()
         {
+            <%FillPopEvProgresoTable();%>
             $('#myModal').modal('show');
+            
         }
 
        
