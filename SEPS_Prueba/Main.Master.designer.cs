@@ -69,6 +69,24 @@ namespace ASSMCA
         protected global::System.Web.UI.WebControls.ContentPlaceHolder mainBodyContent;
 
         /// <summary>
+        /// txtFromDatePicker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFromDatePicker;
+
+        /// <summary>
+        /// txtToDatePicker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToDatePicker;
+
+        /// <summary>
         /// divtable control.
         /// </summary>
         /// <remarks>

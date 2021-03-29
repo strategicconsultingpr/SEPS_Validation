@@ -61,6 +61,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="images\calendar.svg" />
     <Content Include="PasswordChangeMandatory.aspx" />
     <Content Include="ErrorView.aspx" />
     <Content Include="css\global.css" />
@@ -112,6 +114,7 @@
     <Content Include="vendor\ie10-viewport-bug-workaround.js" />
     <Content Include="vendor\jquery-1.11.2.min.js" />
     <Content Include="vendor\jquery-2.1.3.min.js" />
+    <Content Include="vendor\jquery-ui.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

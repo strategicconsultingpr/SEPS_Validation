@@ -38640,7 +38640,7 @@ namespace ASSMCA.perfiles
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DataObjectAttribute(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+       ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class PopupsEvProgresoTableAdapter : global::System.ComponentModel.Component
     {
@@ -38771,7 +38771,7 @@ namespace ASSMCA.perfiles
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection()
         {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"select DISTINCT P.NB_Programa 'Nombre Programa', Per.NB_Primero + ' ' + Per.AP_Primero AS 'Nombre Participante', Per.PK_Persona AS IUP, SA_PERSONA_PROGRAMA.NR_Expediente 'Expediente' ,E.PK_Episodio 'Número de Episodio', E.FE_Episodio 'Fecha Admsión', UltimoPerfil as 'Último Perfil', IN_TI_Perfil as 'Tipo de Último Perfil', DATEDIFF(month,UltimoPerfil,GETDATE()) as 'Meses sin Perfiles de Evaluación de Progreso'
@@ -38793,6 +38793,31 @@ AND (E.FK_Programa IN (@Programas))
 order by FE_Episodio";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Programas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"select DISTINCT P.NB_Programa 'Nombre Programa', Per.NB_Primero + ' ' + Per.AP_Primero AS 'Nombre Participante', Per.PK_Persona AS IUP, SA_PERSONA_PROGRAMA.NR_Expediente 'Expediente' ,E.PK_Episodio 'Número de Episodio', E.FE_Episodio 'Fecha Admsión', UltimoPerfil as 'Último Perfil', IN_TI_Perfil as 'Tipo de Último Perfil', DATEDIFF(month,UltimoPerfil,GETDATE()) as 'Meses sin Perfiles de Evaluación de Progreso'
+from SA_EPISODIO as E INNER JOIN SA_PROGRAMA as P ON E.FK_Programa = P.PK_Programa
+		INNER JOIN SA_PERFIL as Perfil ON E.PK_Episodio = Perfil.FK_Episodio
+		INNER JOIN SA_PERSONA as Per ON E.FK_Persona = Per.PK_Persona
+		INNER JOIN SA_PERSONA_PROGRAMA ON Per.PK_Persona = SA_PERSONA_PROGRAMA.FK_Persona
+		AND P.PK_Programa = SA_PERSONA_PROGRAMA.FK_Programa
+		INNER JOIN 
+
+(select FK_Episodio, MAX(PK_NR_Perfil) as PK_NR_Perfil ,MAX(FE_Perfil) 'UltimoPerfil'
+from SA_PERFIL
+where FK_Episodio not in (
+select FK_Episodio from SA_PERFIL where FE_Perfil > DATEADD(m,-5,GETDATE())) 
+group by FK_Episodio) as UltimoPerfil ON Perfil.PK_NR_Perfil = UltimoPerfil.PK_NR_Perfil
+
+where E.FE_Alta is null
+AND (E.FK_Programa IN (@Programas))
+AND (YEAR(E.FE_Episodio) > 2013)
+AND (E.FE_Episodio >= @FechaInicial AND E.FE_Episodio <= @FechaFinal)
+order by FE_Episodio";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Programas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaInicial", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha Admsión", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaFinal", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha Admsión", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -38819,6 +38844,39 @@ order by FE_Episodio";
         {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Programas));
+            dsPerfil.PopupsEvProgresoDataTable dataTable = new dsPerfil.PopupsEvProgresoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dsPerfil.PopupsEvProgresoDataTable dataTable, int Programas, System.DateTime FechaInicial, System.DateTime FechaFinal)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Programas));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaInicial));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(FechaFinal));
+            if ((this.ClearBeforeFill == true))
+            {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsPerfil.PopupsEvProgresoDataTable GetDataBy(int Programas, System.DateTime FechaInicial, System.DateTime FechaFinal)
+        {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Programas));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaInicial));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(FechaFinal));
             dsPerfil.PopupsEvProgresoDataTable dataTable = new dsPerfil.PopupsEvProgresoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

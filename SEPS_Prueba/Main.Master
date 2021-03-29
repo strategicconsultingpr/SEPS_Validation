@@ -10,9 +10,13 @@
     <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/jquery-1.11.2.min.js") %>"></script>
     <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="css/global.css" rel="stylesheet">
     <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIVal.js") %>"></script>
     <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js") %>"></script>
+    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/jquery-ui.js") %>"></script>
+
+
 </head>
 <body>
     <div class="visible-print-block">
@@ -52,7 +56,7 @@
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?accion=consultar")%>">Buscar</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmEditar.aspx?accion=registrar")%>">Registrar</a></li>
                         <li class="label-li-sb-navbar"><span>Otros Enlaces</span></li>
-                        <li><a onclick="popup()">Evaluaciones de Progreso</a></li>
+                            <li id="BtnSaep2"><a onclick="popup()">SAEP</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("frmPassword.aspx")%>">Modificar Contraseña</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Reportes.aspx")%>">Reportes</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Documentos.aspx")%>">Documentos</a></li>
@@ -84,7 +88,7 @@
                     <li><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?accion=consultar")%>">Buscar</a></li>
                     <li><a href="<%=ResolveClientUrl("pacientes/frmEditar.aspx?accion=registrar")%>">Registrar</a></li>
                     <li class="label-li-sb"><span>Otros Enlaces</span></li>
-                    <li><a onclick="popup()">Evaluaciones de Progreso</a></li>
+                    <li id="BtnSaep1"><a onclick="popup()">SAEP</a></li>
                     <li><a href="<%=ResolveClientUrl("frmPassword.aspx")%>">Modificar Contraseña</a></li>
                     <li><a href="<%=ResolveClientUrl("Reportes.aspx")%>">Reportes</a></li>
                     <li><a href="<%=ResolveClientUrl("Documentos.aspx")%>">Documentos</a></li>
@@ -100,7 +104,7 @@
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
 <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3 class="modal-title text-center" >Reporte de Alerta de Evaluaciones de Progreso</h3>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> <h3 class="modal-title text-center" >Sistema de Alerta de Evaluaciones de Progreso</h3>
 </div>
 <div class="modal-body">
     <div style="overflow-x:auto;">
@@ -108,8 +112,22 @@
         <style>
             .table-responsive {
     max-height:400px;}
+
+            input.form-control:read-only {
+                background-color: #fff;
+            }
         </style>
-        
+
+        <div class="form-inline">
+            <label for="txtFromDatePicker">Desde:</label>
+            <asp:TextBox CssClass="form-control" ID="txtFromDatePicker"  runat="server" />
+            <label for="txtToDatePicker">Hasta:</label>
+            <asp:TextBox CssClass="form-control" ID="txtToDatePicker" runat="server" />
+            <asp:Button CssClass="form-control" runat="server" OnClick="btnSearchPopup_Click" Text="Buscar" />
+        </div>
+
+
+        <hr />
      <div id="printdivcontent">
 <div id="divtable" class="table-responsive" runat="server">
    </div>
@@ -136,6 +154,43 @@
     <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js") %>"></script>
     <script>
 
+        $(function () {
+            var dateFormat = "yy/mm/dd",
+                from = $("#txtFromDatePicker")
+                    .datepicker({
+                        minDate: new Date(1940,01,01),
+                        yearRange: "1940:"+ new Date().getFullYear().toString(),
+                        changeMonth: true,
+                        changeYear: true,
+                        numberOfMonths: 1
+
+                    })
+                    .on("change", function () {
+                        to.datepicker("option", "minDate", getDate(this));
+                    }),
+                to = $("#txtToDatePicker").datepicker({
+                    minDate: new Date(1940, 01, 01),
+                    yearRange: "1940:" + new Date().getFullYear().toString(),
+                    changeMonth: true,
+                    changeYear: true,
+                    numberOfMonths: 1
+                })
+                    .on("change", function () {
+                        from.datepicker("option", "maxDate", getDate(this));
+                    });
+
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+
+                return date;
+            }
+        });
+
         function PrintDiv() {
             var d = new Date();
             var divContents = document.getElementById("printdivcontent").innerHTML;
@@ -144,7 +199,7 @@
             var printWindow = window.open();
             printWindow.document.write('<html><head>');
             printWindow.document.write('</head><body style="font-family:courier;"><style>h2 {text-align: center;} a {text-decoration:none; color:black;}  table { font-size: 12px; width:100%; border-collapse:collapse; } table, td, th { border: 1px solid black;}</style>');
-            printWindow.document.write('<h2 >Reporte de Alerta de Evaluaciones de Progreso</h2>');
+            printWindow.document.write('<h2>Sistema de Alerta de Evaluaciones de Progreso</h2>');
             printWindow.document.write('<p>Programa: ' + nombrePrograma + '</p>');
             printWindow.document.write('<p>Fecha: ' + d.toDateString() + '</p>');
             printWindow.document.write('</br>');
@@ -153,13 +208,18 @@
             printWindow.document.close();
             printWindow.print();
         }  
+
+        $(document).ready(function ()
+        {
+            if (document.location.pathname != "/frmHome.aspx") { $("#BtnSaep1").hide(); $("#BtnSaep2").hide(); } else { $("#BtnSaep1").show(); $("#BtnSaep2").show();  }
+        });
        
         function popup()
         {
-            <%FillPopEvProgresoTable();%>
-            $('#myModal').modal('show');
-            
+            $('#myModal').modal('show');          
         }
+
+        
 
        
     </script>

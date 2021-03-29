@@ -18,9 +18,6 @@
 
 });
 
-
-
-
 function ddInFumadoChange()
 {
     var dropdown = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlInFumado");
@@ -1100,7 +1097,7 @@ function ddlPreviosSustancias() {
         nivelItem.value = 99;
 
         switch (ddlPreviosSustancias.value) {
-            case ("1"): case ("99"):
+            case ("1"): case ("99"): case("97"):
                 for (var i = ddlNivel.options.length - 1; i >= 0; i--) {
                     if (ddlNivel.options[i].value == 99) {
                         continue;
@@ -1150,7 +1147,7 @@ function ddlPreviosMental() {
         nivelItem.value = 99;
         
         switch (ddlPreviosMental.value) {
-            case ("1"): case ("99"):
+            case ("1"): case ("99"): case ("97"):
                  
                 for (var i = ddlNivel.options.length - 1; i >= 0; i--) {
                     if (ddlNivel.options[i].value == 99) {

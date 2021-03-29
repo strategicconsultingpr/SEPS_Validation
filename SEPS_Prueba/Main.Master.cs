@@ -42,7 +42,10 @@ namespace ASSMCA
 
 			if (!this.IsPostBack)
 			{
-				FillPopEvProgresoTable();
+				txtToDatePicker.Text = DateTime.Now.ToShortDateString();
+				txtFromDatePicker.Text = DateTime.Now.AddYears(-10).ToShortDateString();
+
+      			FillPopEvProgresoTable();
 				
 			}
 
@@ -52,66 +55,92 @@ namespace ASSMCA
 			this.Response.Redirect(ResolveClientUrl("frmLogon.aspx?changeProg=yes"));
 		}
 
-		PopupsEvProgresoDataTable GetEVProgreso()
+		PopupsEvProgresoDataTable GetEVProgreso( DateTime from , DateTime to)
 		{
 			var programa = Convert.ToInt32(this.Session["pk_programa"]);
 
-			return PopupsEvProgreso.GetData(programa);
+
+
+			return PopupsEvProgreso.GetDataBy(programa, from, to);
 
 		}
 
 
 		public void FillPopEvProgresoTable()
 		{
-
-			var programa = Convert.ToInt32(this.Session["pk_programa"]);
-
-			var list = GetEVProgreso();
-
-			var str = "";
-			totalEvProgreso = 0;
+			DateTime from;
+			DateTime to;
 
 
-
-			if (list.Count > 0)
+			if (DateTime.TryParse(txtFromDatePicker.Text, out from) && DateTime.TryParse(txtToDatePicker.Text, out to))
 			{
-
-				str += "<table align=\"center\" class=\"table\"><thead>"
-					+ "<tr>"
-			 	+ "<th scope=\"col\">Nombre</th>"
-				+ "<th scope=\"col\">IUP</th>"
-				+ "  <th scope=\"col\">Expediente</th>"
-				+ "  <th scope=\"col\">Numero de Episodio</th>"
-				+ "  <th scope=\"col\">Fecha Admsión</th>"
-				+ "  <th scope=\"col\">Último Perfil</th>"
-				+ "  <th scope=\"col\">Tipo de Último Perfil</th>"
-				+ "  <th scope=\"col\">Meses sin Perfiles de Evaluación de Progreso</th>"
-				+ "</tr>"
-				+ "</thead><tbody>";
-				foreach (var episodio in list)
+				if (from.Year < 1950 || from.Year > 9999 || to.Year < 1950 || to.Year > 9999)
 				{
-					totalEvProgreso++;
-					str += "<tr>"
-						+ $"<th scope=\"row\"> {episodio.Nombre_Participante}</th>"
-						 + $"<td><a href=\"./pacientes/frmVisualizar.aspx?accion=consultar&pk_persona={episodio.IUP}&fuente={FormatTipoPerfilLink(episodio.Tipo_de_Último_Perfil)}\">{episodio.IUP}</a></td>"
-						  + $" <td>{ episodio.Expediente}</td>"
-							  + $"  <td>{ episodio.Número_de_Episodio}</td>"
-								 + $" <td>{ episodio.Fecha_Admsión.Date.ToShortDateString()}</td>"
-									 + $" <td>{ episodio.Último_Perfil.Date.ToShortDateString()}</td>"
-									  + $"<td>{FormatTipoPerfil(episodio.Tipo_de_Último_Perfil)}</td>"
-										 + $"<td>{ episodio.Meses_sin_Perfiles_de_Evaluación_de_Progreso}</td>"
-											  + "</tr>";
-
-
+					BtnExportExcel.Visible = false;
+					BtnPrint.Visible = false;
+					lblMessage.Visible = true;
+					divtable.Visible = false;
+					lblTotalEvProgreso.Visible = false;
+					lblMessage.Text = "El año escogido debe ser mayor de 1940 y menor de 9999.";
 				}
+				else
+				{
+					var list = GetEVProgreso(from, to);
+					var str = "";
+					totalEvProgreso = 0;
 
-				divtable.Visible = true;
-				str += "</tbody></table>";
-				lblTotalEvProgreso.Text = "Total: " + totalEvProgreso.ToString();
-				divtable.InnerHtml = str;
-				lblMessage.Visible = false;
-				BtnExportExcel.Visible = true;
-				BtnPrint.Visible = true;
+					if (list.Count > 0)
+					{
+
+						str += "<table align=\"center\" class=\"table\"><thead>"
+							+ "<tr>"
+						 + "<th scope=\"col\">Nombre</th>"
+						+ "<th scope=\"col\">IUP</th>"
+						+ "  <th scope=\"col\">Expediente</th>"
+						+ "  <th scope=\"col\">Numero de Episodio</th>"
+						+ "  <th scope=\"col\">Fecha Admsión</th>"
+						+ "  <th scope=\"col\">Último Perfil</th>"
+						+ "  <th scope=\"col\">Tipo de Último Perfil</th>"
+						+ "  <th scope=\"col\">Meses sin Perfiles de Evaluación de Progreso</th>"
+						+ "</tr>"
+						+ "</thead><tbody>";
+						foreach (var episodio in list)
+						{
+							totalEvProgreso++;
+							str += "<tr>"
+								+ $"<th scope=\"row\"> {episodio.Nombre_Participante}</th>"
+								 + $"<td><a href=\"./pacientes/frmVisualizar.aspx?accion=consultar&pk_persona={episodio.IUP}&fuente={FormatTipoPerfilLink(episodio.Tipo_de_Último_Perfil)}\">{episodio.IUP}</a></td>"
+								  + $" <td>{ episodio.Expediente}</td>"
+									  + $"  <td>{ episodio.Número_de_Episodio}</td>"
+										 + $" <td>{ episodio.Fecha_Admsión.Date.ToShortDateString()}</td>"
+											 + $" <td>{ episodio.Último_Perfil.Date.ToShortDateString()}</td>"
+											  + $"<td>{FormatTipoPerfil(episodio.Tipo_de_Último_Perfil)}</td>"
+												 + $"<td>{ episodio.Meses_sin_Perfiles_de_Evaluación_de_Progreso}</td>"
+													  + "</tr>";
+
+
+						}
+
+						divtable.Visible = true;
+						str += "</tbody></table>";
+						lblTotalEvProgreso.Text = "Total: " + totalEvProgreso.ToString();
+						divtable.InnerHtml = str;
+						lblMessage.Visible = false;
+						lblTotalEvProgreso.Visible = true;
+						BtnExportExcel.Visible = true;
+						BtnPrint.Visible = true;
+
+					}
+					else
+					{
+						BtnExportExcel.Visible = false;
+						BtnPrint.Visible = false;
+						lblMessage.Visible = true;
+						lblTotalEvProgreso.Visible = false;
+						divtable.Visible = false;
+						lblMessage.Text = "En estos momentos no existen evaluaciones en progreso";
+					}
+				}
 			}
 			else
 			{
@@ -119,10 +148,9 @@ namespace ASSMCA
 				BtnPrint.Visible = false;
 				lblMessage.Visible = true;
 				divtable.Visible = false;
-				lblMessage.Text = "En estos momentos no existen evaluaciones en progreso";
+				lblTotalEvProgreso.Visible = false;
+				lblMessage.Text = "Campos de fecha en blanco o formato incorrecto";
 			}
-
-
 		}
 
 		string FormatTipoPerfil(string str) => (str == "AD") ? "Admisión" : (str == "EV") ? "Evaluación" : "Alta";
@@ -131,57 +159,66 @@ namespace ASSMCA
 
 		protected void BtnExportExcel_Click(object sender, EventArgs e)
 		{
-			var list = GetEVProgreso();
 
-			if (list.Count > 0)
+			DateTime from;
+			DateTime to;
+
+			if (DateTime.TryParse(txtFromDatePicker.Text, out from) && DateTime.TryParse(txtToDatePicker.Text, out to))
 			{
-				Response.ClearContent();
+				var list = GetEVProgreso(from, to);
 
-				Response.AddHeader("Content-Disposition", $"Attachment;Filename=SAEP {DateTime.Now.ToShortDateString()} {this.Session["NB_Programa"]}.xls");
-				Response.Buffer = true;
-				Response.Charset = "UTF-8";
-				Response.ContentType = "application/vnd.ms-excel";
-
-				var str = "";
-				str += $"<p>Reporte de Alerta de Evaluaciones de Progreso</p>";
-				str += $"<p>Programa: {this.Session["NB_Programa"]}</p>";
-				str += $"<p>Fecha: {DateTime.Now.ToShortDateString()}/<p>";
-				str += "<table><thead>"
-					   + "<tr>"
-					+ "<th scope=\"col\">Nombre</th>"
-				   + "<th scope=\"col\">IUP</th>"
-				   + "  <th scope=\"col\">Expediente</th>"
-				   + "  <th scope=\"col\">Numero de Episodio</th>"
-				   + "  <th scope=\"col\">Fecha Admsión</th>"
-				   + "  <th scope=\"col\">Último Perfil</th>"
-				   + "  <th scope=\"col\">Tipo de Último Perfil</th>"
-				   + "  <th scope=\"col\">Meses sin Perfiles de Evaluación de Progreso</th>"
-				   + "</tr>"
-				   + "</thead><tbody>";
-				foreach (var episodio in list)
+				if (list.Count > 0)
 				{
-					totalEvProgreso++;
-					str += "<tr>"
-						+ $"<th scope=\"row\"> {episodio.Nombre_Participante}</th>"
-						 + $"<td><a>{episodio.IUP}</a></td>"
-						  + $" <td>{ episodio.Expediente}</td>"
-							  + $"  <td>{ episodio.Número_de_Episodio}</td>"
-								 + $" <td>{ episodio.Fecha_Admsión.Date.ToShortDateString()}</td>"
-									 + $" <td>{ episodio.Último_Perfil.Date.ToShortDateString()}</td>"
-									  + $"<td>{FormatTipoPerfil(episodio.Tipo_de_Último_Perfil)}</td>"
-										 + $"<td>{ episodio.Meses_sin_Perfiles_de_Evaluación_de_Progreso}</td>"
-											  + "</tr>";
-				}
+					Response.ClearContent();
 
-			
+					Response.AddHeader("Content-Disposition", $"Attachment;Filename=SAEP {DateTime.Now.ToShortDateString()} {this.Session["NB_Programa"]}.xls");
+					Response.Buffer = true;
+					Response.Charset = "UTF-8";
+					Response.ContentType = "application/vnd.ms-excel";
+
+					var str = "";
+					str += $"<p>Sistema de Alerta de Evaluaciones de Progreso</p>";
+					str += $"<p>Programa: {this.Session["NB_Programa"]}</p>";
+					str += $"<p>Fecha: {DateTime.Now.ToShortDateString()}/<p>";
+					str += "<table><thead>"
+						   + "<tr>"
+						+ "<th scope=\"col\">Nombre</th>"
+					   + "<th scope=\"col\">IUP</th>"
+					   + "  <th scope=\"col\">Expediente</th>"
+					   + "  <th scope=\"col\">Numero de Episodio</th>"
+					   + "  <th scope=\"col\">Fecha Admsión</th>"
+					   + "  <th scope=\"col\">Último Perfil</th>"
+					   + "  <th scope=\"col\">Tipo de Último Perfil</th>"
+					   + "  <th scope=\"col\">Meses sin Perfiles de Evaluación de Progreso</th>"
+					   + "</tr>"
+					   + "</thead><tbody>";
+					foreach (var episodio in list)
+					{
+						totalEvProgreso++;
+						str += "<tr>"
+							+ $"<th scope=\"row\"> {episodio.Nombre_Participante}</th>"
+							 + $"<td><a>{episodio.IUP}</a></td>"
+							  + $" <td>{ episodio.Expediente}</td>"
+								  + $"  <td>{ episodio.Número_de_Episodio}</td>"
+									 + $" <td>{ episodio.Fecha_Admsión.Date.ToShortDateString()}</td>"
+										 + $" <td>{ episodio.Último_Perfil.Date.ToShortDateString()}</td>"
+										  + $"<td>{FormatTipoPerfil(episodio.Tipo_de_Último_Perfil)}</td>"
+											 + $"<td>{ episodio.Meses_sin_Perfiles_de_Evaluación_de_Progreso}</td>"
+												  + "</tr>";
+					}
+
+
 					Response.Write(System.Net.WebUtility.HtmlDecode(str));
 					Response.End();
 
 				}
 
-
-
 			}
-		
-	}
+		}
+
+        protected void btnSearchPopup_Click(object sender, EventArgs e)
+        {
+			FillPopEvProgresoTable();
+        }
+    }
 }

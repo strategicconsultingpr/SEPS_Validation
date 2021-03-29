@@ -52,6 +52,8 @@
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?accion=consultar")%>">Buscar</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("pacientes/frmEditar.aspx?accion=registrar")%>">Registrar</a></li>
                         <li class="label-li-sb-navbar"><span>Otros Enlaces</span></li>
+                                             
+
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("frmPassword.aspx")%>">Modificar Contraseña</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Reportes.aspx")%>">Reportes</a></li>
                         <li class="navbarSmallLi"><a href="<%=ResolveClientUrl("Documentos.aspx")%>">Documentos</a></li>
@@ -83,6 +85,8 @@
                     <li><a href="<%=ResolveClientUrl("pacientes/frmconsulta.aspx?accion=consultar")%>">Buscar</a></li>
                     <li><a href="<%=ResolveClientUrl("pacientes/frmEditar.aspx?accion=registrar")%>">Registrar</a></li>
                     <li class="label-li-sb"><span>Otros Enlaces</span></li>
+                                          
+
                     <li><a href="<%=ResolveClientUrl("frmPassword.aspx")%>">Modificar Contraseña</a></li>
                     <li><a href="<%=ResolveClientUrl("Reportes.aspx")%>">Reportes</a></li>
                     <li><a href="<%=ResolveClientUrl("Documentos.aspx")%>">Documentos</a></li>
