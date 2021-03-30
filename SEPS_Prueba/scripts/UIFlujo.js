@@ -3141,6 +3141,25 @@ function chkEmail() {
     }
 }
 
+function ValidateEmail(input) {
+
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (input.value.match(validRegex)) {
+
+        return true;
+
+    } else {
+
+        alert("Favor de revisar el formato del email.");
+
+        return false;
+
+    }
+
+}
+
+
 function email2() {
     var txtEmail1 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail1");
     var txtEmail2 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2");
@@ -3149,6 +3168,12 @@ function email2() {
         txtEmail2.value = "";
         alert("Debe completar toda información del primer email");
     }
+    else if (txtEmail1.value == txtEmail2.value) {
+        alert("No se pueden repetir los email.");
+        txtEmail2.value = "";
+    }
+    else if (txtEmail2.value != "") { ValidateEmail(txtEmail2); }
+        
 }
 
 var saving = false;

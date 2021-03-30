@@ -7,6 +7,6 @@ namespace SEPS.Constante
 {
     public static class Const
     {
-        public static DateTime EdadInicioFechaCambioNuevo = new DateTime(2021, 03, 14);
+        public static DateTime EdadInicioFechaCambioNuevo = new DateTime(2021, 03, 30);
     }
 }
