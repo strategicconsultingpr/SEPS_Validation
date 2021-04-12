@@ -3141,18 +3141,20 @@ function chkEmail() {
     }
 }
 
-function ValidateEmail(input) {
+function ValidateEmail(input, flag) {
 
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     if (input.value.match(validRegex)) {
+
+        if (flag == 'true') { document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2").disabled = false; }
 
         return true;
 
     } else {
 
         alert("Favor de revisar el formato del email.");
-
+        if (flag == 'true') { document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2").disabled = true; }
         return false;
 
     }
@@ -3172,7 +3174,7 @@ function email2() {
         alert("No se pueden repetir los email.");
         txtEmail2.value = "";
     }
-    else if (txtEmail2.value != "") { ValidateEmail(txtEmail2); }
+    else if (txtEmail2.value != "") { ValidateEmail(txtEmail2, 'false');}
         
 }
 

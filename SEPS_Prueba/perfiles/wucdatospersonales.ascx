@@ -296,7 +296,7 @@
                        ¿Contiene? &nbsp&nbsp&nbsp<asp:CheckBox ID="chkEmail" runat="server" class="form-check-input" OnClick="chkEmail();"/>
                    </div>
                    <div class="col-md-8">
-                        <asp:TextBox  CssClass="form-control" ID="txtEmail1" runat="server" Enabled="false" onBlur="ValidateEmail(this);" />
+                        <asp:TextBox  CssClass="form-control" ID="txtEmail1" runat="server" Enabled="false" onBlur="ValidateEmail(this,'true');" />
                         <asp:Label ID="lblEmail1" runat="server" />
                    </div>
                </div>
