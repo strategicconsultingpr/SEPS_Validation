@@ -582,6 +582,24 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblEmail1;
 
         /// <summary>
+        /// rfvEmail2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail2;
+
+        /// <summary>
+        /// chkEmail2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkEmail2;
+
+        /// <summary>
         /// txtEmail2 control.
         /// </summary>
         /// <remarks>

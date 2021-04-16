@@ -1,0 +1,20 @@
+****Este documento tiene como propósito tener un historial de cambios en el sistema*******
+
+*****************************************************************************************************************
+Jose A. Ramos De La Cruz
+****************************************************
+
+Branch: Hallazgos-Pruebas
+Cambios:
+
+	1) Rehacer metodos relacionados a los email en UIFlujo.js y UIFlujoPerfil.js
+	   se agrego checkbox para segundo email.
+
+
+
+
+****************************************************
+
+
+******************************************************************************************************************
+

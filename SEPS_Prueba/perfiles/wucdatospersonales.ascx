@@ -290,13 +290,13 @@
         <th><span class="SEPSLabel"></span></th>
         <td><%--Diagnóstico Primario--%>
             <asp:RequiredFieldValidator ID="rfvEmail1" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" Enabled="false" ToolTip="Este campo es requerido, al seleccionar el cuadrado." ErrorMessage="Email" ControlToValidate="txtEmail1" Text="*"/>
-           <div class="expandibleDiv">
+            <div class="expandibleDiv">
                <div class="row">
                    <div class="col-md-4">
-                       ¿Contiene? &nbsp&nbsp&nbsp<asp:CheckBox ID="chkEmail" runat="server" class="form-check-input" OnClick="chkEmail();"/>
+                       ¿Contiene? &nbsp&nbsp&nbsp<asp:CheckBox ID="chkEmail"  runat="server" class="form-check-input" onClick="ChkEmailClick('1');"/>
                    </div>
                    <div class="col-md-8">
-                        <asp:TextBox  CssClass="form-control" ID="txtEmail1" runat="server" Enabled="false" onBlur="ValidateEmail(this,'true');" />
+                        <asp:TextBox  CssClass="form-control" ID="txtEmail1"  AutoCompleteType="Email" runat="server" Enabled="false" onBlur="EmailValidator('1');" />
                         <asp:Label ID="lblEmail1" runat="server" />
                    </div>
                </div>
@@ -304,8 +304,12 @@
             </div>
         </td>
         <td><%--Diagnóstico Primario--%>
+                        <asp:RequiredFieldValidator ID="rfvEmail2" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" Enabled="false" ToolTip="Este campo es requerido, al seleccionar el cuadrado." ErrorMessage="Email" ControlToValidate="txtEmail2" Text="*"/>
+             <div class="col-md-4">
+                       ¿Contiene? &nbsp&nbsp&nbsp<asp:CheckBox ID="chkEmail2" runat="server" class="form-check-input" onClick="ChkEmailClick('2');"/>
+                   </div>
            <div class="expandibleDiv">
-                <asp:TextBox  CssClass="form-control" ID="txtEmail2" runat="server" Enabled="false" onBlur="email2();"/>
+                <asp:TextBox  CssClass="form-control" ID="txtEmail2" AutoCompleteType="Email" runat="server" Enabled="false" onBlur="EmailValidator('2');" />
                 <asp:Label ID="lblEmail2" runat="server" />
             </div>
         </td>

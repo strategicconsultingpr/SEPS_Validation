@@ -3119,64 +3119,135 @@ function chkCelular2() {
     }
 }
 
-function chkEmail() {
-    var chkEmail = document.getElementById("mainBodyContent_WucDatosPersonales_chkEmail");
-    var txtEmail1 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail1");
-    var txtEmail2 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2");
-    var rfvEmail1 = document.getElementById("mainBodyContent_WucDatosPersonales_rfvEmail1");
 
 
-    if (chkEmail.checked == true) {
-        txtEmail1.disabled = false;
-        txtEmail2.disabled = false;
-        ValidatorEnable(rfvEmail1, true);
-    }
-    else {
-        txtEmail1.value = "";
-        txtEmail1.disabled = true;
-        txtEmail2.value = "";
-        txtEmail2.disabled = true;
-        ValidatorEnable(rfvEmail1, false);
 
-    }
-}
 
-function ValidateEmail(input, flag) {
+function ValidateEmail(input) {
 
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-    if (input.value.match(validRegex)) {
+    if (input.value != "") {
 
-        if (flag == 'true') { document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2").disabled = false; }
+        if (input.value.match(validRegex)) {
+            return true;
 
-        return true;
+        } else {
 
-    } else {
-
-        alert("Favor de revisar el formato del email.");
-        if (flag == 'true') { document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2").disabled = true; }
-        return false;
+            alert("Favor de revisar el formato del email.");
+            return false;
+        }
 
     }
 
 }
 
+function ChkEmailClick(flag)
+{
+    var chk1 = document.getElementById("mainBodyContent_WucDatosPersonales_chkEmail");
+    var txtbox1 = txtEmail1 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail1");
+    var validator1 = document.getElementById("mainBodyContent_WucDatosPersonales_rfvEmail1");
 
-function email2() {
-    var txtEmail1 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail1");
-    var txtEmail2 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2");
+    var chk2 = document.getElementById("mainBodyContent_WucDatosPersonales_chkEmail2");
+    var txtbox2 = txtEmail1 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2");
+    var validator2 = document.getElementById("mainBodyContent_WucDatosPersonales_rfvEmail2");
 
-    if (txtEmail1.value == "") {
-        txtEmail2.value = "";
-        alert("Debe completar toda información del primer email");
+
+    switch (flag)
+    {
+        case "1":
+
+            if (chk1.checked == true)
+            {
+                txtbox1.disabled = false;
+                txtbox1.value = "";
+                ValidatorEnable(validator1, true);
+            }
+            else
+            {
+                txtbox1.disabled = true;
+                txtbox1.value = "";
+                ValidatorEnable(validator1, false);
+
+                if (chk2.checked == true)
+                {
+                    chk2.checked = false;
+                    txtbox2.disabled = true;
+                    txtbox2.value = "";
+                    ValidatorEnable(validator2, false);
+                }
+            }
+            break;
+
+
+        case "2":
+
+            if (chk1.checked == false || ValidateEmail(txtbox1) == false) {
+                chk2.checked = false;
+                txtbox2.disabled = true;
+                txtbox2.value = "";
+                ValidatorEnable(validator2, false);
+
+            }
+            else if (chk2.checked == true) {
+                txtbox2.disabled = false;
+                txtbox2.value = "";
+                ValidatorEnable(validator2, true);
+            }
+            else
+            {
+                txtbox2.disabled = true;
+                txtbox2.value = "";
+                ValidatorEnable(validator2, false);
+            }
+            break;
     }
-    else if (txtEmail1.value == txtEmail2.value) {
-        alert("No se pueden repetir los email.");
-        txtEmail2.value = "";
-    }
-    else if (txtEmail2.value != "") { ValidateEmail(txtEmail2, 'false');}
-        
 }
+
+
+function EmailValidator(flag)
+{
+    var txtbox1 = txtEmail1 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail1");
+
+    var chk2 = document.getElementById("mainBodyContent_WucDatosPersonales_chkEmail2");
+    var txtbox2 = document.getElementById("mainBodyContent_WucDatosPersonales_txtEmail2");
+    var validator2 = document.getElementById("mainBodyContent_WucDatosPersonales_rfvEmail2");
+
+
+    switch (flag)
+    {
+        case "1":
+           ValidateEmail(txtbox1);
+            break;
+
+        case "2":  
+
+            if (txtbox1.value == txtbox2.value) {
+                alert("Email 1 y email 2 son semejantes.");
+                txtbox2.value = "";
+                ValidatorEnable(validator2, true);
+
+
+            }
+            else if (txtbox1.value == "") {
+                alert("Favor de completar el primer email.");
+                txtbox2.value = "";
+                txtbox2.disable = true;
+                chk2.checked = false;
+                ValidatorEnable(validator2, false);
+               
+            }
+            else
+            { ValidateEmail(txtbox2); }
+
+            break;
+
+    }
+
+
+}
+
+
 
 var saving = false;
 function validate() {
