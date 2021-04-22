@@ -452,8 +452,9 @@
                </li>
                <li class="list-group-item" >
                  <label class="SEPSLabel">¿Si fuma todos o algunos días, cuantos cigarrillos en promedio usted fuma en un día?:</label>
-                    <asp:RegularExpressionValidator ID="revNrFumado" runat="server" ValidationExpression="^([0-9])+$" CssClass="rightFloatAsterisk" ToolTip="Debe ser un valor númerico" ErrorMessage="Cantidad de Cigarrillos Fumados" ControlToValidate="txtNrFumado" Text="*" />                 
-                        <asp:TextBox CssClass="form-control" Width="100%" ID="txtNrFumado" runat="server"  MaxLength="5" />
+<%--                    <asp:RegularExpressionValidator ID="revNrFumado" runat="server" ValidationExpression="^([0-9])+$" CssClass="rightFloatAsterisk" ToolTip="Debe ser un valor númerico" ErrorMessage="Cantidad de Cigarrillos Fumados" ControlToValidate="txtNrFumado" Text="*" />                 --%>
+                          <asp:RequiredFieldValidator ID="rfvTxtFumado" Enabled="true" runat="server" ToolTip="Este campo es requerido." CssClass="rightFloatAsterisk" Display="Dynamic" ErrorMessage="¿Cuantos cigarrillos en promedio usted fuma en un día?" ControlToValidate="txtNrFumado" Text="*"></asp:RequiredFieldValidator>
+                   <asp:TextBox CssClass="form-control" Width="100%" ID="txtNrFumado" runat="server" onblur="txtFumadoChange(this);"  MaxLength="5" />
                         <asp:Label ID="lblNrFumado" runat="server" />
                    
             </li>

@@ -8,6 +8,7 @@
     using System.Web.UI.HtmlControls;
     using System.Data.SqlClient;
     using System.Web.UI;
+    using ASSMCA.perfiles;
 
     public partial class wucDatosPersonales : System.Web.UI.UserControl
     {
@@ -27,7 +28,7 @@
             isAdmision = this.Session["Tipo_Perfil"].ToString() == "Admision";
             isEvaluacion = this.Session["Tipo_Perfil"].ToString() == "Evaluacion";
             isAlta = this.Session["Tipo_Perfil"].ToString() == "Alta";
-            tieneConvenio = TieneConvenio(m_PK_Programa);
+            tieneConvenio =  (bool)this.Session["in_convenio"];
             this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
             this.daPersona.SelectCommand.Parameters["@PK_Persona"].Value = this.m_pk_persona;
             this.daPersona.SelectCommand.Parameters["@PK_Programa"].Value = this.m_PK_Programa;
@@ -36,6 +37,8 @@
             this.daPersona.Fill(this.dsPerfil, "SA_PERSONA");
             if (!this.IsPostBack)
             {
+                tieneConvenio = (bool)this.Session["in_convenio"];
+
 
                 if (!tieneConvenio)
                 {
@@ -357,6 +360,7 @@
                 {
                     if (isAdmision && m_frmAction == frmAction.Update)
                     {
+                        var lol = dsPerfil.SA_EPISODIO[0].FE_FechaConvenio.ToString();
                         DateTime fechaConvenio = DateTime.Parse(dsPerfil.SA_EPISODIO[0].FE_FechaConvenio.ToString());
                         ddlFechaConvenioMes.ClearSelection();
                         ddlFechaConvenioDía.ClearSelection();

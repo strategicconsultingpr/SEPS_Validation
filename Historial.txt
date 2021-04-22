@@ -10,6 +10,13 @@ Cambios:
 	1) Rehacer metodos relacionados a los email en UIFlujo.js y UIFlujoPerfil.js
 	   se agrego checkbox para segundo email.
 
+	2)Se deshabilito la opción de nunca en el dropdown ddlFrecuenciaFumado cuando se escoge SI en ddlInFumado.
+	
+        3)Se agrego validacion para txtNrFumado.
+
+	4)Se agrego evento para hide/show opciones de no aplica para abuso de sustancia.
+	
+	5)Se modifico y agrego campo de IN_CONVENIO.
 
 
 

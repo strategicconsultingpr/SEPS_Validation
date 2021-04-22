@@ -33,6 +33,7 @@ namespace ASSMCA.perfiles
 
         private Table1DataTable tableTable1;
         private PopupsEvProgresoDataTable tablePopupsEvProgreso;
+
         private SA_LKP_TEDS_SEGURO_SALUDDataTable tableSA_LKP_TEDS_SEGURO_SALUD;
 
         private SA_LKP_TEDS_PAGODataTable tableSA_LKP_TEDS_PAGO;
@@ -161,6 +162,7 @@ namespace ASSMCA.perfiles
                 {
                     base.Tables.Add(new SA_PERSONADataTable(ds.Tables["SA_PERSONA"]));
                 }
+              
                 if ((ds.Tables["Table1"] != null))
                 {
                     base.Tables.Add(new Table1DataTable(ds.Tables["Table1"]));
@@ -375,7 +377,7 @@ namespace ASSMCA.perfiles
                 return this.tablePopupsEvProgreso;
             }
         }
-
+      
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
@@ -1032,6 +1034,7 @@ namespace ASSMCA.perfiles
                 {
                     base.Tables.Add(new SA_LKP_TEDS_ETAPA_SERVICIODataTable(ds.Tables["SA_LKP_TEDS_ETAPA_SERVICIO"]));
                 }
+              
                 if ((ds.Tables["SA_LKP_TEDS_REFERIDO"] != null))
                 {
                     base.Tables.Add(new SA_LKP_TEDS_REFERIDODataTable(ds.Tables["SA_LKP_TEDS_REFERIDO"]));
@@ -1222,6 +1225,7 @@ namespace ASSMCA.perfiles
                     this.tablePopupsEvProgreso.InitVars();
                 }
             }
+         
 
             this.tableSA_PERSONA = ((SA_PERSONADataTable)(base.Tables["SA_PERSONA"]));
             if ((initTable == true))
@@ -1590,6 +1594,7 @@ namespace ASSMCA.perfiles
             base.Tables.Add(this.tableSA_LKP_DSMV1);
             this.tablePopupsEvProgreso = new PopupsEvProgresoDataTable();
             base.Tables.Add(this.tablePopupsEvProgreso);
+      
             this.tableSA_PERSONA = new SA_PERSONADataTable();
             base.Tables.Add(this.tableSA_PERSONA);
             this.tableTable1 = new Table1DataTable();
@@ -1692,6 +1697,8 @@ namespace ASSMCA.perfiles
         {
             return false;
         }
+     
+
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2072,7 +2079,7 @@ namespace ASSMCA.perfiles
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void PopupsEvProgresoRowChangeEventHandler(object sender, PopupsEvProgresoRowChangeEvent e);
-
+      
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SA_PERSONARowChangeEventHandler(object sender, SA_PERSONARowChangeEvent e);
 
@@ -2205,6 +2212,7 @@ namespace ASSMCA.perfiles
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SA_LKP_TEDS_SITUACION_ESCOLARRowChangeEventHandler(object sender, SA_LKP_TEDS_SITUACION_ESCOLARRowChangeEvent e);
 
+     
 
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
@@ -22708,6 +22716,8 @@ namespace ASSMCA.perfiles
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        ///
+
         public partial class SA_PERSONARow : global::System.Data.DataRow
         {
 
@@ -36505,6 +36515,7 @@ namespace ASSMCA.perfiles
             }
         }
 
+
         /// <summary>
         ///Row event argument class
         ///</summary>
@@ -38882,6 +38893,7 @@ order by FE_Episodio";
             return dataTable;
         }
     }
+
 
 }
 

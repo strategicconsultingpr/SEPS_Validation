@@ -11,6 +11,8 @@ using System.Web.UI.HtmlControls;
 using static SEPS.dsASSMCA;
 using System.Linq;
 using System.Collections.Generic;
+using ASSMCA.perfiles;
+using ASSMCA.dsSeguridadTableAdapters;
 
 namespace ASSMCA
 {
@@ -73,6 +75,7 @@ namespace ASSMCA
                 this.Session["nb_programa"] = null;
                 this.Session["pk_sesion"] = null;
                 this.Session["nr_rowIndex_dsSeguridad"] = null;
+                this.Session["in_convenio"] = null;
                 this.Session["co_tipo"] = null;
             }
             else
@@ -169,6 +172,8 @@ namespace ASSMCA
         {
            var programa =  dsSeguridad.SA_USUARIO.AsEnumerable().FirstOrDefault(x => x.PK_Programa.ToString() == ddlPrograma.SelectedValue);
 
+            bool convenio = new SA_PROGRAMA_IN_CONVENIO_TableAdapter().GetData().Where(x => x.PK_Programa.ToString() == ddlPrograma.SelectedValue).ToList().FirstOrDefault().IN_CONVENIO;
+
             if (programa != null)
             {   
 
@@ -184,6 +189,8 @@ namespace ASSMCA
                 this.Session["nb_programa"] = programa.NB_Programa.ToString();
                 this.Session["nr_rowIndex_dsSeguridad"] = this.dsSeguridad.SA_USUARIO.Rows.IndexOf(programa);
                 this.Session["co_tipo"] = programa.CO_Tipo.ToString();
+                this.Session["in_convenio"] = convenio;
+                
                 this.Response.Redirect("frmHome.aspx");
 
             }
@@ -240,10 +247,13 @@ namespace ASSMCA
                 {
                     if (this.dsSeguridad.SA_USUARIO.Rows.Count == 1)
                     {
+                        bool convenio = new SA_PROGRAMA_IN_CONVENIO_TableAdapter().GetData().Where(x => x.PK_Programa.ToString() == this.dsSeguridad.SA_USUARIO.Rows[0]["PK_Programa"].ToString()).ToList().FirstOrDefault().IN_CONVENIO;
+
                         this.Session["pk_administracion"] = this.dsSeguridad.SA_USUARIO.Rows[0]["PK_Administracion"].ToString();
                         this.Session["nb_administracion"] = this.dsSeguridad.SA_USUARIO.Rows[0]["NB_Administracion"].ToString();
                         this.Session["pk_programa"] = this.dsSeguridad.SA_USUARIO.Rows[0]["PK_Programa"].ToString();
                         this.Session["nb_programa"] = this.dsSeguridad.SA_USUARIO.Rows[0]["NB_Programa"].ToString();
+                        this.Session["in_convenio"] = convenio;
                         this.Session["co_tipo"] = this.dsSeguridad.SA_USUARIO.Rows[0]["CO_Tipo"].ToString();
                         this.Session["nr_rowIndex_dsSeguridad"] = "0";
                         this.Session["usuarioPrograma"] = "1";

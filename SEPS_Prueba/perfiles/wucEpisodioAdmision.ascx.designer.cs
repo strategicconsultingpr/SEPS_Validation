@@ -1725,13 +1725,13 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblFrecuenciaFumado;
 
         /// <summary>
-        /// revNrFumado control.
+        /// rfvTxtFumado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revNrFumado;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTxtFumado;
 
         /// <summary>
         /// txtNrFumado control.

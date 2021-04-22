@@ -32,14 +32,19 @@
         <div class="col-sm-6 SEPSDivs"> <%--SS--%>
             <span class="SEPSLabel">Seguro social:</span>
             <div class="leftFloat">
+                                            <asp:RegularExpressionValidator  ValidationExpression="^\d{3}$" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ErrorMessage="Formato incorrecto del primer encasillado del NSS." ControlToValidate="txtNSS1" Text="*"/>
                 <asp:TextBox ID="txtNSS1" runat="server" CssClass="form-control" Width="55px" onkeyup="autoTab(mainBodyContent_txtNSS1, 3, 'mainBodyContent_txtNSS2', event)" MaxLength="3"/>
             </div>
             <span class="SEPSLabel">-</span>
             <div class="leftFloat">
+                <asp:RegularExpressionValidator  ValidationExpression="^\d{2}$" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ErrorMessage="Formato incorrecto del segundo encasillado del NSS." ControlToValidate="txtNSS2" Text="*"/>
+
                 <asp:TextBox ID="txtNSS2" runat="server" CssClass="form-control" Width="45px" onkeyup="autoTab(mainBodyContent_txtNSS2, 2, 'mainBodyContent_txtNSS3', event)" MaxLength="2"/>
             </div>
             <span class="SEPSLabel">-</span>
             <div class="leftFloat">
+                            <asp:RequiredFieldValidator  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ErrorMessage="Últimos 4 dígitos del número de seguro social son requeridos" ControlToValidate="txtNSS3" Text="*"/>
+                            <asp:RegularExpressionValidator  ValidationExpression="^\d{4}$" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ErrorMessage="Formato incorrecto del tercer encasillado del NSS." ControlToValidate="txtNSS3" Text="*"/>
                 <asp:TextBox ID="txtNSS3" runat="server" CssClass="form-control" Width="65px" onkeyup="autoTab(mainBodyContent_txtNSS3, 4, 'mainBodyContent_txtPrimerApellido', event)" MaxLength="4"/>
             </div>
         </div>

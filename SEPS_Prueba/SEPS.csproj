@@ -126,6 +126,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ASSMCA.dsASSMCA.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ASSMCA.dsSeguridad.cs">
+      <DependentUpon>ASSMCA.dsSeguridad.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ASSMCA.dsSeguridad.Designer.cs" />
     <Compile Include="ASSMCA.dsSeguridad1.Designer.cs">
       <AutoGen>True</AutoGen>

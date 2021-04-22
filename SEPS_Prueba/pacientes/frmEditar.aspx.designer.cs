@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ASSMCA.Pacientes {
-    
-    
-    public partial class frmEditar {
-        
+namespace ASSMCA.Pacientes
+{
+
+
+    public partial class frmEditar
+    {
+
         /// <summary>
         /// lTituloPrincipal control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lTituloPrincipal;
-        
+
         /// <summary>
         /// lblIUP control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIUP;
-        
+
         /// <summary>
         /// valExpediente control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valExpediente;
-        
+
         /// <summary>
         /// valExpedienteRango control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator valExpedienteRango;
-        
+
         /// <summary>
         /// txtExpediente control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExpediente;
-        
+
         /// <summary>
         /// txtNSS1 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNSS1;
-        
+
         /// <summary>
         /// txtNSS2 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNSS2;
-        
+
         /// <summary>
         /// txtNSS3 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNSS3;
-        
+
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// txtPrimerApellido control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
-        
+
         /// <summary>
         /// txtSegundoApellido control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
-        
+
         /// <summary>
         /// RequiredFieldValidator2 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
         /// <summary>
         /// txtPrimerNombre control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrimerNombre;
-        
+
         /// <summary>
         /// txtSegundoNombre control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSegundoNombre;
-        
+
         /// <summary>
         /// ddlSexo control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
-        
+
         /// <summary>
         /// rfvVeterano control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvVeterano;
-        
+
         /// <summary>
         /// ddlVeterano control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlVeterano;
-        
+
         /// <summary>
         /// ddlGrupoEtnico control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGrupoEtnico;
-        
+
         /// <summary>
         /// ddlMes control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMes;
-        
+
         /// <summary>
         /// ddlDía control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDía;
-        
+
         /// <summary>
         /// txtAño control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAño;
-        
+
         /// <summary>
         /// rvAñoNacimiento control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator rvAñoNacimiento;
-        
+
         /// <summary>
         /// RequiredFieldValidator3 control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
+
         /// <summary>
         /// lbxRazaSinSeleccionar control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbxRazaSinSeleccionar;
-        
+
         /// <summary>
         /// btnEliminar control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEliminar;
-        
+
         /// <summary>
         /// btnAgregar control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregar;
-        
+
         /// <summary>
         /// lbxRazaSeleccionadas control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox lbxRazaSeleccionadas;
-        
+
         /// <summary>
         /// btnActualizarPersona control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnActualizarPersona;
-        
+
         /// <summary>
         /// btnRegistrar control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegistrar;
-        
+
         /// <summary>
         /// lblMensaje control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace ASSMCA.Pacientes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensaje;
-        
+
         /// <summary>
         /// ValidationSummary1 control.
         /// </summary>

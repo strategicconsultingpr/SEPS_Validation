@@ -29,13 +29,67 @@ function startupFunctions() {
                 ddlGrado();
             }
             TakeHomeParticipa();
+           
         }
+
+        ddlDrogaChangeEvent();
+        ddlDrogaChange("#mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim", 'ddlViaPrim', 'ddlFrecPrim', 'txtEdadPrim', 'ddlToxicologia1');
+        ddlDrogaChange("#mainBodyContent_WucEpisodioPerfil_ddlDrogaSec", 'ddlViaSec', 'ddlFrecSec', 'txtEdadSec', 'ddlToxicologia2');
+        ddlDrogaChange("#mainBodyContent_WucEpisodioPerfil_ddlDrogaTerc", 'ddlViaTerc', 'ddlFrecTerc', 'txtEdadTerc', 'ddlToxicologia3');
+
+
+
+        
+
         //CO_Tipo();
-        ddInFumadoChange();
+        
     }
     catch (ex) {
         throw ex;
     }
+}
+
+
+/**
+ * Cambios por Jose A. Ramos De La Cruz
+ * Fecha: 4/21/20
+ * Proposito: Activar y desactivar las opciones de no aplica.
+ * */
+
+function ddlDrogaChangeEvent() {
+    $("#mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim").change(function () {
+        var value = $("#mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim").val();
+        ddlDrogaChange(value, 'ddlViaPrim', 'ddlFrecPrim', 'txtEdadPrim', 'ddlToxicologia1');
+    });
+
+    $("#mainBodyContent_WucEpisodioPerfil_ddlDrogaSec").change(function () {
+        var value = $("#mainBodyContent_WucEpisodioPerfil_ddlDrogaSec").val();
+        ddlDrogaChange(value, 'ddlViaSec', 'ddlFrecSec', 'txtEdadSec', 'ddlToxicologia2');
+    });
+
+    $("#mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim").change(function () {
+        var value = $("#mainBodyContent_WucEpisodioPerfil_ddlDrogaTerc").val();
+        ddlDrogaChange(value, 'ddlViaTerc', 'ddlFrecTerc', 'txtEdadTerc', 'ddlToxicologia3');
+    });
+}
+
+function ddlDrogaChange(value, via, frec, edad, tox) {
+
+    if (value != sustanciasList.Noaplica || value != sustanciasList.Noinformó || value != sustanciasList.Nousaactualmente) {
+
+        $('#mainBodyContent_WucEpisodioPerfil_' + via + ' option[value=99]').removeAttr('disabled').hide();
+        $('#mainBodyContent_WucEpisodioPerfil_' + frec + ' option[value=99]').removeAttr('disabled').hide();
+        $('#mainBodyContent_WucEpisodioPerfil_' + edad + ' option[value=126]').removeAttr('disabled').hide();
+        $('#mainBodyContent_WucEpisodioPerfil_' + tox + ' option[value=99]').removeAttr('disabled').hide();
+    } else {
+
+        $('#mainBodyContent_WucEpisodioPerfil_' + via + ' option[value=99]').removeAttr('disabled').show();
+        $('#mainBodyContent_WucEpisodioPerfil_' + frec + ' option[value=99]').removeAttr('disabled').show();
+        $('#mainBodyContent_WucEpisodioPerfil_' + edad + ' option[value=126]').removeAttr('disabled').show();
+        $('#mainBodyContent_WucEpisodioPerfil_' + tox + ' option[value=99]').removeAttr('disabled').show();
+    }
+
+
 }
 
 function IsPostBack() {
@@ -43,7 +97,24 @@ function IsPostBack() {
 
 }
 
+function txtFumadoChange(input) {
+    var validator = document.getElementById("mainBodyContent_WucEpisodioPerfil_rfvTxtFumado");
 
+    if (isNaN(input.value)) {
+        alert("Entre un número valido.");
+        input.value = "";
+        ValidatorEnable(validator, true);
+    }
+    else if (parseInt(input.value) < 1) {
+        alert("Entre un número mayor o igual que 1.");
+        input.value = "";
+        ValidatorEnable(validator, true);
+    }
+
+
+
+
+}
 
 
 function diagnosticoConcurrente(source, arguments) {
@@ -497,15 +568,18 @@ function ddInFumadoChange() {
             $(txtNrFumado).prop("disabled", false);
             $(ddlFrecuenciaFumado).val(" ");
             $(txtNrFumado).val(" ");
+            $(ddlFrecuenciaFumado + ' option[value=3]').removeAttr('disabled').hide();
+
 
         }
         else {
 
             $(ddlFrecuenciaFumado).prop("disabled", true);
             $(txtNrFumado).prop("disabled", true);
-
             $(ddlFrecuenciaFumado).val("3");
             $(txtNrFumado).val("0");
+            $(ddlFrecuenciaFumado + ' option[value=3]').removeAttr('disabled').show();
+
 
 
         }
@@ -1152,7 +1226,7 @@ var viaList = {
         var txtEdadSec = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtEdadSec");
          var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtEdadTerc");
          var txtEdadTerc = document.getElementById("mainBodyContent_WucEpisodioPerfil_txtchkEdadPrim");
-        
+         var ddlToxicologia1 = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlToxicologia1");
          var ddlToxicologia2 = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlToxicologia2");
          var ddlToxicologia3 = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlToxicologia3");
 
@@ -1161,7 +1235,8 @@ var viaList = {
 
 
         ddlViaPrim.disabled = false;
-        ddlFrecPrim.disabled = false;
+         ddlFrecPrim.disabled = false;
+         ddlFrecPrim.value = "";
          txtEdadPrim.disabled = false;
          txtEdadPrim.value = "";
 
@@ -1345,7 +1420,7 @@ var viaList = {
                     //ddlViaPrim.disabled = true;
                     ddlFrecPrim.value = 0;
                     //ddlFrecPrim.disabled = true;
-                    txtEdadPrim.value = "126";
+                    txtEdadPrim.value = "";
                     //txtEdadPrim.disabled = true;
                     ddlDrogaSec.value = sustanciasList.Nousaactualmente;
                     ddlDrogaTerc.value = sustanciasList.Nousaactualmente;
@@ -1632,6 +1707,7 @@ function ddlDrogaTercF() {
         var ddlToxicologia3 = document.getElementById("mainBodyContent_WucEpisodioPerfil_ddlToxicologia3");
         ddlViaTerc.disabled = false;
         ddlFrecTerc.disabled = false;
+        ddlFrecTerc.value = "";
         txtEdadTerc.disabled = false;
         txtEdadTerc.value = "";
 
