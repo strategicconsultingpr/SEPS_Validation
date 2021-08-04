@@ -43,6 +43,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -62,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\jquery-ui.css" />
+    <Content Include="dashboard\Dashboard.aspx" />
     <Content Include="images\calendar.svg" />
     <Content Include="PasswordChangeMandatory.aspx" />
     <Content Include="ErrorView.aspx" />
@@ -136,6 +149,13 @@
       <DependentUpon>ASSMCA.dsSeguridad.xsd</DependentUpon>
     </Compile>
     <Compile Include="Constante\Const.cs" />
+    <Compile Include="dashboard\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PasswordChangeMandatory.aspx.cs">
       <DependentUpon>PasswordChangeMandatory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -452,6 +472,7 @@
     </Content>
     <Content Include="pdf\Manual.pdf" />
     <Content Include="pdf\Perfil_Admisión.pdf" />
+    <None Include="packages.config" />
     <None Include="perfiles\ASSMCA.Perfiles.dsperfil.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ASSMCA.Perfiles.dsperfil1.Designer.cs</LastGenOutput>
