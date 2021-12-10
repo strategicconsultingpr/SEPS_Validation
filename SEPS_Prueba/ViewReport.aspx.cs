@@ -41,14 +41,15 @@ namespace SEPS
 
             rvSiteMapping.Height = Unit.Pixel(800 - 58);
             rvSiteMapping.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Remote;
-            ////IReportServerCredentials irsc = new CustomReportCredentials("alexie.ortiz", "Alexito@987654321", "assmca.local"); // e.g.: ("demo-001", "123456789", "ifc")
-            ////rvSiteMapping.ServerReport.ReportServerCredentials = irsc;
-            //////rvSiteMapping.ServerReport.ReportServerUrl = new Uri("http://192.168.100.24//ReportServer"); //Prod Server - Add the Reporting Server URL 
+            IReportServerCredentials irsc = new CustomReportCredentials("alexie.ortiz", "Alexito@0987654321", "assmca.local"); // e.g.: ("demo-001", "123456789", "ifc")
+            rvSiteMapping.ServerReport.ReportServerCredentials = irsc;
+            rvSiteMapping.ServerReport.ReportServerUrl = new Uri("http://192.168.100.24//ReportServer"); //Prod Server - Add the Reporting Server URL 
             
 
             
-            rvSiteMapping.ServerReport.ReportServerUrl = new Uri("http://desktop-2e47ci0/ReportServer"); //Dev Server - Add the Reporting Server URL  
+            //rvSiteMapping.ServerReport.ReportServerUrl = new Uri("http://desktop-2e47ci0/ReportServer"); //Dev Server - Add the Reporting Server URL  
             rvSiteMapping.ServerReport.ReportPath = $"/Informes SEPS Actualizados/{nameReport}"; //Passing the Report Path   
+            //rvSiteMapping.ServerReport.ReportPath = "/Informes SEPS Actualizados/URS Table 14A (MHBG Table 13A)"; //Passing the Report Path  
             rvSiteMapping.ServerReport.Refresh();
 
 
@@ -81,7 +82,7 @@ namespace SEPS
             get { return new NetworkCredential(_UserName, _PassWord); }
         }
 
-        ICredentials IReportServerCredentials.NetworkCredentials => throw new NotImplementedException();
+        //ICredentials IReportServerCredentials.NetworkCredentials => throw new NotImplementedException();
 
         //ICredentials IReportServerCredentials.NetworkCredentials => throw new NotImplementedException();
 

@@ -24,6 +24,15 @@ namespace SEPS
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblTitle;
 
         /// <summary>
+        /// ScriptManagerReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManagerReport;
+
+        /// <summary>
         /// rvSiteMapping control.
         /// </summary>
         /// <remarks>

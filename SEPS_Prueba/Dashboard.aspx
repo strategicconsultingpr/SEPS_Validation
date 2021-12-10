@@ -4,7 +4,7 @@
     <br />
     <div>
         <ul class="nav nav-tabs" role="tablist">
-              <li> <a class="btn btn-default" href="/frmLogon.aspx?changeProg=yes">Volver a la página anterior</a></li>
+              <li> <a class="btn btn-default" href="<%=ResolveClientUrl("~/frmLogon.aspx?changeProg=yes")%>">Volver a la página anterior</a></li>
             <li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Administrativo (Clientela Atendida - Episodios)</a></li>
             <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Perfiles Registrados</a></li>
             <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Clientela Atendida (Episodios)</a></li>
@@ -14,25 +14,25 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="tab1">
                 <br />
-                <iframe width="100%" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiNmE3ZmM1Y2EtODUwNS00NjBlLThhMGEtMGRjMTY1ODJkNTRkIiwidCI6IjBkZmE1ZGMwLTAzNmYtNDYxNS05OWU0LTk0YWY4MjJmMmI4NCIsImMiOjF9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+                <iframe width="100%" height="1060" src="https://app.powerbigov.us/view?r=eyJrIjoiMzg3YzcxMWMtMWNhMy00YTRlLWJkM2MtYzJiM2NlYjYyN2Q0IiwidCI6ImI4MGEwMzc4LTcwZDUtNDBjZi1iNjYzLTY3YWYyMTk3YjBlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
      </div>
             <div role="tabpanel" class="tab-pane" id="tab2">
                 <br /> 
-                <iframe width="100%" height="1060"  src="https://app.powerbi.com/view?r=eyJrIjoiOTIyNTIxMGEtNjUxNS00MjYyLTg3NmMtNzY2OGI4YWNkYWI1IiwidCI6IjBkZmE1ZGMwLTAzNmYtNDYxNS05OWU0LTk0YWY4MjJmMmI4NCIsImMiOjF9&pageName=ReportSectionbe98e161cce5ce59ee8a" frameborder="0" allowFullScreen="true"></iframe>
+                <iframe width="100%" height="1060"  src="https://app.powerbigov.us/view?r=eyJrIjoiODJlMWU3MDEtYzc2MS00NjY1LWE0YzgtNDY1OWYyNTcyZjQxIiwidCI6ImI4MGEwMzc4LTcwZDUtNDBjZi1iNjYzLTY3YWYyMTk3YjBlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
    </div>
             <div role="tabpanel" class="tab-pane" id="tab3">
                 <br />
            
-               <iframe width="100%" height="1060"  src="https://app.powerbi.com/view?r=eyJrIjoiMzA3ZWI1NDEtOTBmMC00YWE0LTk3NTctMTBiYTFkNTc4ZDcwIiwidCI6IjBkZmE1ZGMwLTAzNmYtNDYxNS05OWU0LTk0YWY4MjJmMmI4NCIsImMiOjF9&pageName=ReportSectionacaa95cc4631395a209b" frameborder="0" allowFullScreen="true"></iframe>
+               <iframe width="100%" height="1060"  src="https://app.powerbigov.us/view?r=eyJrIjoiOWZlNTk1NDMtZDdkZi00YzYyLWFiOTYtNjE4YzAzZWQxMTIyIiwidCI6ImI4MGEwMzc4LTcwZDUtNDBjZi1iNjYzLTY3YWYyMTk3YjBlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
 
             </div>
             <div role="tabpanel" class="tab-pane" id="tab4">
                 <br />
-                <iframe width="100%" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiYTZhM2M5NjMtYjY0Zi00NWVlLTgxNTItOGZkODU0NmRlYmU0IiwidCI6IjBkZmE1ZGMwLTAzNmYtNDYxNS05OWU0LTk0YWY4MjJmMmI4NCIsImMiOjF9&pageName=ReportSection47dae6fd3c2ed73bfd09" frameborder="0" allowFullScreen="true"></iframe>
+                <iframe width="100%" height="1060" src="https://app.powerbigov.us/view?r=eyJrIjoiYjc0ODg5NGItZWUxNi00OTZiLWI3N2YtNDAwODMwOTIzZGQ0IiwidCI6ImI4MGEwMzc4LTcwZDUtNDBjZi1iNjYzLTY3YWYyMTk3YjBlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
  </div>
             <div role="tabpanel" class="tab-pane" id="tab5">
                 <br />
-               <iframe  width="100%" height="1060"   src="https://app.powerbi.com/view?r=eyJrIjoiODYzM2NmNzItMzI1NS00Y2U1LTg3N2MtZjNmNmI4ZWU5ZmJiIiwidCI6IjBkZmE1ZGMwLTAzNmYtNDYxNS05OWU0LTk0YWY4MjJmMmI4NCIsImMiOjF9&pageName=ReportSection59e9ecdec7cff2753124" frameborder="0" allowFullScreen="true"></iframe>
+               <iframe  width="100%" height="1060"   src="https://app.powerbigov.us/view?r=eyJrIjoiYTYyZDI1NWQtNTAwYy00MjJiLThkZWYtMGZmMjJmMTg4NTI0IiwidCI6ImI4MGEwMzc4LTcwZDUtNDBjZi1iNjYzLTY3YWYyMTk3YjBlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
             </div>
         </div>
 

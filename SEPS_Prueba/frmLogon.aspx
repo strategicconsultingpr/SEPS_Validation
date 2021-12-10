@@ -86,7 +86,7 @@
                 <h3 class="panel-title">Dashboard</h3>
             </div>
             <div class="panel-body">
-                      <a ID="BtnDashboard" class="btn btn-default" href="/Dashboard.aspx">Para Acceder al Dashboard Presione Aquí</a>
+                      <a ID="BtnDashboard" class="btn btn-default" href="<%=ResolveClientUrl("~/Dashboard.aspx")%>">Para Acceder al Dashboard Presione Aquí</a>
             </div>
         </div>
 
