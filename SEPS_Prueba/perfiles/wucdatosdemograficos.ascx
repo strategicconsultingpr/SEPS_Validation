@@ -110,7 +110,9 @@
                         <asp:ListItem />
                         <asp:ListItem Value="1">Sí</asp:ListItem>
                         <asp:ListItem Value="2">No</asp:ListItem>
-                        <asp:ListItem Value="99">No aplica</asp:ListItem>
+<%--                        <asp:ListItem Value="99">No aplica</asp:ListItem>--%>
+<%--                        Cambio por Jose A. Ramos 12/8/2021 se sustituyo no aplica por no informó--%>
+                        <asp:ListItem Value="99">No informó</asp:ListItem>
                     </asp:DropDownList>
                     <asp:Label ID="lblEducacionEspecial" runat="server" />
                 </div>

@@ -1,7 +1,65 @@
 <%@ Page Language="c#" Inherits="ASSMCA.Reportes.frmReportes" CodeBehind="Reportes.aspx.cs" MasterPageFile="~/Main.Master" %>
+
 <asp:Content ID="mainEditC" runat="server" ContentPlaceHolderID="mainBodyContent">
     <h1>Reportes</h1>
-    <div class="panel panel-default">
+
+
+        <label>Buscar:</label>
+    <input id="search" type="text" placeholder="Nombre de Reporte" class="form-control"/>
+    <br />
+
+    <%
+        foreach(var categoria in VW_CATEGORIA_REPORTES.GetData().ToList())
+            {%>
+      <div class="panel panel-default">
+            <div class="panel-heading">
+    <h3 class="panel-title"><%=categoria.NB_CATEGORIA_REPORTE %></h3>
+  </div>
+           <div class="panel-body" style="padding:0px">
+        <table id="table" class="table table-striped table-hover table-condensed">
+        <tr>
+            <th style="width:200px;">Nombre</th>
+            <th>Descripción</th>
+            <th style="width:50px;">Doc.</th>
+        </tr>
+       
+   <%
+        foreach(var reporte in VW_REPORTES.GetData().Where(x=>x.PK_CATEGORIA_REPORTE == categoria.PK_CATEGORIA_REPORTE).ToList())
+            {%>
+           <tr>
+            <td><%=reporte.NB_REPORTE %></td>
+            <td><%=reporte.DE_REPORTE %></td>
+            <td><a class="form-control btn-warning" href="<%=ResolveClientUrl("ViewReport.aspx?reportName="+reporte.NB_REPORTE+"&reportSSRS="+reporte.NB_SSRS_REPORTE)%>">Ver</a> </td>
+        </tr>
+            <%
+        }
+   %>
+            </table>
+  </div>
+      </div>
+
+    <%
+        }
+   %>
+
+
+
+    <script>
+        var $rows = $('#table tr');
+        $('#search').keyup(function () {
+            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+            $rows.show().filter(function () {
+                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                return !~text.indexOf(val);
+            }).hide();
+        });
+    </script>
+
+
+
+
+ <%--   <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Tablas URS</h3>
   </div>
@@ -196,10 +254,10 @@
         </tr>
     </table>
   </div>
-</div>
+</div>--%>
 
 
-    <div class="panel panel-default">
+<%--    <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Reportes de TEDS</h3>
   </div>
@@ -222,5 +280,7 @@
         </tr>
     </table>
   </div>
-</div>
+</div>--%>
+
+
 </asp:Content>

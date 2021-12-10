@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Reportes" targetNamespace="http://tempuri.org/Reportes.xsd" xmlns:mstns="http://tempuri.org/Reportes.xsd" xmlns="http://tempuri.org/Reportes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="SEPSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SEPSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.SEPSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_CATEGORIA_REPORTETableAdapter" GeneratorDataComponentClassName="VW_CATEGORIA_REPORTETableAdapter" Name="VW_CATEGORIA_REPORTE" UserDataComponentName="VW_CATEGORIA_REPORTETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SEPSConnectionString (Web.config)" DbObjectName="SEPS_JR.dbo.VW_CATEGORIA_REPORTE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM VW_CATEGORIA_REPORTE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PK_CATEGORIA_REPORTE" DataSetColumn="PK_CATEGORIA_REPORTE" />
+              <Mapping SourceColumn="NB_CATEGORIA_REPORTE" DataSetColumn="NB_CATEGORIA_REPORTE" />
+              <Mapping SourceColumn="PATH_REPORTE_CATEGORIA" DataSetColumn="PATH_REPORTE_CATEGORIA" />
+              <Mapping SourceColumn="ACTIVE" DataSetColumn="ACTIVE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_REPORTESTableAdapter" GeneratorDataComponentClassName="VW_REPORTESTableAdapter" Name="VW_REPORTES" UserDataComponentName="VW_REPORTESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SEPSConnectionString (Web.config)" DbObjectName="SEPS_JR.dbo.VW_REPORTES" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM VW_REPORTES
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PATH_REPORTE_CATEGORIA" DataSetColumn="PATH_REPORTE_CATEGORIA" />
+              <Mapping SourceColumn="PK_REPORTES" DataSetColumn="PK_REPORTES" />
+              <Mapping SourceColumn="NB_REPORTE" DataSetColumn="NB_REPORTE" />
+              <Mapping SourceColumn="DE_REPORTE" DataSetColumn="DE_REPORTE" />
+              <Mapping SourceColumn="NB_SSRS_REPORTE" DataSetColumn="NB_SSRS_REPORTE" />
+              <Mapping SourceColumn="PK_CATEGORIA_REPORTE" DataSetColumn="PK_CATEGORIA_REPORTE" />
+              <Mapping SourceColumn="NB_CATEGORIA_REPORTE" DataSetColumn="NB_CATEGORIA_REPORTE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Reportes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Reportes" msprop:Generator_UserDSName="Reportes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VW_CATEGORIA_REPORTE" msprop:Generator_TableClassName="VW_CATEGORIA_REPORTEDataTable" msprop:Generator_TableVarName="tableVW_CATEGORIA_REPORTE" msprop:Generator_TablePropName="VW_CATEGORIA_REPORTE" msprop:Generator_RowDeletingName="VW_CATEGORIA_REPORTERowDeleting" msprop:Generator_RowChangingName="VW_CATEGORIA_REPORTERowChanging" msprop:Generator_RowEvHandlerName="VW_CATEGORIA_REPORTERowChangeEventHandler" msprop:Generator_RowDeletedName="VW_CATEGORIA_REPORTERowDeleted" msprop:Generator_UserTableName="VW_CATEGORIA_REPORTE" msprop:Generator_RowChangedName="VW_CATEGORIA_REPORTERowChanged" msprop:Generator_RowEvArgName="VW_CATEGORIA_REPORTERowChangeEvent" msprop:Generator_RowClassName="VW_CATEGORIA_REPORTERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_CATEGORIA_REPORTE" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPK_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInRow="PK_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInTable="PK_CATEGORIA_REPORTEColumn" msprop:Generator_UserColumnName="PK_CATEGORIA_REPORTE" type="xs:int" />
+              <xs:element name="NB_CATEGORIA_REPORTE" msprop:Generator_ColumnVarNameInTable="columnNB_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInRow="NB_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInTable="NB_CATEGORIA_REPORTEColumn" msprop:Generator_UserColumnName="NB_CATEGORIA_REPORTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PATH_REPORTE_CATEGORIA" msprop:Generator_ColumnVarNameInTable="columnPATH_REPORTE_CATEGORIA" msprop:Generator_ColumnPropNameInRow="PATH_REPORTE_CATEGORIA" msprop:Generator_ColumnPropNameInTable="PATH_REPORTE_CATEGORIAColumn" msprop:Generator_UserColumnName="PATH_REPORTE_CATEGORIA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACTIVE" msprop:Generator_ColumnVarNameInTable="columnACTIVE" msprop:Generator_ColumnPropNameInRow="ACTIVE" msprop:Generator_ColumnPropNameInTable="ACTIVEColumn" msprop:Generator_UserColumnName="ACTIVE" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VW_REPORTES" msprop:Generator_TableClassName="VW_REPORTESDataTable" msprop:Generator_TableVarName="tableVW_REPORTES" msprop:Generator_TablePropName="VW_REPORTES" msprop:Generator_RowDeletingName="VW_REPORTESRowDeleting" msprop:Generator_RowChangingName="VW_REPORTESRowChanging" msprop:Generator_RowEvHandlerName="VW_REPORTESRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_REPORTESRowDeleted" msprop:Generator_UserTableName="VW_REPORTES" msprop:Generator_RowChangedName="VW_REPORTESRowChanged" msprop:Generator_RowEvArgName="VW_REPORTESRowChangeEvent" msprop:Generator_RowClassName="VW_REPORTESRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PATH_REPORTE_CATEGORIA" msprop:Generator_ColumnVarNameInTable="columnPATH_REPORTE_CATEGORIA" msprop:Generator_ColumnPropNameInRow="PATH_REPORTE_CATEGORIA" msprop:Generator_ColumnPropNameInTable="PATH_REPORTE_CATEGORIAColumn" msprop:Generator_UserColumnName="PATH_REPORTE_CATEGORIA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PK_REPORTES" msprop:Generator_ColumnVarNameInTable="columnPK_REPORTES" msprop:Generator_ColumnPropNameInRow="PK_REPORTES" msprop:Generator_ColumnPropNameInTable="PK_REPORTESColumn" msprop:Generator_UserColumnName="PK_REPORTES" type="xs:int" />
+              <xs:element name="NB_REPORTE" msprop:Generator_ColumnVarNameInTable="columnNB_REPORTE" msprop:Generator_ColumnPropNameInRow="NB_REPORTE" msprop:Generator_ColumnPropNameInTable="NB_REPORTEColumn" msprop:Generator_UserColumnName="NB_REPORTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DE_REPORTE" msprop:Generator_ColumnVarNameInTable="columnDE_REPORTE" msprop:Generator_ColumnPropNameInRow="DE_REPORTE" msprop:Generator_ColumnPropNameInTable="DE_REPORTEColumn" msprop:Generator_UserColumnName="DE_REPORTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NB_SSRS_REPORTE" msprop:Generator_ColumnVarNameInTable="columnNB_SSRS_REPORTE" msprop:Generator_ColumnPropNameInRow="NB_SSRS_REPORTE" msprop:Generator_ColumnPropNameInTable="NB_SSRS_REPORTEColumn" msprop:Generator_UserColumnName="NB_SSRS_REPORTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PK_CATEGORIA_REPORTE" msprop:Generator_ColumnVarNameInTable="columnPK_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInRow="PK_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInTable="PK_CATEGORIA_REPORTEColumn" msprop:Generator_UserColumnName="PK_CATEGORIA_REPORTE" type="xs:int" />
+              <xs:element name="NB_CATEGORIA_REPORTE" msprop:Generator_ColumnVarNameInTable="columnNB_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInRow="NB_CATEGORIA_REPORTE" msprop:Generator_ColumnPropNameInTable="NB_CATEGORIA_REPORTEColumn" msprop:Generator_UserColumnName="NB_CATEGORIA_REPORTE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VW_CATEGORIA_REPORTE" />
+      <xs:field xpath="mstns:PK_CATEGORIA_REPORTE" />
+    </xs:unique>
+    <xs:unique name="VW_REPORTES_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VW_REPORTES" />
+      <xs:field xpath="mstns:PK_REPORTES" />
+      <xs:field xpath="mstns:PK_CATEGORIA_REPORTE" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

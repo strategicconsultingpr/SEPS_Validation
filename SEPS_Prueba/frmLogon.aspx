@@ -59,7 +59,8 @@
                         --%>
                      <asp:TextBox ID="txtFilter" Width="400px" runat="server"  CssClass="form-control" ToolTip="Buscar Programa"/>
                      <asp:Button ID="BtnSubmit" CssClass= "btn btn-default" runat="server" OnClick="BtnSubmit_Click" Text="Buscar"/>
-                      <asp:Button ID="BtnRefresh" CssClass= "btn btn-default" runat="server" OnClick="BtnRefresh_Click" Text="Refrescar"/>   
+                      <asp:Button ID="BtnRefresh" CssClass= "btn btn-default" runat="server" OnClick="BtnRefresh_Click" Text="Refrescar"/>
+                     
 </div>
             
             <br />
@@ -69,11 +70,26 @@
                 <asp:Label ID="lblTotalPrograma"  runat="server"></asp:Label>
 <%--                    <asp:DropDownList ID="ddlPrograma" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa" DataSource="<%# dsSeguridad %>" DataMember="SA_USUARIO" />--%>
                  
+         
                 <div id="divBotones" style="padding-top: 10px;">
                     <asp:Button ID="btnAutenticarPrograma" CssClass="btn btn-default" runat="server" Text="Seleccionar" OnClick="btnAutenticarPrograma_Click" />
+                   
                 </div>
+
+                 
+
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Dashboard</h3>
+            </div>
+            <div class="panel-body">
+                      <a ID="BtnDashboard" class="btn btn-default" href="/Dashboard.aspx">Para Acceder al Dashboard Presione Aquí</a>
+            </div>
+        </div>
+
     </div>
     <br />
     <div>

@@ -433,8 +433,11 @@
                             <asp:ListItem Value="4">No informó</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblInFumado" runat="server" />
-              
-               </li>
+                               
+                                      <br />
+
+               </li> 
+                 
                <li class="list-group-item">
                      <%-- Zona Geografica --%>
                     <label class="SEPSLabel">Si contesto si, ¿con que frecuencia fuma cigarrillos actualmente?:</label>
@@ -448,7 +451,7 @@
                             <asp:ListItem Value="3">Nunca</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblFrecuenciaFumado" runat="server" />
-                   
+                   <br />
                </li>
                <li class="list-group-item" >
                  <label class="SEPSLabel">¿Si fuma todos o algunos días, cuantos cigarrillos en promedio usted fuma en un día?:</label>
@@ -456,7 +459,8 @@
                           <asp:RequiredFieldValidator ID="rfvTxtFumado" Enabled="true" runat="server" ToolTip="Este campo es requerido." CssClass="rightFloatAsterisk" Display="Dynamic" ErrorMessage="¿Cuantos cigarrillos en promedio usted fuma en un día?" ControlToValidate="txtNrFumado" Text="*"></asp:RequiredFieldValidator>
                    <asp:TextBox CssClass="form-control" Width="100%" ID="txtNrFumado" runat="server" onblur="txtFumadoChange(this);"  MaxLength="5" />
                         <asp:Label ID="lblNrFumado" runat="server" />
-                   
+                                      <br />
+
             </li>
               
            </ul>
