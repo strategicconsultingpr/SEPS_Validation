@@ -18,7 +18,8 @@ namespace ASSMCA.Perfiles
 			{
 				this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
 				this.dvwSeguroSalud.Table = this.dsPerfil.SA_LKP_TEDS_SEGURO_SALUD;
-                if (this.Session["pk_administracion"].ToString() == "1")
+
+				if (this.Session["pk_administracion"].ToString() == "1")
                 {
                     this.dvwSeguroSalud.RowFilter = "PK_SeguroSalud <> 4";
                 }

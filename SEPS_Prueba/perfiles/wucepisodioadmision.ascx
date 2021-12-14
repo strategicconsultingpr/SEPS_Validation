@@ -811,39 +811,58 @@
     --%>
 </table>
 
-      <ul class="list-group">
-    <li class="list-group-item">
-        <p><span class="SEPSLabel">Comentarios</span></p>
+         <div class="panel-body">
+       <div class="row">
+           <div>
+                      <hr /> 
+
+               <div class="col-md-12 SEPSDivs">
+        <p><span class="SEPSLabel">Comentarios: </span></p>
        
             <asp:textbox CssClass="form-control" id="txtDSMVComentarios" runat="server" MaxLength="1500" TextMode="MultiLine" Width="100%" Height="64px"/>
-            <asp:label id="lblDSMVComentarios" runat="server"/>
+           <div class="expandibleDiv">
+                       <span>
+                   <asp:label id="lblDSMVComentarios" runat="server"/></span></div>
        
-    </li > 
+    </div > 
 
-    <li class="list-group-item">
-        <p><span class="SEPSLabel">Medida de Funcionamiento Global [TEDS, opcional]</span></p>    
+    <div class="col-md-12 SEPSDivs">
+               <hr /> 
+
+        <p><span class="SEPSLabel">Medida de Funcionamiento Global [TEDS, opcional]: </span></p>    
             <asp:textbox CssClass="form-control" id="txtDSMVFnGlobal" runat="server" autocomplete="off" onBlur="validateGAF('WucEpisodioAdmision_txtDSMVFnGlobal')" MaxLength="3" Width="100%"/>
-            <asp:label id="lblDSMVFnGlobal" runat="server"/>
-    </li>
+         <div class="expandibleDiv">
+                       <span>   
+        <asp:label id="lblDSMVFnGlobal" runat="server"/></span></div>
+    </div>
 
-    <li class="list-group-item">
-        <p><span class="SEPSLabel">Otras observaciones</span></p>
+    <div class="col-md-12 SEPSDivs">
+               <hr /> 
+
+        <p><span class="SEPSLabel">Otras observaciones: </span></p>
             <asp:textbox CssClass="form-control" id="txtDSMVOtrasObs" runat="server" MaxLength="1500" TextMode="MultiLine" Width="100%" Height="64px"/>
-            <asp:label id="lblDSMVOtrasObs" runat="server"/>
-    </li>
-        
-     <li class="list-group-item">
-        <p><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias [TEDS]</span></p>
+         <div class="expandibleDiv">
+                       <span>    
+        <asp:label id="lblDSMVOtrasObs" runat="server"/></span></div>
+    </div>
+
+     <div class="col-md-12 SEPSDivs">
+                <hr /> 
+
+        <p><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias [TEDS]: </span></p>
+
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" CssClass="rightFloatAsterisk"   Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
          <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" Width="100%"  runat="server">
                 <asp:ListItem />
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
             </asp:DropDownList>
-            <asp:Label ID="lblDSMVDiagDual" runat="server" />
+          <div class="expandibleDiv">
+                       <span>
+            <asp:Label ID="lblDSMVDiagDual" runat="server" /></span></div>
                   <asp:CustomValidator ID="ddlDSMVDiagDualVal" Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ClientValidationFunction="diagnosticoConcurrente" runat="server" ></asp:CustomValidator>
-    </li>
-</ul>
+    </div>
+</div>
     
     <%--<tr>
         <th><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias</span></th>
@@ -859,6 +878,8 @@
 
   </div>
 </div>
+    </div>
+</div>
 
 <%--Utilización de tabaco o cigarrillo--%>
 <%-- Campo Agregado 12/2020 --%>
@@ -868,8 +889,8 @@
     </div>
     <div class="panel-body">
        <div class="row">
-           <ul class="list-group">
-               <li class="list-group-item">
+           <div>
+               <div class="col-md-12 SEPSDivs">
                      <%-- Zona Geografica --%>
                     <label class="SEPSLabel">¿Ha fumado al menos 100 cigarrillos en toda su vida?:</label>
                     <asp:RequiredFieldValidator ID="rfvInFumado" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Fumado en su vida" ControlToValidate="ddlInFumado" Text="*" />
@@ -883,10 +904,12 @@
                             <asp:ListItem Value="3">Desconoce</asp:ListItem>
                             <asp:ListItem Value="4">No informó</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Label ID="lblInFumado" runat="server" />
+                   <div class="expandibleDiv">
+                       <span><asp:Label ID="lblInFumado" runat="server" /></span>
+                   </div>
               
-               </li>
-               <li class="list-group-item">
+               </div>
+               <div class="col-md-12 SEPSDivs">
                      <%-- Zona Geografica --%>
                     <label class="SEPSLabel">Si contesto si, ¿con que frecuencia fuma cigarrillos actualmente?:</label>
                     <asp:RequiredFieldValidator ID="rfvFrecuenciaFumado" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Frecuencia de fumar" ControlToValidate="ddlFrecuenciaFumado" Text="*" />
@@ -898,19 +921,24 @@
                             <asp:ListItem Value="2">Algunos días</asp:ListItem>
                             <asp:ListItem Value="3" >Nunca</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Label ID="lblFrecuenciaFumado" runat="server" />
+                     <div class="expandibleDiv">
+                       <span>
+                        <asp:Label ID="lblFrecuenciaFumado" runat="server" /></span></div>
                    
-               </li>
-               <li class="list-group-item" >
+               </div>
+               <div class="col-md-12 SEPSDivs" >
                  <label class="SEPSLabel">¿Si fuma todos o algunos días, cuantos cigarrillos en promedio usted fuma en un día?:</label>
 <%--                    <asp:RegularExpressionValidator ID="revNrFumado" runat="server" ValidationExpression="^([0-9])+$" CssClass="rightFloatAsterisk" ToolTip="Debe ser un valor númerico" ErrorMessage="Cantidad de Cigarrillos Fumados" ControlToValidate="txtNrFumado" Text="*" />                 --%>
                         <asp:RequiredFieldValidator ID="rfvTxtFumado" Enabled="true" runat="server" ToolTip="Este campo es requerido." CssClass="rightFloatAsterisk" Display="Dynamic" ErrorMessage="¿Cuantos cigarrillos en promedio usted fuma en un día?" ControlToValidate="txtNrFumado" Text="*"/>
                    <asp:TextBox CssClass="form-control" Width="100%" ID="txtNrFumado" runat="server" onblur="txtFumadoChange(this);"  MaxLength="5" />
-                        <asp:Label ID="lblNrFumado" runat="server" />
+                       
+                     <div class="expandibleDiv">
+                       <span>
+                   <asp:Label ID="lblNrFumado" runat="server" /></span></div>
                    
-            </li>
+            </div>
               
-           </ul>
+           </div>
            
         </div>
     </div>
