@@ -24,7 +24,7 @@
         </tr>
        
    <%
-        foreach(var reporte in VW_REPORTES.GetData().Where(x=>x.PK_CATEGORIA_REPORTE == categoria.PK_CATEGORIA_REPORTE).ToList())
+        foreach(var reporte in VW_REPORTES.GetData().Where(x=>x.PK_CATEGORIA_REPORTE == categoria.PK_CATEGORIA_REPORTE).ToList().OrderBy(x=>x.NB_REPORTE))
             {%>
            <tr>
             <td><%=reporte.NB_REPORTE %></td>
