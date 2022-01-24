@@ -694,6 +694,66 @@ namespace ASSMCA.Perfiles
                 lbl.Text = str;
         }
 
+        /**
+          * File: wuEpisodioAdmision.ascx.cs
+          * Fecha: 1/ENE/2022
+          * Editado por: Jose A. Ramos De La Cruz
+          * Proposito: Arreglar dependendias de ddlInfumado.        
+          */
+
+        protected void ddlInFumado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+           
+
+
+                if (ddlInFumado.SelectedValue == "1")
+                {
+            ddlFrecuenciaFumado.Enabled = true;
+            txtNrFumado.Enabled = true;
+                ddlFrecuenciaFumado.SelectedValue = "";
+            txtNrFumado.Text = "";
+
+              
+
+                var item = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+
+                if (item != null)
+                    ddlFrecuenciaFumado.Items.Remove(item);
+                
+
+                }
+                else
+                {
+            
+            ddlFrecuenciaFumado.Enabled = false;
+            txtNrFumado.Enabled = false;
+            //$(ddlFrecuenciaFumado + ' option[value=3]').removeAttr('disabled').show();
+
+           txtNrFumado.Text = "0";
+
+                var item = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+
+                if (item == null)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = "3";
+                    newItem.Text = "Nunca";
+                    ddlFrecuenciaFumado.Items.Add(newItem);
+                }
+
+                ddlFrecuenciaFumado.SelectedValue = "3";
+
+
+
+            }
+
+            ddlInFumado.Focus();
+
+            }
+
         #region Código generado por el Diseñador de Web Forms
         override protected void OnInit(EventArgs e)
         {
@@ -1703,6 +1763,7 @@ namespace ASSMCA.Perfiles
         }
 
        
+
         public sbyte @FK_FrecuenciaPrimario
         {
             get

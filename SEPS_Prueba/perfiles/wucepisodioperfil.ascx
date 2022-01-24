@@ -424,7 +424,7 @@
                     <asp:RequiredFieldValidator ID="rfvInFumado" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Fumado en su vida" ControlToValidate="ddlInFumado" Text="*" />
                     
                   
-                        <asp:DropDownList CssClass="form-control" Width="100%" ID="ddlInFumado" runat="server" onChange="ddInFumadoChange();" >
+                        <asp:DropDownList CssClass="form-control" Width="100%" ID="ddlInFumado" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlInFumado_SelectedIndexChanged" >
                             <asp:ListItem />
                             <%-- IN ZONA > EPISODIO --%>
                             <asp:ListItem Value="1">Si</asp:ListItem>
