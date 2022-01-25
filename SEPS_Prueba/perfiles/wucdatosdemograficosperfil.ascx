@@ -56,6 +56,8 @@
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlGrado" runat="server" DataSource="<%# dvwUltGrado %>" DataValueField="PK_Grado" DataTextField="DE_Grado"  AutoPostBack="true" EnableViewState="true" OnSelectedIndexChanged="ddlGrado_SelectedIndexChanged" />
             <asp:Label ID="lblGrado" runat="server"/>
+                                <asp:Label ID="lblFeNacimiento" Visible="false" runat="server" />
+
         </div>
     </div> 
     <div class="col-print-6 col-md-6 SEPSDivs"><%--Es desertor escolar--%>
