@@ -16,7 +16,7 @@ function startupFunctions() {
     try {
         changeTabOrder();
         setupFechaPerfilLabel();
-
+      
         if (urlParams.get('accion') != 'update') {
             ddlCondLaboral();
             ddlArrestado30();
@@ -25,13 +25,14 @@ function startupFunctions() {
             ddlDSMVPsicoAmbiPrim();
             ddlDSMVPsicoAmbiSec();
             ddlRazonAlta();
-
             if (IsPostBack() == "False") {
                 ddlGrado();
             }
             TakeHomeParticipa();
            
         }
+        ddlDrogaSecF();
+
 
         ddlDrogaChangeEvent();
         ddlDrogaChange("#mainBodyContent_WucEpisodioPerfil_ddlDrogaPrim", 'ddlViaPrim', 'ddlFrecPrim', 'txtEdadPrim', 'ddlToxicologia1');
