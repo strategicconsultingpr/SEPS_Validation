@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="col-print-6 col-md-6 SEPSDivs"><%--Ha recibido educación especial--%>
-        <span class="SEPSLabel">¿Ha recibido educación especial?:</span>
+        <span class="SEPSLabel">¿Ha recibido o está recibiendo educación especial?:</span>
         <asp:RequiredFieldValidator ID="rfvEducacionEspecial"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Ha recibido educación especial" ControlToValidate="ddlEducacionEspecial" Text="*"/>
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlEducacionEspecial" runat="server">
