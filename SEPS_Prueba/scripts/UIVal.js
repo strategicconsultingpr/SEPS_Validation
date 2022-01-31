@@ -153,14 +153,14 @@ function FechaAlta(mes_id, día_id, año_id, FechaAdmision_id, FechaAlta_id, Fec
         FechaAltaHidden.value = mes.value + '/' + día.value + '/' + año.value;
         if (año.value != "") {
             if (Date.parse(FechaAltaHidden.value) < Date.parse(FechaAdmision.value)) {
-                alert("La fecha de alta no puede ser menor a la fecha de admision.");
+                alert("La fecha no puede ser menor a la fecha de admision.");
                 día.value = 1;
                 año.value = '';
                 mes.value = 1;
                 mes.focus();
             }
             else if (Date.parse(FechaAltaHidden.value) < Date.parse(FechaEvaluacionHidden.value)) {
-                alert("La fecha de alta no puede ser menor a la ultima fecha de evaluacion.");
+                alert("La fecha no puede ser menor a la ultima fecha de evaluacion.");
                 día.value = 1;
                 año.value = '';
                 mes.value = 1;
