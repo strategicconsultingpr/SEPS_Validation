@@ -1904,7 +1904,7 @@ function ddlArrestado() {
                 break;
             case ("2"): //No
                 txtArrestos3O.value = '0';
-                ddlArrestado3O.value = 2;
+                ddlArrestado3O.value = '99';
                 rvArrestos3O.minimumvalue = "0";
                 ddlArrestado3O.disabled = true;
                 txtArrestos3O.disabled = true;
@@ -1953,6 +1953,7 @@ function ddlArrestado30() {
 
                 if (ddlArrestado.value == "2" || ddlArrestado.value == "") {
                     ddlArrestado30.disabled = true;
+                    ddlArrestado30.value = '99';
 
                 }
                 else {
@@ -1971,7 +1972,7 @@ function ddlArrestado30() {
                     txtArrestos30.disabled = false;
                 }
                 else if (ddlArrestado.value == "2") {
-                    ddlArrestado30.value = "2";
+                    ddlArrestado30.value = "99";
                     txtArrestos30.value = "0";
                     rvArrestos30.minimumvalue = "0";
                     ddlArrestado30.disabled = true;
