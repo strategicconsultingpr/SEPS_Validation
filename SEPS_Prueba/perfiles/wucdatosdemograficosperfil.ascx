@@ -177,6 +177,8 @@
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
+                <asp:ListItem Value="99">No aplica</asp:ListItem>
+
             </asp:DropDownList>
             <asp:Label ID="lblArrestado" runat="server"/>
         </div>

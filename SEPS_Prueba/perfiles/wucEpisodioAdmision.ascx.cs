@@ -2508,6 +2508,7 @@ namespace ASSMCA.Perfiles
         {
             ListItem li = new ListItem("No aplica", "99");
 
+
             if (ddlArrestado.SelectedValue == "2")
             {
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
@@ -2520,9 +2521,19 @@ namespace ASSMCA.Perfiles
                 Button4.Enabled = false;
                 Button3.Enabled = false;
 
+                var item = ddlArrestado30.Items.FindByValue("99");
+
+                if (item != null)
+                    item.Enabled = true;
+
             }
             else if (ddlArrestado.SelectedValue == "1")
             {
+                var item = ddlArrestado30.Items.FindByValue("99");
+
+                if(item != null)
+                    item.Enabled = false;
+
 
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
                 this.lbxProbJusticiaSeleccion.Items.Remove(li);
