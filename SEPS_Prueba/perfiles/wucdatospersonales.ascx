@@ -213,6 +213,16 @@
                     <asp:Label ID="lblFamMilitar" runat="server"/>
                 </div>
             </div>
+
+            <div id="divIdentidadGenero" runat="server" class="col-print-6 col-md-6 SEPSDivs"><%-- Identidad de Genero --%>
+                <span class="SEPSLabel">Identidad de Género:</span> 
+                <asp:RequiredFieldValidator ID="rfvIdentidadGenero" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Identidad de Género" ControlToValidate="ddlIdentidadGenero" InitialValue="0" Text="*"/>
+                <div class="expandibleDiv">
+                    <asp:DropDownList CssClass="form-control" ID="ddlIdentidadGenero" runat="server"/>
+                    <asp:Label ID="lblIdentidadGenero" runat="server"/>
+                </div>
+            </div>
+
             <div class="col-print-6 col-md-6 SEPSDivs"><%-- Genero --%>
                 <span class="SEPSLabel">Orientación Sexual:</span> 
                 <asp:RequiredFieldValidator ID="rfvGenero" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Género" ControlToValidate="ddlGenero" InitialValue="0" Text="*"/>
@@ -221,6 +231,9 @@
                     <asp:Label ID="lblGenero" runat="server"/>
                 </div>
             </div>
+
+            
+
             <div class="col-print-6 col-md-6 SEPSDivs" id="divTipoDeAdmision" runat="server"><%--Tipo de admisión--%>
                 <span class="SEPSLabel">Tipo de admisión:</span>
                 <asp:RequiredFieldValidator ID="rfvTipoDeAdmision" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Tipo de admisión" ControlToValidate="ddlTipoDeAdmision" InitialValue="0" Text="*"/>

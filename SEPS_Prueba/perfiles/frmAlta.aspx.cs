@@ -370,6 +370,8 @@ namespace ASSMCA.Perfiles
             this.SPC_PERFIL.Parameters["@NR_CelularContacto"].Value = this.WucDatosPersonales.NR_CelularContacto;
             this.SPC_PERFIL.Parameters["@DE_EmailPrimario"].Value = this.WucDatosPersonales.DE_EmailPrimario;
             this.SPC_PERFIL.Parameters["@DE_EmailSecundario"].Value = this.WucDatosPersonales.DE_EmailSecundario;
+            this.SPC_PERFIL.Parameters["@FK_IDENTIDAD_GENERO"].Value = this.WucDatosPersonales.FK_IDENTIDAD_GENERO;
+
             this.SPC_PERFIL.Parameters["@FK_CatRecuperacionRes"].Value = this.WucEpisodioPerfil.FK_CatRecuperacionRes;
             this.SPC_PERFIL.Parameters["@HogarRecuperacionRes"].Value = this.WucEpisodioPerfil.HogarRecuperacionRes;
             this.SPC_PERFIL.Parameters["@IN_Fumado"].Value = this.WucEpisodioPerfil.IN_Fumado;
@@ -642,6 +644,8 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@NR_CelularContacto"].Value = this.WucDatosPersonales.NR_CelularContacto;
             this.SPU_PERFIL.Parameters["@DE_EmailPrimario"].Value = this.WucDatosPersonales.DE_EmailPrimario;
             this.SPU_PERFIL.Parameters["@DE_EmailSecundario"].Value = this.WucDatosPersonales.DE_EmailSecundario;
+            this.SPU_PERFIL.Parameters["@FK_IDENTIDAD_GENERO"].Value = this.WucDatosPersonales.FK_IDENTIDAD_GENERO;
+
             this.SPU_PERFIL.Parameters["@FK_CatRecuperacionRes"].Value = this.WucEpisodioPerfil.FK_CatRecuperacionRes;
             this.SPU_PERFIL.Parameters["@HogarRecuperacionRes"].Value = this.WucEpisodioPerfil.HogarRecuperacionRes;
             this.SPU_PERFIL.Parameters["@IN_Fumado"].Value = this.WucEpisodioPerfil.IN_Fumado;
@@ -879,6 +883,8 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularContacto", System.Data.SqlDbType.VarChar, 50));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailPrimario", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailSecundario", System.Data.SqlDbType.VarChar, 1500));
+            this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_IDENTIDAD_GENERO", System.Data.SqlDbType.Int));
+
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_CatRecuperacionRes", System.Data.SqlDbType.TinyInt));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HogarRecuperacionRes", System.Data.SqlDbType.VarChar, 1500));
             this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_DSMV_Sustancias1", System.Data.SqlDbType.Int, 4));
@@ -979,6 +985,8 @@ namespace ASSMCA.Perfiles
             this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_CelularContacto", System.Data.SqlDbType.VarChar, 50));
             this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailPrimario", System.Data.SqlDbType.VarChar, 1500));
             this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@DE_EmailSecundario", System.Data.SqlDbType.VarChar, 1500));
+            this.SPU_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_IDENTIDAD_GENERO", System.Data.SqlDbType.Int));
+
 
             this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_CatRecuperacionRes", System.Data.SqlDbType.TinyInt));
             this.SPC_PERFIL.Parameters.Add(new System.Data.SqlClient.SqlParameter("@HogarRecuperacionRes", System.Data.SqlDbType.VarChar, 1500));

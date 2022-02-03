@@ -16353,6 +16353,10 @@ namespace ASSMCA.perfiles
 
             private global::System.Data.DataColumn columnIN_Toxicologia3;
 
+            private global::System.Data.DataColumn columnFK_IDENTIDAD_GENERO;
+
+            private global::System.Data.DataColumn columnDE_IDENTIDAD_GENERO;
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SA_PERFILDataTable()
@@ -18173,6 +18177,26 @@ namespace ASSMCA.perfiles
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_IDENTIDAD_GENEROColumn
+            {
+                get
+                {
+                    return this.columnFK_IDENTIDAD_GENERO;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_IDENTIDAD_GENEROColumn
+            {
+                get
+                {
+                    return this.columnDE_IDENTIDAD_GENERO;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count
@@ -18213,7 +18237,7 @@ namespace ASSMCA.perfiles
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_PERFILRow AddSA_PERFILRow(
                         int FK_Episodio,
                         System.DateTime FE_Perfil,
@@ -18391,7 +18415,9 @@ namespace ASSMCA.perfiles
                         string DE_DrogaNueva3,
                         byte IN_Toxicologia1,
                         byte IN_Toxicologia2,
-                        byte IN_Toxicologia3)
+                        byte IN_Toxicologia3,
+                        string FK_IDENTIDAD_GENERO,
+                        string DE_IDENTIDAD_GENERO)
             {
                 SA_PERFILRow rowSA_PERFILRow = ((SA_PERFILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -18572,7 +18598,9 @@ namespace ASSMCA.perfiles
                         DE_DrogaNueva3,
                         IN_Toxicologia1,
                         IN_Toxicologia2,
-                        IN_Toxicologia3};
+                        IN_Toxicologia3,
+                        FK_IDENTIDAD_GENERO,
+                        DE_IDENTIDAD_GENERO};
                 rowSA_PERFILRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_PERFILRow);
                 return rowSA_PERFILRow;
@@ -18776,6 +18804,9 @@ namespace ASSMCA.perfiles
                 this.columnIN_Toxicologia1 = base.Columns["IN_Toxicologia1"];
                 this.columnIN_Toxicologia2 = base.Columns["IN_Toxicologia2"];
                 this.columnIN_Toxicologia3 = base.Columns["IN_Toxicologia3"];
+                this.columnFK_IDENTIDAD_GENERO = base.Columns["FK_IDENTIDAD_GENERO"];
+                this.columnDE_IDENTIDAD_GENERO = base.Columns["DE_IDENTIDAD_GENERO"];
+
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19138,6 +19169,10 @@ namespace ASSMCA.perfiles
                 base.Columns.Add(this.columnIN_Toxicologia2);
                 this.columnIN_Toxicologia3 = new global::System.Data.DataColumn("IN_Toxicologia3", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIN_Toxicologia3);
+                this.columnFK_IDENTIDAD_GENERO = new global::System.Data.DataColumn("FK_IDENTIDAD_GENERO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_IDENTIDAD_GENERO);
+                this.columnDE_IDENTIDAD_GENERO = new global::System.Data.DataColumn("DE_IDENTIDAD_GENERO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_IDENTIDAD_GENERO);
                 this.columnPK_NR_Perfil.AutoIncrement = true;
                 this.columnPK_NR_Perfil.ReadOnly = true;
                 this.columnDE_TI_Perfil.ReadOnly = true;
@@ -32431,6 +32466,48 @@ namespace ASSMCA.perfiles
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FK_IDENTIDAD_GENERO
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableSA_PERFIL.FK_IDENTIDAD_GENEROColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FK_IDENTIDAD_GENERO\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_PERFIL.FK_IDENTIDAD_GENEROColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_IDENTIDAD_GENERO
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableSA_PERFIL.DE_IDENTIDAD_GENEROColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_IDENTIDAD_GENERO\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_PERFIL.DE_IDENTIDAD_GENEROColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPK_NR_PerfilNull()
             {
@@ -34920,6 +34997,33 @@ namespace ASSMCA.perfiles
             public void SetIN_Toxicologia3Null()
             {
                 this[this.tableSA_PERFIL.IN_Toxicologia3Column] = global::System.Convert.DBNull;
+            }
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFK_IDENTIDAD_GENERONull()
+            {
+                return this.IsNull(this.tableSA_PERFIL.FK_IDENTIDAD_GENEROColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFK_IDENTIDAD_GENERONull()
+            {
+                this[this.tableSA_PERFIL.FK_IDENTIDAD_GENEROColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_IDENTIDAD_GENERONull()
+            {
+                return this.IsNull(this.tableSA_PERFIL.DE_IDENTIDAD_GENEROColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_IDENTIDAD_GENERONull()
+            {
+                this[this.tableSA_PERFIL.DE_IDENTIDAD_GENEROColumn] = global::System.Convert.DBNull;
             }
         }
 

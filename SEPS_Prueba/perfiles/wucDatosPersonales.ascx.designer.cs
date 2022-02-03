@@ -411,6 +411,42 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblFamMilitar;
 
         /// <summary>
+        /// divIdentidadGenero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIdentidadGenero;
+
+        /// <summary>
+        /// rfvIdentidadGenero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIdentidadGenero;
+
+        /// <summary>
+        /// ddlIdentidadGenero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlIdentidadGenero;
+
+        /// <summary>
+        /// lblIdentidadGenero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdentidadGenero;
+
+        /// <summary>
         /// rfvGenero control.
         /// </summary>
         /// <remarks>
