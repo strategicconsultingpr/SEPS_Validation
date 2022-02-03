@@ -9,6 +9,8 @@
     using System.Data.SqlClient;
     using System.Web.UI;
     using ASSMCA.perfiles;
+    using SEPS.perfiles.dsPerfilTableAdapters;
+    using SEPS.Constante;
 
     public partial class wucDatosPersonales : System.Web.UI.UserControl
     {
@@ -21,7 +23,8 @@
         private int m_PK_Programa;
         private bool dataReadOnly = false;
         private bool isAdmision, isEvaluacion, isAlta, tieneConvenio;
-   
+        VW_IDENTIDAD_GENEROTableAdapter listIdentidadGenero  = new VW_IDENTIDAD_GENEROTableAdapter();
+
         protected void Page_Load(object sender, System.EventArgs e)
         {
 
@@ -37,8 +40,9 @@
             this.daPersona.Fill(this.dsPerfil, "SA_PERSONA");
             if (!this.IsPostBack)
             {
-                tieneConvenio = (bool)this.Session["in_convenio"];
 
+                tieneConvenio = (bool)this.Session["in_convenio"];
+               
 
                 if (!tieneConvenio)
                 {
@@ -83,6 +87,8 @@
                     }
                 }
                 #endregion
+
+
 
                 switch (m_frmAction)
                 {
@@ -172,18 +178,23 @@
                         this.txtCelular1.Visible = false;
                         this.txtCelular2.Visible = false;
 
+                        this.lblIdentidadGenero.Visible = true;
+                        this.lblIdentidadGenero.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_IDENTIDAD_GENERO"].ToString();
+                        this.ddlIdentidadGenero.Visible = false;
+
+
                         this.lblEmail1.Visible = true;
                         this.lblEmail1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailPrimario"].ToString();
                         this.lblEmail2.Visible = true;
                         this.lblEmail2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailSecundario"].ToString();
                         this.txtEmail1.Visible = false;
                         this.txtEmail2.Visible = false;
+                        ddlIdentidadGeneroSetup();
 
                         break;
                     case (frmAction.Update):
                         this.dataReadOnly = false;
-                        this.txtExpediente.Visible = false;
-                        
+                        this.txtExpediente.Visible = false;                      
                         this.ddlMes.SelectedValue = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Month.ToString(); ;
                         this.ddlDía.SelectedValue = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Day.ToString(); ;
                         this.txtAño.Text = DateTime.Parse(this.dsPerfil.SA_EPISODIO.DefaultView[0]["FE_Episodio"].ToString()).Year.ToString();
@@ -196,6 +207,10 @@
                         this.txtCelular2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularContacto"].ToString();
                         this.txtEmail1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailPrimario"].ToString();
                         this.txtEmail2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailSecundario"].ToString();
+                        ddlIdentidadGeneroSetup();
+
+
+
                         if (isAdmision)
                         {
                             this.txtExpediente.Visible = false;
@@ -257,11 +272,43 @@
                     this.ddlMilitar.Items.Insert(0, li);
                     this.ddlGenero.Items.Insert(0, li);
                 }
+
+                if(frmAction.Update == m_frmAction)
+                    this.ddlIdentidadGenero.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_IDENTIDAD_GENERO"].ToString();
+
             }
-          
+
         }
 
-        
+        private void ddlIdentidadGeneroSetup()
+        {
+            try
+            {
+                var fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
+
+                if (fe_perfil >= Const.IdentidadGeneroCampoNuevo)
+                {
+                    divIdentidadGenero.Visible = true;
+                    rfvIdentidadGenero.Enabled = true;
+
+                }
+                else
+                {
+                    divIdentidadGenero.Visible = false;
+                    rfvIdentidadGenero.Enabled = false;
+
+                }
+            }
+            catch
+            {
+                divIdentidadGenero.Visible = false;
+                rfvIdentidadGenero.Enabled = false;
+            }
+
+
+        }
+
+
         private void set_hProgramaAdultos()
         {
             try
@@ -497,8 +544,39 @@
             NS = null;
         }
 
+       
+
         public void load()
         {
+
+
+            /*
+             * Campo agregado por Jose A. Ramos De La Cruz
+             * Identidad de genero
+             * Fecha: 2/2/222
+             * Proposito: Actualizacion de perfiles fisicos
+             */
+            //Identidad de genero
+
+            try
+            {
+                var list = listIdentidadGenero.GetData();
+                ddlIdentidadGenero.DataSource = list.OrderBy(x => x.ORDERED);
+                ddlIdentidadGenero.DataValueField = "PK_IDENTIDAD_GENERO";
+                ddlIdentidadGenero.DataTextField = "DE_IDENTIDAD_GENERO";
+                ddlIdentidadGenero.DataBind();
+                var item = new ListItem();
+                item.Text = "";
+                item.Value = "";
+                ddlIdentidadGenero.Items.Add(item);
+                ddlIdentidadGenero.SelectedValue = "";
+            }catch
+            {
+                ddlIdentidadGenero.SelectedValue = "";
+
+            }
+
+
             ddlGeneroAll();
             ddlMilitarALL();
             if (isAdmision)
@@ -587,6 +665,22 @@
                 return Convert.ToInt32(this.ddlGenero.SelectedValue.ToString());
             }
         }
+
+        public int? FK_IDENTIDAD_GENERO
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.ddlIdentidadGenero.SelectedValue))
+                {
+                    return null;
+                }
+                else
+                {
+                    return Convert.ToInt32(this.ddlIdentidadGenero.SelectedValue.ToString());
+                }
+            }
+        }
+
         public int FK_TipoAdmision
         {
             get
