@@ -153,14 +153,23 @@ function startupFunctions() {
         //ddlArrestado();
         ddlArrestado30();
         ddlCondLaboral();
+        txtNbHogar();
+
+
         var accion = document.getElementById("mainBodyContent_WucEpisodioAdmision_hAccion");
 
         if (accion.value === "update") {
             AccionUpdate();
+
+            if (IsPostBack() != "False") {
+                ddlDrogaPrimF();
+            }
+
+
         }
         else {
-
             ddlDrogaPrimF();
+
             if (IsPostBack() == "False") {
                 ddlNivelCuidadoSaludMental();
                 CO_Tipo();
@@ -1525,6 +1534,40 @@ function ddlNivelCuidadoSustancias() {
 
     AjustesNiveldeCuidado();
 }
+
+function txtNbHogar() {
+
+    var nivelM = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
+    var divNbHogar = document.getElementById("mainBodyContent_WucEpisodioAdmision_divNbHogar");
+    var rfvNbHogar = document.getElementById("mainBodyContent_WucEpisodioAdmision_rfvNbHogar");
+    var txtNbHogar = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtNbHogar");
+
+
+
+
+    switch (nivelM.value) {
+        case ("24"):
+        case ("25"):
+        case ("26"):
+        case ("33"):
+
+            divNbHogar.style.visibility = 'visible';
+            ValidatorEnable(rfvNbHogar, true);
+
+            break;
+
+        default:
+            txtNbHogar.value = "";
+            divNbHogar.style.visibility = 'hidden';
+            ValidatorEnable(rfvNbHogar, false);
+            break;
+
+
+            
+            }
+
+}
+
 function ddlNivelCuidadoSaludMental() {
 
 
@@ -1564,6 +1607,7 @@ function ddlNivelCuidadoSaludMental() {
         //alert(ex.message); 
     }
     AjustesNiveldeCuidado();
+    txtNbHogar();
 }
 
 function ddlMetadona() {
@@ -2512,7 +2556,7 @@ function ddlDrogaSecF() {
                     hogarDiv.style.visibility = 'hidden';
                     break;
                 case ("0"):
-                     ddlDrogaSec.value = "0";
+                     ddlDrogaSec.value = "19";
                     ddlViaSec.value = viaList.NoAplica;
                     ddlViaSec.disabled = true;
                     ddlFrecSec.value = 99;

@@ -249,6 +249,42 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblDíasMental;
 
         /// <summary>
+        /// divNbHogar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNbHogar;
+
+        /// <summary>
+        /// rfvNbHogar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNbHogar;
+
+        /// <summary>
+        /// txtNbHogar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNbHogar;
+
+        /// <summary>
+        /// lblNbHogar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNbHogar;
+
+        /// <summary>
         /// rfvFuenteReferido control.
         /// </summary>
         /// <remarks>
