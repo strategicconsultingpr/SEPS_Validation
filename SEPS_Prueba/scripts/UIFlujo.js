@@ -182,6 +182,8 @@ function startupFunctions() {
         ddlDrogaChange("#mainBodyContent_WucEpisodioAdmision_ddlDrogaSec", 'ddlViaSec', 'ddlFrecSec', 'txtEdadSec', 'ddlToxicologia2');
         ddlDrogaChange("#mainBodyContent_WucEpisodioAdmision_ddlDrogaTerc", 'ddlViaTerc', 'ddlFrecTerc', 'txtEdadTerc', 'ddlToxicologia3');
 
+
+
     }
     catch (ex) {
         throw ex;
@@ -1552,7 +1554,14 @@ function txtNbHogar() {
         case ("33"):
 
             divNbHogar.style.visibility = 'visible';
+
+            if (txtNbHogar.value == "") {
             ValidatorEnable(rfvNbHogar, true);
+            }
+            else {
+                ValidatorEnable(rfvNbHogar, false);
+            }
+            
 
             break;
 

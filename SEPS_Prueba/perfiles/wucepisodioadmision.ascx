@@ -100,9 +100,9 @@
 
            <div class="col-md-12 SEPSDivs" id="divNbHogar" runat="server"><%--NB_HOGAR--%>  
         <span class="SEPSLabel">Nombre del Hogar:</span>
-           <asp:RequiredFieldValidator ID="rfvNbHogar" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="txtDíasMental" ErrorMessage="Nombre Del Hogar" ToolTip="Insertar nombre del hogar" Text="*"/>
+           <asp:RequiredFieldValidator ID="rfvNbHogar" runat="server" CssClass="rightFloatAsterisk"   Display="Dynamic" ControlToValidate="txtDíasMental" ErrorMessage="Nombre Del Hogar" ToolTip="Insertar nombre del hogar" Text="*"/>
         <div class="expandibleDiv">
-        <asp:TextBox  CssClass="form-control" ID="txtNbHogar" runat="server"/>
+        <asp:TextBox CssClass="form-control" ID="txtNbHogar" onInput="txtNbHogar();"  runat="server"/>
         <asp:Label ID="lblNbHogar" runat="server"/>
          </div>
     </div>

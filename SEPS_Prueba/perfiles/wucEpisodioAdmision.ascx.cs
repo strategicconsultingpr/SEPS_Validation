@@ -324,7 +324,7 @@ namespace ASSMCA.Perfiles
             this.lblVioDomestic.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_ViolenciaDomestica"].ToString();
             this.ddlArrestado.Visible = false;
             this.ddlArrestado30.Visible = false;
-            this.lblNbHogar.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NB_HOGAR"].ToString();
+            this.lblNbHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
 
 
             if (this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DrogaNueva1"].ToString() != "")
@@ -617,7 +617,7 @@ namespace ASSMCA.Perfiles
             this.txtDíasMentUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasUltimaAltaMental"].ToString();
             this.txtDíasSustancias.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasEsperaSustancias"].ToString();
             this.txtDíasSustUlt.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NR_DiasUltimaAltaSustancias"].ToString();
-            this.txtNbHogar.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["NB_HOGAR"].ToString();
+            this.txtNbHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
 
             /**
             * File: wuEpisodioAdmision.ascx.cs
@@ -1778,7 +1778,6 @@ namespace ASSMCA.Perfiles
             }
         }
 
-       
 
         public sbyte @FK_FrecuenciaPrimario
         {

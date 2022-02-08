@@ -336,7 +336,6 @@ namespace ASSMCA.Perfiles
             this.SPC_EPISODIO.Parameters["@FK_Programa"].Value = this.m_PK_Programa;
             this.SPC_EPISODIO.Parameters["@FE_Episodio"].Value = this.WucDatosPersonales.FE_Episodio;
             this.SPC_EPISODIO.Parameters["@FE_FechaConvenio"].Value = this.WucDatosPersonales.FE_FechaConvenio;
-            this.SPC_EPISODIO.Parameters["@NB_HOGAR"].Value = this.WucEpisodioAdmision.NB_HOGAR;
 
             this.SPC_EPISODIO.Parameters["@FK_SeguroSalud"].Value = this.WucOtrosDatos.FK_SeguroSalud;
             this.SPC_EPISODIO.Parameters["@FK_FuentePago"].Value = this.WucOtrosDatos.FK_FuentePago;
@@ -447,7 +446,7 @@ namespace ASSMCA.Perfiles
             this.SPC_PERFIL.Parameters["@FK_IDENTIDAD_GENERO"].Value = this.WucDatosPersonales.FK_IDENTIDAD_GENERO;
 
             this.SPC_PERFIL.Parameters["@FK_CatRecuperacionRes"].Value = 99;
-            this.SPC_PERFIL.Parameters["@HogarRecuperacionRes"].Value = "";
+            this.SPC_PERFIL.Parameters["@HogarRecuperacionRes"].Value = this.WucEpisodioAdmision.NB_HOGAR;
             this.SPC_PERFIL.Parameters["@IN_Fumado"].Value = this.WucEpisodioAdmision.IN_Fumado;
             this.SPC_PERFIL.Parameters["@DE_FrecuenciaFumado"].Value = this.WucEpisodioAdmision.DE_FrecuenciaFumado;
             this.SPC_PERFIL.Parameters["@NR_CigarrosXDias"].Value = this.WucEpisodioAdmision.NR_CigarrosXDias;
@@ -574,7 +573,6 @@ namespace ASSMCA.Perfiles
             this.SPU_EPISODIO.Parameters["@PK_Episodio"].Value = Convert.ToInt32(this.dsPerfil.SA_EPISODIO.DefaultView[0]["PK_Episodio"].ToString());
             this.SPU_EPISODIO.Parameters["@FE_Episodio"].Value = this.WucDatosPersonales.FE_Episodio;
             this.SPU_EPISODIO.Parameters["@FE_FechaConvenio"].Value = this.WucDatosPersonales.FE_FechaConvenio;
-            this.SPU_EPISODIO.Parameters["@NB_HOGAR"].Value = this.WucEpisodioAdmision.NB_HOGAR;
 
             this.SPU_EPISODIO.Parameters["@FK_SeguroSalud"].Value = this.WucOtrosDatos.FK_SeguroSalud;
             this.SPU_EPISODIO.Parameters["@FK_FuentePago"].Value = this.WucOtrosDatos.FK_FuentePago;
@@ -683,7 +681,7 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@FK_IDENTIDAD_GENERO"].Value = this.WucDatosPersonales.FK_IDENTIDAD_GENERO;
 
             this.SPU_PERFIL.Parameters["@FK_CatRecuperacionRes"].Value = 99;
-            this.SPU_PERFIL.Parameters["@HogarRecuperacionRes"].Value = "";
+            this.SPU_PERFIL.Parameters["@HogarRecuperacionRes"].Value = this.WucEpisodioAdmision.NB_HOGAR;
             this.SPU_PERFIL.Parameters["@IN_Fumado"].Value = this.WucEpisodioAdmision.IN_Fumado;
             this.SPU_PERFIL.Parameters["@DE_FrecuenciaFumado"].Value = this.WucEpisodioAdmision.DE_FrecuenciaFumado;
             this.SPU_PERFIL.Parameters["@NR_CigarrosXDias"].Value = this.WucEpisodioAdmision.NR_CigarrosXDias;
@@ -1057,7 +1055,6 @@ namespace ASSMCA.Perfiles
                 new System.Data.Common.DataColumnMapping("IN_TratamientoResidencial", "IN_TratamientoResidencial"),
                 new System.Data.Common.DataColumnMapping("DE_TratamientoResidencial", "DE_TratamientoResidencial"),
                 new System.Data.Common.DataColumnMapping("ES_Episodio", "ES_Episodio"),
-            new System.Data.Common.DataColumnMapping("NB_HOGAR", "NB_HOGAR"),
 
                 new System.Data.Common.DataColumnMapping("FE_FechaConvenio", "FE_FechaConvenio")}),
                 new System.Data.Common.DataTableMapping("Table1", "SA_PERFIL", new System.Data.Common.DataColumnMapping[] {
@@ -1288,7 +1285,6 @@ namespace ASSMCA.Perfiles
             this.SPU_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_TI_Hospital", System.Data.SqlDbType.TinyInt));
             this.SPU_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@IN_TratamientoResidencial", System.Data.SqlDbType.TinyInt));
             this.SPU_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FE_FechaConvenio", System.Data.SqlDbType.Date, 8));
-            this.SPU_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_HOGAR", System.Data.SqlDbType.VarChar, 1000));
 
 
             #endregion
@@ -1344,7 +1340,6 @@ namespace ASSMCA.Perfiles
             this.SPC_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FE_Alta", System.Data.SqlDbType.DateTime, 8));
             this.SPC_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Episodio", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.Output, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
             this.SPC_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FE_FechaConvenio", System.Data.SqlDbType.Date, 8));
-            this.SPC_EPISODIO.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_HOGAR", System.Data.SqlDbType.VarChar, 1000));
 
             #endregion
             this.daLkpNivelCuidado.SelectCommand = this.sqlSelectCommand4;

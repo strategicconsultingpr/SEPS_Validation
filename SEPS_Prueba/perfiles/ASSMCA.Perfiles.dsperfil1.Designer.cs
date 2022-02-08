@@ -12631,8 +12631,6 @@ namespace SEPS.perfiles {
             
             private global::System.Data.DataColumn columnFE_FechaConvenio;
             
-            private global::System.Data.DataColumn columnNB_HOGAR;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_EPISODIODataTable() {
@@ -13420,14 +13418,6 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NB_HOGARColumn {
-                get {
-                    return this.columnNB_HOGAR;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -13556,8 +13546,7 @@ namespace SEPS.perfiles {
                         byte IN_TratamientoResidencial, 
                         string DE_TratamientoResidencial, 
                         bool ES_Episodio, 
-                        string FE_FechaConvenio, 
-                        string NB_HOGAR) {
+                        string FE_FechaConvenio) {
                 SA_EPISODIORow rowSA_EPISODIORow = ((SA_EPISODIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -13653,8 +13642,7 @@ namespace SEPS.perfiles {
                         IN_TratamientoResidencial,
                         DE_TratamientoResidencial,
                         ES_Episodio,
-                        FE_FechaConvenio,
-                        NB_HOGAR};
+                        FE_FechaConvenio};
                 rowSA_EPISODIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_EPISODIORow);
                 return rowSA_EPISODIORow;
@@ -13771,7 +13759,6 @@ namespace SEPS.perfiles {
                 this.columnDE_TratamientoResidencial = base.Columns["DE_TratamientoResidencial"];
                 this.columnES_Episodio = base.Columns["ES_Episodio"];
                 this.columnFE_FechaConvenio = base.Columns["FE_FechaConvenio"];
-                this.columnNB_HOGAR = base.Columns["NB_HOGAR"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13965,8 +13952,6 @@ namespace SEPS.perfiles {
                 base.Columns.Add(this.columnES_Episodio);
                 this.columnFE_FechaConvenio = new global::System.Data.DataColumn("FE_FechaConvenio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFE_FechaConvenio);
-                this.columnNB_HOGAR = new global::System.Data.DataColumn("NB_HOGAR", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNB_HOGAR);
                 this.columnPK_Episodio.AutoIncrement = true;
                 this.columnPK_Episodio.ReadOnly = true;
                 this.columnDE_VaronHijos.ReadOnly = true;
@@ -23747,22 +23732,6 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string NB_HOGAR {
-                get {
-                    try {
-                        return ((string)(this[this.tableSA_EPISODIO.NB_HOGARColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NB_HOGAR\' in table \'SA_EPISODIO\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSA_EPISODIO.NB_HOGARColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPK_EpisodioNull() {
                 return this.IsNull(this.tableSA_EPISODIO.PK_EpisodioColumn);
             }
@@ -24887,18 +24856,6 @@ namespace SEPS.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFE_FechaConvenioNull() {
                 this[this.tableSA_EPISODIO.FE_FechaConvenioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNB_HOGARNull() {
-                return this.IsNull(this.tableSA_EPISODIO.NB_HOGARColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNB_HOGARNull() {
-                this[this.tableSA_EPISODIO.NB_HOGARColumn] = global::System.Convert.DBNull;
             }
         }
         
