@@ -171,32 +171,33 @@ namespace ASSMCA
         protected void btnAutenticarPrograma_Click(object sender, EventArgs e)
         {
            var programa =  dsSeguridad.SA_USUARIO.AsEnumerable().FirstOrDefault(x => x.PK_Programa.ToString() == ddlPrograma.SelectedValue);
-
-            bool convenio = new SA_PROGRAMA_IN_CONVENIO_TableAdapter().GetData().Where(x => x.PK_Programa.ToString() == ddlPrograma.SelectedValue).ToList().FirstOrDefault().IN_CONVENIO;
-
             if (programa != null)
-            {   
+            {
+                bool convenio = new SA_PROGRAMA_IN_CONVENIO_TableAdapter().GetData().Where(x => x.PK_Programa.ToString() == ddlPrograma.SelectedValue).ToList().FirstOrDefault().IN_CONVENIO;
 
-                /*
-                 * Cambio por Jose A Ramos De La Cruz
-                 * Fecha : 3/23/2021
-                 * Proposito: Ajustar la autenticacion del programa tomando en cuenta la barra de navegacion que se agrego nueva.              
-                 */
-               
-                this.Session["pk_administracion"] = programa.PK_Administracion.ToString();
-                this.Session["nb_administracion"] = programa.NB_Administracion.ToString();
-                this.Session["pk_programa"] = programa.PK_Programa.ToString();
-                this.Session["nb_programa"] = programa.NB_Programa.ToString();
-                this.Session["nr_rowIndex_dsSeguridad"] = this.dsSeguridad.SA_USUARIO.Rows.IndexOf(programa);
-                this.Session["co_tipo"] = programa.CO_Tipo.ToString();
-                this.Session["in_convenio"] = convenio;
-                
-                this.Response.Redirect("frmHome.aspx");
+                if (programa != null)
+                {
+
+                    /*
+                     * Cambio por Jose A Ramos De La Cruz
+                     * Fecha : 3/23/2021
+                     * Proposito: Ajustar la autenticacion del programa tomando en cuenta la barra de navegacion que se agrego nueva.              
+                     */
+
+                    this.Session["pk_administracion"] = programa.PK_Administracion.ToString();
+                    this.Session["nb_administracion"] = programa.NB_Administracion.ToString();
+                    this.Session["pk_programa"] = programa.PK_Programa.ToString();
+                    this.Session["nb_programa"] = programa.NB_Programa.ToString();
+                    this.Session["nr_rowIndex_dsSeguridad"] = this.dsSeguridad.SA_USUARIO.Rows.IndexOf(programa);
+                    this.Session["co_tipo"] = programa.CO_Tipo.ToString();
+                    this.Session["in_convenio"] = convenio;
+
+                    this.Response.Redirect("frmHome.aspx");
+
+                }
+
 
             }
-
-           
-
 
             //int nr_rowIndex_dsSeguridad = this.ddlPrograma.SelectedIndex;
             //this.Session["pk_administracion"] = this.dsSeguridad.SA_USUARIO.Rows[nr_rowIndex_dsSeguridad]["PK_Administracion"].ToString();

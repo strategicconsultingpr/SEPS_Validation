@@ -14297,6 +14297,7 @@ namespace ASSMCA.perfiles
 
             private global::System.Data.DataColumn columnFE_FechaConvenio;
 
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SA_EPISODIODataTable()
@@ -15276,6 +15277,8 @@ namespace ASSMCA.perfiles
                 }
             }
 
+       
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
@@ -15628,6 +15631,7 @@ namespace ASSMCA.perfiles
                 this.columnDE_TratamientoResidencial = base.Columns["DE_TratamientoResidencial"];
                 this.columnES_Episodio = base.Columns["ES_Episodio"];
                 this.columnFE_FechaConvenio = base.Columns["FE_FechaConvenio"];
+
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15822,6 +15826,7 @@ namespace ASSMCA.perfiles
                 base.Columns.Add(this.columnES_Episodio);
                 this.columnFE_FechaConvenio = new global::System.Data.DataColumn("FE_FechaConvenio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFE_FechaConvenio);
+     
                 this.columnPK_Episodio.AutoIncrement = true;
                 this.columnPK_Episodio.ReadOnly = true;
                 this.columnDE_VaronHijos.ReadOnly = true;
@@ -27355,6 +27360,8 @@ namespace ASSMCA.perfiles
                 }
             }
 
+      
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPK_EpisodioNull()
@@ -28664,12 +28671,17 @@ namespace ASSMCA.perfiles
                 return this.IsNull(this.tableSA_EPISODIO.FE_FechaConvenioColumn);
             }
 
+
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFE_FechaConvenioNull()
             {
                 this[this.tableSA_EPISODIO.FE_FechaConvenioColumn] = global::System.Convert.DBNull;
             }
+
+
+    
         }
 
         /// <summary>

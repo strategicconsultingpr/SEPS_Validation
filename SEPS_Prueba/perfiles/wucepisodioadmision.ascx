@@ -81,7 +81,7 @@
         <span class="SEPSLabel">Nivel de cuidado de Salud mental [TEDS]:</span>
                 <asp:RequiredFieldValidator ID="rfvNivelCuidadoSaludMental" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Nivel de cuidado (Salud mental)" ControlToValidate="ddlNivelCuidadoSaludMental" InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
-                <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()"   AutoPostBack="true"/>
+                <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()" AutoPostBack="true"/>
                 <asp:Label ID="lblNivelCuidadoSaludMental" runat="server"/>
                      <asp:CustomValidator ID="lblNivelCuidadoSaludMentalVal" Display="Dynamic" ControlToValidate="ddlNivelCuidadoSaludMental"  ClientValidationFunction="nivelCuidadoValidation" runat="server" ></asp:CustomValidator>
 
@@ -97,6 +97,16 @@
         <asp:Label ID="lblDíasMental" runat="server"/>
          </div>
     </div>
+
+           <div class="col-md-12 SEPSDivs" id="divNbHogar" runat="server"><%--NB_HOGAR--%>  
+        <span class="SEPSLabel">Nombre del Hogar:</span>
+           <asp:RequiredFieldValidator ID="rfvNbHogar" runat="server" CssClass="rightFloatAsterisk"   Display="Dynamic" ControlToValidate="txtDíasMental" ErrorMessage="Nombre Del Hogar" ToolTip="Insertar nombre del hogar" Text="*"/>
+        <div class="expandibleDiv">
+        <asp:TextBox CssClass="form-control" ID="txtNbHogar" onInput="txtNbHogar();"  runat="server"/>
+        <asp:Label ID="lblNbHogar" runat="server"/>
+         </div>
+    </div>
+
 </div>
   </div>
 </div>
