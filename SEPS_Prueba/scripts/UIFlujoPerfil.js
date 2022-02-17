@@ -1018,7 +1018,9 @@ function TakeHomeParticipa() {
                     díaFechaSalida.disabled = false;
                     mesFechaSalida.disabled = false;
                     añoFechaSalida.disabled = false;
-                    ddlTHEtapa.disabled = false;
+                    ddlTHEtapa.disabled = true;
+                    ddlTHEtapa.value = '';
+                    ddlTHEtapa.style.visibility = 'hidden';
                     txtCantidadBotellas.disabled = false;
                     ddlFrecuenciaBotellas.disabled = false;
                     $NoParticipa.hide();
@@ -1035,6 +1037,7 @@ function TakeHomeParticipa() {
                     añoFechaSalida.value = '';
                     ddlTHEtapa.disabled = true;
                     ddlTHEtapa.value = '';
+                    ddlTHEtapa.style.visibility = 'hidden';
                     txtCantidadBotellas.disabled = true;
                     txtCantidadBotellas.value = '';
                     ddlFrecuenciaBotellas.disabled = true;
