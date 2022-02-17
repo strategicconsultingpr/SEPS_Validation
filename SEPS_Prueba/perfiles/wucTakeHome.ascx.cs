@@ -29,10 +29,13 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
                 if (this.m_frmAction == frmAction.Create || this.m_frmAction == frmAction.Update)
                 {
                     dataEdit();
+                    lblFase.Visible = false;
+                 
                 }
                 else
                 {
                     dataRead();
+                  
                 }
             }
         }
@@ -90,6 +93,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
         ddlFechaSalidaDía.Visible = false;
         ddlFechaSalidaMes.Visible = false;
         txtFechaSalidaAño.Visible = false;
+        lblFase.Visible = true;
         ddlTHBelong.Visible = false;
         ddlTHEtapa.Visible = false;
         btnAgregar.Visible = false;

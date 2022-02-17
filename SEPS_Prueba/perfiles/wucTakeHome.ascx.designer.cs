@@ -9,8 +9,9 @@
 
 
 
-public partial class Perfiles_wucTakeHome {
-    
+public partial class Perfiles_wucTakeHome
+{
+
     /// <summary>
     /// divTakeHome control.
     /// </summary>
@@ -19,7 +20,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTakeHome;
-    
+
     /// <summary>
     /// rfvTHBelong control.
     /// </summary>
@@ -28,7 +29,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTHBelong;
-    
+
     /// <summary>
     /// ddlTHBelong control.
     /// </summary>
@@ -37,7 +38,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlTHBelong;
-    
+
     /// <summary>
     /// lblTHBelong control.
     /// </summary>
@@ -46,16 +47,16 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblTHBelong;
-    
+
     /// <summary>
-    /// cvEtapa control.
+    /// lblFase control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.CustomValidator cvEtapa;
-    
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblFase;
+
     /// <summary>
     /// ddlTHEtapa control.
     /// </summary>
@@ -64,7 +65,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlTHEtapa;
-    
+
     /// <summary>
     /// lblTHEtapa control.
     /// </summary>
@@ -73,7 +74,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblTHEtapa;
-    
+
     /// <summary>
     /// divRazon control.
     /// </summary>
@@ -82,7 +83,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRazon;
-    
+
     /// <summary>
     /// lbxRazonSeleccion control.
     /// </summary>
@@ -91,7 +92,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.ListBox lbxRazonSeleccion;
-    
+
     /// <summary>
     /// btnEliminar control.
     /// </summary>
@@ -100,7 +101,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button btnEliminar;
-    
+
     /// <summary>
     /// btnAgregar control.
     /// </summary>
@@ -109,7 +110,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button btnAgregar;
-    
+
     /// <summary>
     /// cvRazonesNoParticipa control.
     /// </summary>
@@ -118,7 +119,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.CustomValidator cvRazonesNoParticipa;
-    
+
     /// <summary>
     /// lbxRazonSeleccionado control.
     /// </summary>
@@ -127,7 +128,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.ListBox lbxRazonSeleccionado;
-    
+
     /// <summary>
     /// divLblRazon control.
     /// </summary>
@@ -136,7 +137,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLblRazon;
-    
+
     /// <summary>
     /// lblRazon control.
     /// </summary>
@@ -145,7 +146,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblRazon;
-    
+
     /// <summary>
     /// ddlFechaEntradaMes control.
     /// </summary>
@@ -154,7 +155,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlFechaEntradaMes;
-    
+
     /// <summary>
     /// ddlFechaEntradaDía control.
     /// </summary>
@@ -163,7 +164,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlFechaEntradaDía;
-    
+
     /// <summary>
     /// cvTxtFechaEntrada control.
     /// </summary>
@@ -172,7 +173,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.CustomValidator cvTxtFechaEntrada;
-    
+
     /// <summary>
     /// txtFechaEntradaAño control.
     /// </summary>
@@ -181,7 +182,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox txtFechaEntradaAño;
-    
+
     /// <summary>
     /// lblFE_In control.
     /// </summary>
@@ -190,7 +191,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblFE_In;
-    
+
     /// <summary>
     /// ddlFechaSalidaMes control.
     /// </summary>
@@ -199,7 +200,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlFechaSalidaMes;
-    
+
     /// <summary>
     /// ddlFechaSalidaDía control.
     /// </summary>
@@ -208,7 +209,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlFechaSalidaDía;
-    
+
     /// <summary>
     /// cvFechaSalida control.
     /// </summary>
@@ -217,7 +218,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.CustomValidator cvFechaSalida;
-    
+
     /// <summary>
     /// txtFechaSalidaAño control.
     /// </summary>
@@ -226,7 +227,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox txtFechaSalidaAño;
-    
+
     /// <summary>
     /// lblFE_Out control.
     /// </summary>
@@ -235,7 +236,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblFE_Out;
-    
+
     /// <summary>
     /// cnCantidadBotellas control.
     /// </summary>
@@ -244,7 +245,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.CustomValidator cnCantidadBotellas;
-    
+
     /// <summary>
     /// txtCantidadBotellas control.
     /// </summary>
@@ -253,7 +254,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox txtCantidadBotellas;
-    
+
     /// <summary>
     /// lblCantidadBotellas control.
     /// </summary>
@@ -262,7 +263,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblCantidadBotellas;
-    
+
     /// <summary>
     /// cvFrecuenciaBotellas control.
     /// </summary>
@@ -271,7 +272,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.CustomValidator cvFrecuenciaBotellas;
-    
+
     /// <summary>
     /// ddlFrecuenciaBotellas control.
     /// </summary>
@@ -280,7 +281,7 @@ public partial class Perfiles_wucTakeHome {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlFrecuenciaBotellas;
-    
+
     /// <summary>
     /// lblFrecuenciaBotellas control.
     /// </summary>

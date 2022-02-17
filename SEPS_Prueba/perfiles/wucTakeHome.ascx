@@ -20,8 +20,8 @@
                     </div>
                 </div>
         <div class="col-lg-6 SEPSDivs Participa"><%--Etapa--%>
-            <span class="SEPSLabel">Fase:</span>
-            <asp:CustomValidator ID="cvEtapa" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvEtapa" ErrorMessage="Debe seleccionar un valor en Fase de Take Home" Text="*"/>
+            <span class="SEPSLabel" runat="server" id="lblFase">Fase:</span>
+<%--            <asp:CustomValidator ID="cvEtapa" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvEtapa" ErrorMessage="Debe seleccionar un valor en Fase de Take Home" Text="*"/>--%>
             <div class="expandibleDiv">
                 <asp:DropDownList CssClass="form-control" ID="ddlTHEtapa" runat="server"/>
                 <asp:Label ID="lblTHEtapa" runat="server"/>
