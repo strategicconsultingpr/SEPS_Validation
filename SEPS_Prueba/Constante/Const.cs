@@ -10,5 +10,23 @@ namespace SEPS.Constante
         public static DateTime EdadInicioFechaCambioNuevo = new DateTime(2021, 03, 30);
         public static DateTime IdentidadGeneroCampoNuevo = new DateTime(2022, 02, 02);
 
+        public static bool EsProgramaMetadona(int PK_PROGRAMA)
+        {
+            bool esProgramaMetadona = false;
+            switch ((PKPrograma)PK_PROGRAMA)
+            {
+                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_SAN_JUAN):     // PK_Programa =  1
+                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAGUAS):       // PK_Programa =  2
+                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_PONCE):        // PK_Programa =  3
+                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_AGUADILLA):    // PK_Programa =  4
+                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_BAYAMÓN):      // PK_Programa =  6
+                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAYEY):        // PK_Programa = 43
+                case (PKPrograma.CENTRO_DE_TRATAMIENTO_CON_METADONA_FAJARDO):
+                    esProgramaMetadona = true; break;
+                default: break;
+            }
+            return esProgramaMetadona;
+        }
+
     }
 }
