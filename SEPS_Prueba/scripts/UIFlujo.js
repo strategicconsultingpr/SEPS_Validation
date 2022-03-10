@@ -88,11 +88,7 @@ function diagnosticoConcurrente(source, arguments) {
     var hDSMVClinPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim");
     var hDSMVSusPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_hDSMVSusPrim");
 
-    if (ddlDSMVDiagDual.value != "1" && hDSMVClinPrim.value != "761" && hDSMVSusPrim.value != "761") {
-        alert("Este diagnósticos es concurrente de salud mental y uso de sustancias.");
-        arguments.IsValid = false;
-    }
-    else { arguments.IsValid = true; }
+    validateCOOCURRING();
 
 
 }
@@ -3168,7 +3164,7 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDualP) {
                         opiod.value = "4";
                         opiod.disabled = true;
                     }
-                //Opiaceos
+                //Opiaceoslsa
 
             }
         }
@@ -3203,54 +3199,148 @@ function validateCOOCURRING() {
     var ddlPreviosSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlPreviosSustancias");
     var ddlPreviosMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlPreviosMental");
     var ClinHD = document.getElementById("mainBodyContent_WucEpisodioAdmision_hDSMVClinPrim");
+    var ClinHDSus = document.getElementById("mainBodyContent_WucEpisodioAdmision_hDSMVSusPrim");
+    var ddlFreq_AutoAyuda = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlFreq_AutoAyuda");
 
+
+
+   
     var campos = "\n";
-
+    var flagConcurrente = true;
+    //Si el perfil es de Salud Mental
     if (ddlNivelCuidadoSaludMental.value != "99") {
+
+    
         if (ClinHD.value == '761') {
             alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
+            flagConcurrente = false;
+
             return false;
         }
-        if (((ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) || opiod.value != 4) && ddlDSMVDiagDual.value != "1") {
-            if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) {
-                campos += "\u2022Seleccionó una droga\n";
-            }
-            if (opiod.value != 4) {
-                campos += "\u2022Seleccionó medicamento para opíaceos\n";
-            }
-            alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+
+        var message = " ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocasionarón este mensaje son:\n";
+        //1)	Uso de medicamentos como parte del tratamiento contra la dependencia de opioides
+        if (opiod.value != 4  && ddlDSMVDiagDual.value != "1") {
+            campos += "\u2022Seleccionó medicamento para opíaceos\n";
+            flagConcurrente = false;
+        }
+        //2) Episodios anteriores de cualquier servicio de tratamiento de uso de sustancias
+        if (ddlPreviosSustancias.value != "99" && ddlPreviosSustancias.value != "1" && ddlDSMVDiagDual.value != "1") {
+            campos += "\u2022Número de episodios/servicios de tratamiento que ha recibido anteriormente [TEDS] de Abuso de Sustancia\n";
+            flagConcurrente = false;
+        }
+        //3)	Participación en reuniones de grupos de apoyo o auto-ayuda enfocados en la recuperación de uso de sustancias durante los pasados 30 días
+        if (ddlFreq_AutoAyuda.value != '1' && ddlDSMVDiagDual.value != "1") {
+            campos += "\u2022Seleccionó que ha participado de reuniones de grupos de auto-ayuda durante los pasados 30 días\n";
+            flagConcurrente = false;
+        }
+        //4)	Diagnósticos de uso de sustancias
+        if (ClinHDSus.value != '761' && ddlDSMVDiagDual.value != "1") {
+            campos += "\u2022Seleccionó un diagnóstico de abuso de sustancia\n";
+            flagConcurrente = false;
+        }
+       // 5) Campos relacionados a utilización de sustancias
+        if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo &&  ddlDSMVDiagDual.value != "1") {
+            campos += "\u2022Seleccionó una droga\n";
+            flagConcurrente = false;
+
+        }
+
+        if (flagConcurrente == false) {
+            alert(message + campos);
+        }
+
+        if (ClinHDSus.value == '761' && opiod.value == 4 && (ddlPreviosSustancias.value == "99" || ddlPreviosSustancias.value == "1") && ddlFreq_AutoAyuda.value == '1' && (ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && ddlDSMVDiagDual.value == "1") {
+            alert("!!! !!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!");
             return false;
         }
-        else if ((ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && opiod.value == 4 && ddlDSMVDiagDual.value == "1") {
-            campos += "\u2022NO seleccionó una droga\n";
-            campos += "\u2022NO seleccionó medicamento para opíaceos\n";
-            return confirm("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
-        }
-        else {
-            return true;
-        }
+
+        return flagConcurrente;
+        
     }
     else if (ddlNivelCuidadoSustancias.value != "99") {
 
+        var message = "!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son: \n";
+        var flagConcurrente = true;
+
+        //1)	Diagnóstico de salud mental
         if ((GAF.value != "") && ddlDSMVDiagDual.value != "1") {
 
             campos += "\u2022Entró algún valor en Funcionamiento Global\n";
 
-            alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+            flagConcurrente = false;
+        }
+
+
+        //2)	Medidas de Funcionamiento Global - CGAS
+        if ( ClinHD.value != '761' && ddlDSMVDiagDual.value != "1") {
+            campos += "\u2022Entró algún valor en Diagnostico Primario\n";
+            flagConcurrente = false;
+        }
+
+
+
+        if (flagConcurrente == false) {
+            alert(message + campos);
+        }
+
+        if (GAF.value == "" && ClinHD.value == '761' && ddlDSMVDiagDual.value == "1")
+        {
+            alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!!!!");
             return false;
         }
-        else if ((GAF.value == "" || ClinHD.value == '761') && ddlDSMVDiagDual.value == "1") {
-            if (ClinHD.value == '761') {
-                campos += "\u2022NO entró algún valor en Diagnostico Primario\n";
-            }
-            if (GAF.value == "") {
-                campos += "\u2022NO entró algún valor en Funcionamiento Global\n";
-            }
-            return confirm("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
-        }
-        else {
-            return true;
-        }
+
+
+
+
+        return flagConcurrente;
+        
+
+    //if (ddlNivelCuidadoSaludMental.value != "99") {
+    //    if (ClinHD.value == '761') {
+    //        alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
+    //        return false;
+    //    }
+    //    if (((ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) || opiod.value != 4) && ddlDSMVDiagDual.value != "1") {
+    //        if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) {
+    //            campos += "\u2022Seleccionó una droga\n";
+    //        }
+    //        if (opiod.value != 4) {
+    //            campos += "\u2022Seleccionó medicamento para opíaceos\n";
+    //        }
+    //        alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+    //        return false;
+    //    }
+    //    else if ((ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && opiod.value == 4 && ddlDSMVDiagDual.value == "1") {
+    //        campos += "\u2022NO seleccionó una droga\n";
+    //        campos += "\u2022NO seleccionó medicamento para opíaceos\n";
+    //        return confirm("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
+    //    }
+    //    else {
+    //        return true;
+    //    }
+    //}
+    //else if (ddlNivelCuidadoSustancias.value != "99") {
+
+    //    if ((GAF.value != "") && ddlDSMVDiagDual.value != "1") {
+
+    //        campos += "\u2022Entró algún valor en Funcionamiento Global\n";
+
+    //        alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+    //        return false;
+    //    }
+    //    else if ((GAF.value == "" || ClinHD.value == '761') && ddlDSMVDiagDual.value == "1") {
+    //        if (ClinHD.value == '761') {
+    //            campos += "\u2022NO entró algún valor en Diagnostico Primario\n";
+    //        }
+    //        if (GAF.value == "") {
+    //            campos += "\u2022NO entró algún valor en Funcionamiento Global\n";
+    //        }
+    //        return confirm("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
+    //    }
+    //    else {
+    //        return true;
+    //    }
     }
 }
 
