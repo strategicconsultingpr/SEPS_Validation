@@ -9,6 +9,7 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using SEPS.Constante;
 
 namespace ASSMCA.Perfiles
 {
@@ -264,23 +265,6 @@ namespace ASSMCA.Perfiles
 			this.btnRegistrar.Visible = false;
 		}
 
-        public bool EsProgramaMetadona(int PK_PROGRAMA)
-        {
-            bool esProgramaMetadona = false;
-            switch ((PKPrograma)PK_PROGRAMA)
-            {
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_SAN_JUAN):     // PK_Programa =  1
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAGUAS):       // PK_Programa =  2
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_PONCE):        // PK_Programa =  3
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_AGUADILLA):    // PK_Programa =  4
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_BAYAMÓN):      // PK_Programa =  6
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAYEY):        // PK_Programa = 43
-                    esProgramaMetadona = true; break;
-                default: break;
-            }
-            return esProgramaMetadona;
-        }
-
 		private void CrearRegistro()
 		{
 			WucDatosPersonales.m_frmAction = frmAction.Create;
@@ -428,7 +412,7 @@ namespace ASSMCA.Perfiles
                     }
                 }
 
-                if (EsProgramaMetadona(m_PK_Programa))
+                if (Const.EsProgramaMetadona(m_PK_Programa))
                 {
                     this.SPC_METADONA = new System.Data.SqlClient.SqlCommand();
                     this.SPC_METADONA.CommandText = "[SPC_METADONA]";
@@ -716,7 +700,7 @@ namespace ASSMCA.Perfiles
                     }
                 }
 
-                if(EsProgramaMetadona(m_PK_Programa))
+                if(Const.EsProgramaMetadona(m_PK_Programa))
                 {
                     this.SPU_METADONA = new System.Data.SqlClient.SqlCommand();
                     this.SPU_METADONA.CommandText = "[SPU_METADONA]";

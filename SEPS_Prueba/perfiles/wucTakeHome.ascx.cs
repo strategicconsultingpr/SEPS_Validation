@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
+using SEPS.Constante;
 
 public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
 {
@@ -16,7 +17,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
     {
         if (!Page.IsPostBack)
         {
-            if (!EsProgramaMetadona(m_pk_programa))
+            if (!Const.EsProgramaMetadona(m_pk_programa))
             {
                 this.HideTakeHome();
             }
@@ -523,22 +524,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
 
     }
 
-    public bool EsProgramaMetadona(int PK_PROGRAMA)
-    {
-        bool esProgramaMetadona = false;
-        switch ((PKPrograma)PK_PROGRAMA)
-        {
-            case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_SAN_JUAN):     // PK_Programa =  1
-            case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAGUAS):       // PK_Programa =  2
-            case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_PONCE):        // PK_Programa =  3
-            case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_AGUADILLA):    // PK_Programa =  4
-            case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_BAYAMÓN):      // PK_Programa =  6
-            case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAYEY):        // PK_Programa = 43
-                esProgramaMetadona = true; break;
-            default: break;
-        }
-        return esProgramaMetadona;
-    }
+   
 
     protected void ddlTHBelong_SelectedIndexChanged(object sender, EventArgs e)
     {
