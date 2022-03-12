@@ -177,7 +177,7 @@
 
 
         <div class="col-md-6 SEPSDivs"><%--Número de botellas--%>
-            <span class="SEPSLabel">Cantidad de botellas:</span>
+            <span class="SEPSLabel">Cantidad de frascos:</span>
             <asp:CustomValidator ID="cnCantidadBotellas" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvCantidadBotellas" ErrorMessage="Valor erroneo en cantidad de botellas" Text="*"/>
             <div class="expandibleDiv">
                 <asp:TextBox  CssClass="form-control" ID="txtCantidadBotellas" runat="server" MaxLength="4"/>
@@ -185,7 +185,7 @@
             </div>
         </div>
         <div class="col-md-6 SEPSDivs"><%--Frecuencia de botellas--%>
-            <span class="SEPSLabel">Frecuencia de botellas:</span>
+            <span class="SEPSLabel">Frecuencia de frascos:</span>
             <asp:CustomValidator ID="cvFrecuenciaBotellas" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ClientValidationFunction="cvFrecuenciaBotellas" ErrorMessage="Debe seleccionar un valor en frequencia de botellas" Text="*"/>
             <div class="expandibleDiv">
                 <asp:DropDownList CssClass="form-control" ID="ddlFrecuenciaBotellas" runat="server"/>
