@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -37,18 +38,26 @@ namespace SEPS
 
         private void ShowSSRSReport(string nameReport)
         {
+            string ssrs_username = WebConfigurationManager.AppSettings["SSRS_USERNAME"];
+            string ssrs_password = WebConfigurationManager.AppSettings["SSRS_PASSWORD"];
+            string ssrs_domain = WebConfigurationManager.AppSettings["SSRS_DOMAIN"];
+            string ssrs_url_server = WebConfigurationManager.AppSettings["SSRS_URL_SERVER"];
+            string ssrs_url_folder = WebConfigurationManager.AppSettings["SSRS_URL_FOLDER"];
+
+
+
 
 
             rvSiteMapping.Height = Unit.Pixel(800 - 58);
             rvSiteMapping.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Remote;
-            IReportServerCredentials irsc = new CustomReportCredentials("alexie.ortiz", "Alexito@10987654321", "assmca.local"); // e.g.: ("demo-001", "123456789", "ifc")
+            IReportServerCredentials irsc = new CustomReportCredentials(ssrs_username, ssrs_password,ssrs_domain); // e.g.: ("demo-001", "123456789", "ifc")
             rvSiteMapping.ServerReport.ReportServerCredentials = irsc;
-            rvSiteMapping.ServerReport.ReportServerUrl = new Uri("http://192.168.100.24//ReportServer"); //Prod Server - Add the Reporting Server URL 
+            rvSiteMapping.ServerReport.ReportServerUrl = new Uri(ssrs_url_server); //Prod Server - Add the Reporting Server URL 
             
 
             
             //rvSiteMapping.ServerReport.ReportServerUrl = new Uri("http://desktop-2e47ci0/ReportServer"); //Dev Server - Add the Reporting Server URL  
-            rvSiteMapping.ServerReport.ReportPath = $"/Informes SEPS Actualizados/{nameReport}"; //Passing the Report Path   
+            rvSiteMapping.ServerReport.ReportPath = $"/{ssrs_url_folder}/{nameReport}"; //Passing the Report Path   
             //rvSiteMapping.ServerReport.ReportPath = "/Informes SEPS Actualizados/URS Table 14A (MHBG Table 13A)"; //Passing the Report Path  
             rvSiteMapping.ServerReport.Refresh();
 

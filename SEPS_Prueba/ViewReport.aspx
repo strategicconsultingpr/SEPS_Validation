@@ -8,9 +8,5 @@
         </rsweb:ReportViewer>
 
 
-<%--   <asp:ScriptManager ID="ScriptManagerReport" runat="server">
-
-            </asp:ScriptManager>
-            <rsweb:ReportViewer id="rvSiteMapping" runat ="server" ShowPrintButton="false"  Width="99.9%" Height="100%" AsyncRendering="true" ZoomMode="Percent" KeepSessionAlive="true" SizeToReportContent="false" ></rsweb:ReportViewer>--%>
 
 </asp:Content>
