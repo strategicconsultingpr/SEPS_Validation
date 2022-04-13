@@ -231,6 +231,33 @@ namespace ASSMCA.Perfiles
         protected global::System.Web.UI.WebControls.Label lblFeNacimiento;
 
         /// <summary>
+        /// rfvEducacionEspecial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEducacionEspecial;
+
+        /// <summary>
+        /// ddlEducacionEspecial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEducacionEspecial;
+
+        /// <summary>
+        /// lblEducacionEspecial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEducacionEspecial;
+
+        /// <summary>
         /// rfvDesertorEscolar control.
         /// </summary>
         /// <remarks>
@@ -265,33 +292,6 @@ namespace ASSMCA.Perfiles
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDesertorEscolar;
-
-        /// <summary>
-        /// rfvEducacionEspecial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEducacionEspecial;
-
-        /// <summary>
-        /// ddlEducacionEspecial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEducacionEspecial;
-
-        /// <summary>
-        /// lblEducacionEspecial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEducacionEspecial;
 
         /// <summary>
         /// Requiredfieldvalidator2 control.

@@ -60,18 +60,18 @@
 
         </div>
     </div> 
-    <div class="col-print-6 col-md-6 SEPSDivs"><%--Es desertor escolar--%>
-        <span class="SEPSLabel">Es desertor escolar:</span>
-        <asp:RequiredFieldValidator ID="rfvDesertorEscolar"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Es desertor escolar" ControlToValidate="ddlDesertorEscolar" InitialValue="0" Text="*"/>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="ddlDesertorEscolar" Display="Dynamic" ErrorMessage="Es desertor escolar" Text="*" />
+    <div class="col-print-6 col-md-6 SEPSDivs"><%-- Situación Escolar--%>
+         <span class="SEPSLabel">Situación escolar al momento de evaluación (SM-NOM):</span>
+        <asp:requiredfieldvalidator id="Requiredfieldvalidator2"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Situación escolar" ControlToValidate="ddlSituacionEscolar" Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList CssClass="form-control" ID="ddlDesertorEscolar" AutoPostBack="true" ViewStateMode="Enabled" OnSelectedIndexChanged="ddlDesertorEscolar_SelectedIndexChanged" runat="server">
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem Value="1">Sí</asp:ListItem>
-                <asp:ListItem Value="2">No</asp:ListItem>
-                <asp:ListItem Value="99">No aplica</asp:ListItem>
-            </asp:DropDownList>
-            <asp:Label ID="lblDesertorEscolar" runat="server"/>
+	        <asp:dropdownlist  CssClass="form-control" id="ddlSituacionEscolar" runat="server" >
+		        <asp:ListItem/>
+		        <asp:ListItem Value="1">Ha asistido a la escuela en algún momento durante los pasados tres meses.</asp:ListItem>
+		        <asp:ListItem Value="2">No ha asistido a la escuela durante los pasados tres meses.</asp:ListItem>
+		        <asp:ListItem Value="6">No aplica.</asp:ListItem>
+		        <asp:ListItem Value="7">Desconocido.</asp:ListItem>
+	        </asp:dropdownlist>
+            <asp:Label id="lblSituacionEscolar" runat="server"/>
         </div>
     </div>
     <div class="col-print-6 col-md-6 SEPSDivs"><%--Ha recibido educación especial--%>
@@ -87,19 +87,22 @@
             <asp:Label ID="lblEducacionEspecial" runat="server"/>
         </div>
     </div>
-    <div class="col-md-6 SEPSDivs"><%-- Situación Escolar--%>
-        <span class="SEPSLabel">Situación escolar al momento de evaluación (SM-NOM):</span>
-        <asp:requiredfieldvalidator id="Requiredfieldvalidator2"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Situación escolar" ControlToValidate="ddlSituacionEscolar" Text="*"/>
+    <div class="col-md-6 SEPSDivs">
+
+        <%--Es desertor escolar--%>
+        <span class="SEPSLabel">Es desertor escolar:</span>
+        <asp:RequiredFieldValidator ID="rfvDesertorEscolar"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Es desertor escolar" ControlToValidate="ddlDesertorEscolar" InitialValue="0" Text="*"/>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="ddlDesertorEscolar" Display="Dynamic" ErrorMessage="Es desertor escolar" Text="*" />
         <div class="expandibleDiv">
-	        <asp:dropdownlist  CssClass="form-control" id="ddlSituacionEscolar" runat="server" >
-		        <asp:ListItem/>
-		        <asp:ListItem Value="1">Ha asistido a la escuela en algún momento durante los pasados tres meses.</asp:ListItem>
-		        <asp:ListItem Value="2">No ha asistido a la escuela durante los pasados tres meses.</asp:ListItem>
-		        <asp:ListItem Value="6">No aplica.</asp:ListItem>
-		        <asp:ListItem Value="7">Desconocido.</asp:ListItem>
-	        </asp:dropdownlist>
-            <asp:Label id="lblSituacionEscolar" runat="server"/>
+            <asp:DropDownList CssClass="form-control" ID="ddlDesertorEscolar" AutoPostBack="true" ViewStateMode="Enabled" OnSelectedIndexChanged="ddlDesertorEscolar_SelectedIndexChanged" runat="server">
+                <asp:ListItem></asp:ListItem>
+                <asp:ListItem Value="1">Sí</asp:ListItem>
+                <asp:ListItem Value="2">No</asp:ListItem>
+                <asp:ListItem Value="99">No aplica</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Label ID="lblDesertorEscolar" runat="server"/>
         </div>
+       
     </div>
 </div>
   </div>
