@@ -87,7 +87,7 @@ namespace ASSMCA.Perfiles
                 if (txtFiltroTipo.Value == "NONE")
                     lbxDSMV.DataSource = SA_LKP_DSMV.GetData();
                 else
-                    lbxDSMV.DataSource = SA_LKP_DSMV.GetData().Where(x => x.CAT_DSMV == txtFiltroTipo.Value || x.CAT_DSMV == "Other");
+                    lbxDSMV.DataSource = SA_LKP_DSMV.GetData().Where(x => x.CAT_DSMV == txtFiltroTipo.Value || x.CAT_DSMV == "Other").OrderBy(x=>x.PK_DSMV);
 
                 lbxDSMV.DataTextField = "FullDescription";
 
