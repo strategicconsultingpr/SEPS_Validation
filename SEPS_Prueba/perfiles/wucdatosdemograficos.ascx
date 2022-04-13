@@ -77,7 +77,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-print-12 col-xs-12 col-lg-6 SEPSDivs">
+            <div class="col-lg-6 SEPSDivs">
                 <%-- Ultimo grado completado --%>
                 <span class="SEPSLabel">Educación (SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="rfvGrado" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Último grado completado" ControlToValidate="ddlGrado" InitialValue="0" Text="*" />
@@ -87,7 +87,26 @@
                     <asp:Label ID="lblFeNacimiento" Visible="false" runat="server" />
                 </div>
             </div>
-            <div class="col-print-12 col-xs-12 col-md-6 SEPSDivs">
+            <div class="col-lg-6 SEPSDivs">
+           
+
+                     <%-- Ha recibido eduacion especial --%>
+                <span class="SEPSLabel">¿Ha recibido o está recibiendo educación especial?:</span>
+                <asp:RequiredFieldValidator ID="rfvEducacionEspecial" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Ha recibido educación especial" ControlToValidate="ddlEducacionEspecial" Text="*" />
+                <div class="expandibleDiv">
+                    <asp:DropDownList CssClass="form-control" ID="ddlEducacionEspecial" runat="server">
+                        <asp:ListItem />
+                        <asp:ListItem Value="1">Sí</asp:ListItem>
+                        <asp:ListItem Value="2">No</asp:ListItem>
+<%--                        <asp:ListItem Value="99">No aplica</asp:ListItem>--%>
+<%--                        Cambio por Jose A. Ramos 12/8/2021 se sustituyo no aplica por no informó--%>
+                        <asp:ListItem Value="99">No informó</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:Label ID="lblEducacionEspecial" runat="server" />
+                </div>
+
+            </div>
+            <div class="col-lg-12 SEPSDivs">
                 <%-- Es desertor escolar --%>
                 <span class="SEPSLabel">Desertor escolar:</span>
                 <asp:RequiredFieldValidator ID="rfvDesertorEscolar" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Es desertor escolar" ControlToValidate="ddlDesertorEscolar" InitialValue="0" Enabled="False" Text="*" />
@@ -102,23 +121,7 @@
                     <asp:Label ID="lblDesertorEscolar" runat="server" />
                 </div>
             </div>
-            <div class="col-print-12 col-md-6 SEPSDivs">
-                <%-- Ha recibido eduacion especial --%>
-                <span class="SEPSLabel">¿Ha recibido o está recibiendo educación especial?:</span>
-                <asp:RequiredFieldValidator ID="rfvEducacionEspecial" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Ha recibido educación especial" ControlToValidate="ddlEducacionEspecial" Text="*" />
-                <div class="expandibleDiv">
-                    <asp:DropDownList CssClass="form-control" ID="ddlEducacionEspecial" runat="server">
-                        <asp:ListItem />
-                        <asp:ListItem Value="1">Sí</asp:ListItem>
-                        <asp:ListItem Value="2">No</asp:ListItem>
-<%--                        <asp:ListItem Value="99">No aplica</asp:ListItem>--%>
-<%--                        Cambio por Jose A. Ramos 12/8/2021 se sustituyo no aplica por no informó--%>
-                        <asp:ListItem Value="99">No informó</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:Label ID="lblEducacionEspecial" runat="server" />
-                </div>
-            </div>
-            <div class="col-print-12 col-xs-12 col-lg-12 SEPSDivs">
+            <div class="col-lg-12 SEPSDivs">
                 <%-- Situacion Escolar--%>
                 <span class="SEPSLabel">Situación escolar al momento de admisión (SM-NOM):</span>
                 <asp:RequiredFieldValidator ID="Requiredfieldvalidator2" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Situación escolar" ControlToValidate="ddlSituacionEscolar" Text="*" />
