@@ -186,10 +186,10 @@
             <asp:Label ID="lblArrestado" runat="server"/>
         </div>
     </div>
-    <div class="col-lg-6 SEPSDivs"><%--Núm. de arrestos en tratamiento o en últimos 30 días--%>
-        <span class="SEPSLabel">Número de arrestos en tratamiento o en últimos 30 días (US-SMNOM):</span>
-        <asp:RequiredFieldValidator ID="rfvArrestos30" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en tratamiento o en últimos 30 días" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
-        <asp:RangeValidator ID="rvArrestos30" CssClass="rightFloatAsterisk"  runat="server" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en tratamiento o en últimos 30 días" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 30" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
+    <div class="col-lg-6 SEPSDivs"><%--Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):--%>
+        <span class="SEPSLabel">Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):</span>
+        <asp:RequiredFieldValidator ID="rfvArrestos30" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
+        <asp:RangeValidator ID="rvArrestos30" CssClass="rightFloatAsterisk"  runat="server" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 30" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
         <div class="expandibleDiv">
             <asp:TextBox  CssClass="form-control" ID="txtArrestos30" runat="server" MaxLength="2"/>
             <asp:Label ID="lblArrestos30" runat="server"/>

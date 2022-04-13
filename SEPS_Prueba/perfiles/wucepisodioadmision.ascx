@@ -149,8 +149,8 @@
         </div>
     </div>
     <div class="col-md-6 SEPSDivs"><%--Ha sido arrestado en los últ. 30 días--%>
-        <span class="SEPSLabel">¿Ha sido arrestado en los pasados 30 días?</span>
-         <asp:RequiredFieldValidator ID="rfvArrestado30" runat="server" InitialValue="" CssClass="rightFloatAsterisk" Display="Dynamic"  ControlToValidate="ddlArrestado30" ErrorMessage="¿Ha sido arrestado en los pasados 30 días?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
+        <span class="SEPSLabel">¿Ha sido arrestado durante los pasados 30 días? (antes de la admisión) (US-SM-NOM):</span>
+         <asp:RequiredFieldValidator ID="rfvArrestado30" runat="server" InitialValue="" CssClass="rightFloatAsterisk" Display="Dynamic"  ControlToValidate="ddlArrestado30" ErrorMessage="¿Ha sido arrestado durante los pasados 30 días? (antes de la admisión) (US-SM-NOM)" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlArrestado30" onChange="ddlArrestado30();" runat="server" OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true" >
                 <asp:ListItem></asp:ListItem>
@@ -162,8 +162,8 @@
         </div>
     </div>    
     <div class="col-md-6 SEPSDivs"><%--Núm. de arrestos en tratamiento o en últimos 30 días--%>
-        <span class="SEPSLabel">Número de arrestos en los pasados 30 días:</span>
-            <asp:RequiredFieldValidator ID="rfvArrestos30" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
+        <span class="SEPSLabel">Número de arrestos en los pasados 30 días (US-SM-NOM):</span>
+            <asp:RequiredFieldValidator ID="rfvArrestos30" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días (US-SM-NOM):" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
             <asp:RangeValidator ID="rvArrestos30" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días" ToolTip="Valor invalido" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
             <div class="expandibleDiv">
                 <asp:TextBox  CssClass="form-control" ID="txtArrestos30" runat="server" MaxLength="2"/>
