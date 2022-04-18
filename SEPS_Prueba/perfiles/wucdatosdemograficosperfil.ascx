@@ -172,10 +172,10 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-6 SEPSDivs"><%--Ha sido arrestado durante los pasados 30 días?--%>
+    <div class="col-lg-12 SEPSDivs"><%--Ha sido arrestado durante los pasados 30 días?--%>
         <span class="SEPSLabel">¿Ha sido arrestado durante los pasados 30 días? (US-SMNOM)</span>
         <asp:RequiredFieldValidator ID="rfvArrestado" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="ddlArrestado" ErrorMessage="¿Ha sido arrestado durante los pasados 30 días?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>    
-        <div class="expandibleDiv">
+        <div class="">
             <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" onChange="ddlArrestado30();">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
@@ -186,11 +186,14 @@
             <asp:Label ID="lblArrestado" runat="server"/>
         </div>
     </div>
-    <div class="col-lg-6 SEPSDivs"><%--Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):--%>
+    </div>
+
+    <div class="row">
+    <div class="col-lg-12 SEPSDivs"><%--Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):--%>
         <span class="SEPSLabel">Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):</span>
         <asp:RequiredFieldValidator ID="rfvArrestos30" CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
         <asp:RangeValidator ID="rvArrestos30" CssClass="rightFloatAsterisk"  runat="server" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días o durante tratamiento si duró menos de 30 días (US-SM-NOM):" ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 30" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
-        <div class="expandibleDiv">
+        <div class="">
             <asp:TextBox  CssClass="form-control" ID="txtArrestos30" runat="server" MaxLength="2"/>
             <asp:Label ID="lblArrestos30" runat="server"/>
         </div>
