@@ -1234,7 +1234,7 @@ function ddlUltMental() {
                         alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
                     }
                     else {
-                        alert("El paciente tiene episodios anteriores. No puede escoger NO APLICA.");
+                        alert("No puede escoger 'No aplica', ya que en la pregunta anterior escogió que el paciente ha tenido episodios o recibió tratamiento anteriormente. El paciente tiene episodios anteriores. No puede escoger NO APLICA.");
                     }
                     ddlUlt.value = "0";
                 }
@@ -1281,7 +1281,7 @@ function ddlUltSustancias() {
                         alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
                     }
                     else {
-                        alert("El paciente tiene episodios anteriores. No puede escoger NO APLICA.");
+                        alert("No puede escoger 'No aplica', ya que en la pregunta anterior escogió que el paciente ha tenido episodios o recibió tratamiento anteriormente.");
                     }
                     ddlUlt.value = "0";
                 }
