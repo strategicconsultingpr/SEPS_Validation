@@ -8,6 +8,10 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Text.RegularExpressions;
+using static ASSMCA.pacientes.dsPersona;
+using ASSMCA.pacientes.SEPS.pacientes.dsPersonaTableAdapters;
+
 namespace ASSMCA.Pacientes
 {
 	public partial class frmEditar : System.Web.UI.Page
@@ -23,7 +27,7 @@ namespace ASSMCA.Pacientes
 		protected System.Data.SqlClient.SqlCommand SPC_RAZA_PERSONA;
 		protected System.Data.SqlClient.SqlCommand SPD_RAZAS_PERSONA;
 		protected System.Data.SqlClient.SqlCommand SPU_PERSONA;
-		private int m_PK_Programa;
+		protected int m_PK_Programa;
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
             if (this.Session["dsSeguridad"] == null)
@@ -42,7 +46,8 @@ namespace ASSMCA.Pacientes
             this.rvAñoNacimiento.ErrorMessage = "El año de la fecha de nacimiento tiene que se un entero entre " + DateTime.Now.Year.ToString() + " y " + DateTime.Now.AddYears(-100).Year + ".";
 			if( !this.IsPostBack)
 			{
-				if( Request.QueryString["accion"].ToString() == "registrar" )
+				divPacienteExistente.Visible = false;
+				if ( Request.QueryString["accion"].ToString() == "registrar" )
 				{
 					this.btnRegistrar.Visible = true;
 					this.btnActualizarPersona.Visible = false;
@@ -161,6 +166,8 @@ namespace ASSMCA.Pacientes
 			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Veterano", System.Data.SqlDbType.TinyInt, 1));
 			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_GrupoEtnico", System.Data.SqlDbType.TinyInt, 1));
 			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sesion", System.Data.SqlDbType.UniqueIdentifier, 16));
+			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Flag", System.Data.SqlDbType.Bit));
+
 			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Persona", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.Output, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
             #endregion
             #region SPC_RAZA_PERSONA
@@ -203,33 +210,43 @@ namespace ASSMCA.Pacientes
 		#endregion
 		protected void btnRegistrar_Click(object sender, System.EventArgs e)
 		{
+
+			RegistrarNuevoPaciente(0);
+
+		}
+
+		private void RegistrarNuevoPaciente(int flag)
+        {
 			this.lblMensaje.Visible = false;
-			int PK_Persona = this.GuardarRegistro();
+			int PK_Persona = this.GuardarRegistro(flag);
 			if (PK_Persona != 0)
 			{
-                if (Request.QueryString["fuente"] != null)
-                {
-                    if (Request.QueryString["fuente"].ToString() == "admision")
-                    {
-                        Response.Redirect("frmVisualizar.aspx?accion=registrar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
-                    }
-                }
-                else
-                {
-                    Response.Redirect("frmVisualizar.aspx?accion=registrar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
-                }
+				if (Request.QueryString["fuente"] != null)
+				{
+					if (Request.QueryString["fuente"].ToString() == "admision")
+					{
+						Response.Redirect("frmVisualizar.aspx?accion=registrar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+					}
+				}
+				else
+				{
+					Response.Redirect("frmVisualizar.aspx?accion=registrar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+				}
 			}
 			else
 			{
 				this.lblMensaje.Visible = true;
 			}
 		}
-		private int GuardarRegistro()
+		private int GuardarRegistro(int flag)
 		{
 			int PK_Persona;
+
 			try
 			{
+			  
 				this.PrepararComandoCrear();
+				this.SPC_PERSONA.Parameters["@Flag"].Value = flag;
 				this.cnn.Open();
 				this.SPC_PERSONA.ExecuteNonQuery();
 				PK_Persona = Convert.ToInt32(this.SPC_PERSONA.Parameters["@PK_Persona"].Value.ToString());
@@ -247,6 +264,27 @@ namespace ASSMCA.Pacientes
 			{
 				if( this.cnn.State != ConnectionState.Closed )
 					this.cnn.Close();
+
+				if(ex.Message == "101")
+					this.lblMensaje.Text = "El número de expediente a registrar ya existe en el sistema. Modifique el número e intente nuevamente.";
+				else if (ex.Message == "102")
+                {
+					lblMensaje.Text = "";
+					VW_PERSONATableAdapter personas = new VW_PERSONATableAdapter();
+					string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
+					var fechaNac = DateTime.Parse(fe);
+					var list = personas.GetData().Where(x => x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac);
+					lstPaciente.DataSource = list;
+					lstPaciente.DataBind();
+					btnRegistrar.Visible = false;
+					divPacienteExistente.Visible = true;
+					divDatosBasicos.Visible = false;
+					divDatosRazas.Visible = false;
+					lstPaciente.Focus();
+
+
+				}
+				else
 				this.lblMensaje.Text = ex.Message;
 				return 0;
 			}
@@ -392,5 +430,24 @@ namespace ASSMCA.Pacientes
 			this.SPU_PERSONA.Parameters["@FK_GrupoEtnico"].Value = Convert.ToSByte(this.ddlGrupoEtnico.SelectedValue.ToString());
 			this.SPU_PERSONA.Parameters["@FK_Sesion"].Value = Guid.NewGuid();;			
 		}
-	}
+
+        protected void btnRegistrarOverRide_Click(object sender, EventArgs e)
+        {
+
+			RegistrarNuevoPaciente(1);
+		}
+
+		protected void btnNoRegistrar_Click(object sender, EventArgs e)
+        {
+			lstPaciente.DataSource = null;
+			lstPaciente.DataBind();
+			btnRegistrar.Visible = true;
+			divPacienteExistente.Visible = false;
+			divDatosBasicos.Visible = true;
+			divDatosRazas.Visible = true;
+
+
+
+		}
+    }
 }

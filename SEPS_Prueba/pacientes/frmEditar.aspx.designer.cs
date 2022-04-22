@@ -24,6 +24,15 @@ namespace ASSMCA.Pacientes
         protected global::System.Web.UI.WebControls.Literal lTituloPrincipal;
 
         /// <summary>
+        /// divDatosBasicos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosBasicos;
+
+        /// <summary>
         /// lblIUP control.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,15 @@ namespace ASSMCA.Pacientes
         protected global::System.Web.UI.WebControls.TextBox txtExpediente;
 
         /// <summary>
+        /// cvSsn1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvSsn1;
+
+        /// <summary>
         /// txtNSS1 control.
         /// </summary>
         /// <remarks>
@@ -69,6 +87,15 @@ namespace ASSMCA.Pacientes
         protected global::System.Web.UI.WebControls.TextBox txtNSS1;
 
         /// <summary>
+        /// cvSsn2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvSsn2;
+
+        /// <summary>
         /// txtNSS2 control.
         /// </summary>
         /// <remarks>
@@ -76,6 +103,15 @@ namespace ASSMCA.Pacientes
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNSS2;
+
+        /// <summary>
+        /// cvSsn3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvSsn3;
 
         /// <summary>
         /// txtNSS3 control.
@@ -222,6 +258,15 @@ namespace ASSMCA.Pacientes
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
+        /// divDatosRazas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosRazas;
+
+        /// <summary>
         /// lbxRazaSinSeleccionar control.
         /// </summary>
         /// <remarks>
@@ -292,5 +337,41 @@ namespace ASSMCA.Pacientes
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
+        /// divPacienteExistente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPacienteExistente;
+
+        /// <summary>
+        /// lstPaciente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lstPaciente;
+
+        /// <summary>
+        /// btnRegistrarOverRide control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegistrarOverRide;
+
+        /// <summary>
+        /// btnNoRegistrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNoRegistrar;
     }
 }

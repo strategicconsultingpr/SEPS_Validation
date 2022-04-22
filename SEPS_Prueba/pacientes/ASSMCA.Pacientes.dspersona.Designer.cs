@@ -23,7 +23,10 @@ namespace ASSMCA.pacientes {
     [global::System.Xml.Serialization.XmlRootAttribute("dsPersona")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class dsPersona : global::System.Data.DataSet {
-        
+
+        private VW_PERSONADataTable tableVW_PERSONA;
+
+
         private LKP_RazaSeleccionadasDataTable tableLKP_RazaSeleccionadas;
         
         private LKP_SexoDataTable tableLKP_Sexo;
@@ -76,6 +79,11 @@ namespace ASSMCA.pacientes {
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
                 if ((ds.Tables["LKP_RazaSeleccionadas"] != null)) {
                     base.Tables.Add(new LKP_RazaSeleccionadasDataTable(ds.Tables["LKP_RazaSeleccionadas"]));
+                }
+
+                if ((ds.Tables["VW_PERSONA"] != null))
+                {
+                    base.Tables.Add(new VW_PERSONADataTable(ds.Tables["VW_PERSONA"]));
                 }
                 if ((ds.Tables["LKP_Sexo"] != null)) {
                     base.Tables.Add(new LKP_SexoDataTable(ds.Tables["LKP_Sexo"]));
@@ -134,7 +142,19 @@ namespace ASSMCA.pacientes {
                 return this.tableLKP_RazaSeleccionadas;
             }
         }
-        
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public VW_PERSONADataTable VW_PERSONA
+        {
+            get
+            {
+                return this.tableVW_PERSONA;
+            }
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
@@ -305,6 +325,10 @@ namespace ASSMCA.pacientes {
                 if ((ds.Tables["LKP_RazaSeleccionadas"] != null)) {
                     base.Tables.Add(new LKP_RazaSeleccionadasDataTable(ds.Tables["LKP_RazaSeleccionadas"]));
                 }
+                if ((ds.Tables["VW_PERSONA"] != null))
+                {
+                    base.Tables.Add(new VW_PERSONADataTable(ds.Tables["VW_PERSONA"]));
+                }
                 if ((ds.Tables["LKP_Sexo"] != null)) {
                     base.Tables.Add(new LKP_SexoDataTable(ds.Tables["LKP_Sexo"]));
                 }
@@ -364,6 +388,8 @@ namespace ASSMCA.pacientes {
         internal void InitVars() {
             this.InitVars(true);
         }
+
+
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -374,6 +400,16 @@ namespace ASSMCA.pacientes {
                     this.tableLKP_RazaSeleccionadas.InitVars();
                 }
             }
+
+            this.tableVW_PERSONA = ((VW_PERSONADataTable)(base.Tables["VW_PERSONA"]));
+            if ((initTable == true))
+            {
+                if ((this.tableVW_PERSONA != null))
+                {
+                    this.tableVW_PERSONA.InitVars();
+                }
+            }
+
             this.tableLKP_Sexo = ((LKP_SexoDataTable)(base.Tables["LKP_Sexo"]));
             if ((initTable == true)) {
                 if ((this.tableLKP_Sexo != null)) {
@@ -444,6 +480,8 @@ namespace ASSMCA.pacientes {
             this.Namespace = "http://www.tempuri.org/dsPersona.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tableVW_PERSONA = new VW_PERSONADataTable();
+            base.Tables.Add(this.tableVW_PERSONA);
             this.tableLKP_RazaSeleccionadas = new LKP_RazaSeleccionadasDataTable();
             base.Tables.Add(this.tableLKP_RazaSeleccionadas);
             this.tableLKP_Sexo = new LKP_SexoDataTable();
@@ -467,7 +505,14 @@ namespace ASSMCA.pacientes {
             this.tableLKP_Alta = new LKP_AltaDataTable();
             base.Tables.Add(this.tableLKP_Alta);
         }
-        
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeVW_PERSONA()
+        {
+            return false;
+        }
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeLKP_RazaSeleccionadas() {
@@ -588,7 +633,10 @@ namespace ASSMCA.pacientes {
             xs.Add(dsSchema);
             return type;
         }
-        
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void VW_PERSONARowChangeEventHandler(object sender, VW_PERSONARowChangeEvent e);
+
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void LKP_RazaSeleccionadasRowChangeEventHandler(object sender, LKP_RazaSeleccionadasRowChangeEvent e);
         
@@ -698,6 +746,8 @@ namespace ASSMCA.pacientes {
                     return ((LKP_RazaSeleccionadasRow)(this.Rows[index]));
                 }
             }
+
+
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public event LKP_RazaSeleccionadasRowChangeEventHandler LKP_RazaSeleccionadasRowChanging;
@@ -885,6 +935,8 @@ namespace ASSMCA.pacientes {
             }
         }
         
+
+
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -4038,7 +4090,933 @@ namespace ASSMCA.pacientes {
                 return type;
             }
         }
-        
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class VW_PERSONADataTable : global::System.Data.TypedTableBase<VW_PERSONARow>
+        {
+
+            private global::System.Data.DataColumn columnPK_Persona;
+
+            private global::System.Data.DataColumn columnNR_SeguroSocial;
+
+            private global::System.Data.DataColumn columnFK_Sexo;
+
+            private global::System.Data.DataColumn columnDE_Sexo;
+
+            private global::System.Data.DataColumn columnAP_Primero;
+
+            private global::System.Data.DataColumn columnAP_Segundo;
+
+            private global::System.Data.DataColumn columnNB_Primero;
+
+            private global::System.Data.DataColumn columnNB_Segundo;
+
+            private global::System.Data.DataColumn columnFE_Nacimiento;
+
+            private global::System.Data.DataColumn columnNR_Edad;
+
+            private global::System.Data.DataColumn columnFK_Veterano;
+
+            private global::System.Data.DataColumn columnDE_Veterano;
+
+            private global::System.Data.DataColumn columnFK_GrupoEtnico;
+
+            private global::System.Data.DataColumn columnDE_GrupoEtnico;
+
+            private global::System.Data.DataColumn columnFK_Sesion;
+
+            private global::System.Data.DataColumn columnTI_Edicion;
+
+            private global::System.Data.DataColumn columnFE_Edicion;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONADataTable()
+            {
+                this.TableName = "VW_PERSONA";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal VW_PERSONADataTable(global::System.Data.DataTable table)
+            {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive))
+                {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString()))
+                {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace))
+                {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected VW_PERSONADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) :
+                    base(info, context)
+            {
+                this.InitVars();
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PK_PersonaColumn
+            {
+                get
+                {
+                    return this.columnPK_Persona;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NR_SeguroSocialColumn
+            {
+                get
+                {
+                    return this.columnNR_SeguroSocial;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_SexoColumn
+            {
+                get
+                {
+                    return this.columnFK_Sexo;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_SexoColumn
+            {
+                get
+                {
+                    return this.columnDE_Sexo;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AP_PrimeroColumn
+            {
+                get
+                {
+                    return this.columnAP_Primero;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AP_SegundoColumn
+            {
+                get
+                {
+                    return this.columnAP_Segundo;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NB_PrimeroColumn
+            {
+                get
+                {
+                    return this.columnNB_Primero;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NB_SegundoColumn
+            {
+                get
+                {
+                    return this.columnNB_Segundo;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FE_NacimientoColumn
+            {
+                get
+                {
+                    return this.columnFE_Nacimiento;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NR_EdadColumn
+            {
+                get
+                {
+                    return this.columnNR_Edad;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_VeteranoColumn
+            {
+                get
+                {
+                    return this.columnFK_Veterano;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_VeteranoColumn
+            {
+                get
+                {
+                    return this.columnDE_Veterano;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_GrupoEtnicoColumn
+            {
+                get
+                {
+                    return this.columnFK_GrupoEtnico;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_GrupoEtnicoColumn
+            {
+                get
+                {
+                    return this.columnDE_GrupoEtnico;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FK_SesionColumn
+            {
+                get
+                {
+                    return this.columnFK_Sesion;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TI_EdicionColumn
+            {
+                get
+                {
+                    return this.columnTI_Edicion;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FE_EdicionColumn
+            {
+                get
+                {
+                    return this.columnFE_Edicion;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count
+            {
+                get
+                {
+                    return this.Rows.Count;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONARow this[int index]
+            {
+                get
+                {
+                    return ((VW_PERSONARow)(this.Rows[index]));
+                }
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event VW_PERSONARowChangeEventHandler VW_PERSONARowChanging;
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event VW_PERSONARowChangeEventHandler VW_PERSONARowChanged;
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event VW_PERSONARowChangeEventHandler VW_PERSONARowDeleting;
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event VW_PERSONARowChangeEventHandler VW_PERSONARowDeleted;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddVW_PERSONARow(VW_PERSONARow row)
+            {
+                this.Rows.Add(row);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONARow AddVW_PERSONARow(
+                        int PK_Persona,
+                        string NR_SeguroSocial,
+                        byte FK_Sexo,
+                        string DE_Sexo,
+                        string AP_Primero,
+                        string AP_Segundo,
+                        string NB_Primero,
+                        string NB_Segundo,
+                        System.DateTime FE_Nacimiento,
+                        int NR_Edad,
+                        byte FK_Veterano,
+                        string DE_Veterano,
+                        byte FK_GrupoEtnico,
+                        string DE_GrupoEtnico,
+                        System.Guid FK_Sesion,
+                        string TI_Edicion,
+                        System.DateTime FE_Edicion)
+            {
+                VW_PERSONARow rowVW_PERSONARow = ((VW_PERSONARow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PK_Persona,
+                        NR_SeguroSocial,
+                        FK_Sexo,
+                        DE_Sexo,
+                        AP_Primero,
+                        AP_Segundo,
+                        NB_Primero,
+                        NB_Segundo,
+                        FE_Nacimiento,
+                        NR_Edad,
+                        FK_Veterano,
+                        DE_Veterano,
+                        FK_GrupoEtnico,
+                        DE_GrupoEtnico,
+                        FK_Sesion,
+                        TI_Edicion,
+                        FE_Edicion};
+                rowVW_PERSONARow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVW_PERSONARow);
+                return rowVW_PERSONARow;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONARow FindByPK_Persona(int PK_Persona)
+            {
+                return ((VW_PERSONARow)(this.Rows.Find(new object[] {
+                            PK_Persona})));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone()
+            {
+                VW_PERSONADataTable cln = ((VW_PERSONADataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance()
+            {
+                return new VW_PERSONADataTable();
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars()
+            {
+                this.columnPK_Persona = base.Columns["PK_Persona"];
+                this.columnNR_SeguroSocial = base.Columns["NR_SeguroSocial"];
+                this.columnFK_Sexo = base.Columns["FK_Sexo"];
+                this.columnDE_Sexo = base.Columns["DE_Sexo"];
+                this.columnAP_Primero = base.Columns["AP_Primero"];
+                this.columnAP_Segundo = base.Columns["AP_Segundo"];
+                this.columnNB_Primero = base.Columns["NB_Primero"];
+                this.columnNB_Segundo = base.Columns["NB_Segundo"];
+                this.columnFE_Nacimiento = base.Columns["FE_Nacimiento"];
+                this.columnNR_Edad = base.Columns["NR_Edad"];
+                this.columnFK_Veterano = base.Columns["FK_Veterano"];
+                this.columnDE_Veterano = base.Columns["DE_Veterano"];
+                this.columnFK_GrupoEtnico = base.Columns["FK_GrupoEtnico"];
+                this.columnDE_GrupoEtnico = base.Columns["DE_GrupoEtnico"];
+                this.columnFK_Sesion = base.Columns["FK_Sesion"];
+                this.columnTI_Edicion = base.Columns["TI_Edicion"];
+                this.columnFE_Edicion = base.Columns["FE_Edicion"];
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass()
+            {
+                this.columnPK_Persona = new global::System.Data.DataColumn("PK_Persona", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPK_Persona);
+                this.columnNR_SeguroSocial = new global::System.Data.DataColumn("NR_SeguroSocial", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNR_SeguroSocial);
+                this.columnFK_Sexo = new global::System.Data.DataColumn("FK_Sexo", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_Sexo);
+                this.columnDE_Sexo = new global::System.Data.DataColumn("DE_Sexo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_Sexo);
+                this.columnAP_Primero = new global::System.Data.DataColumn("AP_Primero", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAP_Primero);
+                this.columnAP_Segundo = new global::System.Data.DataColumn("AP_Segundo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAP_Segundo);
+                this.columnNB_Primero = new global::System.Data.DataColumn("NB_Primero", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNB_Primero);
+                this.columnNB_Segundo = new global::System.Data.DataColumn("NB_Segundo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNB_Segundo);
+                this.columnFE_Nacimiento = new global::System.Data.DataColumn("FE_Nacimiento", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFE_Nacimiento);
+                this.columnNR_Edad = new global::System.Data.DataColumn("NR_Edad", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNR_Edad);
+                this.columnFK_Veterano = new global::System.Data.DataColumn("FK_Veterano", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_Veterano);
+                this.columnDE_Veterano = new global::System.Data.DataColumn("DE_Veterano", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_Veterano);
+                this.columnFK_GrupoEtnico = new global::System.Data.DataColumn("FK_GrupoEtnico", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_GrupoEtnico);
+                this.columnDE_GrupoEtnico = new global::System.Data.DataColumn("DE_GrupoEtnico", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_GrupoEtnico);
+                this.columnFK_Sesion = new global::System.Data.DataColumn("FK_Sesion", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_Sesion);
+                this.columnTI_Edicion = new global::System.Data.DataColumn("TI_Edicion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTI_Edicion);
+                this.columnFE_Edicion = new global::System.Data.DataColumn("FE_Edicion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFE_Edicion);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnPK_Persona}, true));
+                this.columnPK_Persona.AllowDBNull = false;
+                this.columnPK_Persona.Unique = true;
+                this.columnNR_SeguroSocial.MaxLength = 9;
+                this.columnFK_Sexo.AllowDBNull = false;
+                this.columnDE_Sexo.AllowDBNull = false;
+                this.columnDE_Sexo.MaxLength = 50;
+                this.columnAP_Primero.AllowDBNull = false;
+                this.columnAP_Primero.MaxLength = 30;
+                this.columnAP_Segundo.MaxLength = 30;
+                this.columnNB_Primero.AllowDBNull = false;
+                this.columnNB_Primero.MaxLength = 30;
+                this.columnNB_Segundo.MaxLength = 30;
+                this.columnFE_Nacimiento.AllowDBNull = false;
+                this.columnNR_Edad.ReadOnly = true;
+                this.columnFK_Veterano.AllowDBNull = false;
+                this.columnDE_Veterano.AllowDBNull = false;
+                this.columnDE_Veterano.MaxLength = 30;
+                this.columnFK_GrupoEtnico.AllowDBNull = false;
+                this.columnDE_GrupoEtnico.AllowDBNull = false;
+                this.columnDE_GrupoEtnico.MaxLength = 60;
+                this.columnFK_Sesion.AllowDBNull = false;
+                this.columnTI_Edicion.AllowDBNull = false;
+                this.columnTI_Edicion.MaxLength = 1;
+                this.columnFE_Edicion.AllowDBNull = false;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONARow NewVW_PERSONARow()
+            {
+                return ((VW_PERSONARow)(this.NewRow()));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder)
+            {
+                return new VW_PERSONARow(builder);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType()
+            {
+                return typeof(VW_PERSONARow);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowChanged(e);
+                if ((this.VW_PERSONARowChanged != null))
+                {
+                    this.VW_PERSONARowChanged(this, new VW_PERSONARowChangeEvent(((VW_PERSONARow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowChanging(e);
+                if ((this.VW_PERSONARowChanging != null))
+                {
+                    this.VW_PERSONARowChanging(this, new VW_PERSONARowChangeEvent(((VW_PERSONARow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowDeleted(e);
+                if ((this.VW_PERSONARowDeleted != null))
+                {
+                    this.VW_PERSONARowDeleted(this, new VW_PERSONARowChangeEvent(((VW_PERSONARow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e)
+            {
+                base.OnRowDeleting(e);
+                if ((this.VW_PERSONARowDeleting != null))
+                {
+                    this.VW_PERSONARowDeleting(this, new VW_PERSONARowChangeEvent(((VW_PERSONARow)(e.Row)), e.Action));
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveVW_PERSONARow(VW_PERSONARow row)
+            {
+                this.Rows.Remove(row);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs)
+            {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsPersona ds = new dsPersona();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "VW_PERSONADataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace))
+                {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try
+                    {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext();)
+                        {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length))
+                            {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length)
+                                            && (s1.ReadByte() == s2.ReadByte()));)
+                                {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length))
+                                {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally
+                    {
+                        if ((s1 != null))
+                        {
+                            s1.Close();
+                        }
+                        if ((s2 != null))
+                        {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        public partial class VW_PERSONARow : global::System.Data.DataRow
+        {
+
+            private VW_PERSONADataTable tableVW_PERSONA;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal VW_PERSONARow(global::System.Data.DataRowBuilder rb) :
+                    base(rb)
+            {
+                this.tableVW_PERSONA = ((VW_PERSONADataTable)(this.Table));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PK_Persona
+            {
+                get
+                {
+                    return ((int)(this[this.tableVW_PERSONA.PK_PersonaColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.PK_PersonaColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NR_SeguroSocial
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableVW_PERSONA.NR_SeguroSocialColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NR_SeguroSocial\' in table \'VW_PERSONA\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.NR_SeguroSocialColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte FK_Sexo
+            {
+                get
+                {
+                    return ((byte)(this[this.tableVW_PERSONA.FK_SexoColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.FK_SexoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_Sexo
+            {
+                get
+                {
+                    return ((string)(this[this.tableVW_PERSONA.DE_SexoColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.DE_SexoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AP_Primero
+            {
+                get
+                {
+                    return ((string)(this[this.tableVW_PERSONA.AP_PrimeroColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.AP_PrimeroColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AP_Segundo
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableVW_PERSONA.AP_SegundoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AP_Segundo\' in table \'VW_PERSONA\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.AP_SegundoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NB_Primero
+            {
+                get
+                {
+                    return ((string)(this[this.tableVW_PERSONA.NB_PrimeroColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.NB_PrimeroColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string NB_Segundo
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableVW_PERSONA.NB_SegundoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NB_Segundo\' in table \'VW_PERSONA\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.NB_SegundoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime FE_Nacimiento
+            {
+                get
+                {
+                    return ((global::System.DateTime)(this[this.tableVW_PERSONA.FE_NacimientoColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.FE_NacimientoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int NR_Edad
+            {
+                get
+                {
+                    try
+                    {
+                        return ((int)(this[this.tableVW_PERSONA.NR_EdadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NR_Edad\' in table \'VW_PERSONA\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.NR_EdadColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte FK_Veterano
+            {
+                get
+                {
+                    return ((byte)(this[this.tableVW_PERSONA.FK_VeteranoColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.FK_VeteranoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_Veterano
+            {
+                get
+                {
+                    return ((string)(this[this.tableVW_PERSONA.DE_VeteranoColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.DE_VeteranoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte FK_GrupoEtnico
+            {
+                get
+                {
+                    return ((byte)(this[this.tableVW_PERSONA.FK_GrupoEtnicoColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.FK_GrupoEtnicoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_GrupoEtnico
+            {
+                get
+                {
+                    return ((string)(this[this.tableVW_PERSONA.DE_GrupoEtnicoColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.DE_GrupoEtnicoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.Guid FK_Sesion
+            {
+                get
+                {
+                    return ((global::System.Guid)(this[this.tableVW_PERSONA.FK_SesionColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.FK_SesionColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TI_Edicion
+            {
+                get
+                {
+                    return ((string)(this[this.tableVW_PERSONA.TI_EdicionColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.TI_EdicionColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime FE_Edicion
+            {
+                get
+                {
+                    return ((global::System.DateTime)(this[this.tableVW_PERSONA.FE_EdicionColumn]));
+                }
+                set
+                {
+                    this[this.tableVW_PERSONA.FE_EdicionColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNR_SeguroSocialNull()
+            {
+                return this.IsNull(this.tableVW_PERSONA.NR_SeguroSocialColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNR_SeguroSocialNull()
+            {
+                this[this.tableVW_PERSONA.NR_SeguroSocialColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAP_SegundoNull()
+            {
+                return this.IsNull(this.tableVW_PERSONA.AP_SegundoColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAP_SegundoNull()
+            {
+                this[this.tableVW_PERSONA.AP_SegundoColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNB_SegundoNull()
+            {
+                return this.IsNull(this.tableVW_PERSONA.NB_SegundoColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNB_SegundoNull()
+            {
+                this[this.tableVW_PERSONA.NB_SegundoColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNR_EdadNull()
+            {
+                return this.IsNull(this.tableVW_PERSONA.NR_EdadColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNR_EdadNull()
+            {
+                this[this.tableVW_PERSONA.NR_EdadColumn] = global::System.Convert.DBNull;
+            }
+        }
+
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
@@ -5132,7 +6110,44 @@ namespace ASSMCA.pacientes {
                 }
             }
         }
-        
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class VW_PERSONARowChangeEvent : global::System.EventArgs
+        {
+
+            private VW_PERSONARow eventRow;
+
+            private global::System.Data.DataRowAction eventAction;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONARowChangeEvent(VW_PERSONARow row, global::System.Data.DataRowAction action)
+            {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONARow Row
+            {
+                get
+                {
+                    return this.eventRow;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action
+            {
+                get
+                {
+                    return this.eventAction;
+                }
+            }
+        }
+
         /// <summary>
         ///Row event argument class
         ///</summary>
@@ -5507,6 +6522,192 @@ namespace ASSMCA.pacientes {
             }
         }
     }
+    namespace SEPS.pacientes.dsPersonaTableAdapters
+    {
+
+
+        /// <summary>
+        ///Represents the connection and commands used to retrieve and save data.
+        ///</summary>
+        [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+        [global::System.ComponentModel.ToolboxItem(true)]
+        [global::System.ComponentModel.DataObjectAttribute(true)]
+        [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+            ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public partial class VW_PERSONATableAdapter : global::System.ComponentModel.Component
+        {
+
+            private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+
+            private global::System.Data.SqlClient.SqlConnection _connection;
+
+            private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+
+            private bool _clearBeforeFill;
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public VW_PERSONATableAdapter()
+            {
+                this.ClearBeforeFill = true;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private global::System.Data.SqlClient.SqlDataAdapter Adapter
+            {
+                get
+                {
+                    if ((this._adapter == null))
+                    {
+                        this.InitAdapter();
+                    }
+                    return this._adapter;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal global::System.Data.SqlClient.SqlConnection Connection
+            {
+                get
+                {
+                    if ((this._connection == null))
+                    {
+                        this.InitConnection();
+                    }
+                    return this._connection;
+                }
+                set
+                {
+                    this._connection = value;
+                    if ((this.Adapter.InsertCommand != null))
+                    {
+                        this.Adapter.InsertCommand.Connection = value;
+                    }
+                    if ((this.Adapter.DeleteCommand != null))
+                    {
+                        this.Adapter.DeleteCommand.Connection = value;
+                    }
+                    if ((this.Adapter.UpdateCommand != null))
+                    {
+                        this.Adapter.UpdateCommand.Connection = value;
+                    }
+                    for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1))
+                    {
+                        if ((this.CommandCollection[i] != null))
+                        {
+                            ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                        }
+                    }
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected global::System.Data.SqlClient.SqlCommand[] CommandCollection
+            {
+                get
+                {
+                    if ((this._commandCollection == null))
+                    {
+                        this.InitCommandCollection();
+                    }
+                    return this._commandCollection;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool ClearBeforeFill
+            {
+                get
+                {
+                    return this._clearBeforeFill;
+                }
+                set
+                {
+                    this._clearBeforeFill = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitAdapter()
+            {
+                this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+                global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+                tableMapping.SourceTable = "Table";
+                tableMapping.DataSetTable = "VW_PERSONA";
+                tableMapping.ColumnMappings.Add("PK_Persona", "PK_Persona");
+                tableMapping.ColumnMappings.Add("NR_SeguroSocial", "NR_SeguroSocial");
+                tableMapping.ColumnMappings.Add("FK_Sexo", "FK_Sexo");
+                tableMapping.ColumnMappings.Add("DE_Sexo", "DE_Sexo");
+                tableMapping.ColumnMappings.Add("AP_Primero", "AP_Primero");
+                tableMapping.ColumnMappings.Add("AP_Segundo", "AP_Segundo");
+                tableMapping.ColumnMappings.Add("NB_Primero", "NB_Primero");
+                tableMapping.ColumnMappings.Add("NB_Segundo", "NB_Segundo");
+                tableMapping.ColumnMappings.Add("FE_Nacimiento", "FE_Nacimiento");
+                tableMapping.ColumnMappings.Add("NR_Edad", "NR_Edad");
+                tableMapping.ColumnMappings.Add("FK_Veterano", "FK_Veterano");
+                tableMapping.ColumnMappings.Add("DE_Veterano", "DE_Veterano");
+                tableMapping.ColumnMappings.Add("FK_GrupoEtnico", "FK_GrupoEtnico");
+                tableMapping.ColumnMappings.Add("DE_GrupoEtnico", "DE_GrupoEtnico");
+                tableMapping.ColumnMappings.Add("FK_Sesion", "FK_Sesion");
+                tableMapping.ColumnMappings.Add("TI_Edicion", "TI_Edicion");
+                tableMapping.ColumnMappings.Add("FE_Edicion", "FE_Edicion");
+                this._adapter.TableMappings.Add(tableMapping);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitConnection()
+            {
+                this._connection = new global::System.Data.SqlClient.SqlConnection();
+                this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SEPSConnectionString"].ConnectionString;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitCommandCollection()
+            {
+                this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+                this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+                this._commandCollection[0].Connection = this.Connection;
+                this._commandCollection[0].CommandText = "SELECT * FROM VW_PERSONA";
+                this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+            [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+            public virtual int Fill(dsPersona.VW_PERSONADataTable dataTable)
+            {
+                this.Adapter.SelectCommand = this.CommandCollection[0];
+                if ((this.ClearBeforeFill == true))
+                {
+                    dataTable.Clear();
+                }
+                int returnValue = this.Adapter.Fill(dataTable);
+                return returnValue;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+            [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+            public virtual dsPersona.VW_PERSONADataTable GetData()
+            {
+                this.Adapter.SelectCommand = this.CommandCollection[0];
+                dsPersona.VW_PERSONADataTable dataTable = new dsPersona.VW_PERSONADataTable();
+                this.Adapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+    }
+
 }
 
 #pragma warning restore 1591

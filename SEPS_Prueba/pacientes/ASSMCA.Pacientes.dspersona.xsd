@@ -3,8 +3,43 @@
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-        <Connections />
-        <Tables />
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="SEPSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SEPSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.SEPSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VW_PERSONATableAdapter" GeneratorDataComponentClassName="VW_PERSONATableAdapter" Name="VW_PERSONA" UserDataComponentName="VW_PERSONATableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SEPSConnectionString (Web.config)" DbObjectName="SEPS.dbo.VW_PERSONA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM VW_PERSONA</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PK_Persona" DataSetColumn="PK_Persona" />
+              <Mapping SourceColumn="NR_SeguroSocial" DataSetColumn="NR_SeguroSocial" />
+              <Mapping SourceColumn="FK_Sexo" DataSetColumn="FK_Sexo" />
+              <Mapping SourceColumn="DE_Sexo" DataSetColumn="DE_Sexo" />
+              <Mapping SourceColumn="AP_Primero" DataSetColumn="AP_Primero" />
+              <Mapping SourceColumn="AP_Segundo" DataSetColumn="AP_Segundo" />
+              <Mapping SourceColumn="NB_Primero" DataSetColumn="NB_Primero" />
+              <Mapping SourceColumn="NB_Segundo" DataSetColumn="NB_Segundo" />
+              <Mapping SourceColumn="FE_Nacimiento" DataSetColumn="FE_Nacimiento" />
+              <Mapping SourceColumn="NR_Edad" DataSetColumn="NR_Edad" />
+              <Mapping SourceColumn="FK_Veterano" DataSetColumn="FK_Veterano" />
+              <Mapping SourceColumn="DE_Veterano" DataSetColumn="DE_Veterano" />
+              <Mapping SourceColumn="FK_GrupoEtnico" DataSetColumn="FK_GrupoEtnico" />
+              <Mapping SourceColumn="DE_GrupoEtnico" DataSetColumn="DE_GrupoEtnico" />
+              <Mapping SourceColumn="FK_Sesion" DataSetColumn="FK_Sesion" />
+              <Mapping SourceColumn="TI_Edicion" DataSetColumn="TI_Edicion" />
+              <Mapping SourceColumn="FE_Edicion" DataSetColumn="FE_Edicion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
@@ -131,6 +166,83 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="VW_PERSONA" msprop:Generator_TableClassName="VW_PERSONADataTable" msprop:Generator_TableVarName="tableVW_PERSONA" msprop:Generator_TablePropName="VW_PERSONA" msprop:Generator_RowDeletingName="VW_PERSONARowDeleting" msprop:Generator_RowChangingName="VW_PERSONARowChanging" msprop:Generator_RowEvHandlerName="VW_PERSONARowChangeEventHandler" msprop:Generator_RowDeletedName="VW_PERSONARowDeleted" msprop:Generator_UserTableName="VW_PERSONA" msprop:Generator_RowChangedName="VW_PERSONARowChanged" msprop:Generator_RowEvArgName="VW_PERSONARowChangeEvent" msprop:Generator_RowClassName="VW_PERSONARow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_Persona" msprop:Generator_ColumnVarNameInTable="columnPK_Persona" msprop:Generator_ColumnPropNameInRow="PK_Persona" msprop:Generator_ColumnPropNameInTable="PK_PersonaColumn" msprop:Generator_UserColumnName="PK_Persona" type="xs:int" />
+              <xs:element name="NR_SeguroSocial" msprop:Generator_ColumnVarNameInTable="columnNR_SeguroSocial" msprop:Generator_ColumnPropNameInRow="NR_SeguroSocial" msprop:Generator_ColumnPropNameInTable="NR_SeguroSocialColumn" msprop:Generator_UserColumnName="NR_SeguroSocial" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FK_Sexo" msprop:Generator_ColumnVarNameInTable="columnFK_Sexo" msprop:Generator_ColumnPropNameInRow="FK_Sexo" msprop:Generator_ColumnPropNameInTable="FK_SexoColumn" msprop:Generator_UserColumnName="FK_Sexo" type="xs:unsignedByte" />
+              <xs:element name="DE_Sexo" msprop:Generator_ColumnVarNameInTable="columnDE_Sexo" msprop:Generator_ColumnPropNameInRow="DE_Sexo" msprop:Generator_ColumnPropNameInTable="DE_SexoColumn" msprop:Generator_UserColumnName="DE_Sexo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AP_Primero" msprop:Generator_ColumnVarNameInTable="columnAP_Primero" msprop:Generator_ColumnPropNameInRow="AP_Primero" msprop:Generator_ColumnPropNameInTable="AP_PrimeroColumn" msprop:Generator_UserColumnName="AP_Primero">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AP_Segundo" msprop:Generator_ColumnVarNameInTable="columnAP_Segundo" msprop:Generator_ColumnPropNameInRow="AP_Segundo" msprop:Generator_ColumnPropNameInTable="AP_SegundoColumn" msprop:Generator_UserColumnName="AP_Segundo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NB_Primero" msprop:Generator_ColumnVarNameInTable="columnNB_Primero" msprop:Generator_ColumnPropNameInRow="NB_Primero" msprop:Generator_ColumnPropNameInTable="NB_PrimeroColumn" msprop:Generator_UserColumnName="NB_Primero">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NB_Segundo" msprop:Generator_ColumnVarNameInTable="columnNB_Segundo" msprop:Generator_ColumnPropNameInRow="NB_Segundo" msprop:Generator_ColumnPropNameInTable="NB_SegundoColumn" msprop:Generator_UserColumnName="NB_Segundo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FE_Nacimiento" msprop:Generator_ColumnVarNameInTable="columnFE_Nacimiento" msprop:Generator_ColumnPropNameInRow="FE_Nacimiento" msprop:Generator_ColumnPropNameInTable="FE_NacimientoColumn" msprop:Generator_UserColumnName="FE_Nacimiento" type="xs:dateTime" />
+              <xs:element name="NR_Edad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNR_Edad" msprop:Generator_ColumnPropNameInRow="NR_Edad" msprop:Generator_ColumnPropNameInTable="NR_EdadColumn" msprop:Generator_UserColumnName="NR_Edad" type="xs:int" minOccurs="0" />
+              <xs:element name="FK_Veterano" msprop:Generator_ColumnVarNameInTable="columnFK_Veterano" msprop:Generator_ColumnPropNameInRow="FK_Veterano" msprop:Generator_ColumnPropNameInTable="FK_VeteranoColumn" msprop:Generator_UserColumnName="FK_Veterano" type="xs:unsignedByte" />
+              <xs:element name="DE_Veterano" msprop:Generator_ColumnVarNameInTable="columnDE_Veterano" msprop:Generator_ColumnPropNameInRow="DE_Veterano" msprop:Generator_ColumnPropNameInTable="DE_VeteranoColumn" msprop:Generator_UserColumnName="DE_Veterano">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FK_GrupoEtnico" msprop:Generator_ColumnVarNameInTable="columnFK_GrupoEtnico" msprop:Generator_ColumnPropNameInRow="FK_GrupoEtnico" msprop:Generator_ColumnPropNameInTable="FK_GrupoEtnicoColumn" msprop:Generator_UserColumnName="FK_GrupoEtnico" type="xs:unsignedByte" />
+              <xs:element name="DE_GrupoEtnico" msprop:Generator_ColumnVarNameInTable="columnDE_GrupoEtnico" msprop:Generator_ColumnPropNameInRow="DE_GrupoEtnico" msprop:Generator_ColumnPropNameInTable="DE_GrupoEtnicoColumn" msprop:Generator_UserColumnName="DE_GrupoEtnico">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FK_Sesion" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnFK_Sesion" msprop:Generator_ColumnPropNameInRow="FK_Sesion" msprop:Generator_ColumnPropNameInTable="FK_SesionColumn" msprop:Generator_UserColumnName="FK_Sesion" type="xs:string" />
+              <xs:element name="TI_Edicion" msprop:Generator_ColumnVarNameInTable="columnTI_Edicion" msprop:Generator_ColumnPropNameInRow="TI_Edicion" msprop:Generator_ColumnPropNameInTable="TI_EdicionColumn" msprop:Generator_UserColumnName="TI_Edicion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FE_Edicion" msprop:Generator_ColumnVarNameInTable="columnFE_Edicion" msprop:Generator_ColumnPropNameInRow="FE_Edicion" msprop:Generator_ColumnPropNameInTable="FE_EdicionColumn" msprop:Generator_UserColumnName="FE_Edicion" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -156,6 +268,10 @@
     <xs:unique name="LKP_Alta_Constraint1" msdata:ConstraintName="Constraint1">
       <xs:selector xpath=".//mstns:LKP_Alta" />
       <xs:field xpath="mstns:PK_Alta" />
+    </xs:unique>
+    <xs:unique name="VW_PERSONA_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VW_PERSONA" />
+      <xs:field xpath="mstns:PK_Persona" />
     </xs:unique>
   </xs:element>
 </xs:schema>
