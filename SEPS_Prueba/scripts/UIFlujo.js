@@ -3527,7 +3527,85 @@ function validate() {
     else { return false; }
 }
 
+
+function validateSSN(source, arguments)
+{
+    var ssn1 = document.getElementById("mainBodyContent_txtNSS1");
+    var ssn2 = document.getElementById("mainBodyContent_txtNSS2");
+    var ssn3 = document.getElementById("mainBodyContent_txtNSS3");
+    var lblMensaje = document.getElementById("lblSSN");
+
+
+    var ssn = ssn1.value + ssn2.value + ssn3.value;
+
+
+    //3 Posibilidades
+
+    //Seg Social Completo
+    //Seg Social Parcial (Ultimos 4 digitos)
+    //Seg Social En blanco 
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    var mode = urlParams.get('accion');
+
+
+    var pattern1 = /^(\d{3}\d{2}|\*{3}\*{2})\d{4}$/;
+    let pattern2 = /^(\d{3}\d{2}|\*{3}\*{2}|SSS\d{2})\d{4}$/;
+    var result = false;
+
+    if (mode == "registrar")
+    {
+
+        if (ssn == "")
+        {
+            result = true;
+        } else
+        {
+            result = pattern1.test(ssn);
+        }
+    }
+    else
+    {
+
+        if (ssn == "")
+        {
+            result = false;
+        }
+        else
+        {
+            result = pattern2.test(ssn);
+        }
+    }
+
+    if (result == false)
+    {
+        lblMensaje.innerText = "Formato Incorrecto";
+    }
+    else
+    {
+        lblMensaje.innerText = "";
+    }
+
+    arguments.IsValid = result;
+    return result;
+
+
+}
+
+
+
+
+
+
+
+
+
+
 function validatePaciente() {
+
+
+   
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {
