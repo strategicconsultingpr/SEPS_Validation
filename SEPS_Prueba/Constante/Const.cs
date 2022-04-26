@@ -28,5 +28,31 @@ namespace SEPS.Constante
             return esProgramaMetadona;
         }
 
+        public static int CalcularEdad(DateTime fechaNacimiento, DateTime fecha)
+        {
+            // Obtiene la fecha actual:
+
+            // Comprueba que la se haya introducido una fecha válida; si 
+            // la fecha de nacimiento es mayor a la fecha actual se muestra mensaje 
+            // de advertencia:
+            if (fechaNacimiento > fecha)
+            {
+                return -1;
+            }
+            else
+            {
+                int edad = fecha.Year - fechaNacimiento.Year;
+
+                // Comprueba que el mes de la fecha de nacimiento es mayor 
+                // que el mes de la fecha actual:
+                if (fechaNacimiento.Month > fecha.Month)
+                {
+                    --edad;
+                }
+
+                return edad;
+            }
+
+        }
     }
 }

@@ -16,6 +16,24 @@
     //    }
     //}
 
+    $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
+
+    $("#mainBodyContent_WucDatosPersonales_ddlMes").change(function ()
+    {
+        $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
+    });
+
+    $("#mainBodyContent_WucDatosPersonales_ddlDía").change(function ()
+    {
+        $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
+
+    });
+
+    $("#mainBodyContent_WucDatosPersonales_txtAño").focusout(function ()
+    {
+        $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
+
+    });
 });
 
 
