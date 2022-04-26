@@ -40,7 +40,21 @@ function startupFunctions() {
         ddlDrogaChange("#mainBodyContent_WucEpisodioPerfil_ddlDrogaTerc", 'ddlViaTerc', 'ddlFrecTerc', 'txtEdadTerc', 'ddlToxicologia3');
 
 
+        $("#mainBodyContent_WucDatosDemograficosPerfil_lblFePerfil").val($("#mainBodyContent_WucOtrosDatosPerfil_ddlMes").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_ddlDía").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_txtAño").val());
 
+        $("#mainBodyContent_WucOtrosDatosPerfil_ddlMes").change(function () {
+            $("#mainBodyContent_WucDatosDemograficosPerfil_lblFePerfil").val($("#mainBodyContent_WucOtrosDatosPerfil_ddlMes").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_ddlDía").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_txtAño").val());
+        });
+
+        $("#mainBodyContent_WucOtrosDatosPerfil_ddlDía").change(function () {
+            $("#mainBodyContent_WucDatosDemograficosPerfil_lblFePerfil").val($("#mainBodyContent_WucOtrosDatosPerfil_ddlMes").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_ddlDía").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_txtAño").val());
+
+        });
+
+        $("#mainBodyContent_WucOtrosDatosPerfil_txtAño").focusout(function () {
+            $("#mainBodyContent_WucDatosDemograficosPerfil_lblFePerfil").val($("#mainBodyContent_WucOtrosDatosPerfil_ddlMes").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_ddlDía").val() + '/' + $("#mainBodyContent_WucOtrosDatosPerfil_txtAño").val());
+
+        });
         
 
         //CO_Tipo();

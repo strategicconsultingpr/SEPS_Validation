@@ -2231,6 +2231,8 @@ namespace ASSMCA.Perfiles
                         this.lbxMaltratoSeleccionado.Items.Add(li);
                         this.lbxMaltratoSeleccion.Items.Remove(li);
                     }
+                    SortListBox(this.lbxCondicionesDiagnosticadasSeleccion);
+
                 }
                 divLblMaltrato.Visible = false;
                 Dt = null;

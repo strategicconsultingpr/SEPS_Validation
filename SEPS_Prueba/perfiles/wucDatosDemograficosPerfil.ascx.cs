@@ -108,135 +108,167 @@ namespace ASSMCA.Perfiles
             try
             {
 
-                var flag = AgeLessThan(18, DateTime.Now, lblFeNacimiento.Text);
-                if (!string.IsNullOrEmpty(ddlGrado.SelectedValue))
+                DateTime feAdmision;
+                DateTime feNac;
+
+
+                var fechaValida = DateTime.TryParse(lblFePerfil.Text, out feAdmision);
+                var feNacValida = DateTime.TryParse(lblFeNacimiento.Text, out feNac);
+
+
+                if (fechaValida && feNacValida)
                 {
 
-                    if (flag == true)
+                    var edad = SEPS.Constante.Const.CalcularEdad(feNac, feAdmision);
+
+                    if (!string.IsNullOrEmpty(ddlGrado.SelectedValue))
                     {
-                        var item = ddlDesertorEscolar.Items.FindByValue("99");
 
-                        if (item != null)
-                            ddlDesertorEscolar.Items.Remove(item);
-
-                        switch (ddlGrado.SelectedValue)
+                        if (edad <= 18)
                         {
+                            var item = ddlDesertorEscolar.Items.FindByValue("99");
 
-                            case ("12")://Diploma de escuela superior
-                            case ("14")://Créditos universitarios
-                            case ("16")://Curso vocacional
-                            case ("22")://Grado asociado
-                            case ("23")://Bachillerato
-                            case ("24")://Maestría
-                            case ("25")://Doctorado
-                                        // No es desertor
+                            if (item != null)
+                                ddlDesertorEscolar.Items.Remove(item);
 
-                                ViewState["ddlDesertorEscolar"] = 2;
-                                ddlDesertorEscolar.SelectedValue = "2";
-                                ddlDesertorEscolar.Enabled = false;
+                            switch (ddlGrado.SelectedValue)
+                            {
 
+                                case ("29")://Duodécimo
+                                case ("12")://Diploma de escuela superior
+                                case ("14")://Créditos universitarios
+                                case ("16")://Curso vocacional
+                                case ("22")://Grado asociado
+                                case ("23")://Bachillerato
+                                case ("24")://Maestría
+                                case ("25")://Doctorado
+                                            // No es desertor
 
-
-                                break;
-                            case ("96")://No informo
-                                        // No aplica
-                                var newItem = new ListItem();
-                                newItem.Value = "99";
-                                newItem.Text = "No aplica";
-                                ddlDesertorEscolar.Enabled = false;
+                                    ViewState["ddlDesertorEscolar"] = 2;
+                                    ddlDesertorEscolar.SelectedValue = "2";
+                                    ddlDesertorEscolar.Enabled = true;
 
 
-                                ddlDesertorEscolar.Items.Add(newItem);
-                                ViewState["ddlDesertorEscolar"] = 99;
-                                ddlDesertorEscolar.SelectedValue = "99";
 
-                                break;
-                            case ("13")://Ninguna
-                            case ("26")://Pre-escolar
-                            case ("27")://Kindergarten
-                            case ("1")://Primero
-                            case ("2")://Segundo
-                            case ("3")://Tercero
-                            case ("4")://Cuarto
-                            case ("5")://Quinto
-                            case ("6")://Sexto
-                            case ("7")://Séptimo
-                            case ("8")://Octavo
-                            case ("9")://Noveno
-                            case ("10")://Décimo
-                            case ("11")://Undécimo
+                                    break;
+                                case ("96")://No informo
+                                            // No aplica
+                                    var newItem = new ListItem();
+                                    newItem.Value = "99";
+                                    newItem.Text = "No aplica";
+                                    ddlDesertorEscolar.Enabled = false;
+
+
+                                    ddlDesertorEscolar.Items.Add(newItem);
+                                    ViewState["ddlDesertorEscolar"] = 99;
+                                    ddlDesertorEscolar.SelectedValue = "99";
+
+                                    break;
+                                case ("28"): //Salón contenido / Educación especial
+                                case ("13")://Ninguna
+                                case ("26")://Pre-escolar
+                                case ("27")://Kindergarten
+                                case ("1")://Primero
+                                case ("2")://Segundo
+                                case ("3")://Tercero
+                                case ("4")://Cuarto
+                                case ("5")://Quinto
+                                case ("6")://Sexto
+                                case ("7")://Séptimo
+                                case ("8")://Octavo
+                                case ("9")://Noveno
+                                case ("10")://Décimo
+                                case ("11")://Undécimo
+                                            //Es desertor
+                                    ViewState["ddlDesertorEscolar"] = 2;
+                                    ddlDesertorEscolar.SelectedValue = "2";
+                                    ddlDesertorEscolar.Enabled = true;
+
+
+                                    break;
+                            }
+
+                        }
+                        else
+                        {
+                            switch (ddlGrado.SelectedValue)
+                            {
+                                case ("29")://Duodécimo
+                                case ("12")://Diploma de escuela superior
+                                case ("14")://Créditos universitarios
+                                case ("16")://Curso vocacional
+                                case ("22")://Grado asociado
+                                case ("23")://Bachillerato
+                                case ("24")://Maestría
+                                case ("25")://Doctorado
+                                            // No es desertor
+
+                                    ViewState["ddlDesertorEscolar"] = 2;
+                                    ddlDesertorEscolar.SelectedValue = "2";
+
+                                    ddlDesertorEscolar.Enabled = true;
+                                    break;
+                                case ("96")://No informo
+                                            // No aplica
+                                    ViewState["ddlDesertorEscolar"] = 99;
+                                    ddlDesertorEscolar.SelectedValue = "99";
+
+                                    ddlDesertorEscolar.Enabled = false;
+                                    break;
+                                case ("28"): //Salón contenido / Educación especial
+                                case ("13")://Ninguna
+                                case ("26")://Pre-escolar
+                                case ("27")://Kindergarten
+                                case ("1")://Primero
+                                case ("2")://Segundo
+                                case ("3")://Tercero
+                                case ("4")://Cuarto
+                                case ("5")://Quinto
+                                case ("6")://Sexto
+                                case ("7")://Séptimo
+                                case ("8")://Octavo
+                                case ("9")://Noveno
+                                case ("10")://Décimo
+                                case ("11")://Undécimo
+
+                                    //SI tiene hasta 21 años inclusivos y tiene educación especial y aún no ha completado el duodécimo,
+                                    //también debe mantener NO en Desertor Escolar.
+                                    if (edad >= 18 && edad <= 21 && ddlEducacionEspecial.SelectedValue == "1")
+                                    {
+                                        ViewState["ddlDesertorEscolar"] = 2;
+                                        ddlDesertorEscolar.SelectedValue = "2";
+
+                                        ddlDesertorEscolar.Enabled = true;
+                                    }
+                                    else
+                                    {
                                         //Es desertor
-                                ViewState["ddlDesertorEscolar"] = 2;
-                                ddlDesertorEscolar.SelectedValue = "2";
-                                ddlDesertorEscolar.Enabled = true;
 
+                                        ViewState["ddlDesertorEscolar"] = 1;
+                                        ddlDesertorEscolar.SelectedValue = "1";
 
-                                break;
+                                        ddlDesertorEscolar.Enabled = true;
+                                    }
+
+                                    break;
+                            }
+                            ddlDesertorEscolar.Enabled = true;
+
                         }
 
-                    }
-                    else
-                    {
-                        switch (ddlGrado.SelectedValue)
-                        {
 
-                            case ("12")://Diploma de escuela superior
-                            case ("14")://Créditos universitarios
-                            case ("16")://Curso vocacional
-                            case ("22")://Grado asociado
-                            case ("23")://Bachillerato
-                            case ("24")://Maestría
-                            case ("25")://Doctorado
-                                        // No es desertor
 
-                                ViewState["ddlDesertorEscolar"] = 2;
-                                ddlDesertorEscolar.SelectedValue = "2";
 
-                                ddlDesertorEscolar.Enabled = false;
-                                break;
-                            case ("96")://No informo
-                                        // No aplica
-                                ViewState["ddlDesertorEscolar"] = 99;
-                                ddlDesertorEscolar.SelectedValue = "99";
-
-                                ddlDesertorEscolar.Enabled = false;
-                                break;
-                            case ("13")://Ninguna
-                            case ("26")://Pre-escolar
-                            case ("27")://Kindergarten
-                            case ("1")://Primero
-                            case ("2")://Segundo
-                            case ("3")://Tercero
-                            case ("4")://Cuarto
-                            case ("5")://Quinto
-                            case ("6")://Sexto
-                            case ("7")://Séptimo
-                            case ("8")://Octavo
-                            case ("9")://Noveno
-                            case ("10")://Décimo
-                            case ("11")://Undécimo
-                                        //Es desertor
-                                ViewState["ddlDesertorEscolar"] = 1;
-                                ddlDesertorEscolar.SelectedValue = "1";
-
-                                ddlDesertorEscolar.Enabled = false;
-                                break;
-                        }
-                        ddlDesertorEscolar.Enabled = false;
+                        ViewState["ddlGrado"] = ddlGrado.SelectedValue;
 
                     }
-
-
-
-
-                    ViewState["ddlGrado"] = ddlGrado.SelectedValue;
 
                 }
             }
             catch
             {
             }
-            ddlGrado.Focus();
+
 
         }
 

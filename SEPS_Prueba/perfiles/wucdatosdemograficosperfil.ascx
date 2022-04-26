@@ -78,7 +78,7 @@
         <span class="SEPSLabel">¿Ha recibido o está recibiendo educación especial?:</span>
         <asp:RequiredFieldValidator ID="rfvEducacionEspecial"  CssClass="rightFloatAsterisk"  runat="server" Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Ha recibido educación especial" ControlToValidate="ddlEducacionEspecial" Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlEducacionEspecial" runat="server">
+            <asp:DropDownList  CssClass="form-control" ID="ddlEducacionEspecial" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlGrado_SelectedIndexChanged">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
@@ -201,3 +201,5 @@
 </div>
 </div>
 </div>
+
+   <asp:TextBox Visible="false" Enabled="true" ID="lblFePerfil" runat="server"></asp:TextBox>

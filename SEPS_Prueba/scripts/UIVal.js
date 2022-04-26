@@ -92,6 +92,11 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
         var año_hidden = document.getElementById("mainBodyContent_" + año_Hidden);
         var edadAdmision = document.getElementById("mainBodyContent_wucDatosDemograficos_edadAdmision");
         var btnedadAdmision = document.getElementById("mainBodyContent_wucDatosDemograficos_btnEdadAdmision");
+     
+      
+
+
+
         var now = new Date();
         var fe_nacimiento = new Date(Fe_Nacimiento.value);
         var FechaActual;
@@ -100,6 +105,7 @@ function FechaAdmision(mes_id, día_id, año_id, MesHidden_id, Fe_Nacimiento_id,
         FechaActual = (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear();
         if (año.value < año_hidden) {
             MesHidden.value = mes.value + '/' + día.value + '/' + año.value;
+
             var fe_admission = new Date(MesHidden.value);
             if (Date.parse(Fe_Nacimiento.value) > Date.parse(MesHidden.value) || Date.parse(Fe_Nacimiento.value) == Date.parse(MesHidden.value)) {
                 alert("La fecha de admision no puede ser menor o igual a la fecha de nacimiento");
