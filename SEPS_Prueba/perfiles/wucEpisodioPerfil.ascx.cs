@@ -369,9 +369,10 @@ namespace ASSMCA.Perfiles
             this.lblNivelRecuperacion.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_CarRecuperacionRes"].ToString();
             this.lblHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
 
-            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "1") 
-                { this.lblInFumado.Text = "Si"; } 
-            else { this.lblInFumado.Text =  "No"; };
+            if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "1")
+            { this.lblInFumado.Text = "Si"; }
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "2")
+            { this.lblInFumado.Text = "No"; };
 
             this.lblFrecuenciaFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
             this.lblNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
