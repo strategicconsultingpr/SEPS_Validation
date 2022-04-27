@@ -286,7 +286,7 @@
             {
                 var fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
 
-                if (fe_perfil >= Const.IdentidadGeneroCampoNuevo)
+                if (fe_perfil >= Const.CambiosEnCamposNuevos)
                 {
                     divIdentidadGenero.Visible = true;
                     rfvIdentidadGenero.Enabled = true;

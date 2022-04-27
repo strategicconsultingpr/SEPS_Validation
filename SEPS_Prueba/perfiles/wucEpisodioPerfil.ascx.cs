@@ -131,7 +131,7 @@ namespace ASSMCA.Perfiles
             ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 127, Text = "Desconocida" });
             ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 126, Text = "No Aplica" });
 
-            if (date.Date >= Const.EdadInicioFechaCambioNuevo.Date)
+            if (date.Date >= Const.CambiosEnCamposNuevos.Date)
             {
 
                 ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
@@ -486,7 +486,7 @@ namespace ASSMCA.Perfiles
                 lbl.Text = "Desconocida";
             else if (str == "126")
                 lbl.Text = "No Aplica";
-            else if (str == "00" || str == "0" && DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString()) >= Const.EdadInicioFechaCambioNuevo.Date)
+            else if (str == "00" || str == "0" && DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString()) >= Const.CambiosEnCamposNuevos.Date)
                 lbl.Text = "Recién nacido";
             else
                 lbl.Text = str;
