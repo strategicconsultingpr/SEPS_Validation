@@ -860,7 +860,7 @@
      <div class="col-md-12 SEPSDivs">
                 <hr /> 
 
-        <p><span class="SEPSLabel">Diagnósticos concurrentes de salud mental y uso de sustancias [TEDS]: </span></p>
+        <p><span class="SEPSLabel">Trastornos concurrentes de salud mental y uso de sustancias [TEDS]: </span></p>
 
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" CssClass="rightFloatAsterisk"   Display="Dynamic" ControlToValidate="ddlDSMVDiagDual"  ErrorMessage="Perfil Concurrente" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
          <asp:DropDownList CssClass="form-control" ID="ddlDSMVDiagDual" Width="100%"  runat="server">
