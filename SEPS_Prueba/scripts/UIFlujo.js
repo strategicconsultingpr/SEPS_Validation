@@ -3238,7 +3238,7 @@ function validateCOOCURRING() {
 
         var message = " ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocasionarón este mensaje son:\n";
         //1)	Uso de medicamentos como parte del tratamiento contra la dependencia de opioides
-        if (opiod.value != 4  && ddlDSMVDiagDual.value != "1") {
+        if (opiod.value != 4 && opiod.value != 2   && ddlDSMVDiagDual.value != "1") {
             campos += "\u2022Seleccionó medicamento para opíaceos\n";
             flagConcurrente = false;
         }
