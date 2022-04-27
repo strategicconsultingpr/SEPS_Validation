@@ -370,7 +370,7 @@ function TakeHomeFechaEntrada() {
         else if (isNaN(fechaAdmisión.getTime())) {
             throw "The date of admission was not available to the system.";
         }
-        TakeHomeFechaSalida();
+       TakeHomeFechaSalida();
     }
     catch (e) {
         alert("An error has occurred:\n" + e.message);
@@ -416,7 +416,10 @@ function TakeHomeFechaSalida() {
                 mesFechaSalida.value = 1;
                 añoFechaSalida.value = "";
             }
-            else if (fechaSalida < fechaEntrada) {
+            else if (fechaSalida < fechaEntrada && añoFechaSalida.value == "") {
+                return;
+            }
+            else if (fechaSalida < fechaEntrada ) {
                 alert("La fecha de salida debe ser despues de la fecha de entrada.");
                 díaFechaSalida.value = 1;
                 mesFechaSalida.value = 1;

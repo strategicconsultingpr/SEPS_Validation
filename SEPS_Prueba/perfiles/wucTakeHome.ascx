@@ -11,7 +11,7 @@
                     <asp:RequiredFieldValidator runat="server"  ID="rfvTHBelong" ControlToValidate="ddlTHBelong" Display="Dynamic" CssClass="rightFloatAsterisk" Text="*" ErrorMessage="Participa de Take Home" />
                     <span class="SEPSLabel">Participa actualmente en el programa "Take Home":</span>
                     <div class="expandibleDiv">
-                        <asp:DropDownList CssClass="form-control" ID="ddlTHBelong" runat="server" OnSelectedIndexChanged="ddlTHBelong_SelectedIndexChanged" onChange="TakeHomeParticipa();">
+                        <asp:DropDownList CssClass="form-control" ID="ddlTHBelong" runat="server"  OnSelectedIndexChanged="ddlTHBelong_SelectedIndexChanged" onChange="TakeHomeParticipa();">
                             <asp:ListItem></asp:ListItem>
                             <asp:ListItem Value="1">Sí</asp:ListItem>
                             <asp:ListItem Value="2">No</asp:ListItem>

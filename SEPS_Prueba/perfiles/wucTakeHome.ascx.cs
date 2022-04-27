@@ -30,7 +30,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
                 if (this.m_frmAction == frmAction.Create || this.m_frmAction == frmAction.Update)
                 {
                     dataEdit();
-                    lblFase.Visible = false;
+                    //lblFase.Visible = false;
                  
                 }
                 else
@@ -41,6 +41,8 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
             }
         }
     }
+
+ 
 
     private void DdlFrecuenciaBotellas()
     {
@@ -81,7 +83,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
         ddlFechaSalidaMes.Visible = true;
         txtFechaSalidaAño.Visible = true;
         ddlTHBelong.Visible = true;
-        ddlTHEtapa.Visible = true;
+        //ddlTHEtapa.Visible = true;
         btnAgregar.Visible = true;
         btnEliminar.Visible = true;
     }
@@ -96,7 +98,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
         txtFechaSalidaAño.Visible = false;
         lblFase.Visible = true;
         ddlTHBelong.Visible = false;
-        ddlTHEtapa.Visible = false;
+        //ddlTHEtapa.Visible = false;
         btnAgregar.Visible = false;
         btnEliminar.Visible = false;
         ddlFrecuenciaBotellas.Visible = false;

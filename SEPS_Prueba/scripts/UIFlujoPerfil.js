@@ -32,6 +32,8 @@ function startupFunctions() {
            
         }
         ddlDrogaSecF();
+        DesactivarFaseTakeHome();
+
 
 
         ddlDrogaChangeEvent();
@@ -58,6 +60,8 @@ function startupFunctions() {
         
 
         //CO_Tipo();
+
+      
         
     }
     catch (ex) {
@@ -65,6 +69,32 @@ function startupFunctions() {
     }
 }
 
+
+function DesactivarFaseTakeHome()
+{
+    var frmActionMode = document.getElementById("frmActionMode");
+    var ddlTHEtapa = document.getElementById("mainBodyContent_WucTakeHome_ddlTHEtapa");
+    var lblEtapa = document.getElementById("mainBodyContent_WucTakeHome_lblTHEtapa");
+    var lblFase = document.getElementById("mainBodyContent_WucTakeHome_lblFase");
+
+
+    if (frmActionMode.value == "read") {
+
+        ddlTHEtapa.style.visibility = 'hidden';
+        lblEtapa.style.visibility = 'visible';
+        lblFase.style.visibility = 'visible';
+
+
+    }
+    else
+    {
+        
+            ddlTHEtapa.style.visibility = 'hidden';
+            lblEtapa.style.visibility = 'hidden';
+            lblFase.style.visibility = 'hidden';
+        
+    }
+}
 
 /**
  * Cambios por Jose A. Ramos De La Cruz
@@ -1018,25 +1048,41 @@ function TakeHomeParticipa() {
             var ddlTHEtapa = document.getElementById("mainBodyContent_WucTakeHome_ddlTHEtapa");
             var txtCantidadBotellas = document.getElementById("mainBodyContent_WucTakeHome_txtCantidadBotellas");
             var ddlFrecuenciaBotellas = document.getElementById("mainBodyContent_WucTakeHome_ddlFrecuenciaBotellas");
+
+            var lbxRazonSeleccion = document.getElementById("mainBodyContent_WucTakeHome_lbxRazonSeleccion");
+            var lbxRazonSeleccionado = document.getElementById("mainBodyContent_WucTakeHome_lbxRazonSeleccionado");
+            var btnEliminarTakeHome = document.getElementById("mainBodyContent_WucTakeHome_btnEliminar");
+            var btnAgregarTakeHome = document.getElementById("mainBodyContent_WucTakeHome_btnAgregar");
+
+            
             $Participa = $(".Participa");
             $NoParticipa = $(".NoParticipa");
             switch (ddlParticipa.value) {
                 case ("1")://Participa
+                    lbxRazonSeleccion.disabled = true;
+                    lbxRazonSeleccionado.disabled = true;
+                    btnEliminarTakeHome.disabled = true;
+                    btnAgregarTakeHome.disabled = true;
+
                     díaFechaEntrada.disabled = false;
                     mesFechaEntrada.disabled = false;
                     añoFechaEntrada.disabled = false;
                     díaFechaSalida.disabled = false;
                     mesFechaSalida.disabled = false;
                     añoFechaSalida.disabled = false;
-                    ddlTHEtapa.disabled = true;
+                    ddlTHEtapa.disabled = false;
                     ddlTHEtapa.value = '';
-                    ddlTHEtapa.style.visibility = 'hidden';
+                    //ddlTHEtapa.style.visibility = 'hidden';
                     txtCantidadBotellas.disabled = false;
                     ddlFrecuenciaBotellas.disabled = false;
                     $NoParticipa.hide();
                     $Participa.show();
                     break;
                 case ("2")://No participa
+                    lbxRazonSeleccion.disabled = false;
+                    lbxRazonSeleccionado.disabled = false;
+                    btnEliminarTakeHome.disabled = false;
+                    btnAgregarTakeHome.disabled = false;
                     díaFechaEntrada.disabled = true;
                     mesFechaEntrada.disabled = true;
                     añoFechaEntrada.disabled = true;
@@ -1047,7 +1093,7 @@ function TakeHomeParticipa() {
                     añoFechaSalida.value = '';
                     ddlTHEtapa.disabled = true;
                     ddlTHEtapa.value = '';
-                    ddlTHEtapa.style.visibility = 'hidden';
+                    //ddlTHEtapa.style.visibility = 'hidden';
                     txtCantidadBotellas.disabled = true;
                     txtCantidadBotellas.value = '';
                     ddlFrecuenciaBotellas.disabled = true;
@@ -1072,6 +1118,10 @@ function TakeHomeParticipa() {
                     ddlFrecuenciaBotellas.value = '';
                     $Participa.hide();
                     $NoParticipa.hide();
+                    lbxRazonSeleccion.disabled = true;
+                    lbxRazonSeleccionado.disabled = true;
+                    btnEliminarTakeHome.disabled = true;
+                    btnAgregarTakeHome.disabled = true;
                     break;
             }
         }
