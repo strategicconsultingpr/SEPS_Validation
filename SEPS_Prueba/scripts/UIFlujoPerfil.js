@@ -2593,12 +2593,12 @@ function validateCOOCURRING() {
     if (ddlNivelCuidadoSaludMental.value != "99") {
 
 
-        if (ClinHD.value == '761') {
-            alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
-            flagConcurrente = false;
+        //if (ClinHD.value == '761') {
+        //    alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
+        //    flagConcurrente = false;
 
-            return false;
-        }
+        //    return false;
+        //}
 
         var message = " ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocasionarón este mensaje son:\n";
 
