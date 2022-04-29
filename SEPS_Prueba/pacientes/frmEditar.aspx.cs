@@ -28,7 +28,9 @@ namespace ASSMCA.Pacientes
 		protected System.Data.SqlClient.SqlCommand SPD_RAZAS_PERSONA;
 		protected System.Data.SqlClient.SqlCommand SPU_PERSONA;
 		protected int m_PK_Programa;
-		protected void Page_Load(object sender, System.EventArgs e)
+        private EnumerableRowCollection<VW_PERSONARow> list;
+
+        protected void Page_Load(object sender, System.EventArgs e)
 		{
             if (this.Session["dsSeguridad"] == null)
             {
@@ -267,13 +269,19 @@ namespace ASSMCA.Pacientes
 
 				if(ex.Message == "101")
 					this.lblMensaje.Text = "El número de expediente a registrar ya existe en el sistema. Modifique el número e intente nuevamente.";
-				else if (ex.Message == "102")
+				else if (ex.Message == "102" || ex.Message == "103" )
                 {
 					lblMensaje.Text = "";
 					VW_PERSONATableAdapter personas = new VW_PERSONATableAdapter();
 					string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
 					var fechaNac = DateTime.Parse(fe);
-					var list = personas.GetData().Where(x => x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac);
+
+
+					if (ex.Message == "103")					
+						 list = personas.GetData().Where(x => x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
+					else					
+						 list = personas.GetData().Where(x => x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac);
+					
 					lstPaciente.DataSource = list;
 					lstPaciente.DataBind();
 					btnRegistrar.Visible = false;
