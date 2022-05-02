@@ -77,7 +77,6 @@ namespace ASSMCA.Perfiles
                 this.dvwNivelSustanciasAnterior.Table = this.dsPerfil.SA_LKP_ABUSO_SUSTANCIAS;
                 this.dvwNivelMentalAnterior.Table = this.dsPerfil.SA_LKP_SALUD_MENTAL;
                 this.dvwFreqAutoAyuda.Table = this.dsPerfil.SA_LKP_TEDS_FRECUENCIA_AUTOAYUDA;
-                this.ManageCondicionesDiagnosticadas(this.m_frmAction);
 
 
                 if (this.Session["pk_administracion"].ToString() == "1")
@@ -85,6 +84,7 @@ namespace ASSMCA.Perfiles
                     this.dvwFuenteReferido.RowFilter = "PK_Referido <> 30";
                 }
                 this.DataBind();
+                this.ManageCondicionesDiagnosticadas(this.m_frmAction);
                 this.load();
 
 
@@ -2405,6 +2405,32 @@ namespace ASSMCA.Perfiles
                     btnEliminarCondicionesDiagnosticadas.Visible = true;
                     btnAgregarCondicionesDiagnosticadas.Visible = true;
                     LbxCondicionesDiagnosticadas();
+
+                    //SortedList<string, string> listSeleccion = new SortedList<string, string>();
+                    //SortedList<string, string> listSeleccionado = new SortedList<string, string>();
+
+                    //foreach (ListItem i in lbxCondicionesDiagnosticadasSeleccion.Items)
+                    //{
+                    //    listSeleccion.Add(i.Text, i.Value);
+                    //}
+
+                    //foreach (ListItem i in lbxCondicionesDiagnosticadasSeleccionado.Items)
+                    //{
+                    //    listSeleccionado.Add(i.Text, i.Value);
+                    //}
+
+                    //if (listSeleccionado.Count > 0)
+                    //{
+
+                    //    foreach (KeyValuePair<string, string> i in listSeleccionado)
+                    //    {
+                    //        if(listSeleccion.ContainsKey(i.Key))
+                    //            lbxCondicionesDiagnosticadasSeleccion.Items.Remove(new ListItem(i.Key, i.Value));
+                    //    }
+                    //}
+
+
+
                     break;
                 case frmAction.Read:
                     btnAgregarCondicionesDiagnosticadas.Enabled = false;
