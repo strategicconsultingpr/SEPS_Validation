@@ -13,7 +13,6 @@ namespace ASSMCA
 {
 	public partial class Main : System.Web.UI.MasterPage
 	{
-		protected PopupsEvProgresoTableAdapter PopupsEvProgreso = new PopupsEvProgresoTableAdapter();
 		protected int totalEvProgreso;
 
 		protected void Page_Load(object sender, EventArgs e)
@@ -55,13 +54,14 @@ namespace ASSMCA
 			this.Response.Redirect(ResolveClientUrl("frmLogon.aspx?changeProg=yes"));
 		}
 
-		PopupsEvProgresoDataTable GetEVProgreso( DateTime from , DateTime to)
+		VW_SAEPDataTable GetEVProgreso( DateTime from , DateTime to)
 		{
 			var programa = Convert.ToInt32(this.Session["pk_programa"]);
 
+					 VW_SAEPTableAdapter saep = new VW_SAEPTableAdapter();
 
 
-			return PopupsEvProgreso.GetDataBy(programa, from, to);
+			return saep.GetData((short)programa, from, to);
 
 		}
 
@@ -113,7 +113,7 @@ namespace ASSMCA
 								  + $" <td>{ episodio.Expediente}</td>"
 									  + $"  <td>{ episodio.Número_de_Episodio}</td>"
 										 + $" <td>{ episodio.Fecha_Admsión.Date.ToShortDateString()}</td>"
-											 + $" <td>{ episodio.Último_Perfil.Date.ToShortDateString()}</td>"
+											 + $" <td>{ episodio.ÚltimoPerfil.Date.ToShortDateString()}</td>"
 											  + $"<td>{FormatTipoPerfil(episodio.Tipo_de_Último_Perfil)}</td>"
 												 + $"<td>{ episodio.Meses_sin_Perfiles_de_Evaluación_de_Progreso}</td>"
 													  + "</tr>";
@@ -201,7 +201,7 @@ namespace ASSMCA
 							  + $" <td>{ episodio.Expediente}</td>"
 								  + $"  <td>{ episodio.Número_de_Episodio}</td>"
 									 + $" <td>{ episodio.Fecha_Admsión.Date.ToShortDateString()}</td>"
-										 + $" <td>{ episodio.Último_Perfil.Date.ToShortDateString()}</td>"
+										 + $" <td>{ episodio.ÚltimoPerfil.Date.ToShortDateString()}</td>"
 										  + $"<td>{FormatTipoPerfil(episodio.Tipo_de_Último_Perfil)}</td>"
 											 + $"<td>{ episodio.Meses_sin_Perfiles_de_Evaluación_de_Progreso}</td>"
 												  + "</tr>";

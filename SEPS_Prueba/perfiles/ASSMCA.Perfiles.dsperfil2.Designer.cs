@@ -26,9 +26,9 @@ namespace SEPS.perfiles {
         
         private SA_LKP_DSMV1DataTable tableSA_LKP_DSMV1;
         
-        private VW_IDENTIDAD_GENERODataTable tableVW_IDENTIDAD_GENERO;
+        private PopupsEvProgresoDataTable tablePopupsEvProgreso;
         
-        private VW_SAEPDataTable tableVW_SAEP;
+        private VW_IDENTIDAD_GENERODataTable tableVW_IDENTIDAD_GENERO;
         
         private SA_PERSONADataTable tableSA_PERSONA;
         
@@ -149,11 +149,11 @@ namespace SEPS.perfiles {
                 if ((ds.Tables["SA_LKP_DSMV1"] != null)) {
                     base.Tables.Add(new SA_LKP_DSMV1DataTable(ds.Tables["SA_LKP_DSMV1"]));
                 }
+                if ((ds.Tables["PopupsEvProgreso"] != null)) {
+                    base.Tables.Add(new PopupsEvProgresoDataTable(ds.Tables["PopupsEvProgreso"]));
+                }
                 if ((ds.Tables["VW_IDENTIDAD_GENERO"] != null)) {
                     base.Tables.Add(new VW_IDENTIDAD_GENERODataTable(ds.Tables["VW_IDENTIDAD_GENERO"]));
-                }
-                if ((ds.Tables["VW_SAEP"] != null)) {
-                    base.Tables.Add(new VW_SAEPDataTable(ds.Tables["VW_SAEP"]));
                 }
                 if ((ds.Tables["SA_PERSONA"] != null)) {
                     base.Tables.Add(new SA_PERSONADataTable(ds.Tables["SA_PERSONA"]));
@@ -319,9 +319,9 @@ namespace SEPS.perfiles {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VW_IDENTIDAD_GENERODataTable VW_IDENTIDAD_GENERO {
+        public PopupsEvProgresoDataTable PopupsEvProgreso {
             get {
-                return this.tableVW_IDENTIDAD_GENERO;
+                return this.tablePopupsEvProgreso;
             }
         }
         
@@ -329,9 +329,9 @@ namespace SEPS.perfiles {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VW_SAEPDataTable VW_SAEP {
+        public VW_IDENTIDAD_GENERODataTable VW_IDENTIDAD_GENERO {
             get {
-                return this.tableVW_SAEP;
+                return this.tableVW_IDENTIDAD_GENERO;
             }
         }
         
@@ -845,11 +845,11 @@ namespace SEPS.perfiles {
                 if ((ds.Tables["SA_LKP_DSMV1"] != null)) {
                     base.Tables.Add(new SA_LKP_DSMV1DataTable(ds.Tables["SA_LKP_DSMV1"]));
                 }
+                if ((ds.Tables["PopupsEvProgreso"] != null)) {
+                    base.Tables.Add(new PopupsEvProgresoDataTable(ds.Tables["PopupsEvProgreso"]));
+                }
                 if ((ds.Tables["VW_IDENTIDAD_GENERO"] != null)) {
                     base.Tables.Add(new VW_IDENTIDAD_GENERODataTable(ds.Tables["VW_IDENTIDAD_GENERO"]));
-                }
-                if ((ds.Tables["VW_SAEP"] != null)) {
-                    base.Tables.Add(new VW_SAEPDataTable(ds.Tables["VW_SAEP"]));
                 }
                 if ((ds.Tables["SA_PERSONA"] != null)) {
                     base.Tables.Add(new SA_PERSONADataTable(ds.Tables["SA_PERSONA"]));
@@ -1022,16 +1022,16 @@ namespace SEPS.perfiles {
                     this.tableSA_LKP_DSMV1.InitVars();
                 }
             }
+            this.tablePopupsEvProgreso = ((PopupsEvProgresoDataTable)(base.Tables["PopupsEvProgreso"]));
+            if ((initTable == true)) {
+                if ((this.tablePopupsEvProgreso != null)) {
+                    this.tablePopupsEvProgreso.InitVars();
+                }
+            }
             this.tableVW_IDENTIDAD_GENERO = ((VW_IDENTIDAD_GENERODataTable)(base.Tables["VW_IDENTIDAD_GENERO"]));
             if ((initTable == true)) {
                 if ((this.tableVW_IDENTIDAD_GENERO != null)) {
                     this.tableVW_IDENTIDAD_GENERO.InitVars();
-                }
-            }
-            this.tableVW_SAEP = ((VW_SAEPDataTable)(base.Tables["VW_SAEP"]));
-            if ((initTable == true)) {
-                if ((this.tableVW_SAEP != null)) {
-                    this.tableVW_SAEP.InitVars();
                 }
             }
             this.tableSA_PERSONA = ((SA_PERSONADataTable)(base.Tables["SA_PERSONA"]));
@@ -1310,10 +1310,10 @@ namespace SEPS.perfiles {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableSA_LKP_DSMV1 = new SA_LKP_DSMV1DataTable();
             base.Tables.Add(this.tableSA_LKP_DSMV1);
+            this.tablePopupsEvProgreso = new PopupsEvProgresoDataTable();
+            base.Tables.Add(this.tablePopupsEvProgreso);
             this.tableVW_IDENTIDAD_GENERO = new VW_IDENTIDAD_GENERODataTable();
             base.Tables.Add(this.tableVW_IDENTIDAD_GENERO);
-            this.tableVW_SAEP = new VW_SAEPDataTable();
-            base.Tables.Add(this.tableVW_SAEP);
             this.tableSA_PERSONA = new SA_PERSONADataTable();
             base.Tables.Add(this.tableSA_PERSONA);
             this.tableTable1 = new Table1DataTable();
@@ -1412,13 +1412,13 @@ namespace SEPS.perfiles {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeVW_IDENTIDAD_GENERO() {
+        private bool ShouldSerializePopupsEvProgreso() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeVW_SAEP() {
+        private bool ShouldSerializeVW_IDENTIDAD_GENERO() {
             return false;
         }
         
@@ -1745,10 +1745,10 @@ namespace SEPS.perfiles {
         public delegate void SA_LKP_DSMV1RowChangeEventHandler(object sender, SA_LKP_DSMV1RowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void VW_IDENTIDAD_GENERORowChangeEventHandler(object sender, VW_IDENTIDAD_GENERORowChangeEvent e);
+        public delegate void PopupsEvProgresoRowChangeEventHandler(object sender, PopupsEvProgresoRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void VW_SAEPRowChangeEventHandler(object sender, VW_SAEPRowChangeEvent e);
+        public delegate void VW_IDENTIDAD_GENERORowChangeEventHandler(object sender, VW_IDENTIDAD_GENERORowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void SA_PERSONARowChangeEventHandler(object sender, SA_PERSONARowChangeEvent e);
@@ -2213,6 +2213,388 @@ namespace SEPS.perfiles {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PopupsEvProgresoDataTable : global::System.Data.TypedTableBase<PopupsEvProgresoRow> {
+            
+            private global::System.Data.DataColumn columnNombre_Programa;
+            
+            private global::System.Data.DataColumn columnNombre_Participante;
+            
+            private global::System.Data.DataColumn columnIUP;
+            
+            private global::System.Data.DataColumn columnExpediente;
+            
+            private global::System.Data.DataColumn columnNúmero_de_Episodio;
+            
+            private global::System.Data.DataColumn columnFecha_Admsión;
+            
+            private global::System.Data.DataColumn columnÚltimo_Perfil;
+            
+            private global::System.Data.DataColumn columnTipo_de_Último_Perfil;
+            
+            private global::System.Data.DataColumn columnMeses_sin_Perfiles_de_Evaluación_de_Progreso;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PopupsEvProgresoDataTable() {
+                this.TableName = "PopupsEvProgreso";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal PopupsEvProgresoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected PopupsEvProgresoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Nombre_ProgramaColumn {
+                get {
+                    return this.columnNombre_Programa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Nombre_ParticipanteColumn {
+                get {
+                    return this.columnNombre_Participante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IUPColumn {
+                get {
+                    return this.columnIUP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ExpedienteColumn {
+                get {
+                    return this.columnExpediente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Número_de_EpisodioColumn {
+                get {
+                    return this.columnNúmero_de_Episodio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Fecha_AdmsiónColumn {
+                get {
+                    return this.columnFecha_Admsión;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Último_PerfilColumn {
+                get {
+                    return this.columnÚltimo_Perfil;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Tipo_de_Último_PerfilColumn {
+                get {
+                    return this.columnTipo_de_Último_Perfil;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn {
+                get {
+                    return this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PopupsEvProgresoRow this[int index] {
+                get {
+                    return ((PopupsEvProgresoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PopupsEvProgresoRowChangeEventHandler PopupsEvProgresoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PopupsEvProgresoRowChangeEventHandler PopupsEvProgresoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PopupsEvProgresoRowChangeEventHandler PopupsEvProgresoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PopupsEvProgresoRowChangeEventHandler PopupsEvProgresoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddPopupsEvProgresoRow(PopupsEvProgresoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PopupsEvProgresoRow AddPopupsEvProgresoRow(string Nombre_Programa, string Nombre_Participante, string Expediente, System.DateTime Fecha_Admsión, System.DateTime Último_Perfil, string Tipo_de_Último_Perfil, int Meses_sin_Perfiles_de_Evaluación_de_Progreso) {
+                PopupsEvProgresoRow rowPopupsEvProgresoRow = ((PopupsEvProgresoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Nombre_Programa,
+                        Nombre_Participante,
+                        null,
+                        Expediente,
+                        null,
+                        Fecha_Admsión,
+                        Último_Perfil,
+                        Tipo_de_Último_Perfil,
+                        Meses_sin_Perfiles_de_Evaluación_de_Progreso};
+                rowPopupsEvProgresoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPopupsEvProgresoRow);
+                return rowPopupsEvProgresoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PopupsEvProgresoDataTable cln = ((PopupsEvProgresoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PopupsEvProgresoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnNombre_Programa = base.Columns["Nombre Programa"];
+                this.columnNombre_Participante = base.Columns["Nombre Participante"];
+                this.columnIUP = base.Columns["IUP"];
+                this.columnExpediente = base.Columns["Expediente"];
+                this.columnNúmero_de_Episodio = base.Columns["Número de Episodio"];
+                this.columnFecha_Admsión = base.Columns["Fecha Admsión"];
+                this.columnÚltimo_Perfil = base.Columns["Último Perfil"];
+                this.columnTipo_de_Último_Perfil = base.Columns["Tipo de Último Perfil"];
+                this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso = base.Columns["Meses sin Perfiles de Evaluación de Progreso"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnNombre_Programa = new global::System.Data.DataColumn("Nombre Programa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Programa);
+                this.columnNombre_Participante = new global::System.Data.DataColumn("Nombre Participante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Participante);
+                this.columnIUP = new global::System.Data.DataColumn("IUP", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIUP);
+                this.columnExpediente = new global::System.Data.DataColumn("Expediente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpediente);
+                this.columnNúmero_de_Episodio = new global::System.Data.DataColumn("Número de Episodio", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNúmero_de_Episodio);
+                this.columnFecha_Admsión = new global::System.Data.DataColumn("Fecha Admsión", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Admsión);
+                this.columnÚltimo_Perfil = new global::System.Data.DataColumn("Último Perfil", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnÚltimo_Perfil);
+                this.columnTipo_de_Último_Perfil = new global::System.Data.DataColumn("Tipo de Último Perfil", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipo_de_Último_Perfil);
+                this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso = new global::System.Data.DataColumn("Meses sin Perfiles de Evaluación de Progreso", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnIUP,
+                                this.columnNúmero_de_Episodio}, false));
+                this.columnNombre_Programa.MaxLength = 60;
+                this.columnNombre_Participante.ReadOnly = true;
+                this.columnNombre_Participante.MaxLength = 61;
+                this.columnIUP.AutoIncrement = true;
+                this.columnIUP.AutoIncrementSeed = -1;
+                this.columnIUP.AutoIncrementStep = -1;
+                this.columnIUP.AllowDBNull = false;
+                this.columnIUP.ReadOnly = true;
+                this.columnExpediente.AllowDBNull = false;
+                this.columnExpediente.MaxLength = 12;
+                this.columnNúmero_de_Episodio.AutoIncrement = true;
+                this.columnNúmero_de_Episodio.AutoIncrementSeed = -1;
+                this.columnNúmero_de_Episodio.AutoIncrementStep = -1;
+                this.columnNúmero_de_Episodio.AllowDBNull = false;
+                this.columnNúmero_de_Episodio.ReadOnly = true;
+                this.columnFecha_Admsión.AllowDBNull = false;
+                this.columnÚltimo_Perfil.ReadOnly = true;
+                this.columnTipo_de_Último_Perfil.AllowDBNull = false;
+                this.columnTipo_de_Último_Perfil.MaxLength = 2;
+                this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PopupsEvProgresoRow NewPopupsEvProgresoRow() {
+                return ((PopupsEvProgresoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PopupsEvProgresoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PopupsEvProgresoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PopupsEvProgresoRowChanged != null)) {
+                    this.PopupsEvProgresoRowChanged(this, new PopupsEvProgresoRowChangeEvent(((PopupsEvProgresoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PopupsEvProgresoRowChanging != null)) {
+                    this.PopupsEvProgresoRowChanging(this, new PopupsEvProgresoRowChangeEvent(((PopupsEvProgresoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PopupsEvProgresoRowDeleted != null)) {
+                    this.PopupsEvProgresoRowDeleted(this, new PopupsEvProgresoRowChangeEvent(((PopupsEvProgresoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PopupsEvProgresoRowDeleting != null)) {
+                    this.PopupsEvProgresoRowDeleting(this, new PopupsEvProgresoRowChangeEvent(((PopupsEvProgresoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovePopupsEvProgresoRow(PopupsEvProgresoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsPerfil ds = new dsPerfil();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PopupsEvProgresoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class VW_IDENTIDAD_GENERODataTable : global::System.Data.TypedTableBase<VW_IDENTIDAD_GENERORow> {
             
             private global::System.Data.DataColumn columnPK_IDENTIDAD_GENERO;
@@ -2469,402 +2851,6 @@ namespace SEPS.perfiles {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "VW_IDENTIDAD_GENERODataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VW_SAEPDataTable : global::System.Data.TypedTableBase<VW_SAEPRow> {
-            
-            private global::System.Data.DataColumn columnNombre_Programa;
-            
-            private global::System.Data.DataColumn columnNombre_Participante;
-            
-            private global::System.Data.DataColumn columnIUP;
-            
-            private global::System.Data.DataColumn columnExpediente;
-            
-            private global::System.Data.DataColumn columnNúmero_de_Episodio;
-            
-            private global::System.Data.DataColumn columnFecha_Admsión;
-            
-            private global::System.Data.DataColumn columnÚltimoPerfil;
-            
-            private global::System.Data.DataColumn columnTipo_de_Último_Perfil;
-            
-            private global::System.Data.DataColumn columnMeses_sin_Perfiles_de_Evaluación_de_Progreso;
-            
-            private global::System.Data.DataColumn columnFK_Programa;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_SAEPDataTable() {
-                this.TableName = "VW_SAEP";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal VW_SAEPDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected VW_SAEPDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Nombre_ProgramaColumn {
-                get {
-                    return this.columnNombre_Programa;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Nombre_ParticipanteColumn {
-                get {
-                    return this.columnNombre_Participante;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IUPColumn {
-                get {
-                    return this.columnIUP;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ExpedienteColumn {
-                get {
-                    return this.columnExpediente;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Número_de_EpisodioColumn {
-                get {
-                    return this.columnNúmero_de_Episodio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Fecha_AdmsiónColumn {
-                get {
-                    return this.columnFecha_Admsión;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ÚltimoPerfilColumn {
-                get {
-                    return this.columnÚltimoPerfil;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Tipo_de_Último_PerfilColumn {
-                get {
-                    return this.columnTipo_de_Último_Perfil;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn {
-                get {
-                    return this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FK_ProgramaColumn {
-                get {
-                    return this.columnFK_Programa;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_SAEPRow this[int index] {
-                get {
-                    return ((VW_SAEPRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event VW_SAEPRowChangeEventHandler VW_SAEPRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event VW_SAEPRowChangeEventHandler VW_SAEPRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event VW_SAEPRowChangeEventHandler VW_SAEPRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event VW_SAEPRowChangeEventHandler VW_SAEPRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddVW_SAEPRow(VW_SAEPRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_SAEPRow AddVW_SAEPRow(string Nombre_Programa, string Nombre_Participante, int IUP, string Expediente, int Número_de_Episodio, System.DateTime Fecha_Admsión, System.DateTime ÚltimoPerfil, string Tipo_de_Último_Perfil, int Meses_sin_Perfiles_de_Evaluación_de_Progreso, short FK_Programa) {
-                VW_SAEPRow rowVW_SAEPRow = ((VW_SAEPRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Nombre_Programa,
-                        Nombre_Participante,
-                        IUP,
-                        Expediente,
-                        Número_de_Episodio,
-                        Fecha_Admsión,
-                        ÚltimoPerfil,
-                        Tipo_de_Último_Perfil,
-                        Meses_sin_Perfiles_de_Evaluación_de_Progreso,
-                        FK_Programa};
-                rowVW_SAEPRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVW_SAEPRow);
-                return rowVW_SAEPRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_SAEPRow FindByIUPNúmero_de_Episodio(int IUP, int Número_de_Episodio) {
-                return ((VW_SAEPRow)(this.Rows.Find(new object[] {
-                            IUP,
-                            Número_de_Episodio})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                VW_SAEPDataTable cln = ((VW_SAEPDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new VW_SAEPDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnNombre_Programa = base.Columns["Nombre Programa"];
-                this.columnNombre_Participante = base.Columns["Nombre Participante"];
-                this.columnIUP = base.Columns["IUP"];
-                this.columnExpediente = base.Columns["Expediente"];
-                this.columnNúmero_de_Episodio = base.Columns["Número de Episodio"];
-                this.columnFecha_Admsión = base.Columns["Fecha Admsión"];
-                this.columnÚltimoPerfil = base.Columns["ÚltimoPerfil"];
-                this.columnTipo_de_Último_Perfil = base.Columns["Tipo de Último Perfil"];
-                this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso = base.Columns["Meses sin Perfiles de Evaluación de Progreso"];
-                this.columnFK_Programa = base.Columns["FK_Programa"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnNombre_Programa = new global::System.Data.DataColumn("Nombre Programa", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre_Programa);
-                this.columnNombre_Participante = new global::System.Data.DataColumn("Nombre Participante", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre_Participante);
-                this.columnIUP = new global::System.Data.DataColumn("IUP", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIUP);
-                this.columnExpediente = new global::System.Data.DataColumn("Expediente", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpediente);
-                this.columnNúmero_de_Episodio = new global::System.Data.DataColumn("Número de Episodio", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNúmero_de_Episodio);
-                this.columnFecha_Admsión = new global::System.Data.DataColumn("Fecha Admsión", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha_Admsión);
-                this.columnÚltimoPerfil = new global::System.Data.DataColumn("ÚltimoPerfil", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnÚltimoPerfil);
-                this.columnTipo_de_Último_Perfil = new global::System.Data.DataColumn("Tipo de Último Perfil", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTipo_de_Último_Perfil);
-                this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso = new global::System.Data.DataColumn("Meses sin Perfiles de Evaluación de Progreso", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso);
-                this.columnFK_Programa = new global::System.Data.DataColumn("FK_Programa", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFK_Programa);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnIUP,
-                                this.columnNúmero_de_Episodio}, true));
-                this.columnNombre_Programa.MaxLength = 100;
-                this.columnNombre_Participante.ReadOnly = true;
-                this.columnNombre_Participante.MaxLength = 61;
-                this.columnIUP.AllowDBNull = false;
-                this.columnExpediente.AllowDBNull = false;
-                this.columnExpediente.MaxLength = 12;
-                this.columnNúmero_de_Episodio.AllowDBNull = false;
-                this.columnFecha_Admsión.AllowDBNull = false;
-                this.columnTipo_de_Último_Perfil.AllowDBNull = false;
-                this.columnTipo_de_Último_Perfil.MaxLength = 2;
-                this.columnMeses_sin_Perfiles_de_Evaluación_de_Progreso.ReadOnly = true;
-                this.columnFK_Programa.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_SAEPRow NewVW_SAEPRow() {
-                return ((VW_SAEPRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VW_SAEPRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(VW_SAEPRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.VW_SAEPRowChanged != null)) {
-                    this.VW_SAEPRowChanged(this, new VW_SAEPRowChangeEvent(((VW_SAEPRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.VW_SAEPRowChanging != null)) {
-                    this.VW_SAEPRowChanging(this, new VW_SAEPRowChangeEvent(((VW_SAEPRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.VW_SAEPRowDeleted != null)) {
-                    this.VW_SAEPRowDeleted(this, new VW_SAEPRowChangeEvent(((VW_SAEPRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.VW_SAEPRowDeleting != null)) {
-                    this.VW_SAEPRowDeleting(this, new VW_SAEPRowChangeEvent(((VW_SAEPRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveVW_SAEPRow(VW_SAEPRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsPerfil ds = new dsPerfil();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VW_SAEPDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -19789,6 +19775,190 @@ namespace SEPS.perfiles {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class PopupsEvProgresoRow : global::System.Data.DataRow {
+            
+            private PopupsEvProgresoDataTable tablePopupsEvProgreso;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal PopupsEvProgresoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePopupsEvProgreso = ((PopupsEvProgresoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Nombre_Programa {
+                get {
+                    try {
+                        return ((string)(this[this.tablePopupsEvProgreso.Nombre_ProgramaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre Programa\' in table \'PopupsEvProgreso\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.Nombre_ProgramaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Nombre_Participante {
+                get {
+                    try {
+                        return ((string)(this[this.tablePopupsEvProgreso.Nombre_ParticipanteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre Participante\' in table \'PopupsEvProgreso\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.Nombre_ParticipanteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int IUP {
+                get {
+                    return ((int)(this[this.tablePopupsEvProgreso.IUPColumn]));
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.IUPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Expediente {
+                get {
+                    return ((string)(this[this.tablePopupsEvProgreso.ExpedienteColumn]));
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.ExpedienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Número_de_Episodio {
+                get {
+                    return ((int)(this[this.tablePopupsEvProgreso.Número_de_EpisodioColumn]));
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.Número_de_EpisodioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Fecha_Admsión {
+                get {
+                    return ((global::System.DateTime)(this[this.tablePopupsEvProgreso.Fecha_AdmsiónColumn]));
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.Fecha_AdmsiónColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Último_Perfil {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablePopupsEvProgreso.Último_PerfilColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Último Perfil\' in table \'PopupsEvProgreso\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.Último_PerfilColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Tipo_de_Último_Perfil {
+                get {
+                    return ((string)(this[this.tablePopupsEvProgreso.Tipo_de_Último_PerfilColumn]));
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.Tipo_de_Último_PerfilColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Meses_sin_Perfiles_de_Evaluación_de_Progreso {
+                get {
+                    try {
+                        return ((int)(this[this.tablePopupsEvProgreso.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Meses sin Perfiles de Evaluación de Progreso\' in table \'Pop" +
+                                "upsEvProgreso\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePopupsEvProgreso.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNombre_ProgramaNull() {
+                return this.IsNull(this.tablePopupsEvProgreso.Nombre_ProgramaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNombre_ProgramaNull() {
+                this[this.tablePopupsEvProgreso.Nombre_ProgramaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNombre_ParticipanteNull() {
+                return this.IsNull(this.tablePopupsEvProgreso.Nombre_ParticipanteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNombre_ParticipanteNull() {
+                this[this.tablePopupsEvProgreso.Nombre_ParticipanteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsÚltimo_PerfilNull() {
+                return this.IsNull(this.tablePopupsEvProgreso.Último_PerfilColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetÚltimo_PerfilNull() {
+                this[this.tablePopupsEvProgreso.Último_PerfilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMeses_sin_Perfiles_de_Evaluación_de_ProgresoNull() {
+                return this.IsNull(this.tablePopupsEvProgreso.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMeses_sin_Perfiles_de_Evaluación_de_ProgresoNull() {
+                this[this.tablePopupsEvProgreso.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class VW_IDENTIDAD_GENERORow : global::System.Data.DataRow {
             
             private VW_IDENTIDAD_GENERODataTable tableVW_IDENTIDAD_GENERO;
@@ -19894,200 +20064,6 @@ namespace SEPS.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetORDEREDNull() {
                 this[this.tableVW_IDENTIDAD_GENERO.ORDEREDColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class VW_SAEPRow : global::System.Data.DataRow {
-            
-            private VW_SAEPDataTable tableVW_SAEP;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal VW_SAEPRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableVW_SAEP = ((VW_SAEPDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Nombre_Programa {
-                get {
-                    try {
-                        return ((string)(this[this.tableVW_SAEP.Nombre_ProgramaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre Programa\' in table \'VW_SAEP\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVW_SAEP.Nombre_ProgramaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Nombre_Participante {
-                get {
-                    try {
-                        return ((string)(this[this.tableVW_SAEP.Nombre_ParticipanteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre Participante\' in table \'VW_SAEP\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVW_SAEP.Nombre_ParticipanteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int IUP {
-                get {
-                    return ((int)(this[this.tableVW_SAEP.IUPColumn]));
-                }
-                set {
-                    this[this.tableVW_SAEP.IUPColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Expediente {
-                get {
-                    return ((string)(this[this.tableVW_SAEP.ExpedienteColumn]));
-                }
-                set {
-                    this[this.tableVW_SAEP.ExpedienteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Número_de_Episodio {
-                get {
-                    return ((int)(this[this.tableVW_SAEP.Número_de_EpisodioColumn]));
-                }
-                set {
-                    this[this.tableVW_SAEP.Número_de_EpisodioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime Fecha_Admsión {
-                get {
-                    return ((global::System.DateTime)(this[this.tableVW_SAEP.Fecha_AdmsiónColumn]));
-                }
-                set {
-                    this[this.tableVW_SAEP.Fecha_AdmsiónColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime ÚltimoPerfil {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableVW_SAEP.ÚltimoPerfilColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ÚltimoPerfil\' in table \'VW_SAEP\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVW_SAEP.ÚltimoPerfilColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Tipo_de_Último_Perfil {
-                get {
-                    return ((string)(this[this.tableVW_SAEP.Tipo_de_Último_PerfilColumn]));
-                }
-                set {
-                    this[this.tableVW_SAEP.Tipo_de_Último_PerfilColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Meses_sin_Perfiles_de_Evaluación_de_Progreso {
-                get {
-                    try {
-                        return ((int)(this[this.tableVW_SAEP.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Meses sin Perfiles de Evaluación de Progreso\' in table \'VW_" +
-                                "SAEP\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVW_SAEP.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public short FK_Programa {
-                get {
-                    return ((short)(this[this.tableVW_SAEP.FK_ProgramaColumn]));
-                }
-                set {
-                    this[this.tableVW_SAEP.FK_ProgramaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNombre_ProgramaNull() {
-                return this.IsNull(this.tableVW_SAEP.Nombre_ProgramaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNombre_ProgramaNull() {
-                this[this.tableVW_SAEP.Nombre_ProgramaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNombre_ParticipanteNull() {
-                return this.IsNull(this.tableVW_SAEP.Nombre_ParticipanteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNombre_ParticipanteNull() {
-                this[this.tableVW_SAEP.Nombre_ParticipanteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsÚltimoPerfilNull() {
-                return this.IsNull(this.tableVW_SAEP.ÚltimoPerfilColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetÚltimoPerfilNull() {
-                this[this.tableVW_SAEP.ÚltimoPerfilColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMeses_sin_Perfiles_de_Evaluación_de_ProgresoNull() {
-                return this.IsNull(this.tableVW_SAEP.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMeses_sin_Perfiles_de_Evaluación_de_ProgresoNull() {
-                this[this.tableVW_SAEP.Meses_sin_Perfiles_de_Evaluación_de_ProgresoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -31229,22 +31205,22 @@ namespace SEPS.perfiles {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class VW_IDENTIDAD_GENERORowChangeEvent : global::System.EventArgs {
+        public class PopupsEvProgresoRowChangeEvent : global::System.EventArgs {
             
-            private VW_IDENTIDAD_GENERORow eventRow;
+            private PopupsEvProgresoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_IDENTIDAD_GENERORowChangeEvent(VW_IDENTIDAD_GENERORow row, global::System.Data.DataRowAction action) {
+            public PopupsEvProgresoRowChangeEvent(PopupsEvProgresoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_IDENTIDAD_GENERORow Row {
+            public PopupsEvProgresoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -31263,22 +31239,22 @@ namespace SEPS.perfiles {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class VW_SAEPRowChangeEvent : global::System.EventArgs {
+        public class VW_IDENTIDAD_GENERORowChangeEvent : global::System.EventArgs {
             
-            private VW_SAEPRow eventRow;
+            private VW_IDENTIDAD_GENERORow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_SAEPRowChangeEvent(VW_SAEPRow row, global::System.Data.DataRowAction action) {
+            public VW_IDENTIDAD_GENERORowChangeEvent(VW_IDENTIDAD_GENERORow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_SAEPRow Row {
+            public VW_IDENTIDAD_GENERORow Row {
                 get {
                     return this.eventRow;
                 }
@@ -33111,6 +33087,227 @@ namespace SEPS.perfiles.dsPerfilTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PopupsEvProgresoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public PopupsEvProgresoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "PopupsEvProgreso";
+            tableMapping.ColumnMappings.Add("Nombre Programa", "Nombre Programa");
+            tableMapping.ColumnMappings.Add("Nombre Participante", "Nombre Participante");
+            tableMapping.ColumnMappings.Add("IUP", "IUP");
+            tableMapping.ColumnMappings.Add("Expediente", "Expediente");
+            tableMapping.ColumnMappings.Add("Número de Episodio", "Número de Episodio");
+            tableMapping.ColumnMappings.Add("Fecha Admsión", "Fecha Admsión");
+            tableMapping.ColumnMappings.Add("Último Perfil", "Último Perfil");
+            tableMapping.ColumnMappings.Add("Tipo de Último Perfil", "Tipo de Último Perfil");
+            tableMapping.ColumnMappings.Add("Meses sin Perfiles de Evaluación de Progreso", "Meses sin Perfiles de Evaluación de Progreso");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SEPSConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"select DISTINCT P.NB_Programa 'Nombre Programa', Per.NB_Primero + ' ' + Per.AP_Primero AS 'Nombre Participante', Per.PK_Persona AS IUP, SA_PERSONA_PROGRAMA.NR_Expediente 'Expediente' ,E.PK_Episodio 'Número de Episodio', E.FE_Episodio 'Fecha Admsión', UltimoPerfil as 'Último Perfil', IN_TI_Perfil as 'Tipo de Último Perfil', DATEDIFF(month,UltimoPerfil,GETDATE()) as 'Meses sin Perfiles de Evaluación de Progreso'
+from SA_EPISODIO as E INNER JOIN SA_PROGRAMA as P ON E.FK_Programa = P.PK_Programa
+		INNER JOIN SA_PERFIL as Perfil ON E.PK_Episodio = Perfil.FK_Episodio
+		INNER JOIN SA_PERSONA as Per ON E.FK_Persona = Per.PK_Persona
+		INNER JOIN SA_PERSONA_PROGRAMA ON Per.PK_Persona = SA_PERSONA_PROGRAMA.FK_Persona
+		AND P.PK_Programa = SA_PERSONA_PROGRAMA.FK_Programa
+		INNER JOIN 
+
+(select FK_Episodio, MAX(PK_NR_Perfil) as PK_NR_Perfil ,MAX(FE_Perfil) 'UltimoPerfil'
+from SA_PERFIL
+where FK_Episodio not in (
+select FK_Episodio from SA_PERFIL where FE_Perfil > DATEADD(m,-5,GETDATE())) 
+group by FK_Episodio) as UltimoPerfil ON Perfil.PK_NR_Perfil = UltimoPerfil.PK_NR_Perfil
+
+where E.FE_Alta is null
+AND (E.FK_Programa IN (@Programas))
+order by FE_Episodio";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Programas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"select DISTINCT P.NB_Programa 'Nombre Programa', Per.NB_Primero + ' ' + Per.AP_Primero AS 'Nombre Participante', Per.PK_Persona AS IUP, SA_PERSONA_PROGRAMA.NR_Expediente 'Expediente' ,E.PK_Episodio 'Número de Episodio', E.FE_Episodio 'Fecha Admsión', UltimoPerfil as 'Último Perfil', IN_TI_Perfil as 'Tipo de Último Perfil', DATEDIFF(month,UltimoPerfil,GETDATE()) as 'Meses sin Perfiles de Evaluación de Progreso'
+from SA_EPISODIO as E INNER JOIN SA_PROGRAMA as P ON E.FK_Programa = P.PK_Programa
+		INNER JOIN SA_PERFIL as Perfil ON E.PK_Episodio = Perfil.FK_Episodio
+		INNER JOIN SA_PERSONA as Per ON E.FK_Persona = Per.PK_Persona
+		INNER JOIN SA_PERSONA_PROGRAMA ON Per.PK_Persona = SA_PERSONA_PROGRAMA.FK_Persona
+		AND P.PK_Programa = SA_PERSONA_PROGRAMA.FK_Programa
+		INNER JOIN 
+
+(select FK_Episodio, MAX(PK_NR_Perfil) as PK_NR_Perfil ,MAX(FE_Perfil) 'UltimoPerfil'
+from SA_PERFIL
+where FK_Episodio not in (
+select FK_Episodio from SA_PERFIL where FE_Perfil > DATEADD(m,-5,GETDATE())) 
+group by FK_Episodio) as UltimoPerfil ON Perfil.PK_NR_Perfil = UltimoPerfil.PK_NR_Perfil
+
+where E.FE_Alta is null
+AND (E.FK_Programa IN (@Programas))
+AND (YEAR(E.FE_Episodio) > 2013)
+AND (E.FE_Episodio >= @FechaInicial AND E.FE_Episodio <= @FechaFinal)
+order by FE_Episodio";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Programas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaInicial", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha Admsión", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaFinal", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha Admsión", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(dsPerfil.PopupsEvProgresoDataTable dataTable, int Programas) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Programas));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual dsPerfil.PopupsEvProgresoDataTable GetData(int Programas) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Programas));
+            dsPerfil.PopupsEvProgresoDataTable dataTable = new dsPerfil.PopupsEvProgresoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(dsPerfil.PopupsEvProgresoDataTable dataTable, int Programas, System.DateTime FechaInicial, System.DateTime FechaFinal) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Programas));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaInicial));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(FechaFinal));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual dsPerfil.PopupsEvProgresoDataTable GetDataBy(int Programas, System.DateTime FechaInicial, System.DateTime FechaFinal) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Programas));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaInicial));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(FechaFinal));
+            dsPerfil.PopupsEvProgresoDataTable dataTable = new dsPerfil.PopupsEvProgresoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class VW_IDENTIDAD_GENEROTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -33239,165 +33436,6 @@ namespace SEPS.perfiles.dsPerfilTableAdapters {
         public virtual dsPerfil.VW_IDENTIDAD_GENERODataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             dsPerfil.VW_IDENTIDAD_GENERODataTable dataTable = new dsPerfil.VW_IDENTIDAD_GENERODataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VW_SAEPTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public VW_SAEPTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "VW_SAEP";
-            tableMapping.ColumnMappings.Add("Nombre Programa", "Nombre Programa");
-            tableMapping.ColumnMappings.Add("Nombre Participante", "Nombre Participante");
-            tableMapping.ColumnMappings.Add("IUP", "IUP");
-            tableMapping.ColumnMappings.Add("Expediente", "Expediente");
-            tableMapping.ColumnMappings.Add("Número de Episodio", "Número de Episodio");
-            tableMapping.ColumnMappings.Add("Fecha Admsión", "Fecha Admsión");
-            tableMapping.ColumnMappings.Add("ÚltimoPerfil", "ÚltimoPerfil");
-            tableMapping.ColumnMappings.Add("Tipo de Último Perfil", "Tipo de Último Perfil");
-            tableMapping.ColumnMappings.Add("Meses sin Perfiles de Evaluación de Progreso", "Meses sin Perfiles de Evaluación de Progreso");
-            tableMapping.ColumnMappings.Add("FK_Programa", "FK_Programa");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["SEPSConnectionString"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT [Nombre Programa], [Nombre Participante], IUP, Expediente, [Número de Episodio], [Fecha Admsión], ÚltimoPerfil, [Tipo de Último Perfil], [Meses sin Perfiles de Evaluación de Progreso], FK_Programa
-FROM     VW_SAEP
-WHERE  (FK_Programa = @PROGRAMA) AND ([Fecha Admsión] BETWEEN @START AND @END)";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PROGRAMA", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 0, 0, "FK_Programa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@START", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha Admsión", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@END", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha Admsión", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsPerfil.VW_SAEPDataTable dataTable, short PROGRAMA, System.DateTime START, System.DateTime END) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((short)(PROGRAMA));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(START));
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(END));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsPerfil.VW_SAEPDataTable GetData(short PROGRAMA, System.DateTime START, System.DateTime END) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((short)(PROGRAMA));
-            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(START));
-            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(END));
-            dsPerfil.VW_SAEPDataTable dataTable = new dsPerfil.VW_SAEPDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
