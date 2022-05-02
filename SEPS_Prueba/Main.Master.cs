@@ -54,14 +54,14 @@ namespace ASSMCA
 			this.Response.Redirect(ResolveClientUrl("frmLogon.aspx?changeProg=yes"));
 		}
 
-		VW_SAEPDataTable GetEVProgreso( DateTime from , DateTime to)
+		List<VW_SAEPRow> GetEVProgreso( DateTime from , DateTime to)
 		{
 			var programa = Convert.ToInt32(this.Session["pk_programa"]);
 
 					 VW_SAEPTableAdapter saep = new VW_SAEPTableAdapter();
 
 
-			return saep.GetData((short)programa, from, to);
+			return saep.GetData((short)programa, from, to).OrderBy(x=>x.Fecha_Admsión).ToList();
 
 		}
 
