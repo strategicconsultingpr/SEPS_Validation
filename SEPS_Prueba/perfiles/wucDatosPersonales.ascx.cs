@@ -189,7 +189,6 @@
                         this.lblEmail2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailSecundario"].ToString();
                         this.txtEmail1.Visible = false;
                         this.txtEmail2.Visible = false;
-                        ddlIdentidadGeneroSetup();
 
                         break;
                     case (frmAction.Update):
@@ -207,8 +206,8 @@
                         this.txtCelular2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CelularContacto"].ToString();
                         this.txtEmail1.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailPrimario"].ToString();
                         this.txtEmail2.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_EmailSecundario"].ToString();
-                        ddlIdentidadGeneroSetup();
 
+                       
 
 
                         if (isAdmision)
@@ -280,33 +279,6 @@
 
         }
 
-        private void ddlIdentidadGeneroSetup()
-        {
-            try
-            {
-                var fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
-
-                if (fe_perfil >= Const.CambiosEnCamposNuevos)
-                {
-                    divIdentidadGenero.Visible = true;
-                    rfvIdentidadGenero.Enabled = true;
-
-                }
-                else
-                {
-                    divIdentidadGenero.Visible = false;
-                    rfvIdentidadGenero.Enabled = false;
-
-                }
-            }
-            catch
-            {
-                divIdentidadGenero.Visible = false;
-                rfvIdentidadGenero.Enabled = false;
-            }
-
-
-        }
 
 
         private void set_hProgramaAdultos()
