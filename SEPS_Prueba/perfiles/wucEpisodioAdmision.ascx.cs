@@ -714,7 +714,7 @@ namespace ASSMCA.Perfiles
                 {
             ddlFrecuenciaFumado.Enabled = true;
             txtNrFumado.Enabled = true;
-                ddlFrecuenciaFumado.SelectedValue = "1";
+                ddlFrecuenciaFumado.SelectedValue = "";
             txtNrFumado.Text = "";
 
               
