@@ -188,7 +188,9 @@ namespace ASSMCA
                     this.Session["nb_administracion"] = programa.NB_Administracion.ToString();
                     this.Session["pk_programa"] = programa.PK_Programa.ToString();
                     this.Session["nb_programa"] = programa.NB_Programa.ToString();
-                    this.Session["nr_rowIndex_dsSeguridad"] = this.dsSeguridad.SA_USUARIO.Rows.IndexOf(programa);
+                    int nr_rowIndex_dsSeguridad = this.ddlPrograma.SelectedIndex;
+
+                    this.Session["nr_rowIndex_dsSeguridad"] = nr_rowIndex_dsSeguridad;
                     this.Session["co_tipo"] = programa.CO_Tipo.ToString();
                     this.Session["in_convenio"] = convenio;
 
