@@ -3588,7 +3588,7 @@ function validateSSN(source, arguments)
 
         if (ssn == "")
         {
-            result = false;
+            result = true;
         }
         else
         {
