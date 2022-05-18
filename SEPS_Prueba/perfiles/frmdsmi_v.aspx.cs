@@ -85,7 +85,7 @@ namespace ASSMCA.Perfiles
                 SA_LKP_DSMV1TableAdapter SA_LKP_DSMV = new SA_LKP_DSMV1TableAdapter();
 
                 if (txtFiltroTipo.Value == "NONE")
-                    lbxDSMV.DataSource = SA_LKP_DSMV.GetData();
+                    lbxDSMV.DataSource = SA_LKP_DSMV.GetData().AsEnumerable().OrderBy(x => x.PK_DSMV);
                 else
                     lbxDSMV.DataSource = SA_LKP_DSMV.GetData().Where(x => x.CAT_DSMV == txtFiltroTipo.Value || x.CAT_DSMV == "Other").OrderBy(x=>x.PK_DSMV);
 
