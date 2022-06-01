@@ -288,7 +288,7 @@ function FechaConvenio() {
             alert("entre mal");
             var fecha18Yrs = new Date((fechaNacimiento.getMonth() + 1) + '/' + fechaNacimiento.getDate() + '/' + (fechaNacimiento.getFullYear() + 18));           
             if (fecha18Yrs > fechaConvenio) {
-                alert("La fecha de convenio no puede ser menor a la fecha en que el paciente cumplio 18 años.");
+                alert("La fecha de convenio no puede ser menor a la fecha en que el participante cumplio 18 años.");
                 día.value = 1;
                 año.value = '';
                 mes.value = 1;
@@ -297,7 +297,7 @@ function FechaConvenio() {
         }        
         else {
             if (fechaNacimiento >= fechaConvenio) {
-                alert("La fecha de convenio no puede ser menor o igual a la fecha de nacimiento del paciente.");
+                alert("La fecha de convenio no puede ser menor o igual a la fecha de nacimiento del participante.");
                 día.value = 1;
                 año.value = '';
                 mes.value = 1;

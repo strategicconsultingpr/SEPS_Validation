@@ -14,7 +14,7 @@
         }
     </script>
     <h1>
-        <asp:Literal ID="lTituloPrincipal" runat="server">Registro de pacientes</asp:Literal></h1>
+        <asp:Literal ID="lTituloPrincipal" runat="server">Registro de partipantes</asp:Literal></h1>
     <div class="panel panel-default" runat="server" id="divDatosBasicos">
         <div class="panel-heading">
             <h3 class="panel-title">Datos básicos</h3>
@@ -234,7 +234,7 @@
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" HeaderText="Se han encontrado algunos errores en el formulario que debe revisar antes de registrar la persona nueva:" ShowSummary="False" />
 
     <div runat="server" id="divPacienteExistente">
-        <p>Se ha identificado pacientes que contienen información semejante al paciente que desea registrar:</p>
+        <p>Se ha identificado participantes que contienen información semejante al participante que desea registrar:</p>
 
         <asp:ListView runat="server" ID="lstPaciente">
 
@@ -342,7 +342,7 @@
                     <p>1) Seguro Social Completo: Ej. <b>555-55-5555</b></p>
                     <p>2) Seguro Social Parcial: Este utiliza los últimos cuatro digitos, solamente el resto de números se tiene que rellenar con '<b>*</b>'. Ej. <b>***-**-5555</b></p>
                     <p>
-                        3) Seguro Social en Blanco: En el caso de que el paciente no pueda proveer su seguro social, puede dejar los campos en blanco y
+                        3) Seguro Social en Blanco: En el caso de que el participante no pueda proveer su seguro social, puede dejar los campos en blanco y
             automáticamente el sistema le asignara un número provisional que se verá de la siguiente forma. Ej. <b>SSS-55-5555</b>
                     </p>
                     <p></p>

@@ -63,7 +63,7 @@ namespace ASSMCA.Pacientes
 				{
 					this.btnRegistrar.Visible = false;
 					this.btnActualizarPersona.Visible = true;
-                    this.lTituloPrincipal.Text= "Modificación de paciente";
+                    this.lTituloPrincipal.Text= "Modificación de participante";
 					this.dsPersona = (ASSMCA.pacientes.dsPersona)Session["dsPersona"];
 					this.daLkpPersona.Fill(this.dsPersona);
 					this.dvwRazasNoSeleccionadas.Table = this.dsPersona.LKP_Raza;

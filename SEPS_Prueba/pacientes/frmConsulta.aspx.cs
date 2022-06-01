@@ -36,19 +36,19 @@ namespace ASSMCA.Pacientes
                 this.btnRegistrar.Visible = true;
                 if (Request.QueryString["fuente"].ToString() == "admision")
                 {
-                    this.Label4.Text = "Búsqueda de pacientes en admisión";
+                    this.Label4.Text = "Búsqueda de participantes en admisión";
                     HyperLinkColumn hlc = (HyperLinkColumn)this.dgPersonas.Columns[0];
                     hlc.DataNavigateUrlFormatString = "frmVisualizar.aspx?accion=consultar&pk_persona={0}&fuente=admision";
                 }
                 else if (Request.QueryString["fuente"].ToString() == "evaluacion")
                 {
-                    this.Label4.Text = "Búsqueda de pacientes en evaluación";
+                    this.Label4.Text = "Búsqueda de participantes en evaluación";
                     HyperLinkColumn hlc = (HyperLinkColumn)this.dgPersonas.Columns[0];
                     hlc.DataNavigateUrlFormatString = "frmVisualizar.aspx?accion=consultar&pk_persona={0}&fuente=evaluacion";
                 }
                 else if (Request.QueryString["fuente"].ToString() == "alta")
                 {
-                    this.Label4.Text = "Búsqueda de pacientes en alta";
+                    this.Label4.Text = "Búsqueda de participantes en alta";
                     HyperLinkColumn hlc = (HyperLinkColumn)this.dgPersonas.Columns[0];
                     hlc.DataNavigateUrlFormatString = "frmVisualizar.aspx?accion=consultar&pk_persona={0}&fuente=alta";
                 }

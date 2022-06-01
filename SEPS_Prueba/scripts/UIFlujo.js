@@ -1249,10 +1249,10 @@ function ddlUltMental() {
             case ("99")://No aplica
                 if (ddlPreviosMental.value != "1") {
                     if (ddlPreviosMental.value == "0") {
-                        alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
+                        alert("Seleccione primero si el participante tiene episodios previos al tratamiento.");
                     }
                     else {
-                        alert("No puede escoger 'No aplica', ya que en la pregunta anterior escogió que el paciente ha tenido episodios o recibió tratamiento anteriormente. El paciente tiene episodios anteriores. No puede escoger NO APLICA.");
+                        alert("No puede escoger 'No aplica', ya que en la pregunta anterior escogió que el participante ha tenido episodios o recibió tratamiento anteriormente. El paciente tiene episodios anteriores. No puede escoger NO APLICA.");
                     }
                     ddlUlt.value = "0";
                 }
@@ -1296,10 +1296,10 @@ function ddlUltSustancias() {
             case ("99")://No aplica
                 if (ddlPreviosSustancias.value != "1") {
                     if (ddlPreviosSustancias.value == "0") {
-                        alert("Seleccione primero si el paciente tiene episodios previos al tratamiento.");
+                        alert("Seleccione primero si el participante tiene episodios previos al tratamiento.");
                     }
                     else {
-                        alert("No puede escoger 'No aplica', ya que en la pregunta anterior escogió que el paciente ha tenido episodios o recibió tratamiento anteriormente.");
+                        alert("No puede escoger 'No aplica', ya que en la pregunta anterior escogió que el participante ha tenido episodios o recibió tratamiento anteriormente.");
                     }
                     ddlUlt.value = "0";
                 }
@@ -2130,7 +2130,7 @@ function ddlFreq_AutoAyuda() {
             case ("1"): case ("99"):
                 if (ddlReunionesGrupos.value == "1") {
                     ddlFreq_AutoAyuda.value = "0";
-                    alert("Debe escoger una opción válida, ya que seleccionó que el paciente SI ha participado en reuniones de grupo.");
+                    alert("Debe escoger una opción válida, ya que seleccionó que el participante SI ha participado en reuniones de grupo.");
                 }
                 break;
         }
@@ -3670,9 +3670,9 @@ function showUnlosableModal() {
 }
 function showUnlosableModalPaciente() {
     switch ($("#frmActionMode").val()) {
-        case ("registrar"): $("#mensageModal").text("Registrando paciente."); break;
-        case ("editar"): $("#mensageModal").text("Actualizando paciente."); break;
-        default: $("#mensageModal").text("Guardando paciente."); break;
+        case ("registrar"): $("#mensageModal").text("Registrando participante."); break;
+        case ("editar"): $("#mensageModal").text("Actualizando participante."); break;
+        default: $("#mensageModal").text("Guardando participante."); break;
     }
     $("#myModalUnclosable").modal('show');
 }

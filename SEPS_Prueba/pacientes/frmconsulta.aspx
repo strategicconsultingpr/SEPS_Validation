@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="c#" Inherits="ASSMCA.Pacientes.frmConsulta" CodeBehind="frmConsulta.aspx.cs" MasterPageFile="~/Main.Master" %>
 <asp:Content ID="mainC" runat="server" ContentPlaceHolderID="mainBodyContent">
     <asp:Panel ID="busquedaPanel" runat="server" DefaultButton="btnConsultar" >
-    <h1><asp:Literal ID="Label4" runat="server">Búsqueda de pacientes</asp:Literal></h1>
+    <h1><asp:Literal ID="Label4" runat="server">Búsqueda de participantes</asp:Literal></h1>
 <input id="TipoBusqueda" runat="server" type="hidden"/>
 
         
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 SEPSDivs"><%--Programa--%>
-                    <span class="SEPSLabelConsulta" title="Seleccionar de esta opción para solo encontrar pacientes que ya tienen episodios en el programa.">Programa:</span>
+                    <span class="SEPSLabelConsulta" title="Seleccionar de esta opción para solo encontrar participantes que ya tienen episodios en el programa.">Programa:</span>
                     <div class="expandibleDiv">
                         <asp:DropDownList ID="ddlPrograma" runat="server" CssClass="form-control" DataTextField="NB_Programa" DataValueField="PK_Programa" DataSource="<%# dsSeguridad %>"  DataMember="SA_USUARIO"/>
                     </div>
@@ -392,7 +392,7 @@
             <div class="row">
                 <div class="col-xs-12 SEPSDivs"><%--Botones--%>
                     <div class="btn-group" role="group">
-                        <asp:Button ID="btnRegistrar" CssClass="btn btn-default" runat="server" Text="Registrar paciente" Visible="False" OnClientClick="tipoBusqueda();" OnClick="btnRegistrar_Click"/>
+                        <asp:Button ID="btnRegistrar" CssClass="btn btn-default" runat="server" Text="Registrar participante" Visible="False" OnClientClick="tipoBusqueda();" OnClick="btnRegistrar_Click"/>
                         <asp:Button ID="btnBorrar" runat="server" Text="Borrar campos" CssClass="btn btn-default" OnClick="btnBorrar_Click"/>
                         <asp:Button ID="btnConsultar" runat="server" Text="Consultar" CssClass="btn btn-default" OnClick="btnConsultar_Click"/>
                     </div>

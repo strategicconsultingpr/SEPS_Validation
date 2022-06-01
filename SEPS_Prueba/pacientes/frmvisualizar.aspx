@@ -1,9 +1,9 @@
 <%@ Page Language="c#" Inherits="ASSMCA.Pacientes.frmVisualizar" CodeBehind="frmVisualizar.aspx.cs" MasterPageFile="~/Main.Master" %>
 <asp:Content ID="mainC" runat="server" ContentPlaceHolderID="mainBodyContent">
-    <h1>Visualización de paciente</h1>
+    <h1>Visualización de participante</h1>
     <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Datos del paciente</h3>
+    <h3 class="panel-title">Datos del participante</h3>
   </div>
   <div class="panel-body">
      <div class="row">
