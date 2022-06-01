@@ -436,7 +436,7 @@ namespace ASSMCA.Perfiles
             this.hlDSMVClinSec.Visible = false;
             this.hlDSMVClinTer.Visible = false;
 
-            hDSMVSusPrim.Visible = false;
+            hlDSMVSusPrim.Visible = false;
             hlDSMVSusSec.Visible = false;
             hlDSMVSusTer.Visible = false;
 
