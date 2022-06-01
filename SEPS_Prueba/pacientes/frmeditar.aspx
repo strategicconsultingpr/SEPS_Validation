@@ -310,12 +310,12 @@
                             <div class="col-md-12">
                                 <%-- Botones --%>
                                 <div class="btn-group" role="group">
-                                    <a class="btn btn-info" href="frmVisualizar.aspx?accion=registrar&fuente=admision&pk_programa=<%=m_PK_Programa.ToString()%>&pk_persona=<%# Eval("PK_Persona")%>">Ver</a>
+                                    <a class="btn btn-info" href="frmVisualizar.aspx?accion=consultar&pk_programa=<%=m_PK_Programa.ToString()%>&pk_persona=<%# Eval("PK_Persona")%>">Ver</a>
 
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  
                 </div>
             </ItemTemplate>
         </asp:ListView>
