@@ -118,13 +118,16 @@ namespace ASSMCA.Perfiles
 
                         ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 127, Text = "Desconocida" });
                         ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 126, Text = "No Aplica" });
+                        this.DSMVRM_DIV.Visible = false;
 
 
-                        
+
 
                         break;
                     case (frmAction.Read):
                         this.LeerRegistro();
+                        this.DSMVRM_DIV.Visible = false;
+
                         break;
                     default:
                         break;
@@ -249,17 +252,25 @@ namespace ASSMCA.Perfiles
             this.lblDSMVDiagDual.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_DiagnosticoDual"].ToString();
 
 
-            DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
-            DateTime limite = new DateTime(2021, 1, 1);
-            if (fe_perfil > limite)
-            {
-                DSMVRM_DIV.Visible = false;
-            }
+            /*
+            Se elimino esta seccion de DSMV solicitado por el equipo de UEE
+            6/1/2022
+            Cambio realizado por : Jose A. Ramos De La Cruz
+            */
+            //DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
+            //DateTime limite = new DateTime(2021, 1, 1);
+            //if (fe_perfil > limite)
+            //{
+            //    DSMVRM_DIV.Visible = false;
+            //}
 
-            if ((this.lblDSMVRMPrim.Text == "") && (this.lblDSMVRMSec.Text == "") && (this.lblDSMVRMTer.Text == "") && (this.lblDSMVPsicoAmbiPrim.Text == "") && (this.lblDSMVPsicoAmbiSec.Text == "") && (this.lblDSMVPsicoAmbiTer.Text == ""))
-            {
-                this.DSMVRM_DIV.Visible = false;
-            }
+            //if ((this.lblDSMVRMPrim.Text == "") && (this.lblDSMVRMSec.Text == "") && (this.lblDSMVRMTer.Text == "") && (this.lblDSMVPsicoAmbiPrim.Text == "") && (this.lblDSMVPsicoAmbiSec.Text == "") && (this.lblDSMVPsicoAmbiTer.Text == ""))
+            //{
+            //    this.DSMVRM_DIV.Visible = false;
+            //}
+
+
+
 
             this.lblDSMVSusPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
             this.lblDSMVSusSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
@@ -538,10 +549,17 @@ namespace ASSMCA.Perfiles
                 this.hDSMVClinTer.Value = "761";
             }
 
-            if ((this.txtDSMVRMPrim.Value == "") && (this.txtDSMVRMSec.Value == "") && (this.txtDSMVRMTer.Value == "") && (this.ddlDSMVPsicoAmbiPrim.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiSec.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiTer.SelectedValue == "0"))
-            {
-                this.DSMVRM_DIV.Visible = false;
-            }
+            /*
+             Se elimino esta seccion de DSMV solicitado por el equipo de UEE
+             6/1/2022
+             Cambio realizado por : Jose A. Ramos De La Cruz
+             */
+            //if ((this.txtDSMVRMPrim.Value == "") && (this.txtDSMVRMSec.Value == "") && (this.txtDSMVRMTer.Value == "") && (this.ddlDSMVPsicoAmbiPrim.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiSec.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiTer.SelectedValue == "0"))
+            //{
+            //    this.DSMVRM_DIV.Visible = false;
+            //}
+
+
 
             if (this.hDSMVRMPrim.Value == "")
             {
@@ -683,6 +701,8 @@ namespace ASSMCA.Perfiles
             //{
             //    DSMVRM_DIV.Visible = false;
             //}
+
+
         }
 
         void SetReadLblEdadInicio(Label lbl, string str)

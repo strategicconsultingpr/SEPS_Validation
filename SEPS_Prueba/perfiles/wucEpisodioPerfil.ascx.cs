@@ -103,6 +103,8 @@ namespace ASSMCA.Perfiles
                         break;
                     case (frmAction.Read):
                         this.LeerRegistro();
+                        this.DSMVRM_DIV.Visible = false;
+
                         break;
                     case (frmAction.Update):
 
@@ -113,10 +115,11 @@ namespace ASSMCA.Perfiles
                         this.EditarRecuperacion();
                         this.ActualizarCampos();
                         this.hAccion.Value = "Update";
-                        
+                        this.DSMVRM_DIV.Visible = false;
 
 
-                        
+
+
                         break;
                     default: 
                         break;
