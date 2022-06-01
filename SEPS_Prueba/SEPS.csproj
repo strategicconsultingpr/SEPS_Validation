@@ -160,6 +160,7 @@
       <DependentUpon>ASSMCA.dsSeguridad.xsd</DependentUpon>
     </Compile>
     <Compile Include="Constante\Const.cs" />
+    <Compile Include="Modelos\DSMV.cs" />
     <Compile Include="PasswordChangeMandatory.aspx.cs">
       <DependentUpon>PasswordChangeMandatory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

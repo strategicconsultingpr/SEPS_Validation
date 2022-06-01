@@ -14470,6 +14470,18 @@ namespace SEPS.perfiles {
             
             private global::System.Data.DataColumn columnDE_IDENTIDAD_GENERO;
             
+            private global::System.Data.DataColumn columnCAT_DSMV_TrastornosClinicos1;
+            
+            private global::System.Data.DataColumn columnCAT_DSMV_TrastornosClinicos2;
+            
+            private global::System.Data.DataColumn columnCAT_DSMV_TrastornosClinicos3;
+            
+            private global::System.Data.DataColumn columnCAT_DSMV_Sustancias2;
+            
+            private global::System.Data.DataColumn columnCAT_DSMV_Sustancias1;
+            
+            private global::System.Data.DataColumn columnCAT_DSMV_Sustancias3;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_PERFILDataTable() {
@@ -15945,6 +15957,54 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CAT_DSMV_TrastornosClinicos1Column {
+                get {
+                    return this.columnCAT_DSMV_TrastornosClinicos1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CAT_DSMV_TrastornosClinicos2Column {
+                get {
+                    return this.columnCAT_DSMV_TrastornosClinicos2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CAT_DSMV_TrastornosClinicos3Column {
+                get {
+                    return this.columnCAT_DSMV_TrastornosClinicos3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CAT_DSMV_Sustancias2Column {
+                get {
+                    return this.columnCAT_DSMV_Sustancias2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CAT_DSMV_Sustancias1Column {
+                get {
+                    return this.columnCAT_DSMV_Sustancias1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CAT_DSMV_Sustancias3Column {
+                get {
+                    return this.columnCAT_DSMV_Sustancias3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -16159,7 +16219,13 @@ namespace SEPS.perfiles {
                         byte IN_Toxicologia2, 
                         byte IN_Toxicologia3, 
                         string FK_IDENTIDAD_GENERO, 
-                        string DE_IDENTIDAD_GENERO) {
+                        string DE_IDENTIDAD_GENERO, 
+                        string CAT_DSMV_TrastornosClinicos1, 
+                        string CAT_DSMV_TrastornosClinicos2, 
+                        string CAT_DSMV_TrastornosClinicos3, 
+                        string CAT_DSMV_Sustancias2, 
+                        string CAT_DSMV_Sustancias1, 
+                        string CAT_DSMV_Sustancias3) {
                 SA_PERFILRow rowSA_PERFILRow = ((SA_PERFILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -16341,7 +16407,13 @@ namespace SEPS.perfiles {
                         IN_Toxicologia2,
                         IN_Toxicologia3,
                         FK_IDENTIDAD_GENERO,
-                        DE_IDENTIDAD_GENERO};
+                        DE_IDENTIDAD_GENERO,
+                        CAT_DSMV_TrastornosClinicos1,
+                        CAT_DSMV_TrastornosClinicos2,
+                        CAT_DSMV_TrastornosClinicos3,
+                        CAT_DSMV_Sustancias2,
+                        CAT_DSMV_Sustancias1,
+                        CAT_DSMV_Sustancias3};
                 rowSA_PERFILRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_PERFILRow);
                 return rowSA_PERFILRow;
@@ -16544,6 +16616,12 @@ namespace SEPS.perfiles {
                 this.columnIN_Toxicologia3 = base.Columns["IN_Toxicologia3"];
                 this.columnFK_IDENTIDAD_GENERO = base.Columns["FK_IDENTIDAD_GENERO"];
                 this.columnDE_IDENTIDAD_GENERO = base.Columns["DE_IDENTIDAD_GENERO"];
+                this.columnCAT_DSMV_TrastornosClinicos1 = base.Columns["CAT_DSMV_TrastornosClinicos1"];
+                this.columnCAT_DSMV_TrastornosClinicos2 = base.Columns["CAT_DSMV_TrastornosClinicos2"];
+                this.columnCAT_DSMV_TrastornosClinicos3 = base.Columns["CAT_DSMV_TrastornosClinicos3"];
+                this.columnCAT_DSMV_Sustancias2 = base.Columns["CAT_DSMV_Sustancias2"];
+                this.columnCAT_DSMV_Sustancias1 = base.Columns["CAT_DSMV_Sustancias1"];
+                this.columnCAT_DSMV_Sustancias3 = base.Columns["CAT_DSMV_Sustancias3"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16909,6 +16987,18 @@ namespace SEPS.perfiles {
                 base.Columns.Add(this.columnFK_IDENTIDAD_GENERO);
                 this.columnDE_IDENTIDAD_GENERO = new global::System.Data.DataColumn("DE_IDENTIDAD_GENERO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDE_IDENTIDAD_GENERO);
+                this.columnCAT_DSMV_TrastornosClinicos1 = new global::System.Data.DataColumn("CAT_DSMV_TrastornosClinicos1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAT_DSMV_TrastornosClinicos1);
+                this.columnCAT_DSMV_TrastornosClinicos2 = new global::System.Data.DataColumn("CAT_DSMV_TrastornosClinicos2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAT_DSMV_TrastornosClinicos2);
+                this.columnCAT_DSMV_TrastornosClinicos3 = new global::System.Data.DataColumn("CAT_DSMV_TrastornosClinicos3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAT_DSMV_TrastornosClinicos3);
+                this.columnCAT_DSMV_Sustancias2 = new global::System.Data.DataColumn("CAT_DSMV_Sustancias2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAT_DSMV_Sustancias2);
+                this.columnCAT_DSMV_Sustancias1 = new global::System.Data.DataColumn("CAT_DSMV_Sustancias1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAT_DSMV_Sustancias1);
+                this.columnCAT_DSMV_Sustancias3 = new global::System.Data.DataColumn("CAT_DSMV_Sustancias3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAT_DSMV_Sustancias3);
                 this.columnPK_NR_Perfil.AutoIncrement = true;
                 this.columnPK_NR_Perfil.ReadOnly = true;
                 this.columnDE_TI_Perfil.ReadOnly = true;
@@ -27810,6 +27900,105 @@ namespace SEPS.perfiles {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CAT_DSMV_TrastornosClinicos1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAT_DSMV_TrastornosClinicos1\' in table \'SA_PERFIL\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CAT_DSMV_TrastornosClinicos2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAT_DSMV_TrastornosClinicos2\' in table \'SA_PERFIL\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CAT_DSMV_TrastornosClinicos3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAT_DSMV_TrastornosClinicos3\' in table \'SA_PERFIL\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CAT_DSMV_Sustancias2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.CAT_DSMV_Sustancias2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAT_DSMV_Sustancias2\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.CAT_DSMV_Sustancias2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CAT_DSMV_Sustancias1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.CAT_DSMV_Sustancias1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAT_DSMV_Sustancias1\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.CAT_DSMV_Sustancias1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CAT_DSMV_Sustancias3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_PERFIL.CAT_DSMV_Sustancias3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CAT_DSMV_Sustancias3\' in table \'SA_PERFIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_PERFIL.CAT_DSMV_Sustancias3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPK_NR_PerfilNull() {
                 return this.IsNull(this.tableSA_PERFIL.PK_NR_PerfilColumn);
             }
@@ -29966,6 +30155,78 @@ namespace SEPS.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDE_IDENTIDAD_GENERONull() {
                 this[this.tableSA_PERFIL.DE_IDENTIDAD_GENEROColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCAT_DSMV_TrastornosClinicos1Null() {
+                return this.IsNull(this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCAT_DSMV_TrastornosClinicos1Null() {
+                this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCAT_DSMV_TrastornosClinicos2Null() {
+                return this.IsNull(this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCAT_DSMV_TrastornosClinicos2Null() {
+                this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCAT_DSMV_TrastornosClinicos3Null() {
+                return this.IsNull(this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCAT_DSMV_TrastornosClinicos3Null() {
+                this[this.tableSA_PERFIL.CAT_DSMV_TrastornosClinicos3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCAT_DSMV_Sustancias2Null() {
+                return this.IsNull(this.tableSA_PERFIL.CAT_DSMV_Sustancias2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCAT_DSMV_Sustancias2Null() {
+                this[this.tableSA_PERFIL.CAT_DSMV_Sustancias2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCAT_DSMV_Sustancias1Null() {
+                return this.IsNull(this.tableSA_PERFIL.CAT_DSMV_Sustancias1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCAT_DSMV_Sustancias1Null() {
+                this[this.tableSA_PERFIL.CAT_DSMV_Sustancias1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCAT_DSMV_Sustancias3Null() {
+                return this.IsNull(this.tableSA_PERFIL.CAT_DSMV_Sustancias3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCAT_DSMV_Sustancias3Null() {
+                this[this.tableSA_PERFIL.CAT_DSMV_Sustancias3Column] = global::System.Convert.DBNull;
             }
         }
         

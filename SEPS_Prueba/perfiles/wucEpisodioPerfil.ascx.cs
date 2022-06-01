@@ -8,6 +8,7 @@ namespace ASSMCA.Perfiles
 	using System.Web.UI.WebControls;
 	using System.Web.UI.HtmlControls;
     using SEPS.Constante;
+    using SEPS.Modelos;
 
     public partial class wucEpisodioPerfil : System.Web.UI.UserControl
 	{
@@ -96,6 +97,7 @@ namespace ASSMCA.Perfiles
                         this.Hogar_DIV.Style["visibility"] = "hidden";
                         this.Hogar2_DIV.Style["visibility"] = "hidden";
                         this.Hogar3_DIV.Style["visibility"] = "hidden";
+
                         
 
 
@@ -104,6 +106,7 @@ namespace ASSMCA.Perfiles
                     case (frmAction.Read):
                         this.LeerRegistro();
                         this.DSMVRM_DIV.Visible = false;
+                        ReorderDSMV(this.m_frmAction);
 
                         break;
                     case (frmAction.Update):
@@ -116,7 +119,7 @@ namespace ASSMCA.Perfiles
                         this.ActualizarCampos();
                         this.hAccion.Value = "Update";
                         this.DSMVRM_DIV.Visible = false;
-
+                        ReorderDSMV(this.m_frmAction);
 
 
 
@@ -187,9 +190,9 @@ namespace ASSMCA.Perfiles
                 DSMIV_DIV.Visible = false;
             }
             #region DSMV
-            this.lblDSMVClinPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString();
-            this.lblDSMVClinSec.Text =  this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString();
-            this.lblDSMVClinTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
+            //this.lblDSMVClinPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString();
+            //this.lblDSMVClinSec.Text =  this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString();
+            //this.lblDSMVClinTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
 
 
             this.lblDSMVRMPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
@@ -200,29 +203,29 @@ namespace ASSMCA.Perfiles
             this.lblDSMVPsicoAmbiTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
             this.lblDSMVDiagDual.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_DiagnosticoDual"].ToString();
 
-            if ((this.lblDSMVRMPrim.Text == "") && (this.lblDSMVRMSec.Text == "") && (this.lblDSMVRMTer.Text == "") && (this.lblDSMVPsicoAmbiPrim.Text == "") && (this.lblDSMVPsicoAmbiSec.Text == "") && (this.lblDSMVPsicoAmbiTer.Text == ""))
-            {
-                this.DSMVRM_DIV.Visible = false;
-            }
+            //if ((this.lblDSMVRMPrim.Text == "") && (this.lblDSMVRMSec.Text == "") && (this.lblDSMVRMTer.Text == "") && (this.lblDSMVPsicoAmbiPrim.Text == "") && (this.lblDSMVPsicoAmbiSec.Text == "") && (this.lblDSMVPsicoAmbiTer.Text == ""))
+            //{
+            //    this.DSMVRM_DIV.Visible = false;
+            //}
             
 
-            this.lblDSMVSusPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
-            this.lblDSMVSusSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
-            this.lblDSMVSusTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
+            //this.lblDSMVSusPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
+            //this.lblDSMVSusSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
+            //this.lblDSMVSusTer.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
 
 
-            if (this.hDSMVClinPrim.Value == "")
-            {
-                this.hDSMVClinPrim.Value = "761";
-            }
-            if (this.hDSMVClinSec.Value == "")
-            {
-                this.hDSMVClinSec.Value = "761";
-            }
-            if (this.hDSMVClinTer.Value == "")
-            {
-                this.hDSMVClinTer.Value = "761";
-            }
+            //if (this.hDSMVClinPrim.Value == "")
+            //{
+            //    this.hDSMVClinPrim.Value = "761";
+            //}
+            //if (this.hDSMVClinSec.Value == "")
+            //{
+            //    this.hDSMVClinSec.Value = "761";
+            //}
+            //if (this.hDSMVClinTer.Value == "")
+            //{
+            //    this.hDSMVClinTer.Value = "761";
+            //}
 
 
             if (this.hDSMVRMPrim.Value == "")
@@ -239,18 +242,18 @@ namespace ASSMCA.Perfiles
             }
 
 
-            if (this.hDSMVSusPrim.Value == "")
-            {
-                this.hDSMVSusPrim.Value = "761";
-            }
-            if (this.hDSMVSusSec.Value == "")
-            {
-                this.hDSMVSusSec.Value = "761";
-            }
-            if (this.hDSMVSusTer.Value == "")
-            {
-                this.hDSMVSusTer.Value = "761";
-            }
+            //if (this.hDSMVSusPrim.Value == "")
+            //{
+            //    this.hDSMVSusPrim.Value = "761";
+            //}
+            //if (this.hDSMVSusSec.Value == "")
+            //{
+            //    this.hDSMVSusSec.Value = "761";
+            //}
+            //if (this.hDSMVSusTer.Value == "")
+            //{
+            //    this.hDSMVSusTer.Value = "761";
+            //}
 
 
             DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
@@ -524,12 +527,12 @@ namespace ASSMCA.Perfiles
 
             #region DSMV
 
-            this.txtDSMVClinPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString();
-            this.hDSMVClinPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos1"].ToString();
-            this.txtDSMVClinSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString();
-            this.hDSMVClinSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos2"].ToString();
-            this.txtDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
-            this.hDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString();
+            //this.txtDSMVClinPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString();
+            //this.hDSMVClinPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos1"].ToString();
+            //this.txtDSMVClinSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString();
+            //this.hDSMVClinSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos2"].ToString();
+            //this.txtDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString();
+            //this.hDSMVClinTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString();
 
             this.txtDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosPersonalidadRM1"].ToString();
             this.hDSMVRMPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosPersonalidadRM1"].ToString();
@@ -542,17 +545,17 @@ namespace ASSMCA.Perfiles
             this.ddlDSMVPsicoAmbiSec.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales2"].ToString();
             this.ddlDSMVPsicoAmbiTer.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_ProblemasPsicosocialesAmbientales3"].ToString();
 
-            if ((this.txtDSMVRMPrim.Value == "") && (this.txtDSMVRMSec.Value == "") && (this.txtDSMVRMTer.Value == "") && (this.ddlDSMVPsicoAmbiPrim.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiSec.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiTer.SelectedValue == "0"))
-            {
-                this.DSMVRM_DIV.Visible = false;
-            }
+            //if ((this.txtDSMVRMPrim.Value == "") && (this.txtDSMVRMSec.Value == "") && (this.txtDSMVRMTer.Value == "") && (this.ddlDSMVPsicoAmbiPrim.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiSec.SelectedValue == "0") && (this.ddlDSMVPsicoAmbiTer.SelectedValue == "0"))
+            //{
+            //    this.DSMVRM_DIV.Visible = false;
+            //}
 
-            this.txtDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
-            this.hDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias1"].ToString();
-            this.txtDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
-            this.hDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias2"].ToString();
-            this.txtDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
-            this.hDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias3"].ToString();
+            //this.txtDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString();
+            //this.hDSMVSusPrim.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias1"].ToString();
+            //this.txtDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString();
+            //this.hDSMVSusSec.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias2"].ToString();
+            //this.txtDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString();
+            //this.hDSMVSusTer.Value = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias3"].ToString();
 
             //this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_EPISODIO.DefaultView[0]["IN_DiagnosticoDual"].ToString(); -> Este campo proviene del episodio, no del perfil
             this.ddlDSMVDiagDual.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_DSMV_DiagnosticoDual"].ToString();
@@ -621,6 +624,153 @@ namespace ASSMCA.Perfiles
             //    DSMVRM_DIV.Visible = false;
             //}
         }
+
+        public void ReorderDSMV(frmAction mode)
+        {
+
+            var dsmv1 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos1"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos1"].ToString(), Orden = 1 };
+            var dsmv2 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos2"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos2"].ToString(), Orden = 2 };
+            var dsmv3 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos3"].ToString(), Orden = 3 };
+            var dsmv4 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias1"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias1"].ToString(), Orden = 4 };
+            var dsmv5 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias2"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias2"].ToString(), Orden = 5 };
+            var dsmv6 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias3"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias3"].ToString(), Orden = 6 };
+
+            List<DSMV> listDSMV = new List<DSMV>();
+            listDSMV.Add(dsmv1);
+            listDSMV.Add(dsmv2);
+            listDSMV.Add(dsmv3);
+            listDSMV.Add(dsmv4);
+            listDSMV.Add(dsmv5);
+            listDSMV.Add(dsmv6);
+
+
+
+            //Segregar los diagnosticos
+            var sust = listDSMV.FindAll(x => x.Categoria == "SUST");
+            var sm = listDSMV.FindAll(x => x.Categoria == "SM");
+            var other = listDSMV.FindAll(x => x.Categoria != "SUST" && x.Categoria != "SM" && x.Pk != "" && x.Pk != "761");
+
+
+            if (other.Count > 0)
+            {
+                foreach (var dsmv in other)
+                {
+                    if (dsmv.Orden >= 1 && dsmv.Orden <= 3)
+                    {
+                        sm.Add(dsmv);
+                    }
+                    else
+                    {
+                        sust.Add(dsmv);
+                    }
+                }
+            }
+
+            var countSM = sm.Count;
+            var countSust = sust.Count;
+
+
+            if (mode == frmAction.Read)
+            {
+
+
+
+                if (countSM >= 1)
+                    this.lblDSMVClinPrim.Text = sm[0].Diagnostico;
+                else
+                    this.lblDSMVClinPrim.Text = "No se recopila la información";
+
+
+
+                if (countSM >= 2)
+                    this.lblDSMVClinSec.Text = sm[1].Diagnostico;
+                else
+                    this.lblDSMVClinSec.Text = "No se recopila la información";
+
+
+                if (countSM >= 3)
+                    this.lblDSMVClinTer.Text = sm[2].Diagnostico;
+                else
+                    this.lblDSMVClinTer.Text = "No se recopila la información";
+
+                if (countSust >= 1)
+                    this.lblDSMVSusPrim.Text = sust[0].Diagnostico;
+                else
+                    this.lblDSMVSusPrim.Text = "No se recopila la información";
+
+                if (countSust >= 2)
+                    this.lblDSMVSusSec.Text = sust[1].Diagnostico;
+                else
+                    this.lblDSMVSusSec.Text = "No se recopila la información";
+
+                if (countSust >= 3)
+                    this.lblDSMVSusTer.Text = sust[2].Diagnostico;
+                else
+                    this.lblDSMVSusTer.Text = "No se recopila la información";
+
+            }
+            else if (mode == frmAction.Update)
+            {
+
+
+                if (countSM >= 1)
+                {
+                    this.txtDSMVClinPrim.Value = sm[0].Diagnostico;
+                    this.hDSMVClinPrim.Value = sm[0].Pk;
+                }
+                else
+                    this.hDSMVClinPrim.Value = "761";
+
+
+                if (countSM >= 2)
+                {
+                    this.txtDSMVClinSec.Value = sm[1].Diagnostico;
+                    this.hDSMVClinSec.Value = sm[1].Pk;
+                }
+                else
+                    this.hDSMVClinSec.Value = "761";
+
+                if (countSM >= 3)
+                {
+                    this.txtDSMVClinTer.Value = sm[2].Diagnostico;
+                    this.hDSMVClinTer.Value = sm[2].Pk;
+                }
+                else
+                    this.hDSMVClinTer.Value = "761";
+
+
+
+
+                if (countSust >= 1)
+                {
+                    this.txtDSMVSusPrim.Value = sust[0].Diagnostico;
+                    this.hDSMVSusPrim.Value = sust[0].Pk;
+                }
+                else
+                    this.hDSMVSusPrim.Value = "761";
+
+
+                if (countSust >= 2)
+                {
+                    this.txtDSMVSusSec.Value = sust[1].Diagnostico;
+                    this.hDSMVSusSec.Value = sust[1].Pk;
+                }
+                else
+                    this.hDSMVSusSec.Value = "761";
+
+
+                if (countSust >= 3)
+                {
+
+                    this.txtDSMVSusTer.Value = sust[2].Diagnostico;
+                    this.hDSMVSusTer.Value = sust[2].Pk;
+                }
+                else
+                    this.hDSMVSusTer.Value = "761";
+            }
+
+        }
+
 
         /**
           * File: wuEpisodioPerfil.ascx.cs
