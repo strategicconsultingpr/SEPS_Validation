@@ -234,8 +234,8 @@
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" HeaderText="Se han encontrado algunos errores en el formulario que debe revisar antes de registrar la persona nueva:" ShowSummary="False" />
 
     <div runat="server" id="divPacienteExistente">
-        <p>Se ha identificado participantes que contienen información semejante al participante que desea registrar:</p>
-
+        <h4>Se ha identificado participantes que contienen información semejante al participante que desea registrar, favor de corroborar las credenciales del mismo:</h4>
+        <br />
         <asp:ListView runat="server" ID="lstPaciente">
 
             <ItemTemplate>
@@ -320,7 +320,8 @@
             </ItemTemplate>
         </asp:ListView>
         <br />
-        <p>¿Aún desea registrar este paciente?</p>
+        <h4>¿Aún desea registrar este paciente?</h4>
+
 
         <asp:Button runat="server" ID="btnRegistrarOverRide" CausesValidation="true" OnClientClick="return validatePaciente();" OnClick="btnRegistrarOverRide_Click" CssClass="btn btn-default" Text="Sí"></asp:Button>
         <asp:Button runat="server" ID="btnNoRegistrar" OnClick="btnNoRegistrar_Click" CssClass="btn btn-default" Text="No"></asp:Button>
