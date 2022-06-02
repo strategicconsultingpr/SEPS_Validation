@@ -269,19 +269,36 @@ namespace ASSMCA.Pacientes
 
 				if(ex.Message == "101")
 					this.lblMensaje.Text = "El número de expediente a registrar ya existe en el sistema. Modifique el número e intente nuevamente.";
-				else if (ex.Message == "102" || ex.Message == "103" )
+				else if (ex.Message == "102" || ex.Message == "103" || ex.Message == "104" )
                 {
 					lblMensaje.Text = "";
 					VW_PERSONATableAdapter personas = new VW_PERSONATableAdapter();
 					string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
 					var fechaNac = DateTime.Parse(fe);
 
+					btnRegistrarOverRide.Visible = true;
+					lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
+					btnNoRegistrar.Text = "No";
 
-					if (ex.Message == "103")					
-						 list = personas.GetData().Where(x => x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
-					else					
-						 list = personas.GetData().Where(x => x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac);
-					
+
+
+					if (ex.Message == "103")
+					{
+						list = personas.GetData().Where(x => x.NR_SeguroSocial == txtNSS1.Text + txtNSS2.Text + txtNSS3.Text);
+						lblExistPatient.InnerText = "Ya existen participantes con el seguro social ingresado.";
+						btnRegistrarOverRide.Visible = false;
+						btnNoRegistrar.Text = "Volver atras";
+					}
+					else if (ex.Message == "104")
+						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
+
+					//102
+					else
+						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac);
+
+
+
+
 					lstPaciente.DataSource = list;
 					lstPaciente.DataBind();
 					btnRegistrar.Visible = false;

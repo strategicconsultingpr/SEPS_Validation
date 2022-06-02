@@ -320,7 +320,7 @@
             </ItemTemplate>
         </asp:ListView>
         <br />
-        <h4>¿Aún desea registrar este paciente?</h4>
+        <h4 runat="server" id="lblExistPatient"></h4>
 
 
         <asp:Button runat="server" ID="btnRegistrarOverRide" CausesValidation="true" OnClientClick="return validatePaciente();" OnClick="btnRegistrarOverRide_Click" CssClass="btn btn-default" Text="Sí"></asp:Button>
