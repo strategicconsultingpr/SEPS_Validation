@@ -66,8 +66,6 @@ namespace SEPS.perfiles {
         
         private SA_LKP_TEDS_NO_FUERZA_LABORALDataTable tableSA_LKP_TEDS_NO_FUERZA_LABORAL;
         
-        private SA_LKP_TEDS_GRADODataTable tableSA_LKP_TEDS_GRADO;
-        
         private SA_LKP_COMPOSICION_FAMILIARDataTable tableSA_LKP_COMPOSICION_FAMILIAR;
         
         private SA_LKP_TEDS_RESIDENCIADataTable tableSA_LKP_TEDS_RESIDENCIA;
@@ -117,6 +115,8 @@ namespace SEPS.perfiles {
         private SA_LKP_TEDS_TIPO_ADMISIONDataTable tableSA_LKP_TEDS_TIPO_ADMISION;
         
         private SA_LKP_TEDS_SITUACION_ESCOLARDataTable tableSA_LKP_TEDS_SITUACION_ESCOLAR;
+        
+        private SA_LKP_TEDS_GRADODataTable tableSA_LKP_TEDS_GRADO;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -209,9 +209,6 @@ namespace SEPS.perfiles {
                 if ((ds.Tables["SA_LKP_TEDS_NO_FUERZA_LABORAL"] != null)) {
                     base.Tables.Add(new SA_LKP_TEDS_NO_FUERZA_LABORALDataTable(ds.Tables["SA_LKP_TEDS_NO_FUERZA_LABORAL"]));
                 }
-                if ((ds.Tables["SA_LKP_TEDS_GRADO"] != null)) {
-                    base.Tables.Add(new SA_LKP_TEDS_GRADODataTable(ds.Tables["SA_LKP_TEDS_GRADO"]));
-                }
                 if ((ds.Tables["SA_LKP_COMPOSICION_FAMILIAR"] != null)) {
                     base.Tables.Add(new SA_LKP_COMPOSICION_FAMILIARDataTable(ds.Tables["SA_LKP_COMPOSICION_FAMILIAR"]));
                 }
@@ -286,6 +283,9 @@ namespace SEPS.perfiles {
                 }
                 if ((ds.Tables["SA_LKP_TEDS_SITUACION_ESCOLAR"] != null)) {
                     base.Tables.Add(new SA_LKP_TEDS_SITUACION_ESCOLARDataTable(ds.Tables["SA_LKP_TEDS_SITUACION_ESCOLAR"]));
+                }
+                if ((ds.Tables["SA_LKP_TEDS_GRADO"] != null)) {
+                    base.Tables.Add(new SA_LKP_TEDS_GRADODataTable(ds.Tables["SA_LKP_TEDS_GRADO"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -512,16 +512,6 @@ namespace SEPS.perfiles {
         public SA_LKP_TEDS_NO_FUERZA_LABORALDataTable SA_LKP_TEDS_NO_FUERZA_LABORAL {
             get {
                 return this.tableSA_LKP_TEDS_NO_FUERZA_LABORAL;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SA_LKP_TEDS_GRADODataTable SA_LKP_TEDS_GRADO {
-            get {
-                return this.tableSA_LKP_TEDS_GRADO;
             }
         }
         
@@ -777,6 +767,16 @@ namespace SEPS.perfiles {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SA_LKP_TEDS_GRADODataTable SA_LKP_TEDS_GRADO {
+            get {
+                return this.tableSA_LKP_TEDS_GRADO;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -905,9 +905,6 @@ namespace SEPS.perfiles {
                 if ((ds.Tables["SA_LKP_TEDS_NO_FUERZA_LABORAL"] != null)) {
                     base.Tables.Add(new SA_LKP_TEDS_NO_FUERZA_LABORALDataTable(ds.Tables["SA_LKP_TEDS_NO_FUERZA_LABORAL"]));
                 }
-                if ((ds.Tables["SA_LKP_TEDS_GRADO"] != null)) {
-                    base.Tables.Add(new SA_LKP_TEDS_GRADODataTable(ds.Tables["SA_LKP_TEDS_GRADO"]));
-                }
                 if ((ds.Tables["SA_LKP_COMPOSICION_FAMILIAR"] != null)) {
                     base.Tables.Add(new SA_LKP_COMPOSICION_FAMILIARDataTable(ds.Tables["SA_LKP_COMPOSICION_FAMILIAR"]));
                 }
@@ -982,6 +979,9 @@ namespace SEPS.perfiles {
                 }
                 if ((ds.Tables["SA_LKP_TEDS_SITUACION_ESCOLAR"] != null)) {
                     base.Tables.Add(new SA_LKP_TEDS_SITUACION_ESCOLARDataTable(ds.Tables["SA_LKP_TEDS_SITUACION_ESCOLAR"]));
+                }
+                if ((ds.Tables["SA_LKP_TEDS_GRADO"] != null)) {
+                    base.Tables.Add(new SA_LKP_TEDS_GRADODataTable(ds.Tables["SA_LKP_TEDS_GRADO"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -1142,12 +1142,6 @@ namespace SEPS.perfiles {
                     this.tableSA_LKP_TEDS_NO_FUERZA_LABORAL.InitVars();
                 }
             }
-            this.tableSA_LKP_TEDS_GRADO = ((SA_LKP_TEDS_GRADODataTable)(base.Tables["SA_LKP_TEDS_GRADO"]));
-            if ((initTable == true)) {
-                if ((this.tableSA_LKP_TEDS_GRADO != null)) {
-                    this.tableSA_LKP_TEDS_GRADO.InitVars();
-                }
-            }
             this.tableSA_LKP_COMPOSICION_FAMILIAR = ((SA_LKP_COMPOSICION_FAMILIARDataTable)(base.Tables["SA_LKP_COMPOSICION_FAMILIAR"]));
             if ((initTable == true)) {
                 if ((this.tableSA_LKP_COMPOSICION_FAMILIAR != null)) {
@@ -1298,6 +1292,12 @@ namespace SEPS.perfiles {
                     this.tableSA_LKP_TEDS_SITUACION_ESCOLAR.InitVars();
                 }
             }
+            this.tableSA_LKP_TEDS_GRADO = ((SA_LKP_TEDS_GRADODataTable)(base.Tables["SA_LKP_TEDS_GRADO"]));
+            if ((initTable == true)) {
+                if ((this.tableSA_LKP_TEDS_GRADO != null)) {
+                    this.tableSA_LKP_TEDS_GRADO.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1350,8 +1350,6 @@ namespace SEPS.perfiles {
             base.Tables.Add(this.tableSA_LKP_TEDS_COND_LABORAL);
             this.tableSA_LKP_TEDS_NO_FUERZA_LABORAL = new SA_LKP_TEDS_NO_FUERZA_LABORALDataTable();
             base.Tables.Add(this.tableSA_LKP_TEDS_NO_FUERZA_LABORAL);
-            this.tableSA_LKP_TEDS_GRADO = new SA_LKP_TEDS_GRADODataTable();
-            base.Tables.Add(this.tableSA_LKP_TEDS_GRADO);
             this.tableSA_LKP_COMPOSICION_FAMILIAR = new SA_LKP_COMPOSICION_FAMILIARDataTable();
             base.Tables.Add(this.tableSA_LKP_COMPOSICION_FAMILIAR);
             this.tableSA_LKP_TEDS_RESIDENCIA = new SA_LKP_TEDS_RESIDENCIADataTable();
@@ -1402,6 +1400,8 @@ namespace SEPS.perfiles {
             base.Tables.Add(this.tableSA_LKP_TEDS_TIPO_ADMISION);
             this.tableSA_LKP_TEDS_SITUACION_ESCOLAR = new SA_LKP_TEDS_SITUACION_ESCOLARDataTable();
             base.Tables.Add(this.tableSA_LKP_TEDS_SITUACION_ESCOLAR);
+            this.tableSA_LKP_TEDS_GRADO = new SA_LKP_TEDS_GRADODataTable();
+            base.Tables.Add(this.tableSA_LKP_TEDS_GRADO);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1527,12 +1527,6 @@ namespace SEPS.perfiles {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeSA_LKP_TEDS_NO_FUERZA_LABORAL() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeSA_LKP_TEDS_GRADO() {
             return false;
         }
         
@@ -1688,6 +1682,12 @@ namespace SEPS.perfiles {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeSA_LKP_TEDS_GRADO() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1805,9 +1805,6 @@ namespace SEPS.perfiles {
         public delegate void SA_LKP_TEDS_NO_FUERZA_LABORALRowChangeEventHandler(object sender, SA_LKP_TEDS_NO_FUERZA_LABORALRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void SA_LKP_TEDS_GRADORowChangeEventHandler(object sender, SA_LKP_TEDS_GRADORowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void SA_LKP_COMPOSICION_FAMILIARRowChangeEventHandler(object sender, SA_LKP_COMPOSICION_FAMILIARRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1881,6 +1878,9 @@ namespace SEPS.perfiles {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void SA_LKP_TEDS_SITUACION_ESCOLARRowChangeEventHandler(object sender, SA_LKP_TEDS_SITUACION_ESCOLARRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void SA_LKP_TEDS_GRADORowChangeEventHandler(object sender, SA_LKP_TEDS_GRADORowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -8015,268 +8015,6 @@ namespace SEPS.perfiles {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "SA_LKP_TEDS_NO_FUERZA_LABORALDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SA_LKP_TEDS_GRADODataTable : global::System.Data.TypedTableBase<SA_LKP_TEDS_GRADORow> {
-            
-            private global::System.Data.DataColumn columnPK_Grado;
-            
-            private global::System.Data.DataColumn columnDE_Grado;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SA_LKP_TEDS_GRADODataTable() {
-                this.TableName = "SA_LKP_TEDS_GRADO";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal SA_LKP_TEDS_GRADODataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected SA_LKP_TEDS_GRADODataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PK_GradoColumn {
-                get {
-                    return this.columnPK_Grado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DE_GradoColumn {
-                get {
-                    return this.columnDE_Grado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SA_LKP_TEDS_GRADORow this[int index] {
-                get {
-                    return ((SA_LKP_TEDS_GRADORow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddSA_LKP_TEDS_GRADORow(SA_LKP_TEDS_GRADORow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SA_LKP_TEDS_GRADORow AddSA_LKP_TEDS_GRADORow(sbyte PK_Grado, string DE_Grado) {
-                SA_LKP_TEDS_GRADORow rowSA_LKP_TEDS_GRADORow = ((SA_LKP_TEDS_GRADORow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        PK_Grado,
-                        DE_Grado};
-                rowSA_LKP_TEDS_GRADORow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSA_LKP_TEDS_GRADORow);
-                return rowSA_LKP_TEDS_GRADORow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                SA_LKP_TEDS_GRADODataTable cln = ((SA_LKP_TEDS_GRADODataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SA_LKP_TEDS_GRADODataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnPK_Grado = base.Columns["PK_Grado"];
-                this.columnDE_Grado = base.Columns["DE_Grado"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnPK_Grado = new global::System.Data.DataColumn("PK_Grado", typeof(sbyte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPK_Grado);
-                this.columnDE_Grado = new global::System.Data.DataColumn("DE_Grado", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDE_Grado);
-                this.columnDE_Grado.ReadOnly = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SA_LKP_TEDS_GRADORow NewSA_LKP_TEDS_GRADORow() {
-                return ((SA_LKP_TEDS_GRADORow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SA_LKP_TEDS_GRADORow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(SA_LKP_TEDS_GRADORow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SA_LKP_TEDS_GRADORowChanged != null)) {
-                    this.SA_LKP_TEDS_GRADORowChanged(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SA_LKP_TEDS_GRADORowChanging != null)) {
-                    this.SA_LKP_TEDS_GRADORowChanging(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SA_LKP_TEDS_GRADORowDeleted != null)) {
-                    this.SA_LKP_TEDS_GRADORowDeleted(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SA_LKP_TEDS_GRADORowDeleting != null)) {
-                    this.SA_LKP_TEDS_GRADORowDeleting(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveSA_LKP_TEDS_GRADORow(SA_LKP_TEDS_GRADORow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsPerfil ds = new dsPerfil();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SA_LKP_TEDS_GRADODataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -19807,6 +19545,268 @@ namespace SEPS.perfiles {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SA_LKP_TEDS_GRADODataTable : global::System.Data.TypedTableBase<SA_LKP_TEDS_GRADORow> {
+            
+            private global::System.Data.DataColumn columnPK_Grado;
+            
+            private global::System.Data.DataColumn columnDE_Grado;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SA_LKP_TEDS_GRADODataTable() {
+                this.TableName = "SA_LKP_TEDS_GRADO";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal SA_LKP_TEDS_GRADODataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected SA_LKP_TEDS_GRADODataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PK_GradoColumn {
+                get {
+                    return this.columnPK_Grado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DE_GradoColumn {
+                get {
+                    return this.columnDE_Grado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SA_LKP_TEDS_GRADORow this[int index] {
+                get {
+                    return ((SA_LKP_TEDS_GRADORow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event SA_LKP_TEDS_GRADORowChangeEventHandler SA_LKP_TEDS_GRADORowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddSA_LKP_TEDS_GRADORow(SA_LKP_TEDS_GRADORow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SA_LKP_TEDS_GRADORow AddSA_LKP_TEDS_GRADORow(sbyte PK_Grado, string DE_Grado) {
+                SA_LKP_TEDS_GRADORow rowSA_LKP_TEDS_GRADORow = ((SA_LKP_TEDS_GRADORow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PK_Grado,
+                        DE_Grado};
+                rowSA_LKP_TEDS_GRADORow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSA_LKP_TEDS_GRADORow);
+                return rowSA_LKP_TEDS_GRADORow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SA_LKP_TEDS_GRADODataTable cln = ((SA_LKP_TEDS_GRADODataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SA_LKP_TEDS_GRADODataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnPK_Grado = base.Columns["PK_Grado"];
+                this.columnDE_Grado = base.Columns["DE_Grado"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnPK_Grado = new global::System.Data.DataColumn("PK_Grado", typeof(sbyte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPK_Grado);
+                this.columnDE_Grado = new global::System.Data.DataColumn("DE_Grado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDE_Grado);
+                this.columnDE_Grado.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SA_LKP_TEDS_GRADORow NewSA_LKP_TEDS_GRADORow() {
+                return ((SA_LKP_TEDS_GRADORow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SA_LKP_TEDS_GRADORow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SA_LKP_TEDS_GRADORow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SA_LKP_TEDS_GRADORowChanged != null)) {
+                    this.SA_LKP_TEDS_GRADORowChanged(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SA_LKP_TEDS_GRADORowChanging != null)) {
+                    this.SA_LKP_TEDS_GRADORowChanging(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SA_LKP_TEDS_GRADORowDeleted != null)) {
+                    this.SA_LKP_TEDS_GRADORowDeleted(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SA_LKP_TEDS_GRADORowDeleting != null)) {
+                    this.SA_LKP_TEDS_GRADORowDeleting(this, new SA_LKP_TEDS_GRADORowChangeEvent(((SA_LKP_TEDS_GRADORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveSA_LKP_TEDS_GRADORow(SA_LKP_TEDS_GRADORow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsPerfil ds = new dsPerfil();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SA_LKP_TEDS_GRADODataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class SA_LKP_DSMV1Row : global::System.Data.DataRow {
@@ -21390,77 +21390,6 @@ namespace SEPS.perfiles {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDE_NoFuerzaLaboralNull() {
                 this[this.tableSA_LKP_TEDS_NO_FUERZA_LABORAL.DE_NoFuerzaLaboralColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class SA_LKP_TEDS_GRADORow : global::System.Data.DataRow {
-            
-            private SA_LKP_TEDS_GRADODataTable tableSA_LKP_TEDS_GRADO;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal SA_LKP_TEDS_GRADORow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSA_LKP_TEDS_GRADO = ((SA_LKP_TEDS_GRADODataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sbyte PK_Grado {
-                get {
-                    try {
-                        return ((sbyte)(this[this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PK_Grado\' in table \'SA_LKP_TEDS_GRADO\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DE_Grado {
-                get {
-                    try {
-                        return ((string)(this[this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DE_Grado\' in table \'SA_LKP_TEDS_GRADO\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPK_GradoNull() {
-                return this.IsNull(this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPK_GradoNull() {
-                this[this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDE_GradoNull() {
-                return this.IsNull(this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDE_GradoNull() {
-                this[this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -31453,6 +31382,77 @@ namespace SEPS.perfiles {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SA_LKP_TEDS_GRADORow : global::System.Data.DataRow {
+            
+            private SA_LKP_TEDS_GRADODataTable tableSA_LKP_TEDS_GRADO;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal SA_LKP_TEDS_GRADORow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSA_LKP_TEDS_GRADO = ((SA_LKP_TEDS_GRADODataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sbyte PK_Grado {
+                get {
+                    try {
+                        return ((sbyte)(this[this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PK_Grado\' in table \'SA_LKP_TEDS_GRADO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DE_Grado {
+                get {
+                    try {
+                        return ((string)(this[this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DE_Grado\' in table \'SA_LKP_TEDS_GRADO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPK_GradoNull() {
+                return this.IsNull(this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPK_GradoNull() {
+                this[this.tableSA_LKP_TEDS_GRADO.PK_GradoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDE_GradoNull() {
+                return this.IsNull(this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDE_GradoNull() {
+                this[this.tableSA_LKP_TEDS_GRADO.DE_GradoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -32152,40 +32152,6 @@ namespace SEPS.perfiles {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_LKP_TEDS_NO_FUERZA_LABORALRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class SA_LKP_TEDS_GRADORowChangeEvent : global::System.EventArgs {
-            
-            private SA_LKP_TEDS_GRADORow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SA_LKP_TEDS_GRADORowChangeEvent(SA_LKP_TEDS_GRADORow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SA_LKP_TEDS_GRADORow Row {
                 get {
                     return this.eventRow;
                 }
@@ -33036,6 +33002,40 @@ namespace SEPS.perfiles {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_LKP_TEDS_SITUACION_ESCOLARRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class SA_LKP_TEDS_GRADORowChangeEvent : global::System.EventArgs {
+            
+            private SA_LKP_TEDS_GRADORow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SA_LKP_TEDS_GRADORowChangeEvent(SA_LKP_TEDS_GRADORow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SA_LKP_TEDS_GRADORow Row {
                 get {
                     return this.eventRow;
                 }
