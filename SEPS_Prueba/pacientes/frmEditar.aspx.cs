@@ -16,6 +16,8 @@ namespace ASSMCA.Pacientes
 {
 	public partial class frmEditar : System.Web.UI.Page
 	{
+		protected ASSMCA.dsSeguridad dsSeguridad;
+
 		protected System.Data.SqlClient.SqlConnection cnn;
 		protected System.Data.SqlClient.SqlDataAdapter daLkpPersona;
 		protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
@@ -280,6 +282,9 @@ namespace ASSMCA.Pacientes
 					lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
 					btnNoRegistrar.Text = "No";
 
+					this.dsSeguridad = (dsSeguridad)this.Session["dsSeguridad"];
+					int nr_rowIndex_dsSeguridad = Convert.ToInt32(this.Session["nr_rowIndex_dsSeguridad"].ToString());
+					var overide = this.dsSeguridad.SA_USUARIO[nr_rowIndex_dsSeguridad].IN_OVERRIDE_PERSONA;
 
 
 					if (ex.Message == "103")
@@ -290,12 +295,50 @@ namespace ASSMCA.Pacientes
 						btnNoRegistrar.Text = "Volver atras";
 					}
 					else if (ex.Message == "104")
-						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
+					{
 
+						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
+						if (overide == "1")
+						{
+							btnRegistrarOverRide.Visible = true;
+							btnNoRegistrar.Visible = true;
+							lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
+							btnNoRegistrar.Text = "No";
+
+
+						}
+						else
+						{
+							btnRegistrarOverRide.Visible = false;
+							btnNoRegistrar.Text = "Volver atras";
+							lblExistPatient.InnerText = "Contacta al equipo de UEE";
+
+						}
+					}
 					//102
 					else
-						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento == fechaNac);
+					{
+						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year);
+						if (overide == "1")
+						{
+							btnRegistrarOverRide.Visible = true;
+							btnNoRegistrar.Visible = true;
+							lblExistPatient.InnerText = "¿Aún desea registrar este paciente?"; 
+							btnNoRegistrar.Text = "No";
 
+
+						}
+						else
+						{
+							btnRegistrarOverRide.Visible = false;
+							btnNoRegistrar.Text = "Volver atras";
+							lblExistPatient.InnerText = "Contacta al equipo de UEE";
+
+						}
+					}
+
+
+					
 
 
 

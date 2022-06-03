@@ -298,12 +298,7 @@
                                 <span class="SEPSLabel">Veterano:</span>
                                 <asp:Label ID="Label33" runat="server" Text='<%# Eval("DE_Veterano") %>' />
                             </div>
-                    
-                            <div class="col-xs-12">
-                                <%-- Raza(s) --%>
-                                <span class="SEPSLabel">Raza(s):</span>
-                                <asp:Label ID="lblRazas" runat="server" />
-                            </div>
+ 
                         </div>
                         <div class="row">
                             <%-- Botones --%>

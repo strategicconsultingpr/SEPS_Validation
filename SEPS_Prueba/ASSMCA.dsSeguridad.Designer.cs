@@ -721,6 +721,10 @@ namespace ASSMCA {
 
             private global::System.Data.DataColumn columnCO_Tipo;
 
+            private global::System.Data.DataColumn columnFk_Permiso;
+
+            private global::System.Data.DataColumn columnIN_OVERRIDE_PERSONA;
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SA_USUARIODataTable()
@@ -942,6 +946,26 @@ namespace ASSMCA {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Fk_PermisoColumn
+            {
+                get
+                {
+                    return this.columnFk_Permiso;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IN_OVERRIDE_PERSONAColumn
+            {
+                get
+                {
+                    return this.columnIN_OVERRIDE_PERSONA;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count
             {
@@ -999,7 +1023,9 @@ namespace ASSMCA {
                         byte PK_Administracion,
                         string NB_Administracion,
                         bool IN_CambiarPassword,
-                        byte CO_Tipo)
+                        byte CO_Tipo,
+                        string Fk_Permiso,
+                        string IN_OVERRIDE_PERSONA)
             {
                 SA_USUARIORow rowSA_USUARIORow = ((SA_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1020,7 +1046,9 @@ namespace ASSMCA {
                         PK_Administracion,
                         NB_Administracion,
                         IN_CambiarPassword,
-                        CO_Tipo};
+                        CO_Tipo,
+                        Fk_Permiso,
+                        IN_OVERRIDE_PERSONA};
                 rowSA_USUARIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSA_USUARIORow);
                 return rowSA_USUARIORow;
@@ -1064,6 +1092,8 @@ namespace ASSMCA {
                 this.columnNB_Administracion = base.Columns["NB_Administracion"];
                 this.columnIN_CambiarPassword = base.Columns["IN_CambiarPassword"];
                 this.columnCO_Tipo = base.Columns["CO_Tipo"];
+                this.columnFk_Permiso = base.Columns["Fk_Permiso"];
+                this.columnIN_OVERRIDE_PERSONA = base.Columns["IN_OVERRIDE_PERSONA"];
             }
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1106,6 +1136,10 @@ namespace ASSMCA {
                 base.Columns.Add(this.columnIN_CambiarPassword);
                 this.columnCO_Tipo = new global::System.Data.DataColumn("CO_Tipo", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCO_Tipo);
+                this.columnFk_Permiso = new global::System.Data.DataColumn("Fk_Permiso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFk_Permiso);
+                this.columnIN_OVERRIDE_PERSONA = new global::System.Data.DataColumn("IN_OVERRIDE_PERSONA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIN_OVERRIDE_PERSONA);
                 this.columnPK_Usuario.AutoIncrement = true;
                 this.columnPK_Usuario.AllowDBNull = false;
                 this.columnPK_Usuario.ReadOnly = true;
@@ -1664,6 +1698,48 @@ namespace ASSMCA {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Fk_Permiso
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableSA_USUARIO.Fk_PermisoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fk_Permiso\' in table \'SA_USUARIO\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_USUARIO.Fk_PermisoColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string IN_OVERRIDE_PERSONA
+            {
+                get
+                {
+                    try
+                    {
+                        return ((string)(this[this.tableSA_USUARIO.IN_OVERRIDE_PERSONAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e)
+                    {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IN_OVERRIDE_PERSONA\' in table \'SA_USUARIO\' is DBNull.", e);
+                    }
+                }
+                set
+                {
+                    this[this.tableSA_USUARIO.IN_OVERRIDE_PERSONAColumn] = value;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIN_C_PERSONANull()
             {
                 return this.IsNull(this.tableSA_USUARIO.IN_C_PERSONAColumn);
@@ -1786,6 +1862,34 @@ namespace ASSMCA {
             public void SetNB_ProgramaNull()
             {
                 this[this.tableSA_USUARIO.NB_ProgramaColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFk_PermisoNull()
+            {
+                return this.IsNull(this.tableSA_USUARIO.Fk_PermisoColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFk_PermisoNull()
+            {
+                this[this.tableSA_USUARIO.Fk_PermisoColumn] = global::System.Convert.DBNull;
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIN_OVERRIDE_PERSONANull()
+            {
+                return this.IsNull(this.tableSA_USUARIO.IN_OVERRIDE_PERSONAColumn);
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIN_OVERRIDE_PERSONANull()
+            {
+                this[this.tableSA_USUARIO.IN_OVERRIDE_PERSONAColumn] = global::System.Convert.DBNull;
             }
         }
 

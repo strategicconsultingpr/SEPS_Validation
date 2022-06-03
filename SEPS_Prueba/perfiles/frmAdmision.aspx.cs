@@ -212,6 +212,7 @@ namespace ASSMCA.Perfiles
 
             this.dsSeguridad = (dsSeguridad)this.Session["dsSeguridad"];
             int nr_rowIndex_dsSeguridad = Convert.ToInt32(this.Session["nr_rowIndex_dsSeguridad"].ToString());
+
             if (this.dsSeguridad.SA_USUARIO[nr_rowIndex_dsSeguridad].IN_D_PCORTA < 1)
             {
                 this.btnEliminar.Visible = false;
