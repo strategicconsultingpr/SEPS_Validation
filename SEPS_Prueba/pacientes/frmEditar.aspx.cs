@@ -297,7 +297,7 @@ namespace ASSMCA.Pacientes
 					else if (ex.Message == "104")
 					{
 
-						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
+						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
 						if (overide == "1")
 						{
 							btnRegistrarOverRide.Visible = true;
@@ -311,14 +311,19 @@ namespace ASSMCA.Pacientes
 						{
 							btnRegistrarOverRide.Visible = false;
 							btnNoRegistrar.Text = "Volver atras";
-							lblExistPatient.InnerText = "Contacta al equipo de UEE";
+							lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
+<br/> Contactos: <br/>
+<br/>CARLOS MOREL - ext. 1130
+<br/>VIMARYS GONZÁLEZ - ext. 1215
+<br/>CARMEN HERNÁNDEZ - ext. 1210
+<br/>DAISY GONZÁLEZ - ext. 1214</p></div>";
 
 						}
 					}
 					//102
-					else
+					else if(ex.Message == "102")
 					{
-						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.ToLower() == txtPrimerNombre.Text.ToLower() && x.AP_Primero.ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year);
+						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year);
 						if (overide == "1")
 						{
 							btnRegistrarOverRide.Visible = true;
@@ -332,7 +337,12 @@ namespace ASSMCA.Pacientes
 						{
 							btnRegistrarOverRide.Visible = false;
 							btnNoRegistrar.Text = "Volver atras";
-							lblExistPatient.InnerText = "Contacta al equipo de UEE";
+							lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
+<br/> Contactos: <br/>
+<br/>CARLOS MOREL - ext. 1130
+<br/>VIMARYS GONZÁLEZ - ext. 1215
+<br/>CARMEN HERNÁNDEZ - ext. 1210
+<br/>DAISY GONZÁLEZ - ext. 1214</p></div>";
 
 						}
 					}
