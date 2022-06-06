@@ -1229,14 +1229,13 @@ function ddlGrado() {
                 case ("25")://Otro (educación especial")
                     // No es desertor
                     ddlDesertor.value = 2;//No
-                    ddlDesertor.disabled = true;
                     break;
                 case ("96")://No informo
                     // No aplica
                     ddlDesertor.value = 99;//No aplica
-                    ddlDesertor.disabled = true;
                     break;
-                case ("13")://Ninguna
+                case ("29")://Duodécimo                
+                case ("28"): //Salón contenido / Educación especial
                 case ("26")://Pre-escolar
                 case ("27")://Kindergarten
                 case ("1")://Primero
@@ -1250,19 +1249,69 @@ function ddlGrado() {
                 case ("9")://Noveno
                 case ("10")://Décimo
                 case ("11")://Undécimo
-                    //Es desertor
+
                     ddlDesertor.value = 1;//Sí
-                    ddlDesertor.disabled = true;
+
+                    if (edad <= 21 && ddlEducacionEspecial.value == 1) {
+                        ddlDesertor.value = 2;//No
+
+                    }
+                    break;
+                //Es desertor
+
+                case ("13")://Ninguna
+                    ddlDesertor.value = 1;//Sí
                     break;
             }
         }
-        else if (edad < 3) {
-            ddlGrado.disabled = true;
-            ddlGrado.value = "13";
-            ddlDesertor.value = 99;
-            ddlDesertor.disabled = true;
-            ddlEducacionEspecial.value = 99;
+       
+        else {
+            switch (ddlGrado.value) {
+                case ("12")://Diploma de escuela superior
+                case ("14")://Créditos universitarios
+                case ("16")://Curso vocacional
+                case ("22")://Grado asociado
+                case ("23")://Bachillerato
+                case ("24")://Maestría
+                case ("25")://Doctorado
+                case ("25")://Otro (educación especial")
+                    // No es desertor
+                    ddlDesertor.value = 2;//No
+
+                    break;
+                case ("96")://No informo
+                    // No aplica
+                    ddlDesertor.value = 99;//No aplica
+
+                    break;
+                case ("29")://Duodécimo                
+                case ("28"): //Salón contenido / Educación especial
+                case ("26")://Pre-escolar
+                case ("27")://Kindergarten
+                case ("1")://Primero
+                case ("2")://Segundo
+                case ("3")://Tercero
+                case ("4")://Cuarto
+                case ("5")://Quinto
+                case ("6")://Sexto
+                case ("7")://Séptimo
+                case ("8")://Octavo
+                case ("9")://Noveno
+                case ("10")://Décimo
+                case ("11")://Undécimo
+                    ddlDesertor.value = 2;//No
+
+                    break;
+                //Es desertor
+
+                case ("13")://Ninguna
+                    ddlDesertor.value = 1;//Sí
+                    break;
+            }
         }
+
+
+
     }
     catch (ex) { }
 }

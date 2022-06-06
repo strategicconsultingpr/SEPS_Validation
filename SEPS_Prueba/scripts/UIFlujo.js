@@ -18,19 +18,16 @@
 
     $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
 
-    $("#mainBodyContent_WucDatosPersonales_ddlMes").change(function ()
-    {
+    $("#mainBodyContent_WucDatosPersonales_ddlMes").change(function () {
         $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
     });
 
-    $("#mainBodyContent_WucDatosPersonales_ddlDía").change(function ()
-    {
+    $("#mainBodyContent_WucDatosPersonales_ddlDía").change(function () {
         $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
 
     });
 
-    $("#mainBodyContent_WucDatosPersonales_txtAño").focusout(function ()
-    {
+    $("#mainBodyContent_WucDatosPersonales_txtAño").focusout(function () {
         $("#mainBodyContent_WucDatosDemograficos_lblFePerfil").val($("#mainBodyContent_WucDatosPersonales_ddlMes").val() + '/' + $("#mainBodyContent_WucDatosPersonales_ddlDía").val() + '/' + $("#mainBodyContent_WucDatosPersonales_txtAño").val());
 
     });
@@ -1570,12 +1567,12 @@ function txtNbHogar() {
             divNbHogar.style.visibility = 'visible';
 
             if (txtNbHogar.value == "") {
-            ValidatorEnable(rfvNbHogar, true);
+                ValidatorEnable(rfvNbHogar, true);
             }
             else {
                 ValidatorEnable(rfvNbHogar, false);
             }
-            
+
 
             break;
 
@@ -1586,8 +1583,8 @@ function txtNbHogar() {
             break;
 
 
-            
-            }
+
+    }
 
 }
 
@@ -1776,14 +1773,13 @@ function ddlGrado() {
                 case ("25")://Otro (educación especial")
                     // No es desertor
                     ddlDesertor.value = 2;//No
-                    ddlDesertor.disabled = true;
                     break;
                 case ("96")://No informo
                     // No aplica
                     ddlDesertor.value = 99;//No aplica
-                    ddlDesertor.disabled = true;
                     break;
-                case ("13")://Ninguna
+                case ("29")://Duodécimo                
+                case ("28"): //Salón contenido / Educación especial
                 case ("26")://Pre-escolar
                 case ("27")://Kindergarten
                 case ("1")://Primero
@@ -1797,19 +1793,68 @@ function ddlGrado() {
                 case ("9")://Noveno
                 case ("10")://Décimo
                 case ("11")://Undécimo
-                    //Es desertor
+
                     ddlDesertor.value = 1;//Sí
-                    ddlDesertor.disabled = true;
+
+                    if (edad <= 21 && ddlEducacionEspecial.value == 1) {
+                        ddlDesertor.value = 2;//No
+
+                    }
+                    break;
+                //Es desertor
+
+                case ("13")://Ninguna
+                    ddlDesertor.value = 1;//Sí
                     break;
             }
         }
-        else if (edad < 3) {
-            ddlGrado.disabled = true;
-            ddlGrado.value = "13";
-            ddlDesertor.value = 99;
-            ddlDesertor.disabled = true;
-            ddlEducacionEspecial.value = 99;
+       
+        else {
+            switch (ddlGrado.value) {
+                case ("12")://Diploma de escuela superior
+                case ("14")://Créditos universitarios
+                case ("16")://Curso vocacional
+                case ("22")://Grado asociado
+                case ("23")://Bachillerato
+                case ("24")://Maestría
+                case ("25")://Doctorado
+                case ("25")://Otro (educación especial")
+                    // No es desertor
+                    ddlDesertor.value = 2;//No
+
+                    break;
+                case ("96")://No informo
+                    // No aplica
+                    ddlDesertor.value = 99;//No aplica
+
+                    break;
+                case ("29")://Duodécimo                
+                case ("28"): //Salón contenido / Educación especial
+                case ("26")://Pre-escolar
+                case ("27")://Kindergarten
+                case ("1")://Primero
+                case ("2")://Segundo
+                case ("3")://Tercero
+                case ("4")://Cuarto
+                case ("5")://Quinto
+                case ("6")://Sexto
+                case ("7")://Séptimo
+                case ("8")://Octavo
+                case ("9")://Noveno
+                case ("10")://Décimo
+                case ("11")://Undécimo
+                    ddlDesertor.value = 2;//No
+
+                    break;
+                //Es desertor
+
+                case ("13")://Ninguna
+                    ddlDesertor.value = 1;//Sí
+                    break;
+            }
         }
+
+
 
     }
     catch (ex) { }
@@ -2579,7 +2624,7 @@ function ddlDrogaSecF() {
                     hogarDiv.style.visibility = 'hidden';
                     break;
                 case ("0"):
-                     ddlDrogaSec.value = "19";
+                    ddlDrogaSec.value = "19";
                     ddlViaSec.value = viaList.NoAplica;
                     ddlViaSec.disabled = true;
                     ddlFrecSec.value = 99;
@@ -3222,13 +3267,13 @@ function validateCOOCURRING() {
 
 
 
-   
+
     var campos = "\n";
     var flagConcurrente = true;
     //Si el perfil es de Salud Mental
     if (ddlNivelCuidadoSaludMental.value != "99") {
 
-    
+
         //if (ClinHD.value == '761') {
         //    alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
         //    flagConcurrente = false;
@@ -3238,7 +3283,7 @@ function validateCOOCURRING() {
 
         var message = " ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocasionarón este mensaje son:\n";
         //1)	Uso de medicamentos como parte del tratamiento contra la dependencia de opioides
-        if (opiod.value != 4 && opiod.value != 2   && ddlDSMVDiagDual.value != "1") {
+        if (opiod.value != 4 && opiod.value != 2 && ddlDSMVDiagDual.value != "1") {
             campos += "\u2022Seleccionó medicamento para opíaceos\n";
             flagConcurrente = false;
         }
@@ -3257,8 +3302,8 @@ function validateCOOCURRING() {
             campos += "\u2022Seleccionó un diagnóstico de abuso de sustancia\n";
             flagConcurrente = false;
         }
-       // 5) Campos relacionados a utilización de sustancias
-        if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo &&  ddlDSMVDiagDual.value != "1") {
+        // 5) Campos relacionados a utilización de sustancias
+        if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo && ddlDSMVDiagDual.value != "1") {
             campos += "\u2022Seleccionó una droga\n";
             flagConcurrente = false;
 
@@ -3274,7 +3319,7 @@ function validateCOOCURRING() {
         }
 
         return flagConcurrente;
-        
+
     }
     else if (ddlNivelCuidadoSustancias.value != "99") {
 
@@ -3291,7 +3336,7 @@ function validateCOOCURRING() {
 
 
         //2)	Medidas de Funcionamiento Global - CGAS
-        if ( ClinHD.value != '761' && ddlDSMVDiagDual.value != "1") {
+        if (ClinHD.value != '761' && ddlDSMVDiagDual.value != "1") {
             campos += "\u2022Entró algún valor en Diagnostico Primario\n";
             flagConcurrente = false;
         }
@@ -3302,8 +3347,7 @@ function validateCOOCURRING() {
             alert(message + campos);
         }
 
-        if (GAF.value == "" && ClinHD.value == '761' && ddlDSMVDiagDual.value == "1")
-        {
+        if (GAF.value == "" && ClinHD.value == '761' && ddlDSMVDiagDual.value == "1") {
             alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!!!!");
             return false;
         }
@@ -3312,53 +3356,53 @@ function validateCOOCURRING() {
 
 
         return flagConcurrente;
-        
 
-    //if (ddlNivelCuidadoSaludMental.value != "99") {
-    //    if (ClinHD.value == '761') {
-    //        alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
-    //        return false;
-    //    }
-    //    if (((ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) || opiod.value != 4) && ddlDSMVDiagDual.value != "1") {
-    //        if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) {
-    //            campos += "\u2022Seleccionó una droga\n";
-    //        }
-    //        if (opiod.value != 4) {
-    //            campos += "\u2022Seleccionó medicamento para opíaceos\n";
-    //        }
-    //        alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
-    //        return false;
-    //    }
-    //    else if ((ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && opiod.value == 4 && ddlDSMVDiagDual.value == "1") {
-    //        campos += "\u2022NO seleccionó una droga\n";
-    //        campos += "\u2022NO seleccionó medicamento para opíaceos\n";
-    //        return confirm("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
-    //    }
-    //    else {
-    //        return true;
-    //    }
-    //}
-    //else if (ddlNivelCuidadoSustancias.value != "99") {
 
-    //    if ((GAF.value != "") && ddlDSMVDiagDual.value != "1") {
+        //if (ddlNivelCuidadoSaludMental.value != "99") {
+        //    if (ClinHD.value == '761') {
+        //        alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES DE TIPO SALUD MENTAL Y USTED NO SELECCIONÓ AL MENOS UN(1) DIAGNOSTICO VALIDO !!!");
+        //        return false;
+        //    }
+        //    if (((ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) || opiod.value != 4) && ddlDSMVDiagDual.value != "1") {
+        //        if (ddlDrogaPrim.value != sustanciasList.Noaplica && ddlDrogaPrim.value != sustanciasList.Tabacocigarrillo) {
+        //            campos += "\u2022Seleccionó una droga\n";
+        //        }
+        //        if (opiod.value != 4) {
+        //            campos += "\u2022Seleccionó medicamento para opíaceos\n";
+        //        }
+        //        alert("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+        //        return false;
+        //    }
+        //    else if ((ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && opiod.value == 4 && ddlDSMVDiagDual.value == "1") {
+        //        campos += "\u2022NO seleccionó una droga\n";
+        //        campos += "\u2022NO seleccionó medicamento para opíaceos\n";
+        //        return confirm("!!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
+        //    }
+        //    else {
+        //        return true;
+        //    }
+        //}
+        //else if (ddlNivelCuidadoSustancias.value != "99") {
 
-    //        campos += "\u2022Entró algún valor en Funcionamiento Global\n";
+        //    if ((GAF.value != "") && ddlDSMVDiagDual.value != "1") {
 
-    //        alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
-    //        return false;
-    //    }
-    //    else if ((GAF.value == "" || ClinHD.value == '761') && ddlDSMVDiagDual.value == "1") {
-    //        if (ClinHD.value == '761') {
-    //            campos += "\u2022NO entró algún valor en Diagnostico Primario\n";
-    //        }
-    //        if (GAF.value == "") {
-    //            campos += "\u2022NO entró algún valor en Funcionamiento Global\n";
-    //        }
-    //        return confirm("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
-    //    }
-    //    else {
-    //        return true;
-    //    }
+        //        campos += "\u2022Entró algún valor en Funcionamiento Global\n";
+
+        //        alert("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos);
+        //        return false;
+        //    }
+        //    else if ((GAF.value == "" || ClinHD.value == '761') && ddlDSMVDiagDual.value == "1") {
+        //        if (ClinHD.value == '761') {
+        //            campos += "\u2022NO entró algún valor en Diagnostico Primario\n";
+        //        }
+        //        if (GAF.value == "") {
+        //            campos += "\u2022NO entró algún valor en Funcionamiento Global\n";
+        //        }
+        //        return confirm("!!! ESTE PERFIL DE ABUSO DE SUSTANCIA REFLEJA QUE ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!\n\nLos campos que ocacionarón este mensaje son:\n" + campos + "\n\nDesea registrar el perfil?");
+        //    }
+        //    else {
+        //        return true;
+        //    }
     }
 }
 
@@ -3546,8 +3590,7 @@ function validate() {
 }
 
 
-function validateSSN(source, arguments)
-{
+function validateSSN(source, arguments) {
     var ssn1 = document.getElementById("mainBodyContent_txtNSS1");
     var ssn2 = document.getElementById("mainBodyContent_txtNSS2");
     var ssn3 = document.getElementById("mainBodyContent_txtNSS3");
@@ -3572,36 +3615,28 @@ function validateSSN(source, arguments)
     let pattern2 = /^(\d{3}\d{2}|\*{3}\*{2}|SSS\d{2})\d{4}$/;
     var result = false;
 
-    if (mode == "registrar")
-    {
+    if (mode == "registrar") {
 
-        if (ssn == "")
-        {
+        if (ssn == "") {
             result = true;
-        } else
-        {
+        } else {
             result = pattern1.test(ssn);
         }
     }
-    else
-    {
+    else {
 
-        if (ssn == "")
-        {
+        if (ssn == "") {
             result = true;
         }
-        else
-        {
+        else {
             result = pattern2.test(ssn);
         }
     }
 
-    if (result == false)
-    {
+    if (result == false) {
         lblMensaje.innerText = "Formato Incorrecto";
     }
-    else
-    {
+    else {
         lblMensaje.innerText = "";
     }
 
@@ -3623,7 +3658,7 @@ function validateSSN(source, arguments)
 function validatePaciente() {
 
 
-   
+
     var isValid = Page_ClientValidate();
     if (!saving) {
         if (isValid) {
