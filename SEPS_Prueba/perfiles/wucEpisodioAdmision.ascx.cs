@@ -22,7 +22,7 @@ namespace ASSMCA.Perfiles
         private int _probJusticiaCount, _maltratoCount, m_pk_perfil, m_pk_episodio, _pkPrograma, m_CO_Tipo;
 
 
-       
+
 
         private List<DropDownAgeAbusoDeSustancia> ListAgeAbusoDeSustancia = new List<DropDownAgeAbusoDeSustancia>();
 
@@ -90,7 +90,7 @@ namespace ASSMCA.Perfiles
                 this.load();
 
 
-          
+
 
 
                 switch (this.m_frmAction)
@@ -149,7 +149,7 @@ namespace ASSMCA.Perfiles
 
             if (date.Date >= Const.CambiosEnCamposNuevos.Date)
             {
-                
+
                 ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = 00, Text = "Recién nacido" });
                 for (int i = 1; i <= Convert.ToInt32(Session["edad"].ToString()); i++)
                     ListAgeAbusoDeSustancia.Add(new DropDownAgeAbusoDeSustancia { Value = i, Text = i.ToString() });
@@ -317,7 +317,7 @@ namespace ASSMCA.Perfiles
             //this.lblEdadPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioPrimario"].ToString();
             //this.lblEdadSec.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioSecundario"].ToString();
             //this.lblEdadTerc.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_EdadInicioTerciario"].ToString();
-            
+
             this.lblEstadoLegal.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_EstadoLegal"].ToString();
             this.lblEtapaServicio.Text = this.dsPerfil.SA_EPISODIO.DefaultView[0]["DE_EtapaServicio"].ToString();
             this.lblFrecPrim.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_Frecuencia_P"].ToString();
@@ -408,7 +408,7 @@ namespace ASSMCA.Perfiles
 
             if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "1")
             { this.lblInFumado.Text = "Si"; }
-            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "2") 
+            else if (this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString() == "2")
             { this.lblInFumado.Text = "No"; };
 
             this.lblFrecuenciaFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
@@ -1780,6 +1780,58 @@ namespace ASSMCA.Perfiles
             }
         }
 
+        protected void ddlInFumado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (ddlInFumado.SelectedValue == "1")
+            {
+
+                ddlFrecuenciaFumado.Enabled = true;
+                txtNrFumado.Enabled = true;
+                ddlFrecuenciaFumado.SelectedValue = "";
+                txtNrFumado.Text = "";
+
+                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+                if (value != null)
+                    value.Enabled = false;
+
+
+
+
+            }
+            else if (ddlInFumado.SelectedValue == "")
+            {
+                ddlFrecuenciaFumado.Enabled = true;
+                txtNrFumado.Enabled = true;
+                txtNrFumado.Text = "";
+                ddlFrecuenciaFumado.SelectedValue = "";
+
+
+                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+                if (value != null)
+                    value.Enabled = true;
+
+            }
+            else
+            {
+
+                ddlFrecuenciaFumado.Enabled = false;
+                txtNrFumado.Enabled = false;
+                txtNrFumado.Text = "0";
+
+                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+                if (value != null)
+                {
+                    value.Enabled = true;
+                    ddlFrecuenciaFumado.SelectedValue = "3";
+                }
+
+            }
+
+        }
 
         public sbyte @FK_FrecuenciaSecundario
         {
@@ -2560,7 +2612,7 @@ namespace ASSMCA.Perfiles
             {
                 var item = ddlArrestado30.Items.FindByValue("99");
 
-                if(item != null)
+                if (item != null)
                     item.Enabled = false;
 
 
@@ -2581,14 +2633,14 @@ namespace ASSMCA.Perfiles
         public void ReorderDSMV(frmAction mode)
         {
 
-            var dsmv1 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos1"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos1"].ToString(), Orden = 1};
-            var dsmv2 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos2"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos2"].ToString(), Orden = 2};
-            var dsmv3 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos3"].ToString(), Orden = 3};
-            var dsmv4 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias1"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias1"].ToString(), Orden = 4};
-            var dsmv5 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias2"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias2"].ToString(), Orden = 5};
-            var dsmv6 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias3"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias3"].ToString(), Orden = 6};
+            var dsmv1 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos1"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos1"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos1"].ToString(), Orden = 1 };
+            var dsmv2 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos2"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos2"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos2"].ToString(), Orden = 2 };
+            var dsmv3 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_TrastornosClinicos3"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_TrastornosClinicos3"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_TrastornosClinicos3"].ToString(), Orden = 3 };
+            var dsmv4 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias1"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias1"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias1"].ToString(), Orden = 4 };
+            var dsmv5 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias2"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias2"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias2"].ToString(), Orden = 5 };
+            var dsmv6 = new DSMV() { Pk = this.dsPerfil.SA_PERFIL.DefaultView[0]["FK_DSMV_Sustancias3"].ToString(), Diagnostico = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_DSMV_Sustancias3"].ToString(), Categoria = this.dsPerfil.SA_PERFIL.DefaultView[0]["CAT_DSMV_Sustancias3"].ToString(), Orden = 6 };
 
-         List<DSMV> listDSMV = new List<DSMV>();
+            List<DSMV> listDSMV = new List<DSMV>();
             listDSMV.Add(dsmv1);
             listDSMV.Add(dsmv2);
             listDSMV.Add(dsmv3);
@@ -2604,14 +2656,15 @@ namespace ASSMCA.Perfiles
             var other = listDSMV.FindAll(x => x.Categoria != "SUST" && x.Categoria != "SM" && x.Pk != "" && x.Pk != "761");
 
 
-            if(other.Count > 0)
+            if (other.Count > 0)
             {
-                foreach(var dsmv in other)
+                foreach (var dsmv in other)
                 {
-                    if(dsmv.Orden >= 1 && dsmv.Orden <= 3)
+                    if (dsmv.Orden >= 1 && dsmv.Orden <= 3)
                     {
                         sm.Add(dsmv);
-                    }else
+                    }
+                    else
                     {
                         sust.Add(dsmv);
                     }

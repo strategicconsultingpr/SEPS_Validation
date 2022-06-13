@@ -1298,6 +1298,59 @@ namespace ASSMCA.Perfiles
             }
         }
 
+        protected void ddlInFumado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (ddlInFumado.SelectedValue == "1")
+            {
+
+                ddlFrecuenciaFumado.Enabled = true;
+                txtNrFumado.Enabled = true;
+                ddlFrecuenciaFumado.SelectedValue = "";
+                txtNrFumado.Text = "";
+
+                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+                if (value != null)
+                    value.Enabled = false;
+
+
+
+
+            }
+            else if (ddlInFumado.SelectedValue == "")
+            {
+                ddlFrecuenciaFumado.Enabled = true;
+                txtNrFumado.Enabled = true;
+                txtNrFumado.Text = "";
+                ddlFrecuenciaFumado.SelectedValue = "";
+
+
+                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+                if (value != null)
+                    value.Enabled = true;
+
+            }
+            else
+            {
+
+                ddlFrecuenciaFumado.Enabled = false;
+                txtNrFumado.Enabled = false;
+                txtNrFumado.Text = "0";
+
+                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+
+                if (value != null)
+                {
+                    value.Enabled = true;
+                    ddlFrecuenciaFumado.SelectedValue = "3";
+                }
+
+            }
+
+        }
+
 
         public string @HogarRecuperacionRes
         {

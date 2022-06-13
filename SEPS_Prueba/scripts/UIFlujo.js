@@ -60,9 +60,10 @@ function ddInFumadoChange() {
         if (dropdown.value == "1") {
             $(ddlFrecuenciaFumado).prop("disabled", false);
             $(txtNrFumado).prop("disabled", false);
-            $(ddlFrecuenciaFumado).val(" ");
-            $(txtNrFumado).val(" ");
+            $(ddlFrecuenciaFumado).val("");
+            $(txtNrFumado).val("");
             $(ddlFrecuenciaFumado + ' option[value=3]').removeAttr('disabled').hide();
+
 
 
         }
