@@ -11,6 +11,7 @@ using System.Web.UI.HtmlControls;
 using System.Text.RegularExpressions;
 using static ASSMCA.pacientes.dsPersona;
 using ASSMCA.pacientes.SEPS.pacientes.dsPersonaTableAdapters;
+using System.Linq;
 
 namespace ASSMCA.Pacientes
 {
@@ -30,7 +31,6 @@ namespace ASSMCA.Pacientes
 		protected System.Data.SqlClient.SqlCommand SPD_RAZAS_PERSONA;
 		protected System.Data.SqlClient.SqlCommand SPU_PERSONA;
 		protected int m_PK_Programa;
-        private EnumerableRowCollection<VW_PERSONARow> list;
 
         protected void Page_Load(object sender, System.EventArgs e)
 		{
@@ -269,10 +269,10 @@ namespace ASSMCA.Pacientes
 				if( this.cnn.State != ConnectionState.Closed )
 					this.cnn.Close();
 
-				if(ex.Message == "101")
+				if (ex.Message == "101")
 					this.lblMensaje.Text = "El número de expediente a registrar ya existe en el sistema. Modifique el número e intente nuevamente.";
-				else if (ex.Message == "102" || ex.Message == "103" || ex.Message == "104" )
-                {
+				else if (ex.Message == "102" || ex.Message == "103" || ex.Message == "104")
+				{
 					lblMensaje.Text = "";
 					VW_PERSONATableAdapter personas = new VW_PERSONATableAdapter();
 					string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
@@ -286,84 +286,88 @@ namespace ASSMCA.Pacientes
 					int nr_rowIndex_dsSeguridad = Convert.ToInt32(this.Session["nr_rowIndex_dsSeguridad"].ToString());
 					var overide = this.dsSeguridad.SA_USUARIO[nr_rowIndex_dsSeguridad].IN_OVERRIDE_PERSONA;
 
+					lstPaciente.DataSource = null;
 
-					if (ex.Message == "103")
+					using (var seps = new SEPS.SEPS_Entities())
 					{
-						list = personas.GetData().Where(x => x.NR_SeguroSocial == txtNSS1.Text + txtNSS2.Text + txtNSS3.Text);
-						lblExistPatient.InnerText = "Ya existen participantes con el seguro social ingresado.";
-						btnRegistrarOverRide.Visible = false;
-						btnNoRegistrar.Text = "Volver atras";
-					}
-					else if (ex.Message == "104")
-					{
-
-						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text);
-						if (overide == "1")
+						if (ex.Message == "103")
 						{
-							btnRegistrarOverRide.Visible = true;
-							btnNoRegistrar.Visible = true;
-							lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
-							btnNoRegistrar.Text = "No";
-
-
-						}
-						else
-						{
+							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.NR_SeguroSocial == txtNSS1.Text + txtNSS2.Text + txtNSS3.Text).ToList();
+							Console.WriteLine(lstPaciente.Items.Count);
+							lblExistPatient.InnerText = "Ya existen participantes con el seguro social ingresado.";
 							btnRegistrarOverRide.Visible = false;
 							btnNoRegistrar.Text = "Volver atras";
-							lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
+						}
+						else if (ex.Message == "104")
+						{
+
+							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text).ToList();
+							if (overide == "1")
+							{
+								btnRegistrarOverRide.Visible = true;
+								btnNoRegistrar.Visible = true;
+								lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
+								btnNoRegistrar.Text = "No";
+
+
+							}
+							else
+							{
+								btnRegistrarOverRide.Visible = false;
+								btnNoRegistrar.Text = "Volver atras";
+								lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
 <br/> Contactos: <br/>
 <br/>CARLOS MOREL - ext. 1130
 <br/>VIMARYS GONZÁLEZ - ext. 1215
 <br/>CARMEN HERNÁNDEZ - ext. 1210
 <br/>DAISY GONZÁLEZ - ext. 1214</p></div>";
 
+							}
 						}
-					}
-					//102
-					else if(ex.Message == "102")
-					{
-						list = personas.GetData().Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year);
-						if (overide == "1")
+						//102
+						else if (ex.Message == "102")
 						{
-							btnRegistrarOverRide.Visible = true;
-							btnNoRegistrar.Visible = true;
-							lblExistPatient.InnerText = "¿Aún desea registrar este paciente?"; 
-							btnNoRegistrar.Text = "No";
+							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year).ToList();
+							if (overide == "1")
+							{
+								btnRegistrarOverRide.Visible = true;
+								btnNoRegistrar.Visible = true;
+								lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
+								btnNoRegistrar.Text = "No";
 
 
-						}
-						else
-						{
-							btnRegistrarOverRide.Visible = false;
-							btnNoRegistrar.Text = "Volver atras";
-							lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
+							}
+							else
+							{
+								btnRegistrarOverRide.Visible = false;
+								btnNoRegistrar.Text = "Volver atras";
+								lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
 <br/> Contactos: <br/>
 <br/>CARLOS MOREL - ext. 1130
 <br/>VIMARYS GONZÁLEZ - ext. 1215
 <br/>CARMEN HERNÁNDEZ - ext. 1210
 <br/>DAISY GONZÁLEZ - ext. 1214</p></div>";
 
+							}
 						}
+
+
+
+
+
+
+						lstPaciente.DataBind();
+						btnRegistrar.Visible = false;
+						divPacienteExistente.Visible = true;
+						divDatosBasicos.Visible = false;
+						divDatosRazas.Visible = false;
+						lstPaciente.Focus();
+
+
 					}
-
-
-					
-
-
-
-					lstPaciente.DataSource = list;
-					lstPaciente.DataBind();
-					btnRegistrar.Visible = false;
-					divPacienteExistente.Visible = true;
-					divDatosBasicos.Visible = false;
-					divDatosRazas.Visible = false;
-					lstPaciente.Focus();
-
-
 				}
 				else
-				this.lblMensaje.Text = ex.Message;
+					this.lblMensaje.Text = ex.Message;
 				return 0;
 			}
 		}

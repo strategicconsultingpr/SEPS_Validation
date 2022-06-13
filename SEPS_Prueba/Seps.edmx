@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SEPS_JRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VW_PERSONA">
+          <Key>
+            <PropertyRef Name="PK_Persona" />
+            <PropertyRef Name="FK_Sexo" />
+            <PropertyRef Name="DE_Sexo" />
+            <PropertyRef Name="AP_Primero" />
+            <PropertyRef Name="AP_Segundo" />
+            <PropertyRef Name="NB_Primero" />
+            <PropertyRef Name="NB_Segundo" />
+            <PropertyRef Name="FE_Nacimiento" />
+            <PropertyRef Name="FK_Veterano" />
+            <PropertyRef Name="DE_Veterano" />
+            <PropertyRef Name="FK_GrupoEtnico" />
+            <PropertyRef Name="DE_GrupoEtnico" />
+            <PropertyRef Name="FK_Sesion" />
+            <PropertyRef Name="TI_Edicion" />
+            <PropertyRef Name="FE_Edicion" />
+          </Key>
+          <Property Name="PK_Persona" Type="int" Nullable="false" />
+          <Property Name="NR_SeguroSocial" Type="char" MaxLength="9" />
+          <Property Name="FK_Sexo" Type="tinyint" Nullable="false" />
+          <Property Name="DE_Sexo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AP_Primero" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="AP_Segundo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NB_Primero" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NB_Segundo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FE_Nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="NR_Edad" Type="int" />
+          <Property Name="FK_Veterano" Type="tinyint" Nullable="false" />
+          <Property Name="DE_Veterano" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FK_GrupoEtnico" Type="tinyint" Nullable="false" />
+          <Property Name="DE_GrupoEtnico" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="FK_Sesion" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TI_Edicion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FE_Edicion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SEPS_JRModelStoreContainer">
+          <EntitySet Name="VW_PERSONA" EntityType="Self.VW_PERSONA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_PERSONA].[PK_Persona] AS [PK_Persona], 
+    [VW_PERSONA].[NR_SeguroSocial] AS [NR_SeguroSocial], 
+    [VW_PERSONA].[FK_Sexo] AS [FK_Sexo], 
+    [VW_PERSONA].[DE_Sexo] AS [DE_Sexo], 
+    [VW_PERSONA].[AP_Primero] AS [AP_Primero], 
+    [VW_PERSONA].[AP_Segundo] AS [AP_Segundo], 
+    [VW_PERSONA].[NB_Primero] AS [NB_Primero], 
+    [VW_PERSONA].[NB_Segundo] AS [NB_Segundo], 
+    [VW_PERSONA].[FE_Nacimiento] AS [FE_Nacimiento], 
+    [VW_PERSONA].[NR_Edad] AS [NR_Edad], 
+    [VW_PERSONA].[FK_Veterano] AS [FK_Veterano], 
+    [VW_PERSONA].[DE_Veterano] AS [DE_Veterano], 
+    [VW_PERSONA].[FK_GrupoEtnico] AS [FK_GrupoEtnico], 
+    [VW_PERSONA].[DE_GrupoEtnico] AS [DE_GrupoEtnico], 
+    [VW_PERSONA].[FK_Sesion] AS [FK_Sesion], 
+    [VW_PERSONA].[TI_Edicion] AS [TI_Edicion], 
+    [VW_PERSONA].[FE_Edicion] AS [FE_Edicion]
+    FROM [dbo].[VW_PERSONA] AS [VW_PERSONA]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SEPS_JRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="VW_PERSONA">
+          <Key>
+            <PropertyRef Name="PK_Persona" />
+            <PropertyRef Name="FK_Sexo" />
+            <PropertyRef Name="DE_Sexo" />
+            <PropertyRef Name="AP_Primero" />
+            <PropertyRef Name="AP_Segundo" />
+            <PropertyRef Name="NB_Primero" />
+            <PropertyRef Name="NB_Segundo" />
+            <PropertyRef Name="FE_Nacimiento" />
+            <PropertyRef Name="FK_Veterano" />
+            <PropertyRef Name="DE_Veterano" />
+            <PropertyRef Name="FK_GrupoEtnico" />
+            <PropertyRef Name="DE_GrupoEtnico" />
+            <PropertyRef Name="FK_Sesion" />
+            <PropertyRef Name="TI_Edicion" />
+            <PropertyRef Name="FE_Edicion" />
+          </Key>
+          <Property Name="PK_Persona" Type="Int32" Nullable="false" />
+          <Property Name="NR_SeguroSocial" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="FK_Sexo" Type="Byte" Nullable="false" />
+          <Property Name="DE_Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AP_Primero" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AP_Segundo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NB_Primero" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NB_Segundo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FE_Nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NR_Edad" Type="Int32" />
+          <Property Name="FK_Veterano" Type="Byte" Nullable="false" />
+          <Property Name="DE_Veterano" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FK_GrupoEtnico" Type="Byte" Nullable="false" />
+          <Property Name="DE_GrupoEtnico" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FK_Sesion" Type="Guid" Nullable="false" />
+          <Property Name="TI_Edicion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="FE_Edicion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="SEPS_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="VW_PERSONA" EntityType="Self.VW_PERSONA" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SEPS_JRModelStoreContainer" CdmEntityContainer="SEPS_Entities">
+          <EntitySetMapping Name="VW_PERSONA">
+            <EntityTypeMapping TypeName="SEPS_JRModel.VW_PERSONA">
+              <MappingFragment StoreEntitySet="VW_PERSONA">
+                <ScalarProperty Name="PK_Persona" ColumnName="PK_Persona" />
+                <ScalarProperty Name="NR_SeguroSocial" ColumnName="NR_SeguroSocial" />
+                <ScalarProperty Name="FK_Sexo" ColumnName="FK_Sexo" />
+                <ScalarProperty Name="DE_Sexo" ColumnName="DE_Sexo" />
+                <ScalarProperty Name="AP_Primero" ColumnName="AP_Primero" />
+                <ScalarProperty Name="AP_Segundo" ColumnName="AP_Segundo" />
+                <ScalarProperty Name="NB_Primero" ColumnName="NB_Primero" />
+                <ScalarProperty Name="NB_Segundo" ColumnName="NB_Segundo" />
+                <ScalarProperty Name="FE_Nacimiento" ColumnName="FE_Nacimiento" />
+                <ScalarProperty Name="NR_Edad" ColumnName="NR_Edad" />
+                <ScalarProperty Name="FK_Veterano" ColumnName="FK_Veterano" />
+                <ScalarProperty Name="DE_Veterano" ColumnName="DE_Veterano" />
+                <ScalarProperty Name="FK_GrupoEtnico" ColumnName="FK_GrupoEtnico" />
+                <ScalarProperty Name="DE_GrupoEtnico" ColumnName="DE_GrupoEtnico" />
+                <ScalarProperty Name="FK_Sesion" ColumnName="FK_Sesion" />
+                <ScalarProperty Name="TI_Edicion" ColumnName="TI_Edicion" />
+                <ScalarProperty Name="FE_Edicion" ColumnName="FE_Edicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

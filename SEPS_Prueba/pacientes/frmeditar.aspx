@@ -248,57 +248,57 @@
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Primer apellido --%>
                                 <span class="SEPSLabel">Primer apellido:</span>
-                                <asp:Label ID="Label29" runat="server" Text='<%# Eval("AP_Primero") %>' />
+                                <asp:Label ID="Label29" runat="server" Text='<%#Eval("AP_Primero")%>' />
                             </div>
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Segundo apellido --%>
                                 <span class="SEPSLabel">Segundo apellido:</span>
-                                <asp:Label ID="Label27" runat="server" Text='<%# Eval("AP_Segundo") %>' />
+                                <asp:Label ID="Label27" runat="server" Text='<%#Eval("AP_Segundo")%>' />
                             </div>
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Primer nombre --%>
                                 <span class="SEPSLabel">Primer nombre:</span>
-                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("NB_Primero") %>' />
+                                <asp:Label ID="Label4" runat="server" Text='<%#Eval("NB_Primero") %>' />
                             </div>
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Segundo nombre --%>
                                 <span class="SEPSLabel">Segundo nombre:</span>
-                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("NB_Segundo") %>' />
+                                <asp:Label ID="Label5" runat="server" Text='<%#Eval("NB_Segundo") %>' />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 col-lg-3">
                                 <%-- IUP --%>
                                 <span class="SEPSLabel" title='Identificador Único de Persona. Código único para cada persona registrada en el sistema. Toda persona tiene un número global diferente que lo identifica univocamente dentro del sistema, y lo diferencia de todos las otras personas registradas. Este código de obiene luego de registrar una persona por medio de la funcionalidad "Registrar" del menú "Persona".'>IUP:</span>
-                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("PK_Persona") %>' />
+                                <asp:Label ID="Label1" runat="server" Text='<%#Eval("PK_Persona") %>' />
                             </div>
 
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Seguro Social --%>
                                 <span class="SEPSLabel">Seguro social:</span>
-                                <asp:Label ID="Label21" runat="server" Text='<%# Eval("NR_SeguroSocial") %>' />
+                                <asp:Label ID="Label21" runat="server" Text='<%#Eval("NR_SeguroSocial") %>' />
                             </div>
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Fecha de nacimiento --%>
                                 <span class="SEPSLabel">Fecha de nacimiento:</span>
-                                <asp:Label ID="Label37" runat="server" Text='<%# Eval("FE_Nacimiento","{0:dd/MM/yyyy}") %>' />
+                                <asp:Label ID="Label37" runat="server" Text='<%#Eval("FE_Nacimiento","{0:dd/MM/yyyy}") %>' />
                             </div>
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Edad --%>
                                 <span class="SEPSLabel">Edad:</span>
-                                <asp:Label ID="Label6" runat="server" Text='<%# Eval("NR_Edad") %>' />
+                                <asp:Label ID="Label6" runat="server" Text='<%#Eval("NR_Edad") %>' />
                             </div>
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Sexo --%>
                                 <span class="SEPSLabel">Sexo:</span>
-                                <asp:Label ID="Label19" runat="server" Text='<%# Eval("DE_Sexo") %>' />
+                                <asp:Label ID="Label19" runat="server" Text='<%#Eval("DE_Sexo") %>' />
                             </div>
                             <div class="col-sm-6 col-lg-3">
                                 <%-- Veterano --%>
                                 <span class="SEPSLabel">Veterano:</span>
-                                <asp:Label ID="Label33" runat="server" Text='<%# Eval("DE_Veterano") %>' />
+                                <asp:Label ID="Label33" runat="server" Text='<%#Eval("DE_Veterano") %>' />
                             </div>
- 
+
                         </div>
                         <div class="row">
                             <%-- Botones --%>
@@ -310,7 +310,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </ItemTemplate>
         </asp:ListView>

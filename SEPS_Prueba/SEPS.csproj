@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -66,6 +72,8 @@
       <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -123,6 +131,16 @@
     <Content Include="scripts\UIFlujo.js" />
     <Content Include="scripts\UIFlujoPerfil.js" />
     <Content Include="scripts\UIVal.js" />
+    <Content Include="Seps.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Seps.Context.cs</LastGenOutput>
+      <DependentUpon>Seps.edmx</DependentUpon>
+    </Content>
+    <Content Include="Seps.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Seps.edmx</DependentUpon>
+      <LastGenOutput>Seps.cs</LastGenOutput>
+    </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap-theme.css" />
     <Content Include="vendor\bootstrap-3.3.2-dist\css\bootstrap-theme.min.css" />
@@ -429,6 +447,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Seps.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Seps.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Seps.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Seps.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Seps.edmx</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewReport.aspx.cs">
       <DependentUpon>ViewReport.aspx</DependentUpon>
@@ -436,6 +469,9 @@
     </Compile>
     <Compile Include="ViewReport.aspx.designer.cs">
       <DependentUpon>ViewReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VW_PERSONA.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -522,6 +558,13 @@
     </None>
     <Content Include="Reportes.xss">
       <DependentUpon>Reportes.xsd</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Seps.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Seps.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Seps.edmx.diagram">
+      <DependentUpon>Seps.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -615,6 +658,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
