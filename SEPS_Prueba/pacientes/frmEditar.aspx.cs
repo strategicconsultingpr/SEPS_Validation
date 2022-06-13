@@ -301,7 +301,7 @@ namespace ASSMCA.Pacientes
 						else if (ex.Message == "104")
 						{
 
-							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text).ToList();
+							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo.ToString() == this.ddlSexo.SelectedValue.ToString() && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text).ToList();
 							if (overide == "1")
 							{
 								btnRegistrarOverRide.Visible = true;
@@ -327,7 +327,7 @@ namespace ASSMCA.Pacientes
 						//102
 						else if (ex.Message == "102")
 						{
-							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo == Convert.ToSByte(this.ddlSexo.SelectedValue.ToString()) && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year).ToList();
+							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo.ToString() == this.ddlSexo.SelectedValue.ToString() && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year).ToList();
 							if (overide == "1")
 							{
 								btnRegistrarOverRide.Visible = true;
