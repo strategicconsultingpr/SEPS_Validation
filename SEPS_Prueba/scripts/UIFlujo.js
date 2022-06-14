@@ -163,7 +163,8 @@ function startupFunctions() {
         ddlReunionesGrupos();
         ddlEstadoLegal();
         //ddlArrestado();
-        ddlArrestado30();
+
+        //ddlArrestado30();
         ddlCondLaboral();
         txtNbHogar();
 

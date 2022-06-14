@@ -15,25 +15,25 @@ using System.Linq;
 
 namespace ASSMCA.Pacientes
 {
-	public partial class frmEditar : System.Web.UI.Page
-	{
-		protected ASSMCA.dsSeguridad dsSeguridad;
+    public partial class frmEditar : System.Web.UI.Page
+    {
+        protected ASSMCA.dsSeguridad dsSeguridad;
 
-		protected System.Data.SqlClient.SqlConnection cnn;
-		protected System.Data.SqlClient.SqlDataAdapter daLkpPersona;
-		protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
-		protected ASSMCA.pacientes.dsPersona dsPersona;
-		protected System.Data.DataView dvwRazasNoSeleccionadas;
-		protected System.Data.SqlClient.SqlCommand SPC_PERSONA;
-		protected System.Web.UI.WebControls.RequiredFieldValidator frvExpediente;
-		protected System.Web.UI.WebControls.RangeValidator RangeValidator1;
-		protected System.Data.SqlClient.SqlCommand SPC_RAZA_PERSONA;
-		protected System.Data.SqlClient.SqlCommand SPD_RAZAS_PERSONA;
-		protected System.Data.SqlClient.SqlCommand SPU_PERSONA;
-		protected int m_PK_Programa;
+        protected System.Data.SqlClient.SqlConnection cnn;
+        protected System.Data.SqlClient.SqlDataAdapter daLkpPersona;
+        protected System.Data.SqlClient.SqlCommand sqlSelectCommand1;
+        protected ASSMCA.pacientes.dsPersona dsPersona;
+        protected System.Data.DataView dvwRazasNoSeleccionadas;
+        protected System.Data.SqlClient.SqlCommand SPC_PERSONA;
+        protected System.Web.UI.WebControls.RequiredFieldValidator frvExpediente;
+        protected System.Web.UI.WebControls.RangeValidator RangeValidator1;
+        protected System.Data.SqlClient.SqlCommand SPC_RAZA_PERSONA;
+        protected System.Data.SqlClient.SqlCommand SPD_RAZAS_PERSONA;
+        protected System.Data.SqlClient.SqlCommand SPU_PERSONA;
+        protected int m_PK_Programa;
 
         protected void Page_Load(object sender, System.EventArgs e)
-		{
+        {
             if (this.Session["dsSeguridad"] == null)
             {
                 this.Response.Redirect("~/Error.aspx?errMsg=sesion");
@@ -44,32 +44,32 @@ namespace ASSMCA.Pacientes
                 ddlVeterano.Enabled = false;
                 ddlVeterano.SelectedValue = "3";
             }
-			this.m_PK_Programa = Convert.ToInt32(this.Session["pk_programa"].ToString());
-			this.rvAñoNacimiento.MaximumValue = DateTime.Now.Year.ToString();
+            this.m_PK_Programa = Convert.ToInt32(this.Session["pk_programa"].ToString());
+            this.rvAñoNacimiento.MaximumValue = DateTime.Now.Year.ToString();
             this.rvAñoNacimiento.MinimumValue = DateTime.Now.AddYears(-100).Year.ToString();
             this.rvAñoNacimiento.ErrorMessage = "El año de la fecha de nacimiento tiene que se un entero entre " + DateTime.Now.Year.ToString() + " y " + DateTime.Now.AddYears(-100).Year + ".";
-			if( !this.IsPostBack)
-			{
-				divPacienteExistente.Visible = false;
-				if ( Request.QueryString["accion"].ToString() == "registrar" )
-				{
-					this.btnRegistrar.Visible = true;
-					this.btnActualizarPersona.Visible = false;
-					this.daLkpPersona.Fill(this.dsPersona);
-					this.DataBind();
-					Session["dsPersona"] = this.dsPersona;
+            if (!this.IsPostBack)
+            {
+                divPacienteExistente.Visible = false;
+                if (Request.QueryString["accion"].ToString() == "registrar")
+                {
+                    this.btnRegistrar.Visible = true;
+                    this.btnActualizarPersona.Visible = false;
+                    this.daLkpPersona.Fill(this.dsPersona);
+                    this.DataBind();
+                    Session["dsPersona"] = this.dsPersona;
                     this.ddlVeterano.Items.Insert(0, new ListItem("", "0"));
                     this.ddlVeterano.SelectedValue = "0";
                 }
-				else if( Request.QueryString["accion"].ToString() == "editar" )
-				{
-					this.btnRegistrar.Visible = false;
-					this.btnActualizarPersona.Visible = true;
-                    this.lTituloPrincipal.Text= "Modificación de participante";
-					this.dsPersona = (ASSMCA.pacientes.dsPersona)Session["dsPersona"];
-					this.daLkpPersona.Fill(this.dsPersona);
-					this.dvwRazasNoSeleccionadas.Table = this.dsPersona.LKP_Raza;
-					this.DataBind();
+                else if (Request.QueryString["accion"].ToString() == "editar")
+                {
+                    this.btnRegistrar.Visible = false;
+                    this.btnActualizarPersona.Visible = true;
+                    this.lTituloPrincipal.Text = "Modificación de participante";
+                    this.dsPersona = (ASSMCA.pacientes.dsPersona)Session["dsPersona"];
+                    this.daLkpPersona.Fill(this.dsPersona);
+                    this.dvwRazasNoSeleccionadas.Table = this.dsPersona.LKP_Raza;
+                    this.DataBind();
                     if (this.dsPersona.SA_PERSONA[0] != null)
                     {
                         this.lblIUP.Text = this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString();
@@ -94,333 +94,333 @@ namespace ASSMCA.Pacientes
                     {
                         this.Response.Redirect("../pacientes/frmvisualizar.aspx?accion=consultar&pk_persona=" + this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString());
                     }
-				}
-			}
-			else
-			{
-				this.dsPersona = (ASSMCA.pacientes.dsPersona)Session["dsPersona"];
-				this.dvwRazasNoSeleccionadas.Table = this.dsPersona.LKP_Raza;
-			}
-		}
-		#region Código generado por el Diseñador de Web Forms
-		override protected void OnInit(EventArgs e)
-		{
-			InitializeComponent();
-			base.OnInit(e);
-		}
-		private void InitializeComponent()
-		{    
-			this.daLkpPersona = new System.Data.SqlClient.SqlDataAdapter();
-			this.sqlSelectCommand1 = new System.Data.SqlClient.SqlCommand();
-			this.cnn = new System.Data.SqlClient.SqlConnection();
-			this.dsPersona = new ASSMCA.pacientes.dsPersona();
-			this.dvwRazasNoSeleccionadas = new System.Data.DataView();
-			this.SPC_PERSONA = new System.Data.SqlClient.SqlCommand();
-			this.SPC_RAZA_PERSONA = new System.Data.SqlClient.SqlCommand();
-			this.SPD_RAZAS_PERSONA = new System.Data.SqlClient.SqlCommand();
-			this.SPU_PERSONA = new System.Data.SqlClient.SqlCommand();
-			((System.ComponentModel.ISupportInitialize)(this.dsPersona)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dvwRazasNoSeleccionadas)).BeginInit();
+                }
+            }
+            else
+            {
+                this.dsPersona = (ASSMCA.pacientes.dsPersona)Session["dsPersona"];
+                this.dvwRazasNoSeleccionadas.Table = this.dsPersona.LKP_Raza;
+            }
+        }
+        #region Código generado por el Diseñador de Web Forms
+        override protected void OnInit(EventArgs e)
+        {
+            InitializeComponent();
+            base.OnInit(e);
+        }
+        private void InitializeComponent()
+        {
+            this.daLkpPersona = new System.Data.SqlClient.SqlDataAdapter();
+            this.sqlSelectCommand1 = new System.Data.SqlClient.SqlCommand();
+            this.cnn = new System.Data.SqlClient.SqlConnection();
+            this.dsPersona = new ASSMCA.pacientes.dsPersona();
+            this.dvwRazasNoSeleccionadas = new System.Data.DataView();
+            this.SPC_PERSONA = new System.Data.SqlClient.SqlCommand();
+            this.SPC_RAZA_PERSONA = new System.Data.SqlClient.SqlCommand();
+            this.SPD_RAZAS_PERSONA = new System.Data.SqlClient.SqlCommand();
+            this.SPU_PERSONA = new System.Data.SqlClient.SqlCommand();
+            ((System.ComponentModel.ISupportInitialize)(this.dsPersona)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvwRazasNoSeleccionadas)).BeginInit();
             #region daLkpPersona
-			this.daLkpPersona.SelectCommand = this.sqlSelectCommand1;
-			this.daLkpPersona.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
+            this.daLkpPersona.SelectCommand = this.sqlSelectCommand1;
+            this.daLkpPersona.TableMappings.AddRange(new System.Data.Common.DataTableMapping[] {
                 new System.Data.Common.DataTableMapping("Table", "LKP_Sexo", new System.Data.Common.DataColumnMapping[] {
-	                new System.Data.Common.DataColumnMapping("PK_Sexo", "PK_Sexo"),
-	                new System.Data.Common.DataColumnMapping("DE_Sexo", "DE_Sexo")}),
+                    new System.Data.Common.DataColumnMapping("PK_Sexo", "PK_Sexo"),
+                    new System.Data.Common.DataColumnMapping("DE_Sexo", "DE_Sexo")}),
                 new System.Data.Common.DataTableMapping("Table1", "LKP_Veterano", new System.Data.Common.DataColumnMapping[] {
-	                new System.Data.Common.DataColumnMapping("PK_Veterano", "PK_Veterano"),
-	                new System.Data.Common.DataColumnMapping("DE_Veterano", "DE_Veterano")}),
+                    new System.Data.Common.DataColumnMapping("PK_Veterano", "PK_Veterano"),
+                    new System.Data.Common.DataColumnMapping("DE_Veterano", "DE_Veterano")}),
                 new System.Data.Common.DataTableMapping("Table2", "LKP_GrupoEtnico", new System.Data.Common.DataColumnMapping[] {
-	                new System.Data.Common.DataColumnMapping("PK_GrupoEtnico", "PK_GrupoEtnico"),
-	                new System.Data.Common.DataColumnMapping("DE_GrupoEtnico", "DE_GrupoEtnico")}),
+                    new System.Data.Common.DataColumnMapping("PK_GrupoEtnico", "PK_GrupoEtnico"),
+                    new System.Data.Common.DataColumnMapping("DE_GrupoEtnico", "DE_GrupoEtnico")}),
                 new System.Data.Common.DataTableMapping("Table3", "LKP_Raza", new System.Data.Common.DataColumnMapping[] {
-	                new System.Data.Common.DataColumnMapping("PK_Raza", "PK_Raza"),
-	                new System.Data.Common.DataColumnMapping("DE_Raza", "DE_Raza")})});
+                    new System.Data.Common.DataColumnMapping("PK_Raza", "PK_Raza"),
+                    new System.Data.Common.DataColumnMapping("DE_Raza", "DE_Raza")})});
             #endregion
             #region sqlSelectCommand1
-			this.sqlSelectCommand1.CommandText = "[SPR_LKP_PERSONA]";
-			this.sqlSelectCommand1.CommandType = System.Data.CommandType.StoredProcedure;
-			this.sqlSelectCommand1.Connection = this.cnn;
-			this.sqlSelectCommand1.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
+            this.sqlSelectCommand1.CommandText = "[SPR_LKP_PERSONA]";
+            this.sqlSelectCommand1.CommandType = System.Data.CommandType.StoredProcedure;
+            this.sqlSelectCommand1.Connection = this.cnn;
+            this.sqlSelectCommand1.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
             #endregion
             #region cnn
             this.cnn.ConnectionString = NewSource.connectionString;
             #endregion
             #region dsPersona
-			this.dsPersona.DataSetName = "dsPersona";
-			this.dsPersona.Locale = new System.Globalization.CultureInfo("en-US");
+            this.dsPersona.DataSetName = "dsPersona";
+            this.dsPersona.Locale = new System.Globalization.CultureInfo("en-US");
             #endregion
             #region dvwRazasNoSeleccionadas
-			this.dvwRazasNoSeleccionadas.Table = this.dsPersona.LKP_Raza;
+            this.dvwRazasNoSeleccionadas.Table = this.dsPersona.LKP_Raza;
             #endregion
             #region SPC_PERSONA
-			this.SPC_PERSONA.CommandText = "dbo.[SPC_PERSONA]";
-			this.SPC_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
-			this.SPC_PERSONA.Connection = this.cnn;
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_SeguroSocial", System.Data.SqlDbType.VarChar, 9));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Programa", System.Data.SqlDbType.SmallInt, 2));
+            this.SPC_PERSONA.CommandText = "dbo.[SPC_PERSONA]";
+            this.SPC_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
+            this.SPC_PERSONA.Connection = this.cnn;
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_SeguroSocial", System.Data.SqlDbType.VarChar, 9));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Programa", System.Data.SqlDbType.SmallInt, 2));
             this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_Expediente", System.Data.SqlDbType.VarChar, 12));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sexo", System.Data.SqlDbType.TinyInt, 1));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Primero", System.Data.SqlDbType.VarChar, 30));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Segundo", System.Data.SqlDbType.VarChar, 30));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Primero", System.Data.SqlDbType.VarChar, 30));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Segundo", System.Data.SqlDbType.VarChar, 30));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FE_Nacimiento", System.Data.SqlDbType.DateTime, 8));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Veterano", System.Data.SqlDbType.TinyInt, 1));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_GrupoEtnico", System.Data.SqlDbType.TinyInt, 1));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sesion", System.Data.SqlDbType.UniqueIdentifier, 16));
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Flag", System.Data.SqlDbType.Bit));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sexo", System.Data.SqlDbType.TinyInt, 1));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Primero", System.Data.SqlDbType.VarChar, 30));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Segundo", System.Data.SqlDbType.VarChar, 30));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Primero", System.Data.SqlDbType.VarChar, 30));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Segundo", System.Data.SqlDbType.VarChar, 30));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FE_Nacimiento", System.Data.SqlDbType.DateTime, 8));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Veterano", System.Data.SqlDbType.TinyInt, 1));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_GrupoEtnico", System.Data.SqlDbType.TinyInt, 1));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sesion", System.Data.SqlDbType.UniqueIdentifier, 16));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Flag", System.Data.SqlDbType.Bit));
 
-			this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Persona", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.Output, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
+            this.SPC_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Persona", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.Output, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
             #endregion
             #region SPC_RAZA_PERSONA
-			this.SPC_RAZA_PERSONA.CommandText = "dbo.[SPC_RAZA_PERSONA]";
-			this.SPC_RAZA_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
-			this.SPC_RAZA_PERSONA.Connection = this.cnn;
-			this.SPC_RAZA_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
-			this.SPC_RAZA_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Persona", System.Data.SqlDbType.Int, 4));
-			this.SPC_RAZA_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Raza", System.Data.SqlDbType.TinyInt, 1));
+            this.SPC_RAZA_PERSONA.CommandText = "dbo.[SPC_RAZA_PERSONA]";
+            this.SPC_RAZA_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
+            this.SPC_RAZA_PERSONA.Connection = this.cnn;
+            this.SPC_RAZA_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
+            this.SPC_RAZA_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Persona", System.Data.SqlDbType.Int, 4));
+            this.SPC_RAZA_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Raza", System.Data.SqlDbType.TinyInt, 1));
             #endregion
             #region SPD_RAZAS_PERSONA
-			this.SPD_RAZAS_PERSONA.CommandText = "dbo.[SPD_RAZAS_PERSONA]";
-			this.SPD_RAZAS_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
-			this.SPD_RAZAS_PERSONA.Connection = this.cnn;
-			this.SPD_RAZAS_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
-			this.SPD_RAZAS_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Persona", System.Data.SqlDbType.Int, 4));
+            this.SPD_RAZAS_PERSONA.CommandText = "dbo.[SPD_RAZAS_PERSONA]";
+            this.SPD_RAZAS_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
+            this.SPD_RAZAS_PERSONA.Connection = this.cnn;
+            this.SPD_RAZAS_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
+            this.SPD_RAZAS_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Persona", System.Data.SqlDbType.Int, 4));
             #endregion
             #region SPU_PERSONA
-			this.SPU_PERSONA.CommandText = "dbo.[SPU_PERSONA]";
-			this.SPU_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
-			this.SPU_PERSONA.Connection = this.cnn;
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Persona", System.Data.SqlDbType.Int, 4));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Programa", System.Data.SqlDbType.SmallInt, 2));
+            this.SPU_PERSONA.CommandText = "dbo.[SPU_PERSONA]";
+            this.SPU_PERSONA.CommandType = System.Data.CommandType.StoredProcedure;
+            this.SPU_PERSONA.Connection = this.cnn;
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((System.Byte)(0)), ((System.Byte)(0)), "", System.Data.DataRowVersion.Current, null));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@PK_Persona", System.Data.SqlDbType.Int, 4));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Programa", System.Data.SqlDbType.SmallInt, 2));
             this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_Expediente", System.Data.SqlDbType.VarChar, 12));// Cambio: (SqlDbType.Int, 4) Por (SqlDbType.VarChar, 12)
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_SeguroSocial", System.Data.SqlDbType.VarChar, 9));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sexo", System.Data.SqlDbType.TinyInt, 1));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Primero", System.Data.SqlDbType.VarChar, 30));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Segundo", System.Data.SqlDbType.VarChar, 30));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Primero", System.Data.SqlDbType.VarChar, 30));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Segundo", System.Data.SqlDbType.VarChar, 30));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FE_Nacimiento", System.Data.SqlDbType.DateTime, 8));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Veterano", System.Data.SqlDbType.VarChar, 1));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_GrupoEtnico", System.Data.SqlDbType.VarChar, 1));
-			this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sesion", System.Data.SqlDbType.UniqueIdentifier, 16));
-			((System.ComponentModel.ISupportInitialize)(this.dsPersona)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dvwRazasNoSeleccionadas)).EndInit();
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NR_SeguroSocial", System.Data.SqlDbType.VarChar, 9));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sexo", System.Data.SqlDbType.TinyInt, 1));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Primero", System.Data.SqlDbType.VarChar, 30));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@AP_Segundo", System.Data.SqlDbType.VarChar, 30));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Primero", System.Data.SqlDbType.VarChar, 30));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NB_Segundo", System.Data.SqlDbType.VarChar, 30));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FE_Nacimiento", System.Data.SqlDbType.DateTime, 8));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Veterano", System.Data.SqlDbType.VarChar, 1));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_GrupoEtnico", System.Data.SqlDbType.VarChar, 1));
+            this.SPU_PERSONA.Parameters.Add(new System.Data.SqlClient.SqlParameter("@FK_Sesion", System.Data.SqlDbType.UniqueIdentifier, 16));
+            ((System.ComponentModel.ISupportInitialize)(this.dsPersona)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvwRazasNoSeleccionadas)).EndInit();
             #endregion
         }
-		#endregion
-		protected void btnRegistrar_Click(object sender, System.EventArgs e)
-		{
-
-			RegistrarNuevoPaciente(0);
-
-		}
-
-		private void RegistrarNuevoPaciente(int flag)
+        #endregion
+        protected void btnRegistrar_Click(object sender, System.EventArgs e)
         {
-			this.lblMensaje.Visible = false;
-			int PK_Persona = this.GuardarRegistro(flag);
-			if (PK_Persona != 0)
-			{
-				if (Request.QueryString["fuente"] != null)
-				{
-					if (Request.QueryString["fuente"].ToString() == "admision")
-					{
-						Response.Redirect("frmVisualizar.aspx?accion=registrar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
-					}
-				}
-				else
-				{
-					Response.Redirect("frmVisualizar.aspx?accion=registrar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
-				}
-			}
-			else
-			{
-				this.lblMensaje.Visible = true;
-			}
-		}
-		private int GuardarRegistro(int flag)
-		{
-			int PK_Persona;
 
-			try
-			{
-			  
-				this.PrepararComandoCrear();
-				this.SPC_PERSONA.Parameters["@Flag"].Value = flag;
-				this.cnn.Open();
-				this.SPC_PERSONA.ExecuteNonQuery();
-				PK_Persona = Convert.ToInt32(this.SPC_PERSONA.Parameters["@PK_Persona"].Value.ToString());
+            RegistrarNuevoPaciente(0);
 
-				for( int i = 0; i<this.lbxRazaSeleccionadas.Items.Count ; i++ )
-				{
-					this.SPC_RAZA_PERSONA.Parameters["@FK_Persona"].Value = PK_Persona;
-					this.SPC_RAZA_PERSONA.Parameters["@FK_Raza"].Value = this.lbxRazaSeleccionadas.Items[i].Value;
-					this.SPC_RAZA_PERSONA.ExecuteNonQuery();
-				}
-				this.cnn.Close();
-				return PK_Persona;
-			}
-			catch(Exception ex)
-			{
-				if( this.cnn.State != ConnectionState.Closed )
-					this.cnn.Close();
+        }
 
-				if (ex.Message == "101")
-					this.lblMensaje.Text = "El número de expediente a registrar ya existe en el sistema. Modifique el número e intente nuevamente.";
-				else if (ex.Message == "102" || ex.Message == "103" || ex.Message == "104")
-				{
-					lblMensaje.Text = "";
-					VW_PERSONATableAdapter personas = new VW_PERSONATableAdapter();
-					string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
-					var fechaNac = DateTime.Parse(fe);
+        private void RegistrarNuevoPaciente(int flag)
+        {
+            this.lblMensaje.Visible = false;
+            int PK_Persona = this.GuardarRegistro(flag);
+            if (PK_Persona != 0)
+            {
+                if (Request.QueryString["fuente"] != null)
+                {
+                    if (Request.QueryString["fuente"].ToString() == "admision")
+                    {
+                        Response.Redirect("frmVisualizar.aspx?accion=registrar&fuente=admision&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                    }
+                }
+                else
+                {
+                    Response.Redirect("frmVisualizar.aspx?accion=registrar&pk_programa=" + this.m_PK_Programa.ToString() + "&pk_persona=" + PK_Persona);
+                }
+            }
+            else
+            {
+                this.lblMensaje.Visible = true;
+            }
+        }
+        private int GuardarRegistro(int flag)
+        {
+            int PK_Persona;
 
-					btnRegistrarOverRide.Visible = true;
-					lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
-					btnNoRegistrar.Text = "No";
+            try
+            {
 
-					this.dsSeguridad = (dsSeguridad)this.Session["dsSeguridad"];
-					int nr_rowIndex_dsSeguridad = Convert.ToInt32(this.Session["nr_rowIndex_dsSeguridad"].ToString());
-					var overide = this.dsSeguridad.SA_USUARIO[nr_rowIndex_dsSeguridad].IN_OVERRIDE_PERSONA;
+                this.PrepararComandoCrear();
+                this.SPC_PERSONA.Parameters["@Flag"].Value = flag;
+                this.cnn.Open();
+                this.SPC_PERSONA.ExecuteNonQuery();
+                PK_Persona = Convert.ToInt32(this.SPC_PERSONA.Parameters["@PK_Persona"].Value.ToString());
 
-					lstPaciente.DataSource = null;
+                for (int i = 0; i < this.lbxRazaSeleccionadas.Items.Count; i++)
+                {
+                    this.SPC_RAZA_PERSONA.Parameters["@FK_Persona"].Value = PK_Persona;
+                    this.SPC_RAZA_PERSONA.Parameters["@FK_Raza"].Value = this.lbxRazaSeleccionadas.Items[i].Value;
+                    this.SPC_RAZA_PERSONA.ExecuteNonQuery();
+                }
+                this.cnn.Close();
+                return PK_Persona;
+            }
+            catch (Exception ex)
+            {
+                if (this.cnn.State != ConnectionState.Closed)
+                    this.cnn.Close();
 
-					using (var seps = new SEPS.SEPS_Entities())
-					{
-						if (ex.Message == "103")
-						{
-							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.NR_SeguroSocial == txtNSS1.Text + txtNSS2.Text + txtNSS3.Text).ToList();
-							Console.WriteLine(lstPaciente.Items.Count);
-							lblExistPatient.InnerText = "Ya existen participantes con el seguro social ingresado.";
-							btnRegistrarOverRide.Visible = false;
-							btnNoRegistrar.Text = "Volver atras";
-						}
-						else if (ex.Message == "104")
-						{
+                if (ex.Message == "101")
+                    this.lblMensaje.Text = "El número de expediente a registrar ya existe en el sistema. Modifique el número e intente nuevamente.";
+                else if (ex.Message == "102" || ex.Message == "103" || ex.Message == "104")
+                {
+                    lblMensaje.Text = "";
+                    VW_PERSONATableAdapter personas = new VW_PERSONATableAdapter();
+                    string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
+                    var fechaNac = DateTime.Parse(fe);
 
-							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo.ToString() == this.ddlSexo.SelectedValue.ToString() && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text).ToList();
-							if (overide == "1")
-							{
-								btnRegistrarOverRide.Visible = true;
-								btnNoRegistrar.Visible = true;
-								lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
-								btnNoRegistrar.Text = "No";
+                    btnRegistrarOverRide.Visible = true;
+                    lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
+                    btnNoRegistrar.Text = "No";
+
+                    this.dsSeguridad = (dsSeguridad)this.Session["dsSeguridad"];
+                    int nr_rowIndex_dsSeguridad = Convert.ToInt32(this.Session["nr_rowIndex_dsSeguridad"].ToString());
+                    var overide = this.dsSeguridad.SA_USUARIO[nr_rowIndex_dsSeguridad].IN_OVERRIDE_PERSONA;
+
+                    lstPaciente.DataSource = null;
+
+                    using (var seps = new SEPS.SEPS_Entities())
+                    {
+                        if (ex.Message == "103")
+                        {
+                            lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.NR_SeguroSocial == txtNSS1.Text + txtNSS2.Text + txtNSS3.Text).ToList();
+                            Console.WriteLine(lstPaciente.Items.Count);
+                            lblExistPatient.InnerText = "Ya existen participantes con el seguro social ingresado.";
+                            btnRegistrarOverRide.Visible = false;
+                            btnNoRegistrar.Text = "Volver atras";
+                        }
+                        else if (ex.Message == "104")
+                        {
+
+                            lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo.ToString() == this.ddlSexo.SelectedValue.ToString() && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year && x.NR_SeguroSocial.Substring(x.NR_SeguroSocial.Length - 4) == txtNSS3.Text).ToList();
+                            if (overide == "1")
+                            {
+                                btnRegistrarOverRide.Visible = true;
+                                btnNoRegistrar.Visible = true;
+                                lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
+                                btnNoRegistrar.Text = "No";
 
 
-							}
-							else
-							{
-								btnRegistrarOverRide.Visible = false;
-								btnNoRegistrar.Text = "Volver atras";
-								lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
+                            }
+                            else
+                            {
+                                btnRegistrarOverRide.Visible = false;
+                                btnNoRegistrar.Text = "Volver atras";
+                                lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
 <br/> Contactos: <br/>
 <br/>CARLOS MOREL - ext. 1130
 <br/>VIMARYS GONZÁLEZ - ext. 1215
 <br/>CARMEN HERNÁNDEZ - ext. 1210
 <br/>DAISY GONZÁLEZ - ext. 1214</p></div>";
 
-							}
-						}
-						//102
-						else if (ex.Message == "102")
-						{
-							lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo.ToString() == this.ddlSexo.SelectedValue.ToString() && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year).ToList();
-							if (overide == "1")
-							{
-								btnRegistrarOverRide.Visible = true;
-								btnNoRegistrar.Visible = true;
-								lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
-								btnNoRegistrar.Text = "No";
+                            }
+                        }
+                        //102
+                        else if (ex.Message == "102")
+                        {
+                            lstPaciente.DataSource = seps.VW_PERSONA.Where(x => x.FK_Sexo.ToString() == this.ddlSexo.SelectedValue.ToString() && x.NB_Primero.Trim().ToLower() == txtPrimerNombre.Text.Trim().ToLower() && x.AP_Primero.Trim().ToLower() == txtPrimerApellido.Text.Trim().ToLower() && x.FE_Nacimiento.Year == fechaNac.Year).ToList();
+                            if (overide == "1")
+                            {
+                                btnRegistrarOverRide.Visible = true;
+                                btnNoRegistrar.Visible = true;
+                                lblExistPatient.InnerText = "¿Aún desea registrar este paciente?";
+                                btnNoRegistrar.Text = "No";
 
 
-							}
-							else
-							{
-								btnRegistrarOverRide.Visible = false;
-								btnNoRegistrar.Text = "Volver atras";
-								lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
+                            }
+                            else
+                            {
+                                btnRegistrarOverRide.Visible = false;
+                                btnNoRegistrar.Text = "Volver atras";
+                                lblExistPatient.InnerHtml = @"<div><p>Favor de comunicarse con la oficina de planificación para el registro de este paciente.<br/>
 <br/> Contactos: <br/>
 <br/>CARLOS MOREL - ext. 1130
 <br/>VIMARYS GONZÁLEZ - ext. 1215
 <br/>CARMEN HERNÁNDEZ - ext. 1210
 <br/>DAISY GONZÁLEZ - ext. 1214</p></div>";
 
-							}
-						}
+                            }
+                        }
 
 
 
 
 
 
-						lstPaciente.DataBind();
-						btnRegistrar.Visible = false;
-						divPacienteExistente.Visible = true;
-						divDatosBasicos.Visible = false;
-						divDatosRazas.Visible = false;
-						lstPaciente.Focus();
+                        lstPaciente.DataBind();
+                        btnRegistrar.Visible = false;
+                        divPacienteExistente.Visible = true;
+                        divDatosBasicos.Visible = false;
+                        divDatosRazas.Visible = false;
+                        lstPaciente.Focus();
 
 
-					}
-				}
-				else
-					this.lblMensaje.Text = ex.Message;
-				return 0;
-			}
-		}
+                    }
+                }
+                else
+                    this.lblMensaje.Text = ex.Message;
+                return 0;
+            }
+        }
 
-		private void PrepararComandoCrear()
-		{
-			string NSS = this.txtNSS1.Text + this.txtNSS2.Text + this.txtNSS3.Text;
+        private void PrepararComandoCrear()
+        {
+            string NSS = this.txtNSS1.Text + this.txtNSS2.Text + this.txtNSS3.Text;
 
             if (NSS != "")
             {
                 this.SPC_PERSONA.Parameters["@NR_SeguroSocial"].Value = NSS;
             }
-			this.SPC_PERSONA.Parameters["@PK_Programa"].Value = this.m_PK_Programa;
-			this.SPC_PERSONA.Parameters["@NR_Expediente"].Value = this.txtExpediente.Text;
-			this.SPC_PERSONA.Parameters["@FK_Sexo"].Value = Convert.ToSByte(this.ddlSexo.SelectedValue.ToString());
-			this.SPC_PERSONA.Parameters["@AP_Primero"].Value = this.txtPrimerApellido.Text.Trim();
+            this.SPC_PERSONA.Parameters["@PK_Programa"].Value = this.m_PK_Programa;
+            this.SPC_PERSONA.Parameters["@NR_Expediente"].Value = this.txtExpediente.Text;
+            this.SPC_PERSONA.Parameters["@FK_Sexo"].Value = Convert.ToSByte(this.ddlSexo.SelectedValue.ToString());
+            this.SPC_PERSONA.Parameters["@AP_Primero"].Value = this.txtPrimerApellido.Text.Trim();
             if (this.txtSegundoApellido.Text.Trim() != "")
             {
                 this.SPC_PERSONA.Parameters["@AP_Segundo"].Value = this.txtSegundoApellido.Text.Trim();
             }
-			this.SPC_PERSONA.Parameters["@NB_Primero"].Value = this.txtPrimerNombre.Text.Trim();
+            this.SPC_PERSONA.Parameters["@NB_Primero"].Value = this.txtPrimerNombre.Text.Trim();
             if (this.txtSegundoNombre.Text.Trim() != "")
             {
                 this.SPC_PERSONA.Parameters["@NB_Segundo"].Value = this.txtSegundoNombre.Text.Trim();
             }
             string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
-			this.SPC_PERSONA.Parameters["@FE_Nacimiento"].Value = DateTime.Parse(fe);
-			this.SPC_PERSONA.Parameters["@FK_Veterano"].Value = Convert.ToSByte(this.ddlVeterano.SelectedValue.ToString());
-			this.SPC_PERSONA.Parameters["@FK_GrupoEtnico"].Value = Convert.ToSByte(this.ddlGrupoEtnico.SelectedValue.ToString());
-			this.SPC_PERSONA.Parameters["@FK_Sesion"].Value = Guid.NewGuid();;
-		}
-		protected void btnAgregar_Click(object sender, System.EventArgs e)
-		{
-			if( this.lbxRazaSinSeleccionar.SelectedItem != null )
-			{
-				System.Web.UI.WebControls.ListItem li = new ListItem(this.lbxRazaSinSeleccionar.SelectedItem.Text, this.lbxRazaSinSeleccionar.SelectedItem.Value);
-				this.lbxRazaSeleccionadas.Items.Add(li);
-				this.ActualizarListaRazas();
-			}
-		}
-		protected void btnEliminar_Click(object sender, System.EventArgs e)
-		{
-			if( this.lbxRazaSeleccionadas.SelectedItem != null )
-			{
-				this.lbxRazaSeleccionadas.Items.Remove(this.lbxRazaSeleccionadas.SelectedItem);
-				this.ActualizarListaRazas();
-			}
-		}
-		private void ActualizarListaRazas()
-		{
-			string Filtro = "";
-			for (int i = 0; i<this.lbxRazaSeleccionadas.Items.Count; i++)
-			{
+            this.SPC_PERSONA.Parameters["@FE_Nacimiento"].Value = DateTime.Parse(fe);
+            this.SPC_PERSONA.Parameters["@FK_Veterano"].Value = Convert.ToSByte(this.ddlVeterano.SelectedValue.ToString());
+            this.SPC_PERSONA.Parameters["@FK_GrupoEtnico"].Value = Convert.ToSByte(this.ddlGrupoEtnico.SelectedValue.ToString());
+            this.SPC_PERSONA.Parameters["@FK_Sesion"].Value = Guid.NewGuid(); ;
+        }
+        protected void btnAgregar_Click(object sender, System.EventArgs e)
+        {
+            if (this.lbxRazaSinSeleccionar.SelectedItem != null)
+            {
+                System.Web.UI.WebControls.ListItem li = new ListItem(this.lbxRazaSinSeleccionar.SelectedItem.Text, this.lbxRazaSinSeleccionar.SelectedItem.Value);
+                this.lbxRazaSeleccionadas.Items.Add(li);
+                this.ActualizarListaRazas();
+            }
+        }
+        protected void btnEliminar_Click(object sender, System.EventArgs e)
+        {
+            if (this.lbxRazaSeleccionadas.SelectedItem != null)
+            {
+                this.lbxRazaSeleccionadas.Items.Remove(this.lbxRazaSeleccionadas.SelectedItem);
+                this.ActualizarListaRazas();
+            }
+        }
+        private void ActualizarListaRazas()
+        {
+            string Filtro = "";
+            for (int i = 0; i < this.lbxRazaSeleccionadas.Items.Count; i++)
+            {
                 if (i == 0)
                 {
                     Filtro += "PK_Raza <> " + this.lbxRazaSeleccionadas.Items[i].Value;
@@ -429,10 +429,10 @@ namespace ASSMCA.Pacientes
                 {
                     Filtro += " AND PK_Raza <> " + this.lbxRazaSeleccionadas.Items[i].Value;
                 }
-			}
-			this.dvwRazasNoSeleccionadas.RowFilter = Filtro;
-			this.lbxRazaSinSeleccionar.DataBind();
-		}
+            }
+            this.dvwRazasNoSeleccionadas.RowFilter = Filtro;
+            this.lbxRazaSinSeleccionar.DataBind();
+        }
 
         protected void btnActualizarPersona_Click(object sender, System.EventArgs e)
         {
@@ -486,50 +486,50 @@ namespace ASSMCA.Pacientes
             }
         }
         private void PrepararComandoEdicion()
-		{
-			string NSS = this.txtNSS1.Text + this.txtNSS2.Text + this.txtNSS3.Text;
-			this.SPU_PERSONA.Parameters["@PK_Persona"].Value = Convert.ToInt32(this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString());
+        {
+            string NSS = this.txtNSS1.Text + this.txtNSS2.Text + this.txtNSS3.Text;
+            this.SPU_PERSONA.Parameters["@PK_Persona"].Value = Convert.ToInt32(this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString());
             if (NSS != "")
             {
                 this.SPU_PERSONA.Parameters["@NR_SeguroSocial"].Value = NSS;
             }
-			this.SPU_PERSONA.Parameters["@FK_Programa"].Value = this.m_PK_Programa;
-			this.SPU_PERSONA.Parameters["@NR_Expediente"].Value = this.txtExpediente.Text;
-			this.SPU_PERSONA.Parameters["@FK_Sexo"].Value = Convert.ToSByte(this.ddlSexo.SelectedValue.ToString());
-			this.SPU_PERSONA.Parameters["@AP_Primero"].Value = this.txtPrimerApellido.Text.Trim();
+            this.SPU_PERSONA.Parameters["@FK_Programa"].Value = this.m_PK_Programa;
+            this.SPU_PERSONA.Parameters["@NR_Expediente"].Value = this.txtExpediente.Text;
+            this.SPU_PERSONA.Parameters["@FK_Sexo"].Value = Convert.ToSByte(this.ddlSexo.SelectedValue.ToString());
+            this.SPU_PERSONA.Parameters["@AP_Primero"].Value = this.txtPrimerApellido.Text.Trim();
             if (this.txtSegundoApellido.Text.Trim() != "")
             {
                 this.SPU_PERSONA.Parameters["@AP_Segundo"].Value = this.txtSegundoApellido.Text.Trim();
             }
-			this.SPU_PERSONA.Parameters["@NB_Primero"].Value = this.txtPrimerNombre.Text.Trim();
+            this.SPU_PERSONA.Parameters["@NB_Primero"].Value = this.txtPrimerNombre.Text.Trim();
             if (this.txtSegundoNombre.Text.Trim() != "")
             {
                 this.SPU_PERSONA.Parameters["@NB_Segundo"].Value = this.txtSegundoNombre.Text.Trim();
             }
             string fe = this.ddlMes.SelectedValue.ToString() + "/" + this.ddlDía.SelectedValue.ToString() + "/" + this.txtAño.Text;
-			this.SPU_PERSONA.Parameters["@FE_Nacimiento"].Value = DateTime.Parse(fe);
-			this.SPU_PERSONA.Parameters["@FK_Veterano"].Value = Convert.ToSByte(this.ddlVeterano.SelectedValue.ToString());
-			this.SPU_PERSONA.Parameters["@FK_GrupoEtnico"].Value = Convert.ToSByte(this.ddlGrupoEtnico.SelectedValue.ToString());
-			this.SPU_PERSONA.Parameters["@FK_Sesion"].Value = Guid.NewGuid();;			
-		}
+            this.SPU_PERSONA.Parameters["@FE_Nacimiento"].Value = DateTime.Parse(fe);
+            this.SPU_PERSONA.Parameters["@FK_Veterano"].Value = Convert.ToSByte(this.ddlVeterano.SelectedValue.ToString());
+            this.SPU_PERSONA.Parameters["@FK_GrupoEtnico"].Value = Convert.ToSByte(this.ddlGrupoEtnico.SelectedValue.ToString());
+            this.SPU_PERSONA.Parameters["@FK_Sesion"].Value = Guid.NewGuid(); ;
+        }
 
         protected void btnRegistrarOverRide_Click(object sender, EventArgs e)
         {
 
-			RegistrarNuevoPaciente(1);
-		}
+            RegistrarNuevoPaciente(1);
+        }
 
-		protected void btnNoRegistrar_Click(object sender, EventArgs e)
+        protected void btnNoRegistrar_Click(object sender, EventArgs e)
         {
-			lstPaciente.DataSource = null;
-			lstPaciente.DataBind();
-			btnRegistrar.Visible = true;
-			divPacienteExistente.Visible = false;
-			divDatosBasicos.Visible = true;
-			divDatosRazas.Visible = true;
+            lstPaciente.DataSource = null;
+            lstPaciente.DataBind();
+            btnRegistrar.Visible = true;
+            divPacienteExistente.Visible = false;
+            divDatosBasicos.Visible = true;
+            divDatosRazas.Visible = true;
 
 
 
-		}
+        }
     }
 }

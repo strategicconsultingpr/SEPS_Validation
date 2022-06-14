@@ -106,6 +106,19 @@ namespace ASSMCA.Perfiles
                         this.ddlNivelUnavilable(NivelCuidado.Sustancias);
 
 
+                        if (ddlNivelCuidadoSustancias.Items.Count == 0)
+                        {
+                            txtDíasSustancias.Text = "0";
+                            txtDíasSustancias.Enabled = false;
+                        }
+
+                        if (ddlNivelCuidadoSaludMental.Items.Count == 0)
+                        {
+                            txtDíasMental.Text = "0";
+                            txtDíasMental.Enabled = false;
+                        }
+
+
 
 
 
@@ -1833,6 +1846,8 @@ namespace ASSMCA.Perfiles
 
         }
 
+
+
         public sbyte @FK_FrecuenciaSecundario
         {
             get
@@ -2121,6 +2136,8 @@ namespace ASSMCA.Perfiles
                 this.ddlNivelCuidadoSaludMental.Enabled = false;
                 this.ddlNivelCuidadoSaludMental.Items.Insert(0, new ListItem("No aplica", "99"));
                 this.ddlNivelCuidadoSaludMental.SelectedValue = "99";
+               
+
             }
             if (Dt.Rows.Count == 1 && Dt != null && countNivelSustancia(pk) == 0)
             {
@@ -2590,6 +2607,7 @@ namespace ASSMCA.Perfiles
             ListItem li = new ListItem("No aplica", "99");
 
 
+            //No
             if (ddlArrestado.SelectedValue == "2")
             {
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
@@ -2603,17 +2621,39 @@ namespace ASSMCA.Perfiles
                 Button3.Enabled = false;
 
                 var item = ddlArrestado30.Items.FindByValue("99");
+                var item2 = ddlArrestado30.Items.FindByValue("1");
+
 
                 if (item != null)
                     item.Enabled = true;
 
+                if (item2 != null)
+                    item2.Enabled = false;
+
+                ddlArrestado30.SelectedValue = "";
+                txtArrestos30.Enabled = true;
+                txtArrestos30.Text = "";
+
+
+
             }
+            //Si
             else if (ddlArrestado.SelectedValue == "1")
             {
                 var item = ddlArrestado30.Items.FindByValue("99");
 
                 if (item != null)
                     item.Enabled = false;
+
+                var item2 = ddlArrestado30.Items.FindByValue("1");
+
+                if (item2 != null)
+                    item2.Enabled = true;
+
+                ddlArrestado30.SelectedValue = "";
+                txtArrestos30.Enabled = true;
+                txtArrestos30.Text = "";
+
 
 
                 this.lbxProbJusticiaSeleccionado.Items.Remove(li);
@@ -2626,6 +2666,29 @@ namespace ASSMCA.Perfiles
                 Button4.Enabled = true;
                 Button3.Enabled = true;
 
+            }
+        }
+
+        protected void ddlArrestado30_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (ddlArrestado30.SelectedValue)
+            {
+                case ("1")://Sí
+                            txtArrestos30.Text = "";
+                            rvArrestos30.MinimumValue = "1";
+                            txtArrestos30.Enabled = true;
+                        
+
+                    
+                    break;
+                case ("2"):
+                case ("99")://No  
+                    txtArrestos30.Text = "0";
+                    rvArrestos30.MinimumValue = "0";
+                    txtArrestos30.Enabled = false;
+                    break;
+
+               
             }
         }
 

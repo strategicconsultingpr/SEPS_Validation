@@ -34,7 +34,7 @@
         <span class="SEPSLabel">Nivel de cuidado de sustancias [TEDS]:</span>
            <asp:RequiredFieldValidator ID="rfvNivelCuidadoSustancias" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlNivelCuidadoSustancias" ErrorMessage="Nivel de cuidado (Abuso de sustancias)" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*" />
         <div class="expandibleDiv">
-        <asp:DropDownList  CssClass="form-control" ID="ddlNivelCuidadoSustancias" runat="server"  onChange="ddlNivelCuidadoSustancias();"   AutoPostBack="true"/>
+        <asp:DropDownList  CssClass="form-control" ID="ddlNivelCuidadoSustancias" runat="server"  onChange="ddlNivelCuidadoSustancias();"  />
         <asp:Label ID="lblNivelCuidadoSustancias" runat="server" />
          <asp:CustomValidator ID="ddlNivelCuidadoSustanciasVal" Display="Dynamic" ControlToValidate="ddlNivelCuidadoSustancias"  ClientValidationFunction="nivelCuidadoValidation" runat="server" ></asp:CustomValidator>
      
@@ -45,7 +45,7 @@
             <asp:RequiredFieldValidator ID="rfvDíasSustancias" runat="server"  Display="Dynamic" CssClass="rightFloatAsterisk" ControlToValidate="txtDíasSustancias" ErrorMessage="Días de espera para entrar a tratamiento"  ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
         <asp:RangeValidator ID="rvDíasSustancias" runat="server"  Display="Dynamic" CssClass="rightFloatAsterisk" ControlToValidate="txtDíasSustancias" ErrorMessage="Días de espera para entrar a tratamiento"  ToolTip="Escriba un número entero mayor o igual a cero (0) y menor que 255" Type="Integer" MaximumValue="255" MinimumValue="0" Text="*"/>
         <div class="expandibleDiv">
-        <asp:TextBox  CssClass="form-control" ID="txtDíasSustancias" runat="server" MaxLength="3" Text="0" />
+        <asp:TextBox  CssClass="form-control" ID="txtDíasSustancias" runat="server" MaxLength="3" Text="" />
         <asp:Label ID="lblDíasSustancias" runat="server"/>
     
             </div>
@@ -81,7 +81,7 @@
         <span class="SEPSLabel">Nivel de cuidado de Salud mental [TEDS]:</span>
                 <asp:RequiredFieldValidator ID="rfvNivelCuidadoSaludMental" runat="server" CssClass="rightFloatAsterisk"  Display="Dynamic" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Nivel de cuidado (Salud mental)" ControlToValidate="ddlNivelCuidadoSaludMental" InitialValue="0" Text="*"/>
         <div class="expandibleDiv">
-                <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()" AutoPostBack="true"/>
+                <asp:DropDownList CssClass="form-control" ID="ddlNivelCuidadoSaludMental" runat="server" onChange="ddlNivelCuidadoSaludMental()"/>
                 <asp:Label ID="lblNivelCuidadoSaludMental" runat="server"/>
                      <asp:CustomValidator ID="lblNivelCuidadoSaludMentalVal" Display="Dynamic" ControlToValidate="ddlNivelCuidadoSaludMental"  ClientValidationFunction="nivelCuidadoValidation" runat="server" ></asp:CustomValidator>
 
@@ -139,7 +139,7 @@
         <span class="SEPSLabel">¿Ha sido arrestado alguna vez en su vida?:</span>
         <asp:RequiredFieldValidator ID="rfvArrestado" runat="server"  CssClass="rightFloatAsterisk"  Display="Dynamic" ControlToValidate="ddlArrestado" ErrorMessage="¿Ha sido arrestado anteriormente?" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server" onChange="ddlArrestado();" OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true">
+            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado" runat="server"  OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true">
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
@@ -152,11 +152,11 @@
         <span class="SEPSLabel">¿Ha sido arrestado durante los pasados 30 días? (antes de la admisión) (US-SM-NOM):</span>
          <asp:RequiredFieldValidator ID="rfvArrestado30" runat="server" InitialValue="" CssClass="rightFloatAsterisk" Display="Dynamic"  ControlToValidate="ddlArrestado30" ErrorMessage="¿Ha sido arrestado durante los pasados 30 días? (antes de la admisión) (US-SM-NOM)" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
-            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado30" onChange="ddlArrestado30();" runat="server" OnSelectedIndexChanged="ddlArrestado_SelectedIndexChanged" AutoPostBack="true" >
+            <asp:DropDownList  CssClass="form-control" ID="ddlArrestado30"  runat="server" OnSelectedIndexChanged="ddlArrestado30_SelectedIndexChanged" AutoPostBack="true" >
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">Sí</asp:ListItem>
                 <asp:ListItem Value="2">No</asp:ListItem>
-                                <asp:ListItem Value="99">No aplica</asp:ListItem>
+                <asp:ListItem Value="99">No aplica</asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="lblArrestado30" runat="server"/>       
         </div>
