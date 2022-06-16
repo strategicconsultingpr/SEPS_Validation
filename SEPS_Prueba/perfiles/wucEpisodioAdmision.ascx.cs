@@ -12,6 +12,7 @@ namespace ASSMCA.Perfiles
     using SEPS.Constante;
     using System.Collections.Generic;
     using SEPS.Modelos;
+    using System.Web.UI;
 
     public partial class wucEpisodioAdmision : System.Web.UI.UserControl
     {
@@ -106,17 +107,7 @@ namespace ASSMCA.Perfiles
                         this.ddlNivelUnavilable(NivelCuidado.Sustancias);
 
 
-                        if (ddlNivelCuidadoSustancias.Items.Count == 0)
-                        {
-                            txtDíasSustancias.Text = "0";
-                            txtDíasSustancias.Enabled = false;
-                        }
-
-                        if (ddlNivelCuidadoSaludMental.Items.Count == 0)
-                        {
-                            txtDíasMental.Text = "0";
-                            txtDíasMental.Enabled = false;
-                        }
+                        
 
 
 
@@ -152,7 +143,42 @@ namespace ASSMCA.Perfiles
                         break;
                 }
 
+
+
             }
+
+            if (frmAction.Create == this.m_frmAction || this.m_frmAction == frmAction.Update)
+            {
+                if (ddlNivelCuidadoSustancias.SelectedValue == "" || ddlNivelCuidadoSustancias.SelectedValue == "99" || ddlNivelCuidadoSustancias.Items.Count == 0)
+                {
+                    txtDíasSustancias.Text = "0";
+                    txtDíasSustancias.Enabled = false;
+                }
+                else
+                {
+                    txtDíasSustancias.Enabled = true;
+
+                }
+
+                if (ddlNivelCuidadoSaludMental.Items.Count == 0 || ddlNivelCuidadoSaludMental.SelectedValue == "" || ddlNivelCuidadoSaludMental.SelectedValue == "99")
+                {
+                    txtDíasMental.Text = "0";
+                    txtDíasMental.Enabled = false;
+                }
+                else
+                    txtDíasMental.Enabled = true;
+
+                if (ddlNivelCuidadoSaludMental.SelectedValue != "99")
+                {
+                    ddlCodependiente.SelectedValue = "2";
+                    ddlCodependiente.Enabled = false;
+                }
+                else
+                { ddlCodependiente.Enabled = true; }    
+
+
+            }
+
         }
 
         void LoadtxtEdad(DateTime date)
@@ -1785,6 +1811,7 @@ namespace ASSMCA.Perfiles
                 try
                 {
                     return Convert.ToSByte(this.ddlFrecPrim.SelectedValue.ToString());
+                   
                 }
                 catch
                 {
@@ -1862,6 +1889,8 @@ namespace ASSMCA.Perfiles
                 }
             }
         }
+
+  
 
         public sbyte @FK_FrecuenciaTerciario
         {
@@ -2620,15 +2649,23 @@ namespace ASSMCA.Perfiles
                 Button4.Enabled = false;
                 Button3.Enabled = false;
 
-                var item = ddlArrestado30.Items.FindByValue("99");
-                var item2 = ddlArrestado30.Items.FindByValue("1");
+                //No aplica
+                var noAplicaOption = ddlArrestado30.Items.FindByValue("99");
+                //Si
+                var siOption = ddlArrestado30.Items.FindByValue("1");
+                //No
+                var noOption = ddlArrestado30.Items.FindByValue("2");
 
 
-                if (item != null)
-                    item.Enabled = true;
 
-                if (item2 != null)
-                    item2.Enabled = false;
+                if (noAplicaOption != null)
+                    noAplicaOption.Enabled = true;
+
+                if (siOption != null)
+                    siOption.Enabled = false;
+
+                if (noOption != null)
+                    noOption.Enabled = false;
 
                 ddlArrestado30.SelectedValue = "";
                 txtArrestos30.Enabled = true;
@@ -2640,15 +2677,21 @@ namespace ASSMCA.Perfiles
             //Si
             else if (ddlArrestado.SelectedValue == "1")
             {
-                var item = ddlArrestado30.Items.FindByValue("99");
+                var noAplicaOption = ddlArrestado30.Items.FindByValue("99");
 
-                if (item != null)
-                    item.Enabled = false;
+                if (noAplicaOption != null)
+                    noAplicaOption.Enabled = false;
 
-                var item2 = ddlArrestado30.Items.FindByValue("1");
+                var siOption = ddlArrestado30.Items.FindByValue("1");
 
-                if (item2 != null)
-                    item2.Enabled = true;
+                if (siOption != null)
+                    siOption.Enabled = true;
+
+
+                var noOption = ddlArrestado30.Items.FindByValue("2");
+
+                if (noOption != null)
+                    noOption.Enabled = true;
 
                 ddlArrestado30.SelectedValue = "";
                 txtArrestos30.Enabled = true;

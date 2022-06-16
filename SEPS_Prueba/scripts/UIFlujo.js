@@ -1400,6 +1400,7 @@ function AjustesNiveldeCuidado() {
         var GAF = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDSMVFnGlobal");
         var codependiente = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlCodependiente");
 
+
         //var txtDrogaPrim = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDrogaPrim");
         //txtDrogaPrim.style.visibility = "hidden";
 
@@ -1415,7 +1416,7 @@ function AjustesNiveldeCuidado() {
         var ddlToxicologia1 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlToxicologia1");
         var ddlToxicologia2 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlToxicologia2");
         var ddlToxicologia3 = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlToxicologia3");
-
+        
         // Si usuario selecciona opción de “Nivel de Cuidado (Salud Mental)”
         if (ddlNivelCuidadoSaludMental.value != "99") {
 
@@ -1452,7 +1453,8 @@ function AjustesNiveldeCuidado() {
             txtEdadTerc.disabled = true;
             //GAF.disabled = false;
 
-            codependiente.value = 2;
+            codependiente.value = "2";
+            
             codependiente.disabled = true;
 
             ddlToxicologia1.disabled = true;
@@ -1493,7 +1495,8 @@ function AjustesNiveldeCuidado() {
             txtEdadSec.disabled = true;
             txtEdadTerc.disabled = true;
 
-            codependiente.value = 0;
+         
+            codependiente.value = "0";
             codependiente.disabled = false;
 
             ddlToxicologia1.disabled = false;
@@ -1519,6 +1522,7 @@ function ddlNivelCuidadoSustancias() {
 
     try {
         var txtDíasSustancias = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasSustancias");
+        var txtDíasMental = document.getElementById("mainBodyContent_WucEpisodioAdmision_txtDíasMental");
         var nivelS = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSustancias");
         var nivelM = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlNivelCuidadoSaludMental");
         var opiod = document.getElementById("mainBodyContent_WucEpisodioAdmision_ddlMetadona");
@@ -1540,9 +1544,11 @@ function ddlNivelCuidadoSustancias() {
         if (nivelS.value != "0" && nivelS.value != "99") {
             nivelM.value = "99";
             nivelM.disabled = true;
+            txtDíasMental.disable = true;
         }
         else {
             nivelM.disabled = false;
+            txtDíasMental.disable = false;
         }
     }
     catch (ex) { }
@@ -1620,9 +1626,11 @@ function ddlNivelCuidadoSaludMental() {
         if (nivelM.value != "0" && nivelM.value != "99") {
             nivelS.value = "99";
             nivelS.disabled = true;
+            txtDíasSustancias.disable = true;
         }
         else {
             nivelS.disabled = false;
+            txtDíasSustancias.disable = false;
         }
     }
     catch (ex) {
@@ -3251,7 +3259,6 @@ function ddlDSMVDiagDual(txtType, ddlDSMVDiagDualP) {
         alert(ex.text);
     }
 
-    // AjustesNiveldeCuidado();
 }
 
 function validateCOOCURRING() {
