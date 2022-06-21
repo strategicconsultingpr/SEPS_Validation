@@ -376,11 +376,11 @@ namespace ASSMCA.Perfiles
             this.SPC_EPISODIO.Parameters["@IN_TI_Maltrato"].Value = 99;
             this.SPC_EPISODIO.Parameters["@IN_Suicida"].Value = this.WucEpisodioAdmision.IN_Suicida;
             this.SPC_EPISODIO.Parameters["@IN_IdeaSuicida"].Value = this.WucEpisodioAdmision.IN_IdeaSuicida;
-            if (this.m_PK_Programa == 61 || this.m_PK_Programa == 62 || this.m_PK_Programa == 63 || this.m_PK_Programa == 64 || this.m_PK_Programa == 65)
-            {
-                this.SPC_EPISODIO.Parameters["@ES_Episodio"].Value = true;
-                this.SPC_EPISODIO.Parameters["@FE_Alta"].Value = this.WucDatosPersonales.FE_Episodio;
-            }
+            //if (this.m_PK_Programa == 61 || this.m_PK_Programa == 62 || this.m_PK_Programa == 63 || this.m_PK_Programa == 64 || this.m_PK_Programa == 65)
+            //{
+            //    this.SPC_EPISODIO.Parameters["@ES_Episodio"].Value = true;
+            //    this.SPC_EPISODIO.Parameters["@FE_Alta"].Value = this.WucDatosPersonales.FE_Episodio;
+            //}
             this.SPC_PERFIL.Parameters["@FE_Perfil"].Value = this.WucDatosPersonales.FE_Episodio;
             this.SPC_PERFIL.Parameters["@FK_TipoAdmision"].Value = this.WucDatosPersonales.FK_TipoAdmision;
             if (this.WucDatosPersonales.NR_Expediente != "0")
