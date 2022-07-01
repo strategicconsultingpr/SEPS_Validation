@@ -614,8 +614,10 @@ namespace ASSMCA.Perfiles
             this.txtHogar.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["HogarRecuperacionRes"].ToString();
 
             this.ddlInFumado.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString();
-            this.ddlFrecuenciaFumado.SelectedItem.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
-            this.txtNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
+
+            var itemFrecuenciaFumado = ddlFrecuenciaFumado.Items.FindByText(this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString());
+            if (itemFrecuenciaFumado != null)
+                this.ddlFrecuenciaFumado.SelectedValue = itemFrecuenciaFumado.Value; this.txtNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
 
             //DateTime fe_perfil = DateTime.Parse(this.dsPerfil.SA_PERFIL.DefaultView[0]["FE_Perfil"].ToString());
             //DateTime limite = new DateTime(2021, 1, 1);

@@ -747,7 +747,12 @@ namespace ASSMCA.Perfiles
             this.ddlToxicologia3.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Toxicologia3"].ToString();
 
             this.ddlInFumado.SelectedValue = this.dsPerfil.SA_PERFIL.DefaultView[0]["IN_Fumado"].ToString();
-            this.ddlFrecuenciaFumado.SelectedItem.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString();
+
+            var itemFrecuenciaFumado = ddlFrecuenciaFumado.Items.FindByText(this.dsPerfil.SA_PERFIL.DefaultView[0]["DE_FrecuenciaFumado"].ToString());
+
+            if(itemFrecuenciaFumado != null)
+            this.ddlFrecuenciaFumado.SelectedValue = itemFrecuenciaFumado.Value;
+            
             this.txtNrFumado.Text = this.dsPerfil.SA_PERFIL.DefaultView[0]["NR_CigarrosXDias"].ToString();
 
 
@@ -2667,9 +2672,10 @@ namespace ASSMCA.Perfiles
                 if (noOption != null)
                     noOption.Enabled = false;
 
-                ddlArrestado30.SelectedValue = "";
-                txtArrestos30.Enabled = true;
-                txtArrestos30.Text = "";
+                ddlArrestado30.SelectedValue = "99";
+                ddlArrestado30.Enabled = false;
+                txtArrestos30.Enabled = false;
+                txtArrestos30.Text = "0";
 
 
 
@@ -2696,6 +2702,8 @@ namespace ASSMCA.Perfiles
                 ddlArrestado30.SelectedValue = "";
                 txtArrestos30.Enabled = true;
                 txtArrestos30.Text = "";
+                ddlArrestado30.Enabled = true;
+
 
 
 

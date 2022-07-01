@@ -7,7 +7,7 @@ namespace SEPS.Constante
 {
     public static class Const
     {
-        public static DateTime CambiosEnCamposNuevos = new DateTime(2021, 03, 30);
+        public static DateTime CambiosEnCamposNuevos = new DateTime(2022, 06, 05);
 
         public static bool EsProgramaMetadona(int PK_PROGRAMA)
         {
