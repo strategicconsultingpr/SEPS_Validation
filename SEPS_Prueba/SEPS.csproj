@@ -534,6 +534,10 @@
     <Content Include="pdf\Manual.pdf" />
     <Content Include="pdf\Perfil_Admisión.pdf" />
     <None Include="packages.config" />
+    <Content Include="pdf\admision2022.pdf" />
+    <Content Include="pdf\alta2022.pdf" />
+    <Content Include="pdf\evaluacion2022.pdf" />
+    <Content Include="pdf\manual2022.pdf" />
     <None Include="perfiles\ASSMCA.Perfiles.dsperfil.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ASSMCA.Perfiles.dsperfil1.Designer.cs</LastGenOutput>
