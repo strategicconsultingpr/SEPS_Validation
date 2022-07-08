@@ -510,7 +510,7 @@
             <div class="expandibleDiv">
                  <div class="col-md-12">
                     <div class="row">
-                        <asp:DropDownList  TabIndex="5" CssClass="form-control" ID="ddlDrogaSec" runat="server" DataSource="<%# dvwDrogaSec %>" DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaSecF();"  />
+                        <asp:DropDownList  TabIndex="5" CssClass="form-control" ID="ddlDrogaSec" runat="server" DataSource="<%# dvwDrogaSec %>"   DataTextField="DE_Sustancia" DataValueField="PK_Sustancia" onChange="ddlDrogaSecF();"  />
                     </div>
                     <div class="row">
                         &nbsp;

@@ -9,22 +9,34 @@ namespace SEPS.Constante
     {
         public static DateTime CambiosEnCamposNuevos = new DateTime(2022, 06, 05);
 
-        public static bool EsProgramaMetadona(int PK_PROGRAMA)
+        public static bool TieneTakeHome(int PK_PROGRAMA)
         {
-            bool esProgramaMetadona = false;
-            switch ((PKPrograma)PK_PROGRAMA)
+            bool takeHome = false;
+
+
+            using(var seps = new SEPS_Entities())
             {
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_SAN_JUAN):     // PK_Programa =  1
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAGUAS):       // PK_Programa =  2
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_PONCE):        // PK_Programa =  3
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_AGUADILLA):    // PK_Programa =  4
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_BAYAMÓN):      // PK_Programa =  6
-                case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAYEY):        // PK_Programa = 43
-                case (PKPrograma.CENTRO_DE_TRATAMIENTO_CON_METADONA_FAJARDO):
-                    esProgramaMetadona = true; break;
-                default: break;
+                var programa = seps.SA_PROGRAMA.FirstOrDefault(x => x.PK_Programa == PK_PROGRAMA);
+
+                if(programa != null)
+                {
+                    return (bool)programa.TIENE_TAKE_HOME;
+                }
             }
-            return esProgramaMetadona;
+
+            //switch ((PKPrograma)PK_PROGRAMA)
+            //{
+            //    case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_SAN_JUAN):     // PK_Programa =  1
+            //    case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAGUAS):       // PK_Programa =  2
+            //    case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_PONCE):        // PK_Programa =  3
+            //    case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_AGUADILLA):    // PK_Programa =  4
+            //    case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_BAYAMÓN):      // PK_Programa =  6
+            //    case (PKPrograma.CENTRO_CON_MANTENIMIENTO_CON_METADONA_DE_CAYEY):        // PK_Programa = 43
+            //    case (PKPrograma.CENTRO_DE_TRATAMIENTO_CON_METADONA_FAJARDO):
+            //        esProgramaMetadona = true; break;
+            //    default: break;
+            //}
+            return takeHome;
         }
 
         public static int CalcularEdad(DateTime fechaNacimiento, DateTime fecha)

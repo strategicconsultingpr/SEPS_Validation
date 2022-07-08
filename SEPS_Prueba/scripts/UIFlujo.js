@@ -782,24 +782,24 @@ function changeTabOrder() {
         //});
 
 
-        $(prefix + "ddlDrogaPrim").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlDrogaSec").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlDrogaTerc").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlViaPrim").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlViaSec").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlViaTerc").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlFrecPrim").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlFrecSec").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlFrecTerc").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "txtEdadPrim").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "txtEdadSec").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "txtEdadTerc").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlToxicologia1").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlToxicologia2").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "ddlToxicologia3").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "txtDrogaPrim").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "txtDrogaSec").on('keydown', function (e) { tabEvent(e) });
-        $(prefix + "txtDrogaTerc").on('keydown', function (e) { tabEvent(e) });
+        $(prefix + "ddlDrogaPrim").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlDrogaSec").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlDrogaTerc").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlViaPrim").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlViaSec").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlViaTerc").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlFrecPrim").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlFrecSec").on('keydown', function (e) { tabEvent(e);});
+        $(prefix + "ddlFrecTerc").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "txtEdadPrim").on('keydown', function (e) { tabEvent(e);});
+        $(prefix + "txtEdadSec").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "txtEdadTerc").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlToxicologia1").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlToxicologia2").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "ddlToxicologia3").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "txtDrogaPrim").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "txtDrogaSec").on('keydown', function (e) { tabEvent(e); });
+        $(prefix + "txtDrogaTerc").on('keydown', function (e) { tabEvent(e); });
     }
     catch (ex) {// catch block 
 
@@ -2223,7 +2223,7 @@ var sustanciasList = {
     CocaínaMarihuanaDiablillo: "27",
     Noinformó: "96",
     Noaplica: "99"
-}
+};
 var viaList = {
     NoSeleccionado: "0",
     Inyectada: "1",
@@ -2233,7 +2233,7 @@ var viaList = {
     Otro: "10",
     Desconocido: "95",
     NoAplica: "99"
-}
+};
 function ddlDrogaPrimF() {
     try {
         var CO_Tipo = document.getElementById("mainBodyContent_WucEpisodioAdmision_CO_Tipo");

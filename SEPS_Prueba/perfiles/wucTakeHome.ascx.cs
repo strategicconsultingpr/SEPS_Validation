@@ -17,7 +17,7 @@ public partial class Perfiles_wucTakeHome : System.Web.UI.UserControl
     {
         if (!Page.IsPostBack)
         {
-            if (!Const.EsProgramaMetadona(m_pk_programa))
+            if (!Const.TieneTakeHome(m_pk_programa))
             {
                 this.HideTakeHome();
             }

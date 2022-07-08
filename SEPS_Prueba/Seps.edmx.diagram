@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="9e99f99b146049619270e601a3cded27" Name="Diagram1">
         <EntityTypeShape EntityType="SEPS_JRModel.VW_PERSONA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEPS_JRModel.SA_PROGRAMA" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

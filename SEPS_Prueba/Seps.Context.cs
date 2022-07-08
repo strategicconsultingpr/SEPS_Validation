@@ -26,5 +26,6 @@ namespace SEPS
         }
     
         public virtual DbSet<VW_PERSONA> VW_PERSONA { get; set; }
+        public virtual DbSet<SA_PROGRAMA> SA_PROGRAMA { get; set; }
     }
 }

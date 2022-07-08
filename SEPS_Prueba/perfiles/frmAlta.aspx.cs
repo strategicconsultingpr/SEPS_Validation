@@ -406,7 +406,7 @@ namespace ASSMCA.Perfiles
                     }
                 }
 
-                if (Const.EsProgramaMetadona(m_PK_Programa))
+                if (Const.TieneTakeHome(m_PK_Programa))
                 {
                     this.SPC_METADONA = new System.Data.SqlClient.SqlCommand();
                     this.SPC_METADONA.CommandText = "[SPC_METADONA]";
@@ -678,7 +678,7 @@ namespace ASSMCA.Perfiles
                         this.SPU_Ref_PracticasBasadasEnEvidencia.Dispose();
                     }
                 }
-                if (Const.EsProgramaMetadona(m_PK_Programa))
+                if (Const.TieneTakeHome(m_PK_Programa))
                 {
                     this.SPU_METADONA = new System.Data.SqlClient.SqlCommand();
                     this.SPU_METADONA.CommandText = "[SPU_METADONA]";

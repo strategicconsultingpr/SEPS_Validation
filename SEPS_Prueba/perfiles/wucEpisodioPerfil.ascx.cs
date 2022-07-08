@@ -9,6 +9,8 @@ namespace ASSMCA.Perfiles
 	using System.Web.UI.HtmlControls;
     using SEPS.Constante;
     using SEPS.Modelos;
+    using SEPS;
+    using System.Linq;
 
     public partial class wucEpisodioPerfil : System.Web.UI.UserControl
 	{
@@ -1768,65 +1770,77 @@ namespace ASSMCA.Perfiles
 
         public bool EsProgramaMental(int pkPrograma)
         {
+
             bool esProgramaMental = false;
-            switch (pkPrograma)
+
+            using (var seps = new SEPS_Entities())
             {
-                case (116):
-                case (120):
-                case (115):
-                case (119):
-                case (76):
-                case (59):
-                case (60):
-                case (58):
-                case (12):
-                case (57):
-                case (87):
-                case (56):
-                case (85):
-                case (81):
-                case (82):
-                case (15):
-                case (129):
-                case (131):
-                case (130):
-                case (79):
-                case (117):
-                case (122):
+                var programa = seps.SA_PROGRAMA.FirstOrDefault(x => x.PK_Programa == pkPrograma);
 
-                /*Modificado Nov-08-18: Se agrego acceso a los proximos programas*/
-
-                case (80):
-                case (138):
-                case (139):
-                case (141):
-                case (142):
-                case (143):
-                case (144):
-                case (145):
-                case (146):
-                case (149):
-                case (150):
-                case (151):
-                case (152):
-                case (153):
-                case (154):
-                case (155):
-                case (156):
-                case (157):
-                case (158):
-                case (160):
-                case (162):
-                case (163):
-                case (165):
-                case (166):
-                case (175):
-                case (179):
-                case (180):
-                case (182):
-                    esProgramaMental = true; break;
-                default: break;
+                if (programa != null)
+                {
+                    return (bool)programa.PRACTICAS_BASADA_EN_EVIDENCIA;
+                }
             }
+
+            //switch (pkPrograma)
+            //{
+            //    case (116):
+            //    case (120):
+            //    case (115):
+            //    case (119):
+            //    case (76):
+            //    case (59):
+            //    case (60):
+            //    case (58):
+            //    case (12):
+            //    case (57):
+            //    case (87):
+            //    case (56):
+            //    case (85):
+            //    case (81):
+            //    case (82):
+            //    case (15):
+            //    case (129):
+            //    case (131):
+            //    case (130):
+            //    case (79):
+            //    case (117):
+            //    case (122):
+
+            //    /*Modificado Nov-08-18: Se agrego acceso a los proximos programas*/
+
+            //    case (80):
+            //    case (138):
+            //    case (139):
+            //    case (141):
+            //    case (142):
+            //    case (143):
+            //    case (144):
+            //    case (145):
+            //    case (146):
+            //    case (149):
+            //    case (150):
+            //    case (151):
+            //    case (152):
+            //    case (153):
+            //    case (154):
+            //    case (155):
+            //    case (156):
+            //    case (157):
+            //    case (158):
+            //    case (160):
+            //    case (162):
+            //    case (163):
+            //    case (165):
+            //    case (166):
+            //    case (175):
+            //    case (179):
+            //    case (180):
+            //    case (182):
+            //        esProgramaMental = true; break;
+            //    default: break;
+            //}
             return esProgramaMental;
         }
 

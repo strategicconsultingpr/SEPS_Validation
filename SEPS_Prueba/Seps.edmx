@@ -4,7 +4,36 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SEPS_JRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SEPS_JRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SA_PROGRAMA">
+          <Key>
+            <PropertyRef Name="PK_Programa" />
+          </Key>
+          <Property Name="PK_Programa" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Administracion" Type="tinyint" Nullable="false" />
+          <Property Name="CO_Tipo" Type="smallint" />
+          <Property Name="CO_Programa" Type="varchar" MaxLength="6" />
+          <Property Name="CO_Prov_ID" Type="varchar" MaxLength="15" />
+          <Property Name="NB_Programa" Type="varchar" MaxLength="100" />
+          <Property Name="DE_Programa" Type="varchar" MaxLength="60" />
+          <Property Name="NB_ProgramaIngles" Type="varchar" MaxLength="100" />
+          <Property Name="CO_Hacienda" Type="varchar" MaxLength="8" />
+          <Property Name="IN_Inactivo" Type="bit" Nullable="false" />
+          <Property Name="IN_Creado_Fed" Type="bit" Nullable="false" />
+          <Property Name="IN_TEDS" Type="bit" Nullable="false" />
+          <Property Name="REP_TEDS" Type="bit" />
+          <Property Name="PREOW" Type="bit" />
+          <Property Name="IN_SUST" Type="bit" />
+          <Property Name="IN_INF_ANUAL" Type="bit" />
+          <Property Name="REP_TEDS_MH" Type="bit" />
+          <Property Name="IN_SELECCIONADO_REP" Type="bit" />
+          <Property Name="IN_CONVENIO" Type="bit" />
+          <Property Name="REP_URS_MH" Type="bit" />
+          <Property Name="FK_CATEGORIA_PROGRAMA" Type="int" />
+          <Property Name="CERRAR_EPISODIO_ADMISION" Type="bit" />
+          <Property Name="PRACTICAS_BASADA_EN_EVIDENCIA" Type="bit" />
+          <Property Name="TIENE_TAKE_HOME" Type="bit" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VW_PERSONA">
@@ -43,7 +72,20 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
           <Property Name="TI_Edicion" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="FE_Edicion" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK_SA_PROGRAMA_SA_PROGRAMA">
+          <End Role="SA_PROGRAMA" Type="Self.SA_PROGRAMA" Multiplicity="1" />
+          <End Role="SA_PROGRAMA1" Type="Self.SA_PROGRAMA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SA_PROGRAMA">
+              <PropertyRef Name="PK_Programa" />
+            </Principal>
+            <Dependent Role="SA_PROGRAMA1">
+              <PropertyRef Name="PK_Programa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SEPS_JRModelStoreContainer">
+          <EntitySet Name="SA_PROGRAMA" EntityType="Self.SA_PROGRAMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VW_PERSONA" EntityType="Self.VW_PERSONA" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VW_PERSONA].[PK_Persona] AS [PK_Persona], 
@@ -65,9 +107,12 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
     [VW_PERSONA].[FE_Edicion] AS [FE_Edicion]
     FROM [dbo].[VW_PERSONA] AS [VW_PERSONA]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_SA_PROGRAMA_SA_PROGRAMA" Association="Self.FK_SA_PROGRAMA_SA_PROGRAMA">
+            <End Role="SA_PROGRAMA" EntitySet="SA_PROGRAMA" />
+            <End Role="SA_PROGRAMA1" EntitySet="SA_PROGRAMA" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SEPS_JRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -109,7 +154,55 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
         </EntityType>
         <EntityContainer Name="SEPS_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="VW_PERSONA" EntityType="Self.VW_PERSONA" />
+          <EntitySet Name="SA_PROGRAMA" EntityType="SEPS_JRModel.SA_PROGRAMA" />
+          <AssociationSet Name="FK_SA_PROGRAMA_SA_PROGRAMA" Association="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA">
+            <End Role="SA_PROGRAMA" EntitySet="SA_PROGRAMA" />
+            <End Role="SA_PROGRAMA1" EntitySet="SA_PROGRAMA" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SA_PROGRAMA">
+          <Key>
+            <PropertyRef Name="PK_Programa" />
+          </Key>
+          <Property Name="PK_Programa" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Administracion" Type="Byte" Nullable="false" />
+          <Property Name="CO_Tipo" Type="Int16" />
+          <Property Name="CO_Programa" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="CO_Prov_ID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="NB_Programa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DE_Programa" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NB_ProgramaIngles" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CO_Hacienda" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="IN_Inactivo" Type="Boolean" Nullable="false" />
+          <Property Name="IN_Creado_Fed" Type="Boolean" Nullable="false" />
+          <Property Name="IN_TEDS" Type="Boolean" Nullable="false" />
+          <Property Name="REP_TEDS" Type="Boolean" />
+          <Property Name="PREOW" Type="Boolean" />
+          <Property Name="IN_SUST" Type="Boolean" />
+          <Property Name="IN_INF_ANUAL" Type="Boolean" />
+          <Property Name="REP_TEDS_MH" Type="Boolean" />
+          <Property Name="IN_SELECCIONADO_REP" Type="Boolean" />
+          <Property Name="IN_CONVENIO" Type="Boolean" />
+          <Property Name="REP_URS_MH" Type="Boolean" />
+          <Property Name="FK_CATEGORIA_PROGRAMA" Type="Int32" />
+          <Property Name="CERRAR_EPISODIO_ADMISION" Type="Boolean" />
+          <Property Name="PRACTICAS_BASADA_EN_EVIDENCIA" Type="Boolean" />
+          <Property Name="TIENE_TAKE_HOME" Type="Boolean" />
+          <NavigationProperty Name="SA_PROGRAMA1" Relationship="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" FromRole="SA_PROGRAMA" ToRole="SA_PROGRAMA1" />
+          <NavigationProperty Name="SA_PROGRAMA2" Relationship="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" FromRole="SA_PROGRAMA1" ToRole="SA_PROGRAMA" />
+        </EntityType>
+        <Association Name="FK_SA_PROGRAMA_SA_PROGRAMA">
+          <End Type="SEPS_JRModel.SA_PROGRAMA" Role="SA_PROGRAMA" Multiplicity="1" />
+          <End Type="SEPS_JRModel.SA_PROGRAMA" Role="SA_PROGRAMA1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SA_PROGRAMA">
+              <PropertyRef Name="PK_Programa" />
+            </Principal>
+            <Dependent Role="SA_PROGRAMA1">
+              <PropertyRef Name="PK_Programa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -136,6 +229,36 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
                 <ScalarProperty Name="FK_Sesion" ColumnName="FK_Sesion" />
                 <ScalarProperty Name="TI_Edicion" ColumnName="TI_Edicion" />
                 <ScalarProperty Name="FE_Edicion" ColumnName="FE_Edicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SA_PROGRAMA">
+            <EntityTypeMapping TypeName="SEPS_JRModel.SA_PROGRAMA">
+              <MappingFragment StoreEntitySet="SA_PROGRAMA">
+                <ScalarProperty Name="TIENE_TAKE_HOME" ColumnName="TIENE_TAKE_HOME" />
+                <ScalarProperty Name="PRACTICAS_BASADA_EN_EVIDENCIA" ColumnName="PRACTICAS_BASADA_EN_EVIDENCIA" />
+                <ScalarProperty Name="CERRAR_EPISODIO_ADMISION" ColumnName="CERRAR_EPISODIO_ADMISION" />
+                <ScalarProperty Name="FK_CATEGORIA_PROGRAMA" ColumnName="FK_CATEGORIA_PROGRAMA" />
+                <ScalarProperty Name="REP_URS_MH" ColumnName="REP_URS_MH" />
+                <ScalarProperty Name="IN_CONVENIO" ColumnName="IN_CONVENIO" />
+                <ScalarProperty Name="IN_SELECCIONADO_REP" ColumnName="IN_SELECCIONADO_REP" />
+                <ScalarProperty Name="REP_TEDS_MH" ColumnName="REP_TEDS_MH" />
+                <ScalarProperty Name="IN_INF_ANUAL" ColumnName="IN_INF_ANUAL" />
+                <ScalarProperty Name="IN_SUST" ColumnName="IN_SUST" />
+                <ScalarProperty Name="PREOW" ColumnName="PREOW" />
+                <ScalarProperty Name="REP_TEDS" ColumnName="REP_TEDS" />
+                <ScalarProperty Name="IN_TEDS" ColumnName="IN_TEDS" />
+                <ScalarProperty Name="IN_Creado_Fed" ColumnName="IN_Creado_Fed" />
+                <ScalarProperty Name="IN_Inactivo" ColumnName="IN_Inactivo" />
+                <ScalarProperty Name="CO_Hacienda" ColumnName="CO_Hacienda" />
+                <ScalarProperty Name="NB_ProgramaIngles" ColumnName="NB_ProgramaIngles" />
+                <ScalarProperty Name="DE_Programa" ColumnName="DE_Programa" />
+                <ScalarProperty Name="NB_Programa" ColumnName="NB_Programa" />
+                <ScalarProperty Name="CO_Prov_ID" ColumnName="CO_Prov_ID" />
+                <ScalarProperty Name="CO_Programa" ColumnName="CO_Programa" />
+                <ScalarProperty Name="CO_Tipo" ColumnName="CO_Tipo" />
+                <ScalarProperty Name="FK_Administracion" ColumnName="FK_Administracion" />
+                <ScalarProperty Name="PK_Programa" ColumnName="PK_Programa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
