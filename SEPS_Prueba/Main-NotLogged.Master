@@ -10,9 +10,9 @@
     <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     <link href="css/global.css" rel="stylesheet">
-    <script type='text/javascript' src="vendor/jquery-1.11.2.min.js"></script>
-    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/scripts/UIFlujo.js")%>"></script>
-    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js") %>"></script>
+    <script type='text/javascript' src="vendor/jquery-1.11.2.min.js?ver=2"></script>
+    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/scripts/UIFlujo.js?ver=2")%>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js?ver=2") %>"></script>
 </head>
 <body>
     <!--[if lt IE 9]>
