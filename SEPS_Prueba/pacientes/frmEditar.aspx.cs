@@ -39,11 +39,7 @@ namespace ASSMCA.Pacientes
                 this.Response.Redirect("~/Error.aspx?errMsg=sesion");
                 return;
             }
-            if (this.Session["pk_administracion"].ToString() == "1")
-            {
-                ddlVeterano.Enabled = false;
-                ddlVeterano.SelectedValue = "3";
-            }
+           
             this.m_PK_Programa = Convert.ToInt32(this.Session["pk_programa"].ToString());
             this.rvAñoNacimiento.MaximumValue = DateTime.Now.Year.ToString();
             this.rvAñoNacimiento.MinimumValue = DateTime.Now.AddYears(-100).Year.ToString();
@@ -60,6 +56,7 @@ namespace ASSMCA.Pacientes
                     Session["dsPersona"] = this.dsPersona;
                     this.ddlVeterano.Items.Insert(0, new ListItem("", "0"));
                     this.ddlVeterano.SelectedValue = "0";
+                 
                 }
                 else if (Request.QueryString["accion"].ToString() == "editar")
                 {
@@ -89,11 +86,18 @@ namespace ASSMCA.Pacientes
                         this.ddlGrupoEtnico.SelectedValue = this.dsPersona.SA_PERSONA[0]["FK_GrupoEtnico"].ToString();
                         this.ddlVeterano.SelectedValue = this.dsPersona.SA_PERSONA[0]["FK_Veterano"].ToString();
                         this.ActualizarListaRazas();
+                       
                     }
                     else
                     {
                         this.Response.Redirect("../pacientes/frmvisualizar.aspx?accion=consultar&pk_persona=" + this.dsPersona.SA_PERSONA[0]["PK_Persona"].ToString());
                     }
+                }
+
+                if (this.Session["pk_administracion"].ToString() == "1")
+                {
+                    ddlVeterano.Enabled = false;
+                    ddlVeterano.SelectedValue = "2";
                 }
             }
             else

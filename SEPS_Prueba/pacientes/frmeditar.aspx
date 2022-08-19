@@ -208,6 +208,11 @@
                 <%-- Seleccion de razas --%>
                 <div class="multipleLeft">
                     <span class="SEPSLabel">Razas (Disponibles)</span>
+                        <asp:CustomValidator runat="server" ID="cvmodulelist"
+  ClientValidationFunction="ValidateRaza"
+  ErrorMessage="Debe seleccionar mínimo una raza." Display="Dynamic" Text="Debe seleccionar mínimo una raza" style="color: red;" ></asp:CustomValidator>
+
+
                     <asp:ListBox ID="lbxRazaSinSeleccionar" runat="server" DataValueField="PK_Raza" CssClass="form-control" DataTextField="DE_Raza" DataSource="<%# dvwRazasNoSeleccionadas %>" Height="130px" />
                 </div>
                 <div class="multipleCenter text-center">
@@ -353,6 +358,19 @@
 
 
 
+ <script>
+
+
+     function ValidateRaza(source, args) {
+         var count = $('#<%= lbxRazaSeleccionadas.ClientID %> option').length;
+         if (count >= 1) {
+                 args.IsValid = true;
+                 return;
+             }
+         
+         args.IsValid = false;
+     }
+ </script>
 
 
 

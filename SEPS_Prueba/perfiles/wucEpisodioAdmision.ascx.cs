@@ -1836,10 +1836,10 @@ namespace ASSMCA.Perfiles
                 ddlFrecuenciaFumado.SelectedValue = "";
                 txtNrFumado.Text = "";
 
-                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+                //var value = ddlFrecuenciaFumado.Items.FindByValue("3");
 
-                if (value != null)
-                    value.Enabled = false;
+                //if (value != null)
+                //    value.Enabled = false;
 
 
 
@@ -1853,10 +1853,10 @@ namespace ASSMCA.Perfiles
                 ddlFrecuenciaFumado.SelectedValue = "";
 
 
-                var value = ddlFrecuenciaFumado.Items.FindByValue("3");
+                //var value = ddlFrecuenciaFumado.Items.FindByValue("3");
 
-                if (value != null)
-                    value.Enabled = true;
+                //if (value != null)
+                //    value.Enabled = true;
 
             }
             else
@@ -1870,7 +1870,7 @@ namespace ASSMCA.Perfiles
 
                 if (value != null)
                 {
-                    value.Enabled = true;
+                    //value.Enabled = true;
                     ddlFrecuenciaFumado.SelectedValue = "3";
                 }
 
