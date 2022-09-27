@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SEPS_JRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SA_LKP_ALTA">
+          <Key>
+            <PropertyRef Name="PK_Alta" />
+          </Key>
+          <Property Name="PK_Alta" Type="tinyint" Nullable="false" />
+          <Property Name="DE_Alta" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="CO_TEDS" Type="char" MaxLength="2" />
+          <Property Name="CO_TEDS_MH" Type="char" MaxLength="2" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Ordered" Type="int" />
+          <Property Name="CW_COMENTARIO" Type="varchar" MaxLength="300" />
+        </EntityType>
         <EntityType Name="SA_PROGRAMA">
           <Key>
             <PropertyRef Name="PK_Programa" />
@@ -33,6 +45,7 @@
           <Property Name="CERRAR_EPISODIO_ADMISION" Type="bit" />
           <Property Name="PRACTICAS_BASADA_EN_EVIDENCIA" Type="bit" />
           <Property Name="TIENE_TAKE_HOME" Type="bit" />
+          <Property Name="CW_COMENTARIO" Type="varchar" MaxLength="300" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -85,6 +98,7 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SEPS_JRModelStoreContainer">
+          <EntitySet Name="SA_LKP_ALTA" EntityType="Self.SA_LKP_ALTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SA_PROGRAMA" EntityType="Self.SA_PROGRAMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VW_PERSONA" EntityType="Self.VW_PERSONA" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -159,6 +173,7 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
             <End Role="SA_PROGRAMA" EntitySet="SA_PROGRAMA" />
             <End Role="SA_PROGRAMA1" EntitySet="SA_PROGRAMA" />
           </AssociationSet>
+          <EntitySet Name="SA_LKP_ALTA" EntityType="SEPS_JRModel.SA_LKP_ALTA" />
         </EntityContainer>
         <EntityType Name="SA_PROGRAMA">
           <Key>
@@ -190,6 +205,7 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
           <Property Name="TIENE_TAKE_HOME" Type="Boolean" />
           <NavigationProperty Name="SA_PROGRAMA1" Relationship="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" FromRole="SA_PROGRAMA" ToRole="SA_PROGRAMA1" />
           <NavigationProperty Name="SA_PROGRAMA2" Relationship="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" FromRole="SA_PROGRAMA1" ToRole="SA_PROGRAMA" />
+          <Property Name="CW_COMENTARIO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_SA_PROGRAMA_SA_PROGRAMA">
           <End Type="SEPS_JRModel.SA_PROGRAMA" Role="SA_PROGRAMA" Multiplicity="1" />
@@ -203,6 +219,18 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SA_LKP_ALTA">
+          <Key>
+            <PropertyRef Name="PK_Alta" />
+          </Key>
+          <Property Name="PK_Alta" Type="Byte" Nullable="false" />
+          <Property Name="DE_Alta" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="CO_TEDS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CO_TEDS_MH" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Ordered" Type="Int32" />
+          <Property Name="CW_COMENTARIO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -235,6 +263,7 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
           <EntitySetMapping Name="SA_PROGRAMA">
             <EntityTypeMapping TypeName="SEPS_JRModel.SA_PROGRAMA">
               <MappingFragment StoreEntitySet="SA_PROGRAMA">
+                <ScalarProperty Name="CW_COMENTARIO" ColumnName="CW_COMENTARIO" />
                 <ScalarProperty Name="TIENE_TAKE_HOME" ColumnName="TIENE_TAKE_HOME" />
                 <ScalarProperty Name="PRACTICAS_BASADA_EN_EVIDENCIA" ColumnName="PRACTICAS_BASADA_EN_EVIDENCIA" />
                 <ScalarProperty Name="CERRAR_EPISODIO_ADMISION" ColumnName="CERRAR_EPISODIO_ADMISION" />
@@ -259,6 +288,19 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
                 <ScalarProperty Name="CO_Tipo" ColumnName="CO_Tipo" />
                 <ScalarProperty Name="FK_Administracion" ColumnName="FK_Administracion" />
                 <ScalarProperty Name="PK_Programa" ColumnName="PK_Programa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SA_LKP_ALTA">
+            <EntityTypeMapping TypeName="SEPS_JRModel.SA_LKP_ALTA">
+              <MappingFragment StoreEntitySet="SA_LKP_ALTA">
+                <ScalarProperty Name="CW_COMENTARIO" ColumnName="CW_COMENTARIO" />
+                <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CO_TEDS_MH" ColumnName="CO_TEDS_MH" />
+                <ScalarProperty Name="CO_TEDS" ColumnName="CO_TEDS" />
+                <ScalarProperty Name="DE_Alta" ColumnName="DE_Alta" />
+                <ScalarProperty Name="PK_Alta" ColumnName="PK_Alta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

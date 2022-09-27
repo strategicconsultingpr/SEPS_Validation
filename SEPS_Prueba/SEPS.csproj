@@ -447,6 +447,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SA_LKP_ALTA.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
     <Compile Include="SA_PROGRAMA.cs">
       <DependentUpon>Seps.tt</DependentUpon>
     </Compile>

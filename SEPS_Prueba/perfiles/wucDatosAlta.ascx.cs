@@ -6,7 +6,9 @@ namespace ASSMCA.Perfiles
 	using System.Web;
 	using System.Web.UI.WebControls;
 	using System.Web.UI.HtmlControls;
-	public partial class wucDatosAlta : System.Web.UI.UserControl
+    using ASSMCA.perfiles;
+
+    public partial class wucDatosAlta : System.Web.UI.UserControl
 	{
 		protected ASSMCA.perfiles.dsPerfil dsPerfil;
 		public frmAction m_frmAction;
@@ -18,7 +20,10 @@ namespace ASSMCA.Perfiles
             if (!this.IsPostBack)
             {
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
-                this.dvwRazonAlta.Table = this.dsPerfil.SA_LKP_ALTA;
+
+                var razonAlta = new VW_RAZON_ALTATableAdapter();
+
+                this.dvwRazonAlta.Table = razonAlta.GetData();
                 //if (this.Session["pk_administracion"].ToString() == "1" && this.pk_programa != 75)//Niños y adolecentes
                 //{
                 //    this.dvwRazonAlta.RowFilter = " PK_Alta <> 8 ";

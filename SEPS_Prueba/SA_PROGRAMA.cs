@@ -38,6 +38,7 @@ namespace SEPS
         public Nullable<bool> CERRAR_EPISODIO_ADMISION { get; set; }
         public Nullable<bool> PRACTICAS_BASADA_EN_EVIDENCIA { get; set; }
         public Nullable<bool> TIENE_TAKE_HOME { get; set; }
+        public string CW_COMENTARIO { get; set; }
     
         public virtual SA_PROGRAMA SA_PROGRAMA1 { get; set; }
         public virtual SA_PROGRAMA SA_PROGRAMA2 { get; set; }
