@@ -148,7 +148,7 @@
         </div>
     </div>
     <div class="col-md-6 SEPSDivs"><%--Ha sido arrestado en los últ. 30 días--%>
-        <span class="SEPSLabel">¿Ha sido arrestado durante los pasados 30 días? (antes de la admisión) (US-SM-NOM):</span>
+        <span class="SEPSLabel">¿Ha sido arrestado durante los pasados 30 días? <br />(antes de la admisión) (US-SM-NOM):</span>
          <asp:RequiredFieldValidator ID="rfvArrestado30" runat="server" InitialValue="" CssClass="rightFloatAsterisk" Display="Dynamic"  ControlToValidate="ddlArrestado30" ErrorMessage="¿Ha sido arrestado durante los pasados 30 días? (antes de la admisión) (US-SM-NOM)" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
             <asp:DropDownList  CssClass="form-control" ID="ddlArrestado30"  runat="server" OnSelectedIndexChanged="ddlArrestado30_SelectedIndexChanged" AutoPostBack="true" >
@@ -161,7 +161,7 @@
         </div>
     </div>    
     <div class="col-md-6 SEPSDivs"><%--Núm. de arrestos en tratamiento o en últimos 30 días--%>
-        <span class="SEPSLabel">Número de arrestos en los pasados 30 días (US-SM-NOM):</span>
+        <span class="SEPSLabel">Número de arrestos en los pasados 30 días <br /> (US-SM-NOM):</span>
             <asp:RequiredFieldValidator ID="rfvArrestos30" runat="server" CssClass="rightFloatAsterisk" Display="Dynamic" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días (US-SM-NOM):" ToolTip="Campo Requerido. Escriba un valor numerico." Text="*"/>
             <asp:RangeValidator ID="rvArrestos30" runat="server" CssClass="rightFloatAsterisk" ControlToValidate="txtArrestos30" ErrorMessage="Número de arrestos en los pasados 30 días" ToolTip="Valor invalido" Type="Integer" MaximumValue="30" MinimumValue="0" Display="Dynamic" Text="*"/>
             <div class="expandibleDiv">
@@ -243,7 +243,7 @@
   <div class="panel-body">
     <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Episodios previos al tratamiento--%>
-        <span class="SEPSLabel">Número de episodios/servicios de tratamiento que ha recibido anteriormente [TEDS]:</span>
+        <span class="SEPSLabel">Número de episodios/servicios de tratamiento <br /> que ha recibido anteriormente [TEDS]:</span>
           <asp:RequiredFieldValidator ID="rfvPreviosSustancias" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlPreviosSustancias" ErrorMessage="Episodios previos al tratamiento" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList  CssClass="form-control" ID="ddlPreviosSustancias" onChange="ddlPreviosSustancias()" runat="server" DataSource="<%# dsPerfil %>" DataMember="SA_LKP_TEDS_EPISODIO_PREVIO" DataTextField="DE_EpisodiosPrevios" DataValueField="PK_EpisodiosPrevios" />
@@ -254,7 +254,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Duracion del ultimo episodio de servicio de abuso de sustancias--%>
-        <span class="SEPSLabel">Duración del último servicio de tratamiento de uso de sustancias:</span>
+        <span class="SEPSLabel">Duración del último servicio de <br /> tratamiento de uso de sustancias:</span>
                 <asp:RequiredFieldValidator ID="rfvUltSustancias" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlUltSustancias" ErrorMessage="Duración del último episodio de servicio de abuso de sustancias" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList  CssClass="form-control" ID="ddlUltSustancias" onChange="ddlUltSustancias()" runat="server" DataSource="<%# dvwUltSustancias %>" DataTextField="DE_TiempoUltTrat" DataValueField="PK_TiempoUltTrat" />
@@ -306,7 +306,7 @@
   <div class="panel-body">
     <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Episodios previos al tratamiento--%>
-        <span class="SEPSLabel">Número de episodios/servicios de tratamiento que ha recibido anteriormente:</span>
+        <span class="SEPSLabel">Número de episodios/servicios de tratamiento <br /> que ha recibido anteriormente:</span>
         <asp:RequiredFieldValidator ID="rfvPreviosMental" CssClass="rightFloatAsterisk" runat="server" Display="Dynamic"  InitialValue="0" ControlToValidate="ddlPreviosMental" ErrorMessage="Episodios previos al tratamiento" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlPreviosMental" onChange="ddlPreviosMental()" runat="server" DataSource="<%# dvwEpisPreviosMental %>" DataTextField="DE_EpisodiosPrevios" DataValueField="PK_EpisodiosPrevios" />
@@ -316,7 +316,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 SEPSDivs"><%--Duración del último episodio de servicio de salud mental--%>
-        <span class="SEPSLabel">Duración del último servicio de tratamiento de uso de salud mental:</span>
+        <span class="SEPSLabel">Duración del último servicio de tratamiento <br /> de uso de salud mental:</span>
          <asp:RequiredFieldValidator ID="rfvUltMental" CssClass="rightFloatAsterisk" runat="server"  Display="Dynamic" InitialValue="0" ControlToValidate="ddlUltMental" ErrorMessage="Duración del último episodio de servicio de salud mental" ToolTip="Seleccione un valor de la lista. Este campo es requerido." Text="*"/>
         <div class="expandibleDiv">
         <asp:DropDownList CssClass="form-control" ID="ddlUltMental"  onChange="ddlUltMental()" runat="server" DataSource="<%# dvwUltMental %>" DataTextField="DE_TiempoUltTrat" DataValueField="PK_TiempoUltTrat"/>
@@ -924,7 +924,7 @@
                     <label class="SEPSLabel">Si contesto si, ¿con que frecuencia fuma cigarrillos actualmente?:</label>
                     <asp:RequiredFieldValidator ID="rfvFrecuenciaFumado" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Frecuencia de fumar" ControlToValidate="ddlFrecuenciaFumado" Text="*" />
                     
-                        <asp:DropDownList CssClass="form-control"  Width="100%"  ID="ddlFrecuenciaFumado" runat="server">
+                        <asp:DropDownList CssClass="form-control" AutoPostBack="true"  Width="100%"  OnSelectedIndexChanged="ddlFrecuenciaFumado_SelectedIndexChanged"  ID="ddlFrecuenciaFumado" runat="server">
                             <asp:ListItem />
                             <%-- IN ZONA > EPISODIO --%>
                             <asp:ListItem Value="1">Todos los días</asp:ListItem>

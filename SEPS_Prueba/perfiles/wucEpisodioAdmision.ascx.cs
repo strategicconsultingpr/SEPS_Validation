@@ -1895,7 +1895,19 @@ namespace ASSMCA.Perfiles
             }
         }
 
-  
+        protected void ddlFrecuenciaFumado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(ddlFrecuenciaFumado.SelectedValue == "3")
+            {
+                txtNrFumado.Text = "0";
+                txtNrFumado.Enabled = false;
+            }
+            else
+            {
+                txtNrFumado.Text = "";
+                txtNrFumado.Enabled = true;
+            }
+        }
 
         public sbyte @FK_FrecuenciaTerciario
         {

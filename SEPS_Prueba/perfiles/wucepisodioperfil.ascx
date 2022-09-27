@@ -443,7 +443,7 @@
                     <label class="SEPSLabel">Si contesto si, ¿con que frecuencia fuma cigarrillos actualmente?:</label>
                     <asp:RequiredFieldValidator ID="rfvFrecuenciaFumado" Display="Dynamic" CssClass="rightFloatAsterisk" runat="server" ToolTip="Seleccione un valor de la lista. Este campo es requerido." ErrorMessage="Frecuencia de fumar" ControlToValidate="ddlFrecuenciaFumado" Text="*" />
                     
-                        <asp:DropDownList CssClass="form-control"  Width="100%"  ID="ddlFrecuenciaFumado" runat="server">
+                        <asp:DropDownList CssClass="form-control"  Width="100%"  OnSelectedIndexChanged="ddlFrecuenciaFumado_SelectedIndexChanged" AutoPostBack="true" ID="ddlFrecuenciaFumado" runat="server">
                             <asp:ListItem />
                             <%-- IN ZONA > EPISODIO --%>
                             <asp:ListItem Value="1">Todos los días</asp:ListItem>
