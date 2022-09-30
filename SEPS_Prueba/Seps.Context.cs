@@ -28,5 +28,6 @@ namespace SEPS
         public virtual DbSet<VW_PERSONA> VW_PERSONA { get; set; }
         public virtual DbSet<SA_PROGRAMA> SA_PROGRAMA { get; set; }
         public virtual DbSet<SA_LKP_ALTA> SA_LKP_ALTA { get; set; }
+        public virtual DbSet<VW_RAZON_ALTA> VW_RAZON_ALTA { get; set; }
     }
 }

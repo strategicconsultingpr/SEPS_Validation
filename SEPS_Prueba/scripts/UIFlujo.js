@@ -3302,10 +3302,11 @@ function validateCOOCURRING() {
             flagConcurrente = false;
         }
         //3)	Participación en reuniones de grupos de apoyo o auto-ayuda enfocados en la recuperación de uso de sustancias durante los pasados 30 días
-        if (ddlFreq_AutoAyuda.value != '1' && ddlDSMVDiagDual.value != "1") {
+        if (ddlFreq_AutoAyuda.value != '1' && ddlFreq_AutoAyuda.value != '7'  && ddlDSMVDiagDual.value != "1") {
             campos += "\u2022Seleccionó que ha participado de reuniones de grupos de auto-ayuda durante los pasados 30 días\n";
             flagConcurrente = false;
         }
+
         //4)	Diagnósticos de uso de sustancias
         if (ClinHDSus.value != '761' && ddlDSMVDiagDual.value != "1") {
             campos += "\u2022Seleccionó un diagnóstico de abuso de sustancia\n";
@@ -3322,7 +3323,7 @@ function validateCOOCURRING() {
             alert(message + campos);
         }
 
-        if (ClinHDSus.value == '761' && opiod.value == 4 && (ddlPreviosSustancias.value == "99" || ddlPreviosSustancias.value == "1") && ddlFreq_AutoAyuda.value == '1' && (ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && ddlDSMVDiagDual.value == "1") {
+        if (ClinHDSus.value == '761' && opiod.value == 4 && (ddlPreviosSustancias.value == "99" || ddlPreviosSustancias.value == "1") && (ddlFreq_AutoAyuda.value == '1' ||  ddlFreq_AutoAyuda.value == '7') && (ddlDrogaPrim.value == sustanciasList.Noaplica || ddlDrogaPrim.value == sustanciasList.Tabacocigarrillo) && ddlDSMVDiagDual.value == "1") {
             alert("!!! !!! ESTE PERFIL DE SALUD MENTAL REFLEJA QUE NO ES CONCURRENTE Y USTED SELECCIONO LO CONTRARIO !!!");
             return false;
         }

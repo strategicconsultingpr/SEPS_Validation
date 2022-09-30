@@ -479,6 +479,9 @@
     <Compile Include="VW_PERSONA.cs">
       <DependentUpon>Seps.tt</DependentUpon>
     </Compile>
+    <Compile Include="VW_RAZON_ALTA.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ASSMCA.dsASSMCA.xsc">

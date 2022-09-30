@@ -7,6 +7,9 @@ namespace ASSMCA.Perfiles
 	using System.Web.UI.WebControls;
 	using System.Web.UI.HtmlControls;
     using ASSMCA.perfiles;
+    using SEPS;
+    using System.Linq;
+    using SEPS.Constante;
 
     public partial class wucDatosAlta : System.Web.UI.UserControl
 	{
@@ -21,9 +24,15 @@ namespace ASSMCA.Perfiles
             {
                 this.dsPerfil = (ASSMCA.perfiles.dsPerfil)this.Session["dsPerfil"];
 
-                var razonAlta = new VW_RAZON_ALTATableAdapter();
 
-                this.dvwRazonAlta.Table = razonAlta.GetData();
+                using (var seps = new SEPS_Entities())
+                {
+                    var razonAlta = seps.VW_RAZON_ALTA.ToList();
+
+                    this.dvwRazonAlta.Table = Const.ToDataTable(razonAlta);
+
+                }
+                //this.dvwRazonAlta.Table = dsPerfil.SA_LKP_ALTA; 
                 //if (this.Session["pk_administracion"].ToString() == "1" && this.pk_programa != 75)//Niños y adolecentes
                 //{
                 //    this.dvwRazonAlta.RowFilter = " PK_Alta <> 8 ";

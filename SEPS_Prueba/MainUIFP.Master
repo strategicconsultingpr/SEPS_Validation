@@ -10,10 +10,10 @@
     <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     <link href="css/global.css" rel="stylesheet">
-    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/jquery-1.11.2.min.js?ver=2") %>"></script>
-    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIFlujoPerfil.js?ver=2")%>"></script>
-    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIVal.js?ver=2") %>"></script>
-    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js?ver=2") %>"></script>
+    <script type='text/javascript' src="<%= Page.ResolveClientUrl("~/vendor/jquery-1.11.2.min.js?ver=3") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIFlujoPerfil.js?ver=3")%>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/UIVal.js?ver=3") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/scripts/Global.js?ver=3") %>"></script>
 </head>
 <body>
     <div class="visible-print-block">

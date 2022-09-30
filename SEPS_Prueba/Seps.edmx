@@ -10,7 +10,7 @@
             <PropertyRef Name="PK_Alta" />
           </Key>
           <Property Name="PK_Alta" Type="tinyint" Nullable="false" />
-          <Property Name="DE_Alta" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="DE_Alta" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CO_TEDS" Type="char" MaxLength="2" />
           <Property Name="CO_TEDS_MH" Type="char" MaxLength="2" />
           <Property Name="Active" Type="bit" />
@@ -85,6 +85,18 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
           <Property Name="TI_Edicion" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="FE_Edicion" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VW_RAZON_ALTA">
+          <Key>
+            <PropertyRef Name="PK_Alta" />
+            <PropertyRef Name="DE_Alta" />
+          </Key>
+          <Property Name="PK_Alta" Type="tinyint" Nullable="false" />
+          <Property Name="DE_Alta" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Ordered" Type="int" />
+        </EntityType>
         <Association Name="FK_SA_PROGRAMA_SA_PROGRAMA">
           <End Role="SA_PROGRAMA" Type="Self.SA_PROGRAMA" Multiplicity="1" />
           <End Role="SA_PROGRAMA1" Type="Self.SA_PROGRAMA" Multiplicity="0..1" />
@@ -120,6 +132,14 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
     [VW_PERSONA].[TI_Edicion] AS [TI_Edicion], 
     [VW_PERSONA].[FE_Edicion] AS [FE_Edicion]
     FROM [dbo].[VW_PERSONA] AS [VW_PERSONA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VW_RAZON_ALTA" EntityType="Self.VW_RAZON_ALTA" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_RAZON_ALTA].[PK_Alta] AS [PK_Alta], 
+    [VW_RAZON_ALTA].[DE_Alta] AS [DE_Alta], 
+    [VW_RAZON_ALTA].[Active] AS [Active], 
+    [VW_RAZON_ALTA].[Ordered] AS [Ordered]
+    FROM [dbo].[VW_RAZON_ALTA] AS [VW_RAZON_ALTA]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_SA_PROGRAMA_SA_PROGRAMA" Association="Self.FK_SA_PROGRAMA_SA_PROGRAMA">
             <End Role="SA_PROGRAMA" EntitySet="SA_PROGRAMA" />
@@ -174,6 +194,7 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
             <End Role="SA_PROGRAMA1" EntitySet="SA_PROGRAMA" />
           </AssociationSet>
           <EntitySet Name="SA_LKP_ALTA" EntityType="SEPS_JRModel.SA_LKP_ALTA" />
+          <EntitySet Name="VW_RAZON_ALTA" EntityType="SEPS_JRModel.VW_RAZON_ALTA" />
         </EntityContainer>
         <EntityType Name="SA_PROGRAMA">
           <Key>
@@ -224,12 +245,22 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
             <PropertyRef Name="PK_Alta" />
           </Key>
           <Property Name="PK_Alta" Type="Byte" Nullable="false" />
-          <Property Name="DE_Alta" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="DE_Alta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CO_TEDS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="CO_TEDS_MH" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="Active" Type="Boolean" />
           <Property Name="Ordered" Type="Int32" />
           <Property Name="CW_COMENTARIO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VW_RAZON_ALTA">
+          <Key>
+            <PropertyRef Name="PK_Alta" />
+            <PropertyRef Name="DE_Alta" />
+          </Key>
+          <Property Name="PK_Alta" Type="Byte" Nullable="false" />
+          <Property Name="DE_Alta" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Ordered" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -299,6 +330,16 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary ke
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="CO_TEDS_MH" ColumnName="CO_TEDS_MH" />
                 <ScalarProperty Name="CO_TEDS" ColumnName="CO_TEDS" />
+                <ScalarProperty Name="DE_Alta" ColumnName="DE_Alta" />
+                <ScalarProperty Name="PK_Alta" ColumnName="PK_Alta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_RAZON_ALTA">
+            <EntityTypeMapping TypeName="SEPS_JRModel.VW_RAZON_ALTA">
+              <MappingFragment StoreEntitySet="VW_RAZON_ALTA">
+                <ScalarProperty Name="Ordered" ColumnName="Ordered" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="DE_Alta" ColumnName="DE_Alta" />
                 <ScalarProperty Name="PK_Alta" ColumnName="PK_Alta" />
               </MappingFragment>
