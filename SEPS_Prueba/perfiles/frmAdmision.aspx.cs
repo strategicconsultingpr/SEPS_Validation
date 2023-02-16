@@ -10,6 +10,9 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using SEPS;
+using System.Linq;
+using SEPS.Constante;
 #endregion
 namespace ASSMCA.Perfiles
 {
@@ -567,12 +570,43 @@ namespace ASSMCA.Perfiles
         {
 
 
+            //Teds
+            var episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO.DefaultView[0]["PK_Episodio"].ToString());
+            Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
+           var perfil= Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
+            var fe_perfil = this.WucDatosPersonales.FE_Episodio;
+            var nvlSustancia = this.WucEpisodioAdmision.FK_NivelCuidadoSustancias;
+            var nvlMental = this.WucEpisodioAdmision.FK_NivelCuidadoSaludMental;
+
+            using (var seps = new SEPS_Entities())
+            {
+                var oldPerfil = seps.SA_PERFIL.FirstOrDefault(x => x.PK_NR_Perfil == perfil);
+                var oldEpisodio = seps.SA_EPISODIO.FirstOrDefault(x => x.PK_Episodio == episodio);
+
+                if (oldPerfil != null && oldEpisodio != null)
+                {
+                    if (fe_perfil.Date != oldPerfil.FE_Perfil.Date || (oldEpisodio.FK_NivelCuidadoMental != nvlMental) || (oldEpisodio.FK_NivelCuidadoSustancias != nvlSustancia))
+                    {
+                        TEDS.UpdateTransactionAllEpisode(episodio,PK_Sesion,"A",5);
+                        TEDS.DeleteTransactionAllEpisode(episodio, PK_Sesion, 5);
+                    }
+                    else
+                    {
+                        if (oldPerfil.FE_ENVIADO == null)
+                            TEDS.UpdateTransaction(perfil, PK_Sesion, "A", 5);
+                        else
+                            TEDS.UpdateTransaction(perfil, PK_Sesion, "C", 5);
+                    }
+
+                }
+
+            }
 
 
 
 
-            this.SPU_EPISODIO.Parameters["@PK_Episodio"].Value = Convert.ToInt32(this.dsPerfil.SA_EPISODIO.DefaultView[0]["PK_Episodio"].ToString());
-            this.SPU_EPISODIO.Parameters["@FE_Episodio"].Value = this.WucDatosPersonales.FE_Episodio;
+                this.SPU_EPISODIO.Parameters["@PK_Episodio"].Value = episodio;
+            this.SPU_EPISODIO.Parameters["@FE_Episodio"].Value = fe_perfil;
             this.SPU_EPISODIO.Parameters["@FE_FechaConvenio"].Value = this.WucDatosPersonales.FE_FechaConvenio;
 
             this.SPU_EPISODIO.Parameters["@FK_SeguroSalud"].Value = this.WucOtrosDatos.FK_SeguroSalud;
@@ -614,8 +648,8 @@ namespace ASSMCA.Perfiles
             this.SPU_EPISODIO.Parameters["@IN_Suicida"].Value = this.WucEpisodioAdmision.IN_Suicida;
             this.SPU_EPISODIO.Parameters["@IN_IdeaSuicida"].Value = this.WucEpisodioAdmision.IN_IdeaSuicida;
             this.SPU_EPISODIO.Parameters["@IN_TratadoMental"].Value = System.DBNull.Value;
-            this.SPU_PERFIL.Parameters["@PK_NR_Perfil"].Value = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
-            this.SPU_PERFIL.Parameters["@FE_Perfil"].Value = this.WucDatosPersonales.FE_Episodio;
+            this.SPU_PERFIL.Parameters["@PK_NR_Perfil"].Value = perfil;
+            this.SPU_PERFIL.Parameters["@FE_Perfil"].Value = fe_perfil;
             //if (this.WucDatosPersonales.NR_Expediente != "0")
             //{
             //    this.SPU_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
@@ -694,9 +728,9 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@IN_Toxicologia3"].Value = this.WucEpisodioAdmision.IN_Toxicologia3;
 
 
-            Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
+           
             this.SPU_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
-            this.PK_Perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
+            this.PK_Perfil = perfil;
             this.SPU_NewData = new System.Data.SqlClient.SqlCommand();
             this.SPU_NewData.CommandText = "[SPU_NewData]";
             this.SPU_NewData.CommandType = System.Data.CommandType.StoredProcedure;

@@ -14,6 +14,12 @@ namespace SEPS
     
     public partial class SA_PROGRAMA
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SA_PROGRAMA()
+        {
+            this.SA_EPISODIO = new HashSet<SA_EPISODIO>();
+        }
+    
         public short PK_Programa { get; set; }
         public byte FK_Administracion { get; set; }
         public Nullable<short> CO_Tipo { get; set; }
@@ -42,5 +48,7 @@ namespace SEPS
     
         public virtual SA_PROGRAMA SA_PROGRAMA1 { get; set; }
         public virtual SA_PROGRAMA SA_PROGRAMA2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SA_EPISODIO> SA_EPISODIO { get; set; }
     }
 }

@@ -178,6 +178,7 @@
       <DependentUpon>ASSMCA.dsSeguridad.xsd</DependentUpon>
     </Compile>
     <Compile Include="Constante\Const.cs" />
+    <Compile Include="Constante\TEDS.cs" />
     <Compile Include="Modelos\DSMV.cs" />
     <Compile Include="PasswordChangeMandatory.aspx.cs">
       <DependentUpon>PasswordChangeMandatory.aspx</DependentUpon>
@@ -447,7 +448,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SA_EPISODIO.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
     <Compile Include="SA_LKP_ALTA.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SA_PERFIL.cs">
       <DependentUpon>Seps.tt</DependentUpon>
     </Compile>
     <Compile Include="SA_PROGRAMA.cs">
@@ -475,6 +482,18 @@
     </Compile>
     <Compile Include="ViewReport.aspx.designer.cs">
       <DependentUpon>ViewReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VW_EXTRACCIONES_MH_AD.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_EXTRACCIONES_MH_DIS.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_EXTRACCIONES_SA_AD.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_EXTRACCIONES_SA_DIS.cs">
+      <DependentUpon>Seps.tt</DependentUpon>
     </Compile>
     <Compile Include="VW_PERSONA.cs">
       <DependentUpon>Seps.tt</DependentUpon>

@@ -12,6 +12,8 @@ namespace SEPS
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class SEPS_Entities : DbContext
     {
@@ -29,5 +31,45 @@ namespace SEPS
         public virtual DbSet<SA_PROGRAMA> SA_PROGRAMA { get; set; }
         public virtual DbSet<SA_LKP_ALTA> SA_LKP_ALTA { get; set; }
         public virtual DbSet<VW_RAZON_ALTA> VW_RAZON_ALTA { get; set; }
+        public virtual DbSet<SA_EPISODIO> SA_EPISODIO { get; set; }
+        public virtual DbSet<SA_PERFIL> SA_PERFIL { get; set; }
+        public virtual DbSet<VW_EXTRACCIONES_MH_AD> VW_EXTRACCIONES_MH_AD { get; set; }
+        public virtual DbSet<VW_EXTRACCIONES_MH_DIS> VW_EXTRACCIONES_MH_DIS { get; set; }
+        public virtual DbSet<VW_EXTRACCIONES_SA_AD> VW_EXTRACCIONES_SA_AD { get; set; }
+        public virtual DbSet<VW_EXTRACCIONES_SA_DIS> VW_EXTRACCIONES_SA_DIS { get; set; }
+    
+        public virtual int SPC_PERFILES_ELIMINADOS_POR_EPISODIO(Nullable<int> episodio, Nullable<System.Guid> pK_Sesion, Nullable<int> estatus_TEDS)
+        {
+            var episodioParameter = episodio.HasValue ?
+                new ObjectParameter("episodio", episodio) :
+                new ObjectParameter("episodio", typeof(int));
+    
+            var pK_SesionParameter = pK_Sesion.HasValue ?
+                new ObjectParameter("PK_Sesion", pK_Sesion) :
+                new ObjectParameter("PK_Sesion", typeof(System.Guid));
+    
+            var estatus_TEDSParameter = estatus_TEDS.HasValue ?
+                new ObjectParameter("Estatus_TEDS", estatus_TEDS) :
+                new ObjectParameter("Estatus_TEDS", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPC_PERFILES_ELIMINADOS_POR_EPISODIO", episodioParameter, pK_SesionParameter, estatus_TEDSParameter);
+        }
+    
+        public virtual int SPC_PERFILES_ELIMINADOS_POR_PERFIL(Nullable<int> perfil, Nullable<System.Guid> pK_Sesion, Nullable<int> estatus_TEDS)
+        {
+            var perfilParameter = perfil.HasValue ?
+                new ObjectParameter("perfil", perfil) :
+                new ObjectParameter("perfil", typeof(int));
+    
+            var pK_SesionParameter = pK_Sesion.HasValue ?
+                new ObjectParameter("PK_Sesion", pK_Sesion) :
+                new ObjectParameter("PK_Sesion", typeof(System.Guid));
+    
+            var estatus_TEDSParameter = estatus_TEDS.HasValue ?
+                new ObjectParameter("Estatus_TEDS", estatus_TEDS) :
+                new ObjectParameter("Estatus_TEDS", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPC_PERFILES_ELIMINADOS_POR_PERFIL", perfilParameter, pK_SesionParameter, estatus_TEDSParameter);
+        }
     }
 }

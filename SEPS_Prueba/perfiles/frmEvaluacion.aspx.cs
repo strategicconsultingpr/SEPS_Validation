@@ -10,6 +10,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using SEPS.Constante;
+using SEPS;
+using System.Linq;
 
 namespace ASSMCA.Perfiles
 {
@@ -568,9 +570,40 @@ namespace ASSMCA.Perfiles
                 return;
             }
 
+            //Teds
+            var episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO.DefaultView[0]["PK_Episodio"].ToString());
+            Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
+            var perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
+            var fe_contacto = this.WucOtrosDatosPerfil.FE_Contacto;
+          
+
+            using (var seps = new SEPS_Entities())
+            {
+                var oldPerfil = seps.SA_PERFIL.FirstOrDefault(x => x.PK_NR_Perfil == perfil);
+
+                if (oldPerfil != null)
+                {
+                    if (fe_contacto.Value.Date!= oldPerfil.FE_Contacto.Value.Date)
+                    {
+                        TEDS.UpdateTransaction(episodio, PK_Sesion, "A", 5);
+                        TEDS.DeleteTransaction(episodio, PK_Sesion, 5);
+                    }
+                    else
+                    {
+
+                        if (oldPerfil.FE_ENVIADO == null)
+                            TEDS.UpdateTransaction(perfil, PK_Sesion, "A", 5);
+                        else
+                            TEDS.UpdateTransaction(perfil, PK_Sesion, "C", 5);
+                    }
+
+                }
+
+            }
 
 
-            this.SPU_PERFIL.Parameters["@PK_NR_Perfil"].Value = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
+
+			this.SPU_PERFIL.Parameters["@PK_NR_Perfil"].Value = perfil;
 			this.SPU_PERFIL.Parameters["@FE_Perfil"].Value = this.WucOtrosDatosPerfil.FE_Perfil;
             if (this.WucOtrosDatosPerfil.FE_Contacto != null)
             {
@@ -655,7 +688,6 @@ namespace ASSMCA.Perfiles
 			this.SPU_PERFIL.Parameters["@IN_Toxicologia3"].Value = this.WucEpisodioPerfil.IN_Toxicologia3;
 
 
-			Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
             this.SPU_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
 
             //Added New Data

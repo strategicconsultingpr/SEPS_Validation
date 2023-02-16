@@ -10,6 +10,14 @@
         <AssociationConnector Association="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" />
         <EntityTypeShape EntityType="SEPS_JRModel.SA_LKP_ALTA" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="SEPS_JRModel.VW_RAZON_ALTA" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="SEPS_JRModel.SA_EPISODIO" Width="1.5" PointX="6" PointY="23.5" />
+        <EntityTypeShape EntityType="SEPS_JRModel.SA_PERFIL" Width="1.5" PointX="8.25" PointY="17.125" />
+        <EntityTypeShape EntityType="SEPS_JRModel.VW_EXTRACCIONES_MH_AD" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SEPS_JRModel.VW_EXTRACCIONES_MH_DIS" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SEPS_JRModel.VW_EXTRACCIONES_SA_AD" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SEPS_JRModel.VW_EXTRACCIONES_SA_DIS" Width="1.5" PointX="4.75" PointY="8.75" />
+        <AssociationConnector Association="SEPS_JRModel.FK_SA_EPISODIO_SA_PROGRAMA" />
+        <AssociationConnector Association="SEPS_JRModel.FK_SA_PERFIL_SA_EPISODIO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

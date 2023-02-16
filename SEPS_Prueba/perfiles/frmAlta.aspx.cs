@@ -11,6 +11,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using SEPS.Constante;
+using SEPS;
+using System.Linq;
 #endregion
 namespace ASSMCA.Perfiles
 {
@@ -554,16 +556,54 @@ namespace ASSMCA.Perfiles
 
 
 
+
+
             this.SPU_PERFIL.Parameters["@PK_NR_Perfil"].Value = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
             this.SPU_PERFIL.Parameters["@FE_Perfil"].Value = this.WucOtrosDatosPerfil.FE_Perfil;
             if (this.WucOtrosDatosPerfil.FE_Contacto != null)
             {
                 this.SPU_PERFIL.Parameters["@FE_Contacto"].Value = this.WucOtrosDatosPerfil.FE_Contacto;
             }
-           /* if (this.WucDatosPersonales.NR_Expediente != "0")
+
+            //Teds
+            var episodio = Convert.ToInt32(this.dsPerfil.SA_EPISODIO.DefaultView[0]["PK_Episodio"].ToString());
+            Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
+            var perfil = Convert.ToInt32(this.dsPerfil.SA_PERFIL.DefaultView[0]["PK_NR_Perfil"].ToString());
+            var fe_contacto = this.WucOtrosDatosPerfil.FE_Contacto;
+            var fe_perfil = this.WucOtrosDatosPerfil.FE_Perfil;
+
+
+            using (var seps = new SEPS_Entities())
             {
-                this.SPU_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
-            }*/
+                var oldPerfil = seps.SA_PERFIL.FirstOrDefault(x => x.PK_NR_Perfil == perfil);
+
+                if (oldPerfil != null)
+                {
+                    if (fe_contacto.Value.Date != oldPerfil.FE_Contacto.Value.Date || fe_perfil.Date != oldPerfil.FE_Perfil.Date)
+                    {
+                        TEDS.UpdateTransaction(episodio, PK_Sesion, "A", 5);
+                        TEDS.DeleteTransaction(episodio, PK_Sesion, 5);
+                    }
+                    else
+                    {
+                        if(oldPerfil.FE_ENVIADO == null)
+                            TEDS.UpdateTransaction(perfil, PK_Sesion, "A", 5);
+                        else
+                            TEDS.UpdateTransaction(perfil, PK_Sesion, "C", 5);
+                    }
+
+                }
+
+            }
+
+
+
+
+
+            /* if (this.WucDatosPersonales.NR_Expediente != "0")
+             {
+                 this.SPU_PERFIL.Parameters["@NR_Expediente"].Value = this.WucDatosPersonales.NR_Expediente;
+             }*/
             this.SPU_PERFIL.Parameters["@IN_TI_Perfil"].Value = "AL";
             this.SPU_PERFIL.Parameters["@FK_TipoAdmision"].Value = System.DBNull.Value;
             this.SPU_PERFIL.Parameters["@FK_SituacionEscolar"].Value = this.WucDatosDemograficosPerfil.FK_SituacionEscolar;
@@ -644,7 +684,6 @@ namespace ASSMCA.Perfiles
             this.SPU_PERFIL.Parameters["@IN_Toxicologia2"].Value = this.WucEpisodioPerfil.IN_Toxicologia2;
             this.SPU_PERFIL.Parameters["@IN_Toxicologia3"].Value = this.WucEpisodioPerfil.IN_Toxicologia3;
 
-            Guid PK_Sesion = new Guid(this.Session["pk_sesion"].ToString());
             this.SPU_PERFIL.Parameters["@FK_Sesion"].Value = PK_Sesion;
             this.SPU_NewData = new System.Data.SqlClient.SqlCommand();
             this.SPU_NewData.CommandText = "[SPU_NewData]";

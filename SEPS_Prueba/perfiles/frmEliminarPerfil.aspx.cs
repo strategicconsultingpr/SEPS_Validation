@@ -54,21 +54,21 @@ namespace ASSMCA.Perfiles
 
 					//Se complementa el mensaje que se despliega antes de borrar el registro
 					//con la accion a tomar. Ya sea una eliminacion lógica (teds) o física.
-					if(accion == "L")
-					{
-						msg += " El registro no será borrado fisicamente de la base de datos, ";
-						msg += "dado que la fecha del perfil es mayor al tiempo máximo requerido ";
-						msg += "para permitir la eliminación física del registro. El registro será ";
-						msg += "borrado lógicamente, lo que implica que será marcado como eliminado ";
-						msg += "para efecto de los reportes de TEDS o cualquier otra herramienta externa ";
-						msg += "que haga uso de los datos del presente sistema.";
-					}
-					if(accion == "F")
-					{
+					//if(accion == "L")
+					//{
+					//	msg += " El registro no será borrado fisicamente de la base de datos, ";
+					//	msg += "dado que la fecha del perfil es mayor al tiempo máximo requerido ";
+					//	msg += "para permitir la eliminación física del registro. El registro será ";
+					//	msg += "borrado lógicamente, lo que implica que será marcado como eliminado ";
+					//	msg += "para efecto de los reportes de TEDS o cualquier otra herramienta externa ";
+					//	msg += "que haga uso de los datos del presente sistema.";
+					//}
+					//if(accion == "F")
+					//{
 						msg += " El registro será eliminado fisicamente del sistema y no podrá ser ";
 						msg += "recuperado posteriormente. Usted deberá registrar nuevamente el ";
 						msg += "perfil en caso que acepte eliminarlo erroneamente.";
-					}
+					//}
 					this.lblMsg.Text = msg;
 				}
 				else

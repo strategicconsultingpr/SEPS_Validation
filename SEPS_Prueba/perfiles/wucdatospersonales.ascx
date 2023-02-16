@@ -65,7 +65,11 @@
 </div>
         <div class="row">
             <div class="col-lg-6 SEPSDivs"><%-- Fecha de Admision  --%>
+
+               
+
                 <span class="SEPSLabel">Fecha de admisión:</span>
+                
                 <div class="leftFloat">
                     <asp:DropDownList  CssClass="form-control" Width="120px" ID="ddlMes" runat="server" onChange="ddlMesNuevo('WucDatosPersonales_','ddlDía','ddlMes')">
                         <asp:ListItem Value="1">Enero</asp:ListItem>

@@ -5,6 +5,68 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SEPS_JRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SA_EPISODIO">
+          <Key>
+            <PropertyRef Name="PK_Episodio" />
+          </Key>
+          <Property Name="PK_Episodio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Persona" Type="int" Nullable="false" />
+          <Property Name="FK_Programa" Type="smallint" Nullable="false" />
+          <Property Name="FE_Episodio" Type="datetime" Nullable="false" />
+          <Property Name="FK_SeguroSalud" Type="tinyint" Nullable="false" />
+          <Property Name="FK_FuentePago" Type="tinyint" Nullable="false" />
+          <Property Name="FK_FeminaHijos" Type="tinyint" Nullable="false" />
+          <Property Name="IN_VaronHijos" Type="tinyint" />
+          <Property Name="FK_FuenteIngreso" Type="tinyint" Nullable="false" />
+          <Property Name="FK_IngresoIndividual" Type="tinyint" />
+          <Property Name="FK_IngresoFamiliar" Type="tinyint" />
+          <Property Name="FK_TiempoResidencia" Type="tinyint" Nullable="false" />
+          <Property Name="FK_Municipio" Type="smallint" Nullable="false" />
+          <Property Name="IN_Zona" Type="tinyint" Nullable="false" />
+          <Property Name="NR_ZipCode" Type="varchar" MaxLength="5" />
+          <Property Name="DE_Barrio" Type="varchar" MaxLength="50" />
+          <Property Name="FK_EtapaServicio" Type="tinyint" Nullable="false" />
+          <Property Name="FK_NivelCuidadoSustancias" Type="tinyint" />
+          <Property Name="FK_NivelCuidadoMental" Type="tinyint" />
+          <Property Name="IN_Metadona" Type="tinyint" Nullable="false" />
+          <Property Name="IN_CodDependiente" Type="tinyint" Nullable="false" />
+          <Property Name="IN_DiagnosticoDual" Type="tinyint" />
+          <Property Name="FK_FuenteReferido" Type="tinyint" Nullable="false" />
+          <Property Name="FK_EstadoLegal" Type="tinyint" Nullable="false" />
+          <Property Name="IN_ArrestadoAnteriormente" Type="tinyint" Nullable="false" />
+          <Property Name="NR_TotalArrestosPasado" Type="tinyint" />
+          <Property Name="FK_Justicia" Type="tinyint" Nullable="false" />
+          <Property Name="NR_DiasEsperaSustancias" Type="smallint" />
+          <Property Name="FK_EpisodiosSustancias" Type="tinyint" Nullable="false" />
+          <Property Name="FK_DuracionSustancias" Type="tinyint" Nullable="false" />
+          <Property Name="NR_DiasUltimaAltaSustancias" Type="smallint" />
+          <Property Name="NR_MesesUltimaAltaSustancias" Type="smallint" />
+          <Property Name="FK_NivelCuidadoSustanciasAnterior" Type="tinyint" Nullable="false" />
+          <Property Name="IN_SaludMental" Type="tinyint" />
+          <Property Name="NR_DiasEsperaMental" Type="smallint" />
+          <Property Name="FK_EpisodiosMental" Type="tinyint" Nullable="false" />
+          <Property Name="FK_DuracionMental" Type="tinyint" Nullable="false" />
+          <Property Name="NR_DiasUltimaAltaMental" Type="smallint" />
+          <Property Name="NR_MesesUltimaAltaMental" Type="smallint" />
+          <Property Name="FK_NivelCuidadoMentalAnterior" Type="tinyint" Nullable="false" />
+          <Property Name="IN_AbusoSustancias" Type="tinyint" />
+          <Property Name="IN_ViolenciaDomestica" Type="tinyint" Nullable="false" />
+          <Property Name="IN_Maltrato" Type="tinyint" Nullable="false" />
+          <Property Name="IN_TI_Maltrato" Type="tinyint" Nullable="false" />
+          <Property Name="IN_IdeaSuicida" Type="tinyint" />
+          <Property Name="IN_Suicida" Type="tinyint" Nullable="false" />
+          <Property Name="IN_TratadoMental" Type="tinyint" />
+          <Property Name="IN_Ambulatorio" Type="tinyint" />
+          <Property Name="IN_HospitalizadoMental" Type="tinyint" />
+          <Property Name="IN_TI_Hospital" Type="tinyint" />
+          <Property Name="IN_TratamientoResidencial" Type="tinyint" />
+          <Property Name="ES_Episodio" Type="bit" />
+          <Property Name="FE_Alta" Type="datetime" />
+          <Property Name="PK_EpiID_Legacy" Type="varchar" MaxLength="15" />
+          <Property Name="CHK_ENVIADO" Type="bit" />
+          <Property Name="PK_Old" Type="int" />
+          <Property Name="FE_FechaConvenio" Type="datetime" />
+        </EntityType>
         <EntityType Name="SA_LKP_ALTA">
           <Key>
             <PropertyRef Name="PK_Alta" />
@@ -16,6 +78,136 @@
           <Property Name="Active" Type="bit" />
           <Property Name="Ordered" Type="int" />
           <Property Name="CW_COMENTARIO" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="SA_PERFIL">
+          <Key>
+            <PropertyRef Name="PK_NR_Perfil" />
+          </Key>
+          <Property Name="PK_NR_Perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Episodio" Type="int" Nullable="false" />
+          <Property Name="FE_Perfil" Type="datetime" Nullable="false" />
+          <Property Name="FE_Contacto" Type="datetime" />
+          <Property Name="IN_TI_Perfil" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="IN_Emancipado" Type="tinyint" />
+          <Property Name="FK_EstadoMarital" Type="tinyint" Nullable="false" />
+          <Property Name="FK_CondicionLaboral" Type="tinyint" Nullable="false" />
+          <Property Name="FK_ActividadNoLaboral" Type="tinyint" Nullable="false" />
+          <Property Name="IN_EmbarazosTratamiento" Type="tinyint" />
+          <Property Name="NR_Hijos" Type="tinyint" Nullable="false" />
+          <Property Name="FK_Escolaridad" Type="tinyint" Nullable="false" />
+          <Property Name="FE_UltimoInformeEscolar" Type="datetime" />
+          <Property Name="NR_PromedioAcademico" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="NR_AusenciasAcad" Type="smallint" />
+          <Property Name="IN_EducEspecial" Type="tinyint" />
+          <Property Name="IN_DesertorEscolar" Type="tinyint" />
+          <Property Name="FK_Familia" Type="tinyint" Nullable="false" />
+          <Property Name="NR_Familiar" Type="tinyint" Nullable="false" />
+          <Property Name="FK_Residencia" Type="tinyint" Nullable="false" />
+          <Property Name="IN_ParticReunGrupos" Type="tinyint" />
+          <Property Name="FK_FreqAutoAyuda" Type="tinyint" />
+          <Property Name="IN_Arrestado30dias" Type="tinyint" />
+          <Property Name="NR_Arrestos30dias" Type="tinyint" />
+          <Property Name="IN_Arrestado365dias" Type="tinyint" />
+          <Property Name="IN_EstLeg" Type="tinyint" />
+          <Property Name="FK_CondicionPrimaria" Type="tinyint" />
+          <Property Name="FK_CondicionSecundaria" Type="tinyint" />
+          <Property Name="FK_CondicionTerciaria" Type="tinyint" />
+          <Property Name="FK_TrastornosClinicosPrimario" Type="smallint" />
+          <Property Name="FK_TrastornosClinicosSecundario" Type="smallint" />
+          <Property Name="FK_TrastornosClinicosTerciario" Type="smallint" />
+          <Property Name="FK_TrastornosPersonalidadPrimario" Type="smallint" />
+          <Property Name="FK_TrastornosPersonalidadSecundario" Type="smallint" />
+          <Property Name="FK_TrastornosPersonalidadTerciario" Type="smallint" />
+          <Property Name="CO_CondicionesMedicasPrimario" Type="varchar" MaxLength="50" />
+          <Property Name="CO_CondicionesMedicasSecundario" Type="varchar" MaxLength="50" />
+          <Property Name="CO_CondicionesMedicasTerciario" Type="varchar" MaxLength="50" />
+          <Property Name="FK_ProblemasPsicosocialesPrimario" Type="tinyint" />
+          <Property Name="FK_ProblemasPsicosocialesSecundario" Type="tinyint" />
+          <Property Name="FK_ProblemasPsicosocialesTerciario" Type="tinyint" />
+          <Property Name="NR_EscalaGAF" Type="int" />
+          <Property Name="FK_ReferidosGeneradosTX" Type="tinyint" />
+          <Property Name="FK_DisposicionFinalReferido" Type="tinyint" />
+          <Property Name="FK_DrogaPrimario" Type="tinyint" Nullable="false" />
+          <Property Name="FK_ViaPrimario" Type="tinyint" Nullable="false" />
+          <Property Name="FK_FrecuenciaPrimario" Type="tinyint" Nullable="false" />
+          <Property Name="IN_EdadInicioPrimario" Type="tinyint" />
+          <Property Name="NR_CantidadPrimario" Type="tinyint" />
+          <Property Name="FK_MedidaPrimario" Type="tinyint" />
+          <Property Name="NR_GastoPrimario" Type="money" />
+          <Property Name="FK_DrogaSecundario" Type="tinyint" Nullable="false" />
+          <Property Name="FK_ViaSecundario" Type="tinyint" Nullable="false" />
+          <Property Name="FK_FrecuenciaSecundario" Type="tinyint" Nullable="false" />
+          <Property Name="IN_EdadInicioSecundario" Type="tinyint" />
+          <Property Name="NR_CantidadSecundario" Type="tinyint" />
+          <Property Name="FK_MedidaSecundario" Type="tinyint" />
+          <Property Name="NR_GastoSecundario" Type="money" />
+          <Property Name="FK_DrogaTerciario" Type="tinyint" Nullable="false" />
+          <Property Name="FK_ViaTerciario" Type="tinyint" Nullable="false" />
+          <Property Name="FK_FrecuenciaTerciario" Type="tinyint" Nullable="false" />
+          <Property Name="IN_EdadInicioTerciario" Type="tinyint" />
+          <Property Name="NR_CantidadTerciario" Type="tinyint" />
+          <Property Name="FK_MedidaTerciario" Type="tinyint" />
+          <Property Name="NR_GastoTerciario" Type="money" />
+          <Property Name="NR_PromedioVisitas" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FK_Alta" Type="tinyint" />
+          <Property Name="FK_CentroTraslado" Type="smallint" />
+          <Property Name="DE_Comentario" Type="varchar" MaxLength="1500" />
+          <Property Name="TI_Transaccion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FK_Sesion" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TI_Edicion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FE_Edicion" Type="datetime" Nullable="false" />
+          <Property Name="ES_Perfil" Type="bit" />
+          <Property Name="PK_PerfilID_Legacy" Type="varchar" MaxLength="15" />
+          <Property Name="FK_Old" Type="int" />
+          <Property Name="CHK_ENVIADO" Type="bit" />
+          <Property Name="FE_ENVIADO" Type="datetime" />
+          <Property Name="IN_NOENVIADO" Type="bit" />
+          <Property Name="CHK_ENVIADO_SM" Type="bit" />
+          <Property Name="FE_ENVIADO_SM" Type="datetime" />
+          <Property Name="FK_CategoriaCentroPrivado" Type="int" />
+          <Property Name="FK_DSMV_TrastornosClinicos1" Type="int" />
+          <Property Name="FK_DSMV_TrastornosClinicos2" Type="int" />
+          <Property Name="FK_DSMV_TrastornosClinicos3" Type="int" />
+          <Property Name="FK_DSMV_TrastornosPersonalidadRM1" Type="int" />
+          <Property Name="FK_DSMV_TrastornosPersonalidadRM2" Type="int" />
+          <Property Name="FK_DSMV_TrastornosPersonalidadRM3" Type="int" />
+          <Property Name="FK_DSMV_ProblemasPsicosocialesAmbientales1" Type="int" />
+          <Property Name="FK_DSMV_ProblemasPsicosocialesAmbientales2" Type="int" />
+          <Property Name="FK_DSMV_ProblemasPsicosocialesAmbientales3" Type="int" />
+          <Property Name="NR_DSMV_FuncionamientoGlobal" Type="varchar" MaxLength="5" />
+          <Property Name="DE_DSMV_OtrasObservaciones" Type="varchar" MaxLength="1500" />
+          <Property Name="DE_DSMV_Comentarios" Type="varchar" MaxLength="1500" />
+          <Property Name="IN_DSMV_DiagnosticoDual" Type="int" />
+          <Property Name="FK_TipoAdmision" Type="int" />
+          <Property Name="FK_SituacionEscolar" Type="int" />
+          <Property Name="IN_ESCOGIDO" Type="bit" />
+          <Property Name="FileNameTEDS" Type="nvarchar(max)" />
+          <Property Name="ProcessDate" Type="datetime" />
+          <Property Name="FE_Registro" Type="datetime" />
+          <Property Name="NR_CelularPrimario" Type="varchar" MaxLength="50" />
+          <Property Name="NR_CelularContacto" Type="varchar" MaxLength="50" />
+          <Property Name="DE_EmailPrimario" Type="varchar(max)" />
+          <Property Name="DE_EmailSecundario" Type="varchar(max)" />
+          <Property Name="FK_CatRecuperacionRes" Type="tinyint" />
+          <Property Name="HogarRecuperacionRes" Type="varchar(max)" />
+          <Property Name="FK_DSMV_Sustancias1" Type="int" />
+          <Property Name="FK_DSMV_Sustancias2" Type="int" />
+          <Property Name="FK_DSMV_Sustancias3" Type="int" />
+          <Property Name="IN_Fumado" Type="tinyint" />
+          <Property Name="DE_FrecuenciaFumado" Type="varchar(max)" />
+          <Property Name="NR_CigarrosXDias" Type="int" />
+          <Property Name="DE_DrogaNueva1" Type="varchar(max)" />
+          <Property Name="DE_DrogaNueva2" Type="varchar(max)" />
+          <Property Name="DE_DrogaNueva3" Type="varchar(max)" />
+          <Property Name="IN_Toxicologia1" Type="tinyint" />
+          <Property Name="IN_Toxicologia2" Type="tinyint" />
+          <Property Name="IN_Toxicologia3" Type="tinyint" />
+          <Property Name="FK_IDENTIDAD_GENERO" Type="int" />
+          <Property Name="AGREGADO_POR_SMUEE" Type="bit" />
+          <Property Name="FE_AGREGADO_POR_SMUEE" Type="datetime" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="int" />
+          <Property Name="FE_SUBIDO_ACEPTADO_POR_TEDS" Type="datetime" />
+          <Property Name="TEDS_ID" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="SA_PROGRAMA">
           <Key>
@@ -46,6 +238,345 @@
           <Property Name="PRACTICAS_BASADA_EN_EVIDENCIA" Type="bit" />
           <Property Name="TIENE_TAKE_HOME" Type="bit" />
           <Property Name="CW_COMENTARIO" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SEPS_JR.dbo.VW_EXTRACCIONES_MH_AD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VW_EXTRACCIONES_MH_AD">
+          <Key>
+            <PropertyRef Name="System Transaction Type" />
+            <PropertyRef Name="State Code" />
+            <PropertyRef Name="Co-Dependant" />
+            <PropertyRef Name="Client Transaction Type" />
+            <PropertyRef Name="Num of Prior Treat Episode" />
+            <PropertyRef Name="Principal Source of Referral" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="Employment Status" />
+            <PropertyRef Name="Opioid Replacement Therapy" />
+            <PropertyRef Name="Detailed Drug Code Primary" />
+            <PropertyRef Name="DSM Diagnosis" />
+            <PropertyRef Name="Co-occuring Substance Abuse and Mental Health Problems" />
+            <PropertyRef Name="Pregnant at Time of Admision" />
+            <PropertyRef Name="Days Waiting to Enter Treatment" />
+            <PropertyRef Name="Frequency of Attendance" />
+            <PropertyRef Name="Diagnostic Code Set Identifier" />
+            <PropertyRef Name="Smi/Sed Status" />
+            <PropertyRef Name="School Attendance Status" />
+            <PropertyRef Name="Legal Status at Admission State Hospital" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System Transaction Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="State Code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Reporting Date" Type="char" MaxLength="6" />
+          <Property Name="Provider Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Client Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Co-Dependant" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Client Transaction Type" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Date of Admision" Type="char" MaxLength="8" />
+          <Property Name="Type of Service" Type="varchar" MaxLength="2" />
+          <Property Name="Num of Prior Treat Episode" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Principal Source of Referral" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Date of Birth" Type="char" MaxLength="8" />
+          <Property Name="Sex" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Race" Type="varchar" MaxLength="2" />
+          <Property Name="Ethnicity" Type="varchar" MaxLength="2" />
+          <Property Name="Education" Type="varchar" MaxLength="2" />
+          <Property Name="Employment Status" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Substance Pro Code Primary" Type="varchar" MaxLength="2" />
+          <Property Name="Usual Route of Admin Primary" Type="varchar" MaxLength="2" />
+          <Property Name="Frecuency of Use Primary" Type="varchar" MaxLength="2" />
+          <Property Name="Age of First Use Primary" Type="varchar" MaxLength="2" />
+          <Property Name="Substance Pro Code Secondary" Type="varchar" MaxLength="2" />
+          <Property Name="Usual Route of Admin Secondary" Type="varchar" MaxLength="2" />
+          <Property Name="Frecuency of Use Secondary" Type="varchar" MaxLength="2" />
+          <Property Name="Age of First Use Secondary" Type="varchar" MaxLength="2" />
+          <Property Name="Substance Pro Code Tertiary" Type="varchar" MaxLength="2" />
+          <Property Name="Usual Route of Admin Tertiary" Type="varchar" MaxLength="2" />
+          <Property Name="Frecuency of Use Tertiary" Type="varchar" MaxLength="2" />
+          <Property Name="Age of First Use Tertiary" Type="varchar" MaxLength="2" />
+          <Property Name="Opioid Replacement Therapy" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Detailed Drug Code Primary" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Detailed Drug Code Secondary" Type="varchar" MaxLength="4" />
+          <Property Name="Detailed Drug Code Tertiary" Type="varchar" MaxLength="4" />
+          <Property Name="DSM Diagnosis" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Co-occuring Substance Abuse and Mental Health Problems" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Pregnant at Time of Admision" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Veteran Status" Type="varchar" MaxLength="1" />
+          <Property Name="Living Arrangements" Type="varchar" MaxLength="2" />
+          <Property Name="Source of Income/Support" Type="varchar" MaxLength="2" />
+          <Property Name="Health Insurance" Type="varchar" MaxLength="2" />
+          <Property Name="Expected/Actual Primary Source of Payment" Type="varchar" MaxLength="2" />
+          <Property Name="Detailed Not In Labor Force" Type="varchar" MaxLength="2" />
+          <Property Name="Detailed Criminal Justice Referral" Type="varchar" MaxLength="2" />
+          <Property Name="Maritial Status" Type="varchar" MaxLength="2" />
+          <Property Name="Days Waiting to Enter Treatment" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Number of Arrests in 30 Days Prior Adm" Type="varchar" MaxLength="2" />
+          <Property Name="Frequency of Attendance" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Diagnostic Code Set Identifier" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Substance Abuse Diagnostic ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Primary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Secondary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Tertiary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="Smi/Sed Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="School Attendance Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Legal Status at Admission State Hospital" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Escala GAF" Type="varchar" MaxLength="3" />
+          <Property Name="Perfil" Type="int" Nullable="false" />
+          <Property Name="Episode" Type="int" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="datetime" Nullable="false" />
+          <Property Name="PK_PROGRAMA" Type="smallint" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SEPS_JR.dbo.VW_EXTRACCIONES_MH_DIS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VW_EXTRACCIONES_MH_DIS">
+          <Key>
+            <PropertyRef Name="System Transaction Type" />
+            <PropertyRef Name="State Code" />
+            <PropertyRef Name="Co-Dependant" />
+            <PropertyRef Name="Reason for Discharge" />
+            <PropertyRef Name="Co-dependent Collateral" />
+            <PropertyRef Name="Client Transaction Type AD" />
+            <PropertyRef Name="Sex at AD" />
+            <PropertyRef Name="Employment Status" />
+            <PropertyRef Name="Frequency of Attendance" />
+            <PropertyRef Name="Diagnostic Code Set Identifier" />
+            <PropertyRef Name="Smi/Sed Status" />
+            <PropertyRef Name="School Attendance Status" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System Transaction Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="State Code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Reporting Date" Type="char" MaxLength="6" />
+          <Property Name="Provider Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Client Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Co-Dependant" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Type of Service" Type="varchar" MaxLength="2" />
+          <Property Name="Date Last Contact" Type="char" MaxLength="8" />
+          <Property Name="Date of Discharge" Type="varchar" MaxLength="8" />
+          <Property Name="Reason for Discharge" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Provider ID at Admission" Type="varchar" MaxLength="15" />
+          <Property Name="Client ID at Admission" Type="varchar" MaxLength="15" />
+          <Property Name="Co-dependent Collateral" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Client Transaction Type AD" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Date of Admision" Type="char" MaxLength="8" />
+          <Property Name="Type of Service AD" Type="varchar" MaxLength="2" />
+          <Property Name="Date of Birth at AD" Type="char" MaxLength="8" />
+          <Property Name="Sex at AD" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Race at AD" Type="varchar" MaxLength="2" />
+          <Property Name="Ethnicity at AD" Type="varchar" MaxLength="2" />
+          <Property Name="Substance Pro Code Primary" Type="varchar" MaxLength="2" />
+          <Property Name="Substance Pro Code Secondary" Type="varchar" MaxLength="2" />
+          <Property Name="Substance Pro Code Tertiary" Type="varchar" MaxLength="2" />
+          <Property Name="Frecuency of Use Primary" Type="varchar" MaxLength="2" />
+          <Property Name="Frecuency of Use Secondary" Type="varchar" MaxLength="2" />
+          <Property Name="Frecuency of Use Tertiary" Type="varchar" MaxLength="2" />
+          <Property Name="Living Arrangements" Type="varchar" MaxLength="2" />
+          <Property Name="Employment Status" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Detailed Not In Labor Force" Type="varchar" MaxLength="2" />
+          <Property Name="Number of Arrests in 30 Days Prior Adm" Type="varchar" MaxLength="2" />
+          <Property Name="Frequency of Attendance" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Client Transaction Type" Type="varchar" MaxLength="1" />
+          <Property Name="Diagnostic Code Set Identifier" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="MH Diag Code Primary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Secondary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Tertiary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="Smi/Sed Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="School Attendance Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Education" Type="varchar" MaxLength="2" />
+          <Property Name="Escala GAF" Type="varchar" MaxLength="3" />
+          <Property Name="Perfil" Type="int" Nullable="false" />
+          <Property Name="Episode" Type="int" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="datetime" Nullable="false" />
+          <Property Name="PK_PROGRAMA" Type="smallint" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SEPS_JR.dbo.VW_EXTRACCIONES_SA_AD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VW_EXTRACCIONES_SA_AD">
+          <Key>
+            <PropertyRef Name="System Transaction Type" />
+            <PropertyRef Name="State Code" />
+            <PropertyRef Name="Co-Dependant" />
+            <PropertyRef Name="Client Transaction Type" />
+            <PropertyRef Name="Type of Service" />
+            <PropertyRef Name="Principal Source of Referral" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="Ethnicity" />
+            <PropertyRef Name="Education" />
+            <PropertyRef Name="Employment Status" />
+            <PropertyRef Name="Substance Pro Code Primary" />
+            <PropertyRef Name="Usual Route of Admin Primary" />
+            <PropertyRef Name="Frecuency of Use Primary" />
+            <PropertyRef Name="Substance Pro Code Secondary" />
+            <PropertyRef Name="Usual Route of Admin Secondary" />
+            <PropertyRef Name="Frecuency of Use Secondary" />
+            <PropertyRef Name="Substance Pro Code Tertiary" />
+            <PropertyRef Name="Usual Route of Admin Tertiary" />
+            <PropertyRef Name="Frecuency of Use Tertiary" />
+            <PropertyRef Name="Opioid Replacement Therapy" />
+            <PropertyRef Name="DSM Diagnosis" />
+            <PropertyRef Name="DSMV DUAL DIAGNOSTIC" />
+            <PropertyRef Name="Pregnant at Time of Admision" />
+            <PropertyRef Name="Living Arrangements" />
+            <PropertyRef Name="Source of Income/Support" />
+            <PropertyRef Name="Health Insurance" />
+            <PropertyRef Name="Detailed Not In Labor Force" />
+            <PropertyRef Name="Maritial Status" />
+            <PropertyRef Name="Diagnostic Code Set Identifier" />
+            <PropertyRef Name="Smi/Sed Status" />
+            <PropertyRef Name="School Attendance Status" />
+            <PropertyRef Name="Legal Status at Admission State Hospital" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System Transaction Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="State Code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Reporting Date" Type="char" MaxLength="6" />
+          <Property Name="Provider Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Client Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Co-Dependant" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Client Transaction Type" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Date of Admision" Type="char" MaxLength="8" />
+          <Property Name="Type of Service" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Num of Prior Treat Episode" Type="varchar" MaxLength="1" />
+          <Property Name="Principal Source of Referral" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Date of Birth" Type="char" MaxLength="8" />
+          <Property Name="Sex" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Race" Type="varchar" MaxLength="2" />
+          <Property Name="Ethnicity" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Education" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Employment Status" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Substance Pro Code Primary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Usual Route of Admin Primary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Frecuency of Use Primary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Age of First Use Primary" Type="varchar" MaxLength="2" />
+          <Property Name="Substance Pro Code Secondary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Usual Route of Admin Secondary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Frecuency of Use Secondary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Age of First Use Secondary" Type="varchar" MaxLength="2" />
+          <Property Name="Substance Pro Code Tertiary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Usual Route of Admin Tertiary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Frecuency of Use Tertiary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Age of First Use Tertiary" Type="varchar" MaxLength="2" />
+          <Property Name="Opioid Replacement Therapy" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Detailed Drug Code Primary" Type="varchar" MaxLength="4" />
+          <Property Name="Detailed Drug Code Secondary" Type="varchar" MaxLength="4" />
+          <Property Name="Detailed Drug Code Tertiary" Type="varchar" MaxLength="4" />
+          <Property Name="DSM Diagnosis" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="DSMV DUAL DIAGNOSTIC" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Pregnant at Time of Admision" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Veteran Status" Type="varchar" MaxLength="1" />
+          <Property Name="Living Arrangements" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Source of Income/Support" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Health Insurance" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Expected/Actual Primary Source of Payment" Type="varchar" MaxLength="2" />
+          <Property Name="Detailed Not In Labor Force" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Detailed Criminal Justice Referral" Type="varchar" MaxLength="2" />
+          <Property Name="Maritial Status" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Days Waiting to Enter Treatment" Type="char" MaxLength="3" />
+          <Property Name="Number of Arrests in 30 Days Prior Adm" Type="varchar" MaxLength="2" />
+          <Property Name="Frequency of Attendance" Type="varchar" MaxLength="2" />
+          <Property Name="Diagnostic Code Set Identifier" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Substance Abuse Diagnostic ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Primary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Secondary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Tertiary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="Smi/Sed Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="School Attendance Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Legal Status at Admission State Hospital" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Escala GAF" Type="varchar" MaxLength="3" />
+          <Property Name="Perfil" Type="int" Nullable="false" />
+          <Property Name="Episode" Type="int" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="datetime" Nullable="false" />
+          <Property Name="PK_PROGRAMA" Type="smallint" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SEPS_JR.dbo.VW_EXTRACCIONES_SA_DIS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VW_EXTRACCIONES_SA_DIS">
+          <Key>
+            <PropertyRef Name="System Transaction Type" />
+            <PropertyRef Name="State Code" />
+            <PropertyRef Name="Co-Dependant" />
+            <PropertyRef Name="Type of Service" />
+            <PropertyRef Name="Reason for Discharge" />
+            <PropertyRef Name="Co-dependent Collateral" />
+            <PropertyRef Name="Client Transaction Type AD" />
+            <PropertyRef Name="Type of Service AD" />
+            <PropertyRef Name="Sex at AD" />
+            <PropertyRef Name="Ethnicity at AD" />
+            <PropertyRef Name="Substance Pro Code Primary" />
+            <PropertyRef Name="Substance Pro Code SECUNDARIA" />
+            <PropertyRef Name="Substance Pro Code Tertiary" />
+            <PropertyRef Name="Frecuency of Use Primary" />
+            <PropertyRef Name="Frecuency of Use SECUNDARIA" />
+            <PropertyRef Name="Frecuency of Use Tertiary" />
+            <PropertyRef Name="Living Arrangements" />
+            <PropertyRef Name="Employment Status" />
+            <PropertyRef Name="Detailed Not In Labor Force" />
+            <PropertyRef Name="Client Transaction Type" />
+            <PropertyRef Name="Diagnostic Code Set Identifier" />
+            <PropertyRef Name="Smi/Sed Status" />
+            <PropertyRef Name="School Attendance Status" />
+            <PropertyRef Name="Education" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System Transaction Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="State Code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Reporting Date" Type="char" MaxLength="6" />
+          <Property Name="Provider Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Client Identifier" Type="varchar" MaxLength="15" />
+          <Property Name="Co-Dependant" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Type of Service" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Date Last Contact" Type="char" MaxLength="8" />
+          <Property Name="Date of Discharge" Type="char" MaxLength="8" />
+          <Property Name="Reason for Discharge" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Provider ID at Admission" Type="varchar" MaxLength="15" />
+          <Property Name="Client ID at Admission" Type="varchar" MaxLength="15" />
+          <Property Name="Co-dependent Collateral" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Client Transaction Type AD" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Date of Admision" Type="char" MaxLength="8" />
+          <Property Name="Type of Service AD" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Date of Birth at AD" Type="char" MaxLength="8" />
+          <Property Name="Sex at AD" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Race at AD" Type="varchar" MaxLength="2" />
+          <Property Name="Ethnicity at AD" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Substance Pro Code Primary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Substance Pro Code SECUNDARIA" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Substance Pro Code Tertiary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Frecuency of Use Primary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Frecuency of Use SECUNDARIA" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Frecuency of Use Tertiary" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Living Arrangements" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Employment Status" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Detailed Not In Labor Force" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Number of Arrests in 30 Days Prior Dis" Type="varchar" MaxLength="2" />
+          <Property Name="Frecuency of Attendance" Type="varchar" MaxLength="2" />
+          <Property Name="Client Transaction Type" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Diagnostic Code Set Identifier" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="MH Diag Code Primary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Secondary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="MH Diag Code Tertiary ICD-10" Type="varchar" MaxLength="8" />
+          <Property Name="Smi/Sed Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="School Attendance Status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Education" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Escala GAF" Type="varchar" MaxLength="3" />
+          <Property Name="Perfil" Type="int" Nullable="false" />
+          <Property Name="Episode" Type="int" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="datetime" Nullable="false" />
+          <Property Name="PK_PROGRAMA" Type="smallint" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SEPS_JR.dbo.VW_PERSONA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -93,10 +624,38 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary
             <PropertyRef Name="DE_Alta" />
           </Key>
           <Property Name="PK_Alta" Type="tinyint" Nullable="false" />
-          <Property Name="DE_Alta" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="DE_Alta" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Active" Type="bit" />
           <Property Name="Ordered" Type="int" />
         </EntityType>
+        <Association Name="FK_SA_EPISODIO_SA_PROGRAMA">
+          <End Role="SA_PROGRAMA" Type="Self.SA_PROGRAMA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SA_EPISODIO" Type="Self.SA_EPISODIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SA_PROGRAMA">
+              <PropertyRef Name="PK_Programa" />
+            </Principal>
+            <Dependent Role="SA_EPISODIO">
+              <PropertyRef Name="FK_Programa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SA_PERFIL_SA_EPISODIO">
+          <End Role="SA_EPISODIO" Type="Self.SA_EPISODIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SA_PERFIL" Type="Self.SA_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SA_EPISODIO">
+              <PropertyRef Name="PK_Episodio" />
+            </Principal>
+            <Dependent Role="SA_PERFIL">
+              <PropertyRef Name="FK_Episodio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SA_PROGRAMA_SA_PROGRAMA">
           <End Role="SA_PROGRAMA" Type="Self.SA_PROGRAMA" Multiplicity="1" />
           <End Role="SA_PROGRAMA1" Type="Self.SA_PROGRAMA" Multiplicity="0..1" />
@@ -109,9 +668,249 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SPC_PERFILES_ELIMINADOS_POR_EPISODIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="episodio" Type="int" Mode="In" />
+          <Parameter Name="PK_Sesion" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Estatus_TEDS" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SPC_PERFILES_ELIMINADOS_POR_PERFIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="perfil" Type="int" Mode="In" />
+          <Parameter Name="PK_Sesion" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Estatus_TEDS" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="SEPS_JRModelStoreContainer">
+          <EntitySet Name="SA_EPISODIO" EntityType="Self.SA_EPISODIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SA_LKP_ALTA" EntityType="Self.SA_LKP_ALTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SA_PERFIL" EntityType="Self.SA_PERFIL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SA_PROGRAMA" EntityType="Self.SA_PROGRAMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VW_EXTRACCIONES_MH_AD" EntityType="Self.VW_EXTRACCIONES_MH_AD" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_EXTRACCIONES_MH_AD].[System Transaction Type] AS [System Transaction Type], 
+    [VW_EXTRACCIONES_MH_AD].[State Code] AS [State Code], 
+    [VW_EXTRACCIONES_MH_AD].[Reporting Date] AS [Reporting Date], 
+    [VW_EXTRACCIONES_MH_AD].[Provider Identifier] AS [Provider Identifier], 
+    [VW_EXTRACCIONES_MH_AD].[Client Identifier] AS [Client Identifier], 
+    [VW_EXTRACCIONES_MH_AD].[Co-Dependant] AS [Co-Dependant], 
+    [VW_EXTRACCIONES_MH_AD].[Client Transaction Type] AS [Client Transaction Type], 
+    [VW_EXTRACCIONES_MH_AD].[Date of Admision] AS [Date of Admision], 
+    [VW_EXTRACCIONES_MH_AD].[Type of Service] AS [Type of Service], 
+    [VW_EXTRACCIONES_MH_AD].[Num of Prior Treat Episode] AS [Num of Prior Treat Episode], 
+    [VW_EXTRACCIONES_MH_AD].[Principal Source of Referral] AS [Principal Source of Referral], 
+    [VW_EXTRACCIONES_MH_AD].[Date of Birth] AS [Date of Birth], 
+    [VW_EXTRACCIONES_MH_AD].[Sex] AS [Sex], 
+    [VW_EXTRACCIONES_MH_AD].[Race] AS [Race], 
+    [VW_EXTRACCIONES_MH_AD].[Ethnicity] AS [Ethnicity], 
+    [VW_EXTRACCIONES_MH_AD].[Education] AS [Education], 
+    [VW_EXTRACCIONES_MH_AD].[Employment Status] AS [Employment Status], 
+    [VW_EXTRACCIONES_MH_AD].[Substance Pro Code Primary] AS [Substance Pro Code Primary], 
+    [VW_EXTRACCIONES_MH_AD].[Usual Route of Admin Primary] AS [Usual Route of Admin Primary], 
+    [VW_EXTRACCIONES_MH_AD].[Frecuency of Use Primary] AS [Frecuency of Use Primary], 
+    [VW_EXTRACCIONES_MH_AD].[Age of First Use Primary] AS [Age of First Use Primary], 
+    [VW_EXTRACCIONES_MH_AD].[Substance Pro Code Secondary] AS [Substance Pro Code Secondary], 
+    [VW_EXTRACCIONES_MH_AD].[Usual Route of Admin Secondary] AS [Usual Route of Admin Secondary], 
+    [VW_EXTRACCIONES_MH_AD].[Frecuency of Use Secondary] AS [Frecuency of Use Secondary], 
+    [VW_EXTRACCIONES_MH_AD].[Age of First Use Secondary] AS [Age of First Use Secondary], 
+    [VW_EXTRACCIONES_MH_AD].[Substance Pro Code Tertiary] AS [Substance Pro Code Tertiary], 
+    [VW_EXTRACCIONES_MH_AD].[Usual Route of Admin Tertiary] AS [Usual Route of Admin Tertiary], 
+    [VW_EXTRACCIONES_MH_AD].[Frecuency of Use Tertiary] AS [Frecuency of Use Tertiary], 
+    [VW_EXTRACCIONES_MH_AD].[Age of First Use Tertiary] AS [Age of First Use Tertiary], 
+    [VW_EXTRACCIONES_MH_AD].[Opioid Replacement Therapy] AS [Opioid Replacement Therapy], 
+    [VW_EXTRACCIONES_MH_AD].[Detailed Drug Code Primary] AS [Detailed Drug Code Primary], 
+    [VW_EXTRACCIONES_MH_AD].[Detailed Drug Code Secondary] AS [Detailed Drug Code Secondary], 
+    [VW_EXTRACCIONES_MH_AD].[Detailed Drug Code Tertiary] AS [Detailed Drug Code Tertiary], 
+    [VW_EXTRACCIONES_MH_AD].[DSM Diagnosis] AS [DSM Diagnosis], 
+    [VW_EXTRACCIONES_MH_AD].[Co-occuring Substance Abuse and Mental Health Problems] AS [Co-occuring Substance Abuse and Mental Health Problems], 
+    [VW_EXTRACCIONES_MH_AD].[Pregnant at Time of Admision] AS [Pregnant at Time of Admision], 
+    [VW_EXTRACCIONES_MH_AD].[Veteran Status] AS [Veteran Status], 
+    [VW_EXTRACCIONES_MH_AD].[Living Arrangements] AS [Living Arrangements], 
+    [VW_EXTRACCIONES_MH_AD].[Source of Income/Support] AS [Source of Income/Support], 
+    [VW_EXTRACCIONES_MH_AD].[Health Insurance] AS [Health Insurance], 
+    [VW_EXTRACCIONES_MH_AD].[Expected/Actual Primary Source of Payment] AS [Expected/Actual Primary Source of Payment], 
+    [VW_EXTRACCIONES_MH_AD].[Detailed Not In Labor Force] AS [Detailed Not In Labor Force], 
+    [VW_EXTRACCIONES_MH_AD].[Detailed Criminal Justice Referral] AS [Detailed Criminal Justice Referral], 
+    [VW_EXTRACCIONES_MH_AD].[Maritial Status] AS [Maritial Status], 
+    [VW_EXTRACCIONES_MH_AD].[Days Waiting to Enter Treatment] AS [Days Waiting to Enter Treatment], 
+    [VW_EXTRACCIONES_MH_AD].[Number of Arrests in 30 Days Prior Adm] AS [Number of Arrests in 30 Days Prior Adm], 
+    [VW_EXTRACCIONES_MH_AD].[Frequency of Attendance] AS [Frequency of Attendance], 
+    [VW_EXTRACCIONES_MH_AD].[Diagnostic Code Set Identifier] AS [Diagnostic Code Set Identifier], 
+    [VW_EXTRACCIONES_MH_AD].[Substance Abuse Diagnostic ICD-10] AS [Substance Abuse Diagnostic ICD-10], 
+    [VW_EXTRACCIONES_MH_AD].[MH Diag Code Primary ICD-10] AS [MH Diag Code Primary ICD-10], 
+    [VW_EXTRACCIONES_MH_AD].[MH Diag Code Secondary ICD-10] AS [MH Diag Code Secondary ICD-10], 
+    [VW_EXTRACCIONES_MH_AD].[MH Diag Code Tertiary ICD-10] AS [MH Diag Code Tertiary ICD-10], 
+    [VW_EXTRACCIONES_MH_AD].[Smi/Sed Status] AS [Smi/Sed Status], 
+    [VW_EXTRACCIONES_MH_AD].[School Attendance Status] AS [School Attendance Status], 
+    [VW_EXTRACCIONES_MH_AD].[Legal Status at Admission State Hospital] AS [Legal Status at Admission State Hospital], 
+    [VW_EXTRACCIONES_MH_AD].[Escala GAF] AS [Escala GAF], 
+    [VW_EXTRACCIONES_MH_AD].[Perfil] AS [Perfil], 
+    [VW_EXTRACCIONES_MH_AD].[Episode] AS [Episode], 
+    [VW_EXTRACCIONES_MH_AD].[FE_PERFIL] AS [FE_PERFIL], 
+    [VW_EXTRACCIONES_MH_AD].[PK_PROGRAMA] AS [PK_PROGRAMA], 
+    [VW_EXTRACCIONES_MH_AD].[FK_ESTATUS_PERFIL_TEDS] AS [FK_ESTATUS_PERFIL_TEDS]
+    FROM [dbo].[VW_EXTRACCIONES_MH_AD] AS [VW_EXTRACCIONES_MH_AD]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VW_EXTRACCIONES_MH_DIS" EntityType="Self.VW_EXTRACCIONES_MH_DIS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_EXTRACCIONES_MH_DIS].[System Transaction Type] AS [System Transaction Type], 
+    [VW_EXTRACCIONES_MH_DIS].[State Code] AS [State Code], 
+    [VW_EXTRACCIONES_MH_DIS].[Reporting Date] AS [Reporting Date], 
+    [VW_EXTRACCIONES_MH_DIS].[Provider Identifier] AS [Provider Identifier], 
+    [VW_EXTRACCIONES_MH_DIS].[Client Identifier] AS [Client Identifier], 
+    [VW_EXTRACCIONES_MH_DIS].[Co-Dependant] AS [Co-Dependant], 
+    [VW_EXTRACCIONES_MH_DIS].[Type of Service] AS [Type of Service], 
+    [VW_EXTRACCIONES_MH_DIS].[Date Last Contact] AS [Date Last Contact], 
+    [VW_EXTRACCIONES_MH_DIS].[Date of Discharge] AS [Date of Discharge], 
+    [VW_EXTRACCIONES_MH_DIS].[Reason for Discharge] AS [Reason for Discharge], 
+    [VW_EXTRACCIONES_MH_DIS].[Provider ID at Admission] AS [Provider ID at Admission], 
+    [VW_EXTRACCIONES_MH_DIS].[Client ID at Admission] AS [Client ID at Admission], 
+    [VW_EXTRACCIONES_MH_DIS].[Co-dependent Collateral] AS [Co-dependent Collateral], 
+    [VW_EXTRACCIONES_MH_DIS].[Client Transaction Type AD] AS [Client Transaction Type AD], 
+    [VW_EXTRACCIONES_MH_DIS].[Date of Admision] AS [Date of Admision], 
+    [VW_EXTRACCIONES_MH_DIS].[Type of Service AD] AS [Type of Service AD], 
+    [VW_EXTRACCIONES_MH_DIS].[Date of Birth at AD] AS [Date of Birth at AD], 
+    [VW_EXTRACCIONES_MH_DIS].[Sex at AD] AS [Sex at AD], 
+    [VW_EXTRACCIONES_MH_DIS].[Race at AD] AS [Race at AD], 
+    [VW_EXTRACCIONES_MH_DIS].[Ethnicity at AD] AS [Ethnicity at AD], 
+    [VW_EXTRACCIONES_MH_DIS].[Substance Pro Code Primary] AS [Substance Pro Code Primary], 
+    [VW_EXTRACCIONES_MH_DIS].[Substance Pro Code Secondary] AS [Substance Pro Code Secondary], 
+    [VW_EXTRACCIONES_MH_DIS].[Substance Pro Code Tertiary] AS [Substance Pro Code Tertiary], 
+    [VW_EXTRACCIONES_MH_DIS].[Frecuency of Use Primary] AS [Frecuency of Use Primary], 
+    [VW_EXTRACCIONES_MH_DIS].[Frecuency of Use Secondary] AS [Frecuency of Use Secondary], 
+    [VW_EXTRACCIONES_MH_DIS].[Frecuency of Use Tertiary] AS [Frecuency of Use Tertiary], 
+    [VW_EXTRACCIONES_MH_DIS].[Living Arrangements] AS [Living Arrangements], 
+    [VW_EXTRACCIONES_MH_DIS].[Employment Status] AS [Employment Status], 
+    [VW_EXTRACCIONES_MH_DIS].[Detailed Not In Labor Force] AS [Detailed Not In Labor Force], 
+    [VW_EXTRACCIONES_MH_DIS].[Number of Arrests in 30 Days Prior Adm] AS [Number of Arrests in 30 Days Prior Adm], 
+    [VW_EXTRACCIONES_MH_DIS].[Frequency of Attendance] AS [Frequency of Attendance], 
+    [VW_EXTRACCIONES_MH_DIS].[Client Transaction Type] AS [Client Transaction Type], 
+    [VW_EXTRACCIONES_MH_DIS].[Diagnostic Code Set Identifier] AS [Diagnostic Code Set Identifier], 
+    [VW_EXTRACCIONES_MH_DIS].[MH Diag Code Primary ICD-10] AS [MH Diag Code Primary ICD-10], 
+    [VW_EXTRACCIONES_MH_DIS].[MH Diag Code Secondary ICD-10] AS [MH Diag Code Secondary ICD-10], 
+    [VW_EXTRACCIONES_MH_DIS].[MH Diag Code Tertiary ICD-10] AS [MH Diag Code Tertiary ICD-10], 
+    [VW_EXTRACCIONES_MH_DIS].[Smi/Sed Status] AS [Smi/Sed Status], 
+    [VW_EXTRACCIONES_MH_DIS].[School Attendance Status] AS [School Attendance Status], 
+    [VW_EXTRACCIONES_MH_DIS].[Education] AS [Education], 
+    [VW_EXTRACCIONES_MH_DIS].[Escala GAF] AS [Escala GAF], 
+    [VW_EXTRACCIONES_MH_DIS].[Perfil] AS [Perfil], 
+    [VW_EXTRACCIONES_MH_DIS].[Episode] AS [Episode], 
+    [VW_EXTRACCIONES_MH_DIS].[FE_PERFIL] AS [FE_PERFIL], 
+    [VW_EXTRACCIONES_MH_DIS].[PK_PROGRAMA] AS [PK_PROGRAMA], 
+    [VW_EXTRACCIONES_MH_DIS].[FK_ESTATUS_PERFIL_TEDS] AS [FK_ESTATUS_PERFIL_TEDS]
+    FROM [dbo].[VW_EXTRACCIONES_MH_DIS] AS [VW_EXTRACCIONES_MH_DIS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VW_EXTRACCIONES_SA_AD" EntityType="Self.VW_EXTRACCIONES_SA_AD" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_EXTRACCIONES_SA_AD].[System Transaction Type] AS [System Transaction Type], 
+    [VW_EXTRACCIONES_SA_AD].[State Code] AS [State Code], 
+    [VW_EXTRACCIONES_SA_AD].[Reporting Date] AS [Reporting Date], 
+    [VW_EXTRACCIONES_SA_AD].[Provider Identifier] AS [Provider Identifier], 
+    [VW_EXTRACCIONES_SA_AD].[Client Identifier] AS [Client Identifier], 
+    [VW_EXTRACCIONES_SA_AD].[Co-Dependant] AS [Co-Dependant], 
+    [VW_EXTRACCIONES_SA_AD].[Client Transaction Type] AS [Client Transaction Type], 
+    [VW_EXTRACCIONES_SA_AD].[Date of Admision] AS [Date of Admision], 
+    [VW_EXTRACCIONES_SA_AD].[Type of Service] AS [Type of Service], 
+    [VW_EXTRACCIONES_SA_AD].[Num of Prior Treat Episode] AS [Num of Prior Treat Episode], 
+    [VW_EXTRACCIONES_SA_AD].[Principal Source of Referral] AS [Principal Source of Referral], 
+    [VW_EXTRACCIONES_SA_AD].[Date of Birth] AS [Date of Birth], 
+    [VW_EXTRACCIONES_SA_AD].[Sex] AS [Sex], 
+    [VW_EXTRACCIONES_SA_AD].[Race] AS [Race], 
+    [VW_EXTRACCIONES_SA_AD].[Ethnicity] AS [Ethnicity], 
+    [VW_EXTRACCIONES_SA_AD].[Education] AS [Education], 
+    [VW_EXTRACCIONES_SA_AD].[Employment Status] AS [Employment Status], 
+    [VW_EXTRACCIONES_SA_AD].[Substance Pro Code Primary] AS [Substance Pro Code Primary], 
+    [VW_EXTRACCIONES_SA_AD].[Usual Route of Admin Primary] AS [Usual Route of Admin Primary], 
+    [VW_EXTRACCIONES_SA_AD].[Frecuency of Use Primary] AS [Frecuency of Use Primary], 
+    [VW_EXTRACCIONES_SA_AD].[Age of First Use Primary] AS [Age of First Use Primary], 
+    [VW_EXTRACCIONES_SA_AD].[Substance Pro Code Secondary] AS [Substance Pro Code Secondary], 
+    [VW_EXTRACCIONES_SA_AD].[Usual Route of Admin Secondary] AS [Usual Route of Admin Secondary], 
+    [VW_EXTRACCIONES_SA_AD].[Frecuency of Use Secondary] AS [Frecuency of Use Secondary], 
+    [VW_EXTRACCIONES_SA_AD].[Age of First Use Secondary] AS [Age of First Use Secondary], 
+    [VW_EXTRACCIONES_SA_AD].[Substance Pro Code Tertiary] AS [Substance Pro Code Tertiary], 
+    [VW_EXTRACCIONES_SA_AD].[Usual Route of Admin Tertiary] AS [Usual Route of Admin Tertiary], 
+    [VW_EXTRACCIONES_SA_AD].[Frecuency of Use Tertiary] AS [Frecuency of Use Tertiary], 
+    [VW_EXTRACCIONES_SA_AD].[Age of First Use Tertiary] AS [Age of First Use Tertiary], 
+    [VW_EXTRACCIONES_SA_AD].[Opioid Replacement Therapy] AS [Opioid Replacement Therapy], 
+    [VW_EXTRACCIONES_SA_AD].[Detailed Drug Code Primary] AS [Detailed Drug Code Primary], 
+    [VW_EXTRACCIONES_SA_AD].[Detailed Drug Code Secondary] AS [Detailed Drug Code Secondary], 
+    [VW_EXTRACCIONES_SA_AD].[Detailed Drug Code Tertiary] AS [Detailed Drug Code Tertiary], 
+    [VW_EXTRACCIONES_SA_AD].[DSM Diagnosis] AS [DSM Diagnosis], 
+    [VW_EXTRACCIONES_SA_AD].[DSMV DUAL DIAGNOSTIC] AS [DSMV DUAL DIAGNOSTIC], 
+    [VW_EXTRACCIONES_SA_AD].[Pregnant at Time of Admision] AS [Pregnant at Time of Admision], 
+    [VW_EXTRACCIONES_SA_AD].[Veteran Status] AS [Veteran Status], 
+    [VW_EXTRACCIONES_SA_AD].[Living Arrangements] AS [Living Arrangements], 
+    [VW_EXTRACCIONES_SA_AD].[Source of Income/Support] AS [Source of Income/Support], 
+    [VW_EXTRACCIONES_SA_AD].[Health Insurance] AS [Health Insurance], 
+    [VW_EXTRACCIONES_SA_AD].[Expected/Actual Primary Source of Payment] AS [Expected/Actual Primary Source of Payment], 
+    [VW_EXTRACCIONES_SA_AD].[Detailed Not In Labor Force] AS [Detailed Not In Labor Force], 
+    [VW_EXTRACCIONES_SA_AD].[Detailed Criminal Justice Referral] AS [Detailed Criminal Justice Referral], 
+    [VW_EXTRACCIONES_SA_AD].[Maritial Status] AS [Maritial Status], 
+    [VW_EXTRACCIONES_SA_AD].[Days Waiting to Enter Treatment] AS [Days Waiting to Enter Treatment], 
+    [VW_EXTRACCIONES_SA_AD].[Number of Arrests in 30 Days Prior Adm] AS [Number of Arrests in 30 Days Prior Adm], 
+    [VW_EXTRACCIONES_SA_AD].[Frequency of Attendance] AS [Frequency of Attendance], 
+    [VW_EXTRACCIONES_SA_AD].[Diagnostic Code Set Identifier] AS [Diagnostic Code Set Identifier], 
+    [VW_EXTRACCIONES_SA_AD].[Substance Abuse Diagnostic ICD-10] AS [Substance Abuse Diagnostic ICD-10], 
+    [VW_EXTRACCIONES_SA_AD].[MH Diag Code Primary ICD-10] AS [MH Diag Code Primary ICD-10], 
+    [VW_EXTRACCIONES_SA_AD].[MH Diag Code Secondary ICD-10] AS [MH Diag Code Secondary ICD-10], 
+    [VW_EXTRACCIONES_SA_AD].[MH Diag Code Tertiary ICD-10] AS [MH Diag Code Tertiary ICD-10], 
+    [VW_EXTRACCIONES_SA_AD].[Smi/Sed Status] AS [Smi/Sed Status], 
+    [VW_EXTRACCIONES_SA_AD].[School Attendance Status] AS [School Attendance Status], 
+    [VW_EXTRACCIONES_SA_AD].[Legal Status at Admission State Hospital] AS [Legal Status at Admission State Hospital], 
+    [VW_EXTRACCIONES_SA_AD].[Escala GAF] AS [Escala GAF], 
+    [VW_EXTRACCIONES_SA_AD].[Perfil] AS [Perfil], 
+    [VW_EXTRACCIONES_SA_AD].[Episode] AS [Episode], 
+    [VW_EXTRACCIONES_SA_AD].[FE_PERFIL] AS [FE_PERFIL], 
+    [VW_EXTRACCIONES_SA_AD].[PK_PROGRAMA] AS [PK_PROGRAMA], 
+    [VW_EXTRACCIONES_SA_AD].[FK_ESTATUS_PERFIL_TEDS] AS [FK_ESTATUS_PERFIL_TEDS]
+    FROM [dbo].[VW_EXTRACCIONES_SA_AD] AS [VW_EXTRACCIONES_SA_AD]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VW_EXTRACCIONES_SA_DIS" EntityType="Self.VW_EXTRACCIONES_SA_DIS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_EXTRACCIONES_SA_DIS].[System Transaction Type] AS [System Transaction Type], 
+    [VW_EXTRACCIONES_SA_DIS].[State Code] AS [State Code], 
+    [VW_EXTRACCIONES_SA_DIS].[Reporting Date] AS [Reporting Date], 
+    [VW_EXTRACCIONES_SA_DIS].[Provider Identifier] AS [Provider Identifier], 
+    [VW_EXTRACCIONES_SA_DIS].[Client Identifier] AS [Client Identifier], 
+    [VW_EXTRACCIONES_SA_DIS].[Co-Dependant] AS [Co-Dependant], 
+    [VW_EXTRACCIONES_SA_DIS].[Type of Service] AS [Type of Service], 
+    [VW_EXTRACCIONES_SA_DIS].[Date Last Contact] AS [Date Last Contact], 
+    [VW_EXTRACCIONES_SA_DIS].[Date of Discharge] AS [Date of Discharge], 
+    [VW_EXTRACCIONES_SA_DIS].[Reason for Discharge] AS [Reason for Discharge], 
+    [VW_EXTRACCIONES_SA_DIS].[Provider ID at Admission] AS [Provider ID at Admission], 
+    [VW_EXTRACCIONES_SA_DIS].[Client ID at Admission] AS [Client ID at Admission], 
+    [VW_EXTRACCIONES_SA_DIS].[Co-dependent Collateral] AS [Co-dependent Collateral], 
+    [VW_EXTRACCIONES_SA_DIS].[Client Transaction Type AD] AS [Client Transaction Type AD], 
+    [VW_EXTRACCIONES_SA_DIS].[Date of Admision] AS [Date of Admision], 
+    [VW_EXTRACCIONES_SA_DIS].[Type of Service AD] AS [Type of Service AD], 
+    [VW_EXTRACCIONES_SA_DIS].[Date of Birth at AD] AS [Date of Birth at AD], 
+    [VW_EXTRACCIONES_SA_DIS].[Sex at AD] AS [Sex at AD], 
+    [VW_EXTRACCIONES_SA_DIS].[Race at AD] AS [Race at AD], 
+    [VW_EXTRACCIONES_SA_DIS].[Ethnicity at AD] AS [Ethnicity at AD], 
+    [VW_EXTRACCIONES_SA_DIS].[Substance Pro Code Primary] AS [Substance Pro Code Primary], 
+    [VW_EXTRACCIONES_SA_DIS].[Substance Pro Code SECUNDARIA] AS [Substance Pro Code SECUNDARIA], 
+    [VW_EXTRACCIONES_SA_DIS].[Substance Pro Code Tertiary] AS [Substance Pro Code Tertiary], 
+    [VW_EXTRACCIONES_SA_DIS].[Frecuency of Use Primary] AS [Frecuency of Use Primary], 
+    [VW_EXTRACCIONES_SA_DIS].[Frecuency of Use SECUNDARIA] AS [Frecuency of Use SECUNDARIA], 
+    [VW_EXTRACCIONES_SA_DIS].[Frecuency of Use Tertiary] AS [Frecuency of Use Tertiary], 
+    [VW_EXTRACCIONES_SA_DIS].[Living Arrangements] AS [Living Arrangements], 
+    [VW_EXTRACCIONES_SA_DIS].[Employment Status] AS [Employment Status], 
+    [VW_EXTRACCIONES_SA_DIS].[Detailed Not In Labor Force] AS [Detailed Not In Labor Force], 
+    [VW_EXTRACCIONES_SA_DIS].[Number of Arrests in 30 Days Prior Dis] AS [Number of Arrests in 30 Days Prior Dis], 
+    [VW_EXTRACCIONES_SA_DIS].[Frecuency of Attendance] AS [Frecuency of Attendance], 
+    [VW_EXTRACCIONES_SA_DIS].[Client Transaction Type] AS [Client Transaction Type], 
+    [VW_EXTRACCIONES_SA_DIS].[Diagnostic Code Set Identifier] AS [Diagnostic Code Set Identifier], 
+    [VW_EXTRACCIONES_SA_DIS].[MH Diag Code Primary ICD-10] AS [MH Diag Code Primary ICD-10], 
+    [VW_EXTRACCIONES_SA_DIS].[MH Diag Code Secondary ICD-10] AS [MH Diag Code Secondary ICD-10], 
+    [VW_EXTRACCIONES_SA_DIS].[MH Diag Code Tertiary ICD-10] AS [MH Diag Code Tertiary ICD-10], 
+    [VW_EXTRACCIONES_SA_DIS].[Smi/Sed Status] AS [Smi/Sed Status], 
+    [VW_EXTRACCIONES_SA_DIS].[School Attendance Status] AS [School Attendance Status], 
+    [VW_EXTRACCIONES_SA_DIS].[Education] AS [Education], 
+    [VW_EXTRACCIONES_SA_DIS].[Escala GAF] AS [Escala GAF], 
+    [VW_EXTRACCIONES_SA_DIS].[Perfil] AS [Perfil], 
+    [VW_EXTRACCIONES_SA_DIS].[Episode] AS [Episode], 
+    [VW_EXTRACCIONES_SA_DIS].[FE_PERFIL] AS [FE_PERFIL], 
+    [VW_EXTRACCIONES_SA_DIS].[PK_PROGRAMA] AS [PK_PROGRAMA], 
+    [VW_EXTRACCIONES_SA_DIS].[FK_ESTATUS_PERFIL_TEDS] AS [FK_ESTATUS_PERFIL_TEDS]
+    FROM [dbo].[VW_EXTRACCIONES_SA_DIS] AS [VW_EXTRACCIONES_SA_DIS]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VW_PERSONA" EntityType="Self.VW_PERSONA" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VW_PERSONA].[PK_Persona] AS [PK_Persona], 
@@ -141,6 +940,14 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary
     [VW_RAZON_ALTA].[Ordered] AS [Ordered]
     FROM [dbo].[VW_RAZON_ALTA] AS [VW_RAZON_ALTA]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_SA_EPISODIO_SA_PROGRAMA" Association="Self.FK_SA_EPISODIO_SA_PROGRAMA">
+            <End Role="SA_PROGRAMA" EntitySet="SA_PROGRAMA" />
+            <End Role="SA_EPISODIO" EntitySet="SA_EPISODIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SA_PERFIL_SA_EPISODIO" Association="Self.FK_SA_PERFIL_SA_EPISODIO">
+            <End Role="SA_EPISODIO" EntitySet="SA_EPISODIO" />
+            <End Role="SA_PERFIL" EntitySet="SA_PERFIL" />
+          </AssociationSet>
           <AssociationSet Name="FK_SA_PROGRAMA_SA_PROGRAMA" Association="Self.FK_SA_PROGRAMA_SA_PROGRAMA">
             <End Role="SA_PROGRAMA" EntitySet="SA_PROGRAMA" />
             <End Role="SA_PROGRAMA1" EntitySet="SA_PROGRAMA" />
@@ -195,6 +1002,30 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary
           </AssociationSet>
           <EntitySet Name="SA_LKP_ALTA" EntityType="SEPS_JRModel.SA_LKP_ALTA" />
           <EntitySet Name="VW_RAZON_ALTA" EntityType="SEPS_JRModel.VW_RAZON_ALTA" />
+          <EntitySet Name="SA_EPISODIO" EntityType="SEPS_JRModel.SA_EPISODIO" />
+          <EntitySet Name="SA_PERFIL" EntityType="SEPS_JRModel.SA_PERFIL" />
+          <EntitySet Name="VW_EXTRACCIONES_MH_AD" EntityType="SEPS_JRModel.VW_EXTRACCIONES_MH_AD" />
+          <EntitySet Name="VW_EXTRACCIONES_MH_DIS" EntityType="SEPS_JRModel.VW_EXTRACCIONES_MH_DIS" />
+          <EntitySet Name="VW_EXTRACCIONES_SA_AD" EntityType="SEPS_JRModel.VW_EXTRACCIONES_SA_AD" />
+          <EntitySet Name="VW_EXTRACCIONES_SA_DIS" EntityType="SEPS_JRModel.VW_EXTRACCIONES_SA_DIS" />
+          <AssociationSet Name="FK_SA_EPISODIO_SA_PROGRAMA" Association="SEPS_JRModel.FK_SA_EPISODIO_SA_PROGRAMA">
+            <End Role="SA_PROGRAMA" EntitySet="SA_PROGRAMA" />
+            <End Role="SA_EPISODIO" EntitySet="SA_EPISODIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SA_PERFIL_SA_EPISODIO" Association="SEPS_JRModel.FK_SA_PERFIL_SA_EPISODIO">
+            <End Role="SA_EPISODIO" EntitySet="SA_EPISODIO" />
+            <End Role="SA_PERFIL" EntitySet="SA_PERFIL" />
+          </AssociationSet>
+          <FunctionImport Name="SPC_PERFILES_ELIMINADOS_POR_EPISODIO">
+            <Parameter Name="episodio" Mode="In" Type="Int32" />
+            <Parameter Name="PK_Sesion" Mode="In" Type="Guid" />
+            <Parameter Name="Estatus_TEDS" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SPC_PERFILES_ELIMINADOS_POR_PERFIL">
+            <Parameter Name="perfil" Mode="In" Type="Int32" />
+            <Parameter Name="PK_Sesion" Mode="In" Type="Guid" />
+            <Parameter Name="Estatus_TEDS" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="SA_PROGRAMA">
           <Key>
@@ -227,6 +1058,7 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary
           <NavigationProperty Name="SA_PROGRAMA1" Relationship="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" FromRole="SA_PROGRAMA" ToRole="SA_PROGRAMA1" />
           <NavigationProperty Name="SA_PROGRAMA2" Relationship="SEPS_JRModel.FK_SA_PROGRAMA_SA_PROGRAMA" FromRole="SA_PROGRAMA1" ToRole="SA_PROGRAMA" />
           <Property Name="CW_COMENTARIO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SA_EPISODIO" Relationship="SEPS_JRModel.FK_SA_EPISODIO_SA_PROGRAMA" FromRole="SA_PROGRAMA" ToRole="SA_EPISODIO" />
         </EntityType>
         <Association Name="FK_SA_PROGRAMA_SA_PROGRAMA">
           <End Type="SEPS_JRModel.SA_PROGRAMA" Role="SA_PROGRAMA" Multiplicity="1" />
@@ -258,10 +1090,564 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary
             <PropertyRef Name="DE_Alta" />
           </Key>
           <Property Name="PK_Alta" Type="Byte" Nullable="false" />
-          <Property Name="DE_Alta" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="DE_Alta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" />
           <Property Name="Ordered" Type="Int32" />
         </EntityType>
+        <EntityType Name="SA_EPISODIO">
+          <Key>
+            <PropertyRef Name="PK_Episodio" />
+          </Key>
+          <Property Name="PK_Episodio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Persona" Type="Int32" Nullable="false" />
+          <Property Name="FK_Programa" Type="Int16" Nullable="false" />
+          <Property Name="FE_Episodio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FK_SeguroSalud" Type="Byte" Nullable="false" />
+          <Property Name="FK_FuentePago" Type="Byte" Nullable="false" />
+          <Property Name="FK_FeminaHijos" Type="Byte" Nullable="false" />
+          <Property Name="IN_VaronHijos" Type="Byte" />
+          <Property Name="FK_FuenteIngreso" Type="Byte" Nullable="false" />
+          <Property Name="FK_IngresoIndividual" Type="Byte" />
+          <Property Name="FK_IngresoFamiliar" Type="Byte" />
+          <Property Name="FK_TiempoResidencia" Type="Byte" Nullable="false" />
+          <Property Name="FK_Municipio" Type="Int16" Nullable="false" />
+          <Property Name="IN_Zona" Type="Byte" Nullable="false" />
+          <Property Name="NR_ZipCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DE_Barrio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_EtapaServicio" Type="Byte" Nullable="false" />
+          <Property Name="FK_NivelCuidadoSustancias" Type="Byte" />
+          <Property Name="FK_NivelCuidadoMental" Type="Byte" />
+          <Property Name="IN_Metadona" Type="Byte" Nullable="false" />
+          <Property Name="IN_CodDependiente" Type="Byte" Nullable="false" />
+          <Property Name="IN_DiagnosticoDual" Type="Byte" />
+          <Property Name="FK_FuenteReferido" Type="Byte" Nullable="false" />
+          <Property Name="FK_EstadoLegal" Type="Byte" Nullable="false" />
+          <Property Name="IN_ArrestadoAnteriormente" Type="Byte" Nullable="false" />
+          <Property Name="NR_TotalArrestosPasado" Type="Byte" />
+          <Property Name="FK_Justicia" Type="Byte" Nullable="false" />
+          <Property Name="NR_DiasEsperaSustancias" Type="Int16" />
+          <Property Name="FK_EpisodiosSustancias" Type="Byte" Nullable="false" />
+          <Property Name="FK_DuracionSustancias" Type="Byte" Nullable="false" />
+          <Property Name="NR_DiasUltimaAltaSustancias" Type="Int16" />
+          <Property Name="NR_MesesUltimaAltaSustancias" Type="Int16" />
+          <Property Name="FK_NivelCuidadoSustanciasAnterior" Type="Byte" Nullable="false" />
+          <Property Name="IN_SaludMental" Type="Byte" />
+          <Property Name="NR_DiasEsperaMental" Type="Int16" />
+          <Property Name="FK_EpisodiosMental" Type="Byte" Nullable="false" />
+          <Property Name="FK_DuracionMental" Type="Byte" Nullable="false" />
+          <Property Name="NR_DiasUltimaAltaMental" Type="Int16" />
+          <Property Name="NR_MesesUltimaAltaMental" Type="Int16" />
+          <Property Name="FK_NivelCuidadoMentalAnterior" Type="Byte" Nullable="false" />
+          <Property Name="IN_AbusoSustancias" Type="Byte" />
+          <Property Name="IN_ViolenciaDomestica" Type="Byte" Nullable="false" />
+          <Property Name="IN_Maltrato" Type="Byte" Nullable="false" />
+          <Property Name="IN_TI_Maltrato" Type="Byte" Nullable="false" />
+          <Property Name="IN_IdeaSuicida" Type="Byte" />
+          <Property Name="IN_Suicida" Type="Byte" Nullable="false" />
+          <Property Name="IN_TratadoMental" Type="Byte" />
+          <Property Name="IN_Ambulatorio" Type="Byte" />
+          <Property Name="IN_HospitalizadoMental" Type="Byte" />
+          <Property Name="IN_TI_Hospital" Type="Byte" />
+          <Property Name="IN_TratamientoResidencial" Type="Byte" />
+          <Property Name="ES_Episodio" Type="Boolean" />
+          <Property Name="FE_Alta" Type="DateTime" Precision="3" />
+          <Property Name="PK_EpiID_Legacy" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CHK_ENVIADO" Type="Boolean" />
+          <Property Name="PK_Old" Type="Int32" />
+          <Property Name="FE_FechaConvenio" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SA_PROGRAMA" Relationship="SEPS_JRModel.FK_SA_EPISODIO_SA_PROGRAMA" FromRole="SA_EPISODIO" ToRole="SA_PROGRAMA" />
+          <NavigationProperty Name="SA_PERFIL" Relationship="SEPS_JRModel.FK_SA_PERFIL_SA_EPISODIO" FromRole="SA_EPISODIO" ToRole="SA_PERFIL" />
+        </EntityType>
+        <EntityType Name="SA_PERFIL">
+          <Key>
+            <PropertyRef Name="PK_NR_Perfil" />
+          </Key>
+          <Property Name="PK_NR_Perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Episodio" Type="Int32" Nullable="false" />
+          <Property Name="FE_Perfil" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FE_Contacto" Type="DateTime" Precision="3" />
+          <Property Name="IN_TI_Perfil" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="IN_Emancipado" Type="Byte" />
+          <Property Name="FK_EstadoMarital" Type="Byte" Nullable="false" />
+          <Property Name="FK_CondicionLaboral" Type="Byte" Nullable="false" />
+          <Property Name="FK_ActividadNoLaboral" Type="Byte" Nullable="false" />
+          <Property Name="IN_EmbarazosTratamiento" Type="Byte" />
+          <Property Name="NR_Hijos" Type="Byte" Nullable="false" />
+          <Property Name="FK_Escolaridad" Type="Byte" Nullable="false" />
+          <Property Name="FE_UltimoInformeEscolar" Type="DateTime" Precision="3" />
+          <Property Name="NR_PromedioAcademico" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="NR_AusenciasAcad" Type="Int16" />
+          <Property Name="IN_EducEspecial" Type="Byte" />
+          <Property Name="IN_DesertorEscolar" Type="Byte" />
+          <Property Name="FK_Familia" Type="Byte" Nullable="false" />
+          <Property Name="NR_Familiar" Type="Byte" Nullable="false" />
+          <Property Name="FK_Residencia" Type="Byte" Nullable="false" />
+          <Property Name="IN_ParticReunGrupos" Type="Byte" />
+          <Property Name="FK_FreqAutoAyuda" Type="Byte" />
+          <Property Name="IN_Arrestado30dias" Type="Byte" />
+          <Property Name="NR_Arrestos30dias" Type="Byte" />
+          <Property Name="IN_Arrestado365dias" Type="Byte" />
+          <Property Name="IN_EstLeg" Type="Byte" />
+          <Property Name="FK_CondicionPrimaria" Type="Byte" />
+          <Property Name="FK_CondicionSecundaria" Type="Byte" />
+          <Property Name="FK_CondicionTerciaria" Type="Byte" />
+          <Property Name="FK_TrastornosClinicosPrimario" Type="Int16" />
+          <Property Name="FK_TrastornosClinicosSecundario" Type="Int16" />
+          <Property Name="FK_TrastornosClinicosTerciario" Type="Int16" />
+          <Property Name="FK_TrastornosPersonalidadPrimario" Type="Int16" />
+          <Property Name="FK_TrastornosPersonalidadSecundario" Type="Int16" />
+          <Property Name="FK_TrastornosPersonalidadTerciario" Type="Int16" />
+          <Property Name="CO_CondicionesMedicasPrimario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CO_CondicionesMedicasSecundario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CO_CondicionesMedicasTerciario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_ProblemasPsicosocialesPrimario" Type="Byte" />
+          <Property Name="FK_ProblemasPsicosocialesSecundario" Type="Byte" />
+          <Property Name="FK_ProblemasPsicosocialesTerciario" Type="Byte" />
+          <Property Name="NR_EscalaGAF" Type="Int32" />
+          <Property Name="FK_ReferidosGeneradosTX" Type="Byte" />
+          <Property Name="FK_DisposicionFinalReferido" Type="Byte" />
+          <Property Name="FK_DrogaPrimario" Type="Byte" Nullable="false" />
+          <Property Name="FK_ViaPrimario" Type="Byte" Nullable="false" />
+          <Property Name="FK_FrecuenciaPrimario" Type="Byte" Nullable="false" />
+          <Property Name="IN_EdadInicioPrimario" Type="Byte" />
+          <Property Name="NR_CantidadPrimario" Type="Byte" />
+          <Property Name="FK_MedidaPrimario" Type="Byte" />
+          <Property Name="NR_GastoPrimario" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FK_DrogaSecundario" Type="Byte" Nullable="false" />
+          <Property Name="FK_ViaSecundario" Type="Byte" Nullable="false" />
+          <Property Name="FK_FrecuenciaSecundario" Type="Byte" Nullable="false" />
+          <Property Name="IN_EdadInicioSecundario" Type="Byte" />
+          <Property Name="NR_CantidadSecundario" Type="Byte" />
+          <Property Name="FK_MedidaSecundario" Type="Byte" />
+          <Property Name="NR_GastoSecundario" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FK_DrogaTerciario" Type="Byte" Nullable="false" />
+          <Property Name="FK_ViaTerciario" Type="Byte" Nullable="false" />
+          <Property Name="FK_FrecuenciaTerciario" Type="Byte" Nullable="false" />
+          <Property Name="IN_EdadInicioTerciario" Type="Byte" />
+          <Property Name="NR_CantidadTerciario" Type="Byte" />
+          <Property Name="FK_MedidaTerciario" Type="Byte" />
+          <Property Name="NR_GastoTerciario" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NR_PromedioVisitas" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FK_Alta" Type="Byte" />
+          <Property Name="FK_CentroTraslado" Type="Int16" />
+          <Property Name="DE_Comentario" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="TI_Transaccion" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FK_Sesion" Type="Guid" Nullable="false" />
+          <Property Name="TI_Edicion" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FE_Edicion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ES_Perfil" Type="Boolean" />
+          <Property Name="PK_PerfilID_Legacy" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Old" Type="Int32" />
+          <Property Name="CHK_ENVIADO" Type="Boolean" />
+          <Property Name="FE_ENVIADO" Type="DateTime" Precision="3" />
+          <Property Name="IN_NOENVIADO" Type="Boolean" />
+          <Property Name="CHK_ENVIADO_SM" Type="Boolean" />
+          <Property Name="FE_ENVIADO_SM" Type="DateTime" Precision="3" />
+          <Property Name="FK_CategoriaCentroPrivado" Type="Int32" />
+          <Property Name="FK_DSMV_TrastornosClinicos1" Type="Int32" />
+          <Property Name="FK_DSMV_TrastornosClinicos2" Type="Int32" />
+          <Property Name="FK_DSMV_TrastornosClinicos3" Type="Int32" />
+          <Property Name="FK_DSMV_TrastornosPersonalidadRM1" Type="Int32" />
+          <Property Name="FK_DSMV_TrastornosPersonalidadRM2" Type="Int32" />
+          <Property Name="FK_DSMV_TrastornosPersonalidadRM3" Type="Int32" />
+          <Property Name="FK_DSMV_ProblemasPsicosocialesAmbientales1" Type="Int32" />
+          <Property Name="FK_DSMV_ProblemasPsicosocialesAmbientales2" Type="Int32" />
+          <Property Name="FK_DSMV_ProblemasPsicosocialesAmbientales3" Type="Int32" />
+          <Property Name="NR_DSMV_FuncionamientoGlobal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="DE_DSMV_OtrasObservaciones" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="DE_DSMV_Comentarios" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="IN_DSMV_DiagnosticoDual" Type="Int32" />
+          <Property Name="FK_TipoAdmision" Type="Int32" />
+          <Property Name="FK_SituacionEscolar" Type="Int32" />
+          <Property Name="IN_ESCOGIDO" Type="Boolean" />
+          <Property Name="FileNameTEDS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessDate" Type="DateTime" Precision="3" />
+          <Property Name="FE_Registro" Type="DateTime" Precision="3" />
+          <Property Name="NR_CelularPrimario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NR_CelularContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DE_EmailPrimario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DE_EmailSecundario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CatRecuperacionRes" Type="Byte" />
+          <Property Name="HogarRecuperacionRes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FK_DSMV_Sustancias1" Type="Int32" />
+          <Property Name="FK_DSMV_Sustancias2" Type="Int32" />
+          <Property Name="FK_DSMV_Sustancias3" Type="Int32" />
+          <Property Name="IN_Fumado" Type="Byte" />
+          <Property Name="DE_FrecuenciaFumado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NR_CigarrosXDias" Type="Int32" />
+          <Property Name="DE_DrogaNueva1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DE_DrogaNueva2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DE_DrogaNueva3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IN_Toxicologia1" Type="Byte" />
+          <Property Name="IN_Toxicologia2" Type="Byte" />
+          <Property Name="IN_Toxicologia3" Type="Byte" />
+          <Property Name="FK_IDENTIDAD_GENERO" Type="Int32" />
+          <Property Name="AGREGADO_POR_SMUEE" Type="Boolean" />
+          <Property Name="FE_AGREGADO_POR_SMUEE" Type="DateTime" Precision="3" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="Int32" />
+          <Property Name="FE_SUBIDO_ACEPTADO_POR_TEDS" Type="DateTime" Precision="3" />
+          <Property Name="TEDS_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SA_EPISODIO" Relationship="SEPS_JRModel.FK_SA_PERFIL_SA_EPISODIO" FromRole="SA_PERFIL" ToRole="SA_EPISODIO" />
+        </EntityType>
+        <EntityType Name="VW_EXTRACCIONES_MH_AD">
+          <Key>
+            <PropertyRef Name="System_Transaction_Type" />
+            <PropertyRef Name="State_Code" />
+            <PropertyRef Name="Co_Dependant" />
+            <PropertyRef Name="Client_Transaction_Type" />
+            <PropertyRef Name="Num_of_Prior_Treat_Episode" />
+            <PropertyRef Name="Principal_Source_of_Referral" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="Employment_Status" />
+            <PropertyRef Name="Opioid_Replacement_Therapy" />
+            <PropertyRef Name="Detailed_Drug_Code_Primary" />
+            <PropertyRef Name="DSM_Diagnosis" />
+            <PropertyRef Name="Co_occuring_Substance_Abuse_and_Mental_Health_Problems" />
+            <PropertyRef Name="Pregnant_at_Time_of_Admision" />
+            <PropertyRef Name="Days_Waiting_to_Enter_Treatment" />
+            <PropertyRef Name="Frequency_of_Attendance" />
+            <PropertyRef Name="Diagnostic_Code_Set_Identifier" />
+            <PropertyRef Name="Smi_Sed_Status" />
+            <PropertyRef Name="School_Attendance_Status" />
+            <PropertyRef Name="Legal_Status_at_Admission_State_Hospital" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System_Transaction_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="State_Code" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Reporting_Date" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="Provider_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Co_Dependant" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Transaction_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Admision" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Type_of_Service" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Num_of_Prior_Treat_Episode" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Principal_Source_of_Referral" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Birth" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Race" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Ethnicity" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Employment_Status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Primary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Usual_Route_of_Admin_Primary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Primary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Age_of_First_Use_Primary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Secondary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Usual_Route_of_Admin_Secondary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Secondary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Age_of_First_Use_Secondary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Tertiary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Usual_Route_of_Admin_Tertiary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Tertiary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Age_of_First_Use_Tertiary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Opioid_Replacement_Therapy" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Drug_Code_Primary" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Drug_Code_Secondary" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Drug_Code_Tertiary" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DSM_Diagnosis" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Co_occuring_Substance_Abuse_and_Mental_Health_Problems" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Pregnant_at_Time_of_Admision" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Veteran_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Living_Arrangements" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Source_of_Income_Support" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Health_Insurance" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Expected_Actual_Primary_Source_of_Payment" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Not_In_Labor_Force" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Criminal_Justice_Referral" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Maritial_Status" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Days_Waiting_to_Enter_Treatment" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Number_of_Arrests_in_30_Days_Prior_Adm" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frequency_of_Attendance" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Diagnostic_Code_Set_Identifier" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Abuse_Diagnostic_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Primary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Secondary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Tertiary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Smi_Sed_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="School_Attendance_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Legal_Status_at_Admission_State_Hospital" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Escala_GAF" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="Int32" Nullable="false" />
+          <Property Name="Episode" Type="Int32" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PK_PROGRAMA" Type="Int16" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VW_EXTRACCIONES_MH_DIS">
+          <Key>
+            <PropertyRef Name="System_Transaction_Type" />
+            <PropertyRef Name="State_Code" />
+            <PropertyRef Name="Co_Dependant" />
+            <PropertyRef Name="Reason_for_Discharge" />
+            <PropertyRef Name="Co_dependent_Collateral" />
+            <PropertyRef Name="Client_Transaction_Type_AD" />
+            <PropertyRef Name="Sex_at_AD" />
+            <PropertyRef Name="Employment_Status" />
+            <PropertyRef Name="Frequency_of_Attendance" />
+            <PropertyRef Name="Diagnostic_Code_Set_Identifier" />
+            <PropertyRef Name="Smi_Sed_Status" />
+            <PropertyRef Name="School_Attendance_Status" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System_Transaction_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="State_Code" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Reporting_Date" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="Provider_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Co_Dependant" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Type_of_Service" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Last_Contact" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Date_of_Discharge" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Reason_for_Discharge" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Provider_ID_at_Admission" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Client_ID_at_Admission" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Co_dependent_Collateral" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Transaction_Type_AD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Admision" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Type_of_Service_AD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Birth_at_AD" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Sex_at_AD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Race_at_AD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Ethnicity_at_AD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Primary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Secondary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Tertiary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Primary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Secondary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Tertiary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Living_Arrangements" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Employment_Status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Not_In_Labor_Force" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Number_of_Arrests_in_30_Days_Prior_Adm" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frequency_of_Attendance" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Transaction_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Diagnostic_Code_Set_Identifier" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Primary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Secondary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Tertiary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Smi_Sed_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="School_Attendance_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Escala_GAF" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="Int32" Nullable="false" />
+          <Property Name="Episode" Type="Int32" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PK_PROGRAMA" Type="Int16" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VW_EXTRACCIONES_SA_AD">
+          <Key>
+            <PropertyRef Name="System_Transaction_Type" />
+            <PropertyRef Name="State_Code" />
+            <PropertyRef Name="Co_Dependant" />
+            <PropertyRef Name="Client_Transaction_Type" />
+            <PropertyRef Name="Type_of_Service" />
+            <PropertyRef Name="Principal_Source_of_Referral" />
+            <PropertyRef Name="Sex" />
+            <PropertyRef Name="Ethnicity" />
+            <PropertyRef Name="Education" />
+            <PropertyRef Name="Employment_Status" />
+            <PropertyRef Name="Substance_Pro_Code_Primary" />
+            <PropertyRef Name="Usual_Route_of_Admin_Primary" />
+            <PropertyRef Name="Frecuency_of_Use_Primary" />
+            <PropertyRef Name="Substance_Pro_Code_Secondary" />
+            <PropertyRef Name="Usual_Route_of_Admin_Secondary" />
+            <PropertyRef Name="Frecuency_of_Use_Secondary" />
+            <PropertyRef Name="Substance_Pro_Code_Tertiary" />
+            <PropertyRef Name="Usual_Route_of_Admin_Tertiary" />
+            <PropertyRef Name="Frecuency_of_Use_Tertiary" />
+            <PropertyRef Name="Opioid_Replacement_Therapy" />
+            <PropertyRef Name="DSM_Diagnosis" />
+            <PropertyRef Name="DSMV_DUAL_DIAGNOSTIC" />
+            <PropertyRef Name="Pregnant_at_Time_of_Admision" />
+            <PropertyRef Name="Living_Arrangements" />
+            <PropertyRef Name="Source_of_Income_Support" />
+            <PropertyRef Name="Health_Insurance" />
+            <PropertyRef Name="Detailed_Not_In_Labor_Force" />
+            <PropertyRef Name="Maritial_Status" />
+            <PropertyRef Name="Diagnostic_Code_Set_Identifier" />
+            <PropertyRef Name="Smi_Sed_Status" />
+            <PropertyRef Name="School_Attendance_Status" />
+            <PropertyRef Name="Legal_Status_at_Admission_State_Hospital" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System_Transaction_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="State_Code" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Reporting_Date" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="Provider_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Co_Dependant" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Transaction_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Admision" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Type_of_Service" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Num_of_Prior_Treat_Episode" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Principal_Source_of_Referral" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Birth" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Race" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Ethnicity" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Employment_Status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Primary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Usual_Route_of_Admin_Primary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Primary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Age_of_First_Use_Primary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Secondary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Usual_Route_of_Admin_Secondary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Secondary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Age_of_First_Use_Secondary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Tertiary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Usual_Route_of_Admin_Tertiary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Tertiary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Age_of_First_Use_Tertiary" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Opioid_Replacement_Therapy" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Drug_Code_Primary" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Drug_Code_Secondary" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Drug_Code_Tertiary" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DSM_Diagnosis" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="DSMV_DUAL_DIAGNOSTIC" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Pregnant_at_Time_of_Admision" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Veteran_Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Living_Arrangements" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Source_of_Income_Support" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Health_Insurance" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Expected_Actual_Primary_Source_of_Payment" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Not_In_Labor_Force" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Criminal_Justice_Referral" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Maritial_Status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Days_Waiting_to_Enter_Treatment" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="Number_of_Arrests_in_30_Days_Prior_Adm" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frequency_of_Attendance" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Diagnostic_Code_Set_Identifier" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Abuse_Diagnostic_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Primary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Secondary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Tertiary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Smi_Sed_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="School_Attendance_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Legal_Status_at_Admission_State_Hospital" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Escala_GAF" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="Int32" Nullable="false" />
+          <Property Name="Episode" Type="Int32" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PK_PROGRAMA" Type="Int16" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VW_EXTRACCIONES_SA_DIS">
+          <Key>
+            <PropertyRef Name="System_Transaction_Type" />
+            <PropertyRef Name="State_Code" />
+            <PropertyRef Name="Co_Dependant" />
+            <PropertyRef Name="Type_of_Service" />
+            <PropertyRef Name="Reason_for_Discharge" />
+            <PropertyRef Name="Co_dependent_Collateral" />
+            <PropertyRef Name="Client_Transaction_Type_AD" />
+            <PropertyRef Name="Type_of_Service_AD" />
+            <PropertyRef Name="Sex_at_AD" />
+            <PropertyRef Name="Ethnicity_at_AD" />
+            <PropertyRef Name="Substance_Pro_Code_Primary" />
+            <PropertyRef Name="Substance_Pro_Code_SECUNDARIA" />
+            <PropertyRef Name="Substance_Pro_Code_Tertiary" />
+            <PropertyRef Name="Frecuency_of_Use_Primary" />
+            <PropertyRef Name="Frecuency_of_Use_SECUNDARIA" />
+            <PropertyRef Name="Frecuency_of_Use_Tertiary" />
+            <PropertyRef Name="Living_Arrangements" />
+            <PropertyRef Name="Employment_Status" />
+            <PropertyRef Name="Detailed_Not_In_Labor_Force" />
+            <PropertyRef Name="Client_Transaction_Type" />
+            <PropertyRef Name="Diagnostic_Code_Set_Identifier" />
+            <PropertyRef Name="Smi_Sed_Status" />
+            <PropertyRef Name="School_Attendance_Status" />
+            <PropertyRef Name="Education" />
+            <PropertyRef Name="Perfil" />
+            <PropertyRef Name="Episode" />
+            <PropertyRef Name="FE_PERFIL" />
+            <PropertyRef Name="PK_PROGRAMA" />
+          </Key>
+          <Property Name="System_Transaction_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="State_Code" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Reporting_Date" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="Provider_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Identifier" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Co_Dependant" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Type_of_Service" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Last_Contact" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Date_of_Discharge" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Reason_for_Discharge" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Provider_ID_at_Admission" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Client_ID_at_Admission" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Co_dependent_Collateral" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Transaction_Type_AD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Admision" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Type_of_Service_AD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Birth_at_AD" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="Sex_at_AD" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Race_at_AD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Ethnicity_at_AD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Primary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_SECUNDARIA" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Substance_Pro_Code_Tertiary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Primary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_SECUNDARIA" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Use_Tertiary" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Living_Arrangements" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Employment_Status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Detailed_Not_In_Labor_Force" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Number_of_Arrests_in_30_Days_Prior_Dis" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Frecuency_of_Attendance" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Client_Transaction_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Diagnostic_Code_Set_Identifier" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Primary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Secondary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MH_Diag_Code_Tertiary_ICD_10" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Smi_Sed_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="School_Attendance_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Escala_GAF" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Perfil" Type="Int32" Nullable="false" />
+          <Property Name="Episode" Type="Int32" Nullable="false" />
+          <Property Name="FE_PERFIL" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PK_PROGRAMA" Type="Int16" Nullable="false" />
+          <Property Name="FK_ESTATUS_PERFIL_TEDS" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_SA_EPISODIO_SA_PROGRAMA">
+          <End Type="SEPS_JRModel.SA_PROGRAMA" Role="SA_PROGRAMA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SEPS_JRModel.SA_EPISODIO" Role="SA_EPISODIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SA_PROGRAMA">
+              <PropertyRef Name="PK_Programa" />
+            </Principal>
+            <Dependent Role="SA_EPISODIO">
+              <PropertyRef Name="FK_Programa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SA_PERFIL_SA_EPISODIO">
+          <End Type="SEPS_JRModel.SA_EPISODIO" Role="SA_EPISODIO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SEPS_JRModel.SA_PERFIL" Role="SA_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SA_EPISODIO">
+              <PropertyRef Name="PK_Episodio" />
+            </Principal>
+            <Dependent Role="SA_PERFIL">
+              <PropertyRef Name="FK_Episodio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -345,6 +1731,438 @@ warning 6002: The table/view 'SEPS_JR.dbo.VW_RAZON_ALTA' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SA_EPISODIO">
+            <EntityTypeMapping TypeName="SEPS_JRModel.SA_EPISODIO">
+              <MappingFragment StoreEntitySet="SA_EPISODIO">
+                <ScalarProperty Name="FE_FechaConvenio" ColumnName="FE_FechaConvenio" />
+                <ScalarProperty Name="PK_Old" ColumnName="PK_Old" />
+                <ScalarProperty Name="CHK_ENVIADO" ColumnName="CHK_ENVIADO" />
+                <ScalarProperty Name="PK_EpiID_Legacy" ColumnName="PK_EpiID_Legacy" />
+                <ScalarProperty Name="FE_Alta" ColumnName="FE_Alta" />
+                <ScalarProperty Name="ES_Episodio" ColumnName="ES_Episodio" />
+                <ScalarProperty Name="IN_TratamientoResidencial" ColumnName="IN_TratamientoResidencial" />
+                <ScalarProperty Name="IN_TI_Hospital" ColumnName="IN_TI_Hospital" />
+                <ScalarProperty Name="IN_HospitalizadoMental" ColumnName="IN_HospitalizadoMental" />
+                <ScalarProperty Name="IN_Ambulatorio" ColumnName="IN_Ambulatorio" />
+                <ScalarProperty Name="IN_TratadoMental" ColumnName="IN_TratadoMental" />
+                <ScalarProperty Name="IN_Suicida" ColumnName="IN_Suicida" />
+                <ScalarProperty Name="IN_IdeaSuicida" ColumnName="IN_IdeaSuicida" />
+                <ScalarProperty Name="IN_TI_Maltrato" ColumnName="IN_TI_Maltrato" />
+                <ScalarProperty Name="IN_Maltrato" ColumnName="IN_Maltrato" />
+                <ScalarProperty Name="IN_ViolenciaDomestica" ColumnName="IN_ViolenciaDomestica" />
+                <ScalarProperty Name="IN_AbusoSustancias" ColumnName="IN_AbusoSustancias" />
+                <ScalarProperty Name="FK_NivelCuidadoMentalAnterior" ColumnName="FK_NivelCuidadoMentalAnterior" />
+                <ScalarProperty Name="NR_MesesUltimaAltaMental" ColumnName="NR_MesesUltimaAltaMental" />
+                <ScalarProperty Name="NR_DiasUltimaAltaMental" ColumnName="NR_DiasUltimaAltaMental" />
+                <ScalarProperty Name="FK_DuracionMental" ColumnName="FK_DuracionMental" />
+                <ScalarProperty Name="FK_EpisodiosMental" ColumnName="FK_EpisodiosMental" />
+                <ScalarProperty Name="NR_DiasEsperaMental" ColumnName="NR_DiasEsperaMental" />
+                <ScalarProperty Name="IN_SaludMental" ColumnName="IN_SaludMental" />
+                <ScalarProperty Name="FK_NivelCuidadoSustanciasAnterior" ColumnName="FK_NivelCuidadoSustanciasAnterior" />
+                <ScalarProperty Name="NR_MesesUltimaAltaSustancias" ColumnName="NR_MesesUltimaAltaSustancias" />
+                <ScalarProperty Name="NR_DiasUltimaAltaSustancias" ColumnName="NR_DiasUltimaAltaSustancias" />
+                <ScalarProperty Name="FK_DuracionSustancias" ColumnName="FK_DuracionSustancias" />
+                <ScalarProperty Name="FK_EpisodiosSustancias" ColumnName="FK_EpisodiosSustancias" />
+                <ScalarProperty Name="NR_DiasEsperaSustancias" ColumnName="NR_DiasEsperaSustancias" />
+                <ScalarProperty Name="FK_Justicia" ColumnName="FK_Justicia" />
+                <ScalarProperty Name="NR_TotalArrestosPasado" ColumnName="NR_TotalArrestosPasado" />
+                <ScalarProperty Name="IN_ArrestadoAnteriormente" ColumnName="IN_ArrestadoAnteriormente" />
+                <ScalarProperty Name="FK_EstadoLegal" ColumnName="FK_EstadoLegal" />
+                <ScalarProperty Name="FK_FuenteReferido" ColumnName="FK_FuenteReferido" />
+                <ScalarProperty Name="IN_DiagnosticoDual" ColumnName="IN_DiagnosticoDual" />
+                <ScalarProperty Name="IN_CodDependiente" ColumnName="IN_CodDependiente" />
+                <ScalarProperty Name="IN_Metadona" ColumnName="IN_Metadona" />
+                <ScalarProperty Name="FK_NivelCuidadoMental" ColumnName="FK_NivelCuidadoMental" />
+                <ScalarProperty Name="FK_NivelCuidadoSustancias" ColumnName="FK_NivelCuidadoSustancias" />
+                <ScalarProperty Name="FK_EtapaServicio" ColumnName="FK_EtapaServicio" />
+                <ScalarProperty Name="DE_Barrio" ColumnName="DE_Barrio" />
+                <ScalarProperty Name="NR_ZipCode" ColumnName="NR_ZipCode" />
+                <ScalarProperty Name="IN_Zona" ColumnName="IN_Zona" />
+                <ScalarProperty Name="FK_Municipio" ColumnName="FK_Municipio" />
+                <ScalarProperty Name="FK_TiempoResidencia" ColumnName="FK_TiempoResidencia" />
+                <ScalarProperty Name="FK_IngresoFamiliar" ColumnName="FK_IngresoFamiliar" />
+                <ScalarProperty Name="FK_IngresoIndividual" ColumnName="FK_IngresoIndividual" />
+                <ScalarProperty Name="FK_FuenteIngreso" ColumnName="FK_FuenteIngreso" />
+                <ScalarProperty Name="IN_VaronHijos" ColumnName="IN_VaronHijos" />
+                <ScalarProperty Name="FK_FeminaHijos" ColumnName="FK_FeminaHijos" />
+                <ScalarProperty Name="FK_FuentePago" ColumnName="FK_FuentePago" />
+                <ScalarProperty Name="FK_SeguroSalud" ColumnName="FK_SeguroSalud" />
+                <ScalarProperty Name="FE_Episodio" ColumnName="FE_Episodio" />
+                <ScalarProperty Name="FK_Programa" ColumnName="FK_Programa" />
+                <ScalarProperty Name="FK_Persona" ColumnName="FK_Persona" />
+                <ScalarProperty Name="PK_Episodio" ColumnName="PK_Episodio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SA_PERFIL">
+            <EntityTypeMapping TypeName="SEPS_JRModel.SA_PERFIL">
+              <MappingFragment StoreEntitySet="SA_PERFIL">
+                <ScalarProperty Name="TEDS_ID" ColumnName="TEDS_ID" />
+                <ScalarProperty Name="FE_SUBIDO_ACEPTADO_POR_TEDS" ColumnName="FE_SUBIDO_ACEPTADO_POR_TEDS" />
+                <ScalarProperty Name="FK_ESTATUS_PERFIL_TEDS" ColumnName="FK_ESTATUS_PERFIL_TEDS" />
+                <ScalarProperty Name="FE_AGREGADO_POR_SMUEE" ColumnName="FE_AGREGADO_POR_SMUEE" />
+                <ScalarProperty Name="AGREGADO_POR_SMUEE" ColumnName="AGREGADO_POR_SMUEE" />
+                <ScalarProperty Name="FK_IDENTIDAD_GENERO" ColumnName="FK_IDENTIDAD_GENERO" />
+                <ScalarProperty Name="IN_Toxicologia3" ColumnName="IN_Toxicologia3" />
+                <ScalarProperty Name="IN_Toxicologia2" ColumnName="IN_Toxicologia2" />
+                <ScalarProperty Name="IN_Toxicologia1" ColumnName="IN_Toxicologia1" />
+                <ScalarProperty Name="DE_DrogaNueva3" ColumnName="DE_DrogaNueva3" />
+                <ScalarProperty Name="DE_DrogaNueva2" ColumnName="DE_DrogaNueva2" />
+                <ScalarProperty Name="DE_DrogaNueva1" ColumnName="DE_DrogaNueva1" />
+                <ScalarProperty Name="NR_CigarrosXDias" ColumnName="NR_CigarrosXDias" />
+                <ScalarProperty Name="DE_FrecuenciaFumado" ColumnName="DE_FrecuenciaFumado" />
+                <ScalarProperty Name="IN_Fumado" ColumnName="IN_Fumado" />
+                <ScalarProperty Name="FK_DSMV_Sustancias3" ColumnName="FK_DSMV_Sustancias3" />
+                <ScalarProperty Name="FK_DSMV_Sustancias2" ColumnName="FK_DSMV_Sustancias2" />
+                <ScalarProperty Name="FK_DSMV_Sustancias1" ColumnName="FK_DSMV_Sustancias1" />
+                <ScalarProperty Name="HogarRecuperacionRes" ColumnName="HogarRecuperacionRes" />
+                <ScalarProperty Name="FK_CatRecuperacionRes" ColumnName="FK_CatRecuperacionRes" />
+                <ScalarProperty Name="DE_EmailSecundario" ColumnName="DE_EmailSecundario" />
+                <ScalarProperty Name="DE_EmailPrimario" ColumnName="DE_EmailPrimario" />
+                <ScalarProperty Name="NR_CelularContacto" ColumnName="NR_CelularContacto" />
+                <ScalarProperty Name="NR_CelularPrimario" ColumnName="NR_CelularPrimario" />
+                <ScalarProperty Name="FE_Registro" ColumnName="FE_Registro" />
+                <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+                <ScalarProperty Name="FileNameTEDS" ColumnName="FileNameTEDS" />
+                <ScalarProperty Name="IN_ESCOGIDO" ColumnName="IN_ESCOGIDO" />
+                <ScalarProperty Name="FK_SituacionEscolar" ColumnName="FK_SituacionEscolar" />
+                <ScalarProperty Name="FK_TipoAdmision" ColumnName="FK_TipoAdmision" />
+                <ScalarProperty Name="IN_DSMV_DiagnosticoDual" ColumnName="IN_DSMV_DiagnosticoDual" />
+                <ScalarProperty Name="DE_DSMV_Comentarios" ColumnName="DE_DSMV_Comentarios" />
+                <ScalarProperty Name="DE_DSMV_OtrasObservaciones" ColumnName="DE_DSMV_OtrasObservaciones" />
+                <ScalarProperty Name="NR_DSMV_FuncionamientoGlobal" ColumnName="NR_DSMV_FuncionamientoGlobal" />
+                <ScalarProperty Name="FK_DSMV_ProblemasPsicosocialesAmbientales3" ColumnName="FK_DSMV_ProblemasPsicosocialesAmbientales3" />
+                <ScalarProperty Name="FK_DSMV_ProblemasPsicosocialesAmbientales2" ColumnName="FK_DSMV_ProblemasPsicosocialesAmbientales2" />
+                <ScalarProperty Name="FK_DSMV_ProblemasPsicosocialesAmbientales1" ColumnName="FK_DSMV_ProblemasPsicosocialesAmbientales1" />
+                <ScalarProperty Name="FK_DSMV_TrastornosPersonalidadRM3" ColumnName="FK_DSMV_TrastornosPersonalidadRM3" />
+                <ScalarProperty Name="FK_DSMV_TrastornosPersonalidadRM2" ColumnName="FK_DSMV_TrastornosPersonalidadRM2" />
+                <ScalarProperty Name="FK_DSMV_TrastornosPersonalidadRM1" ColumnName="FK_DSMV_TrastornosPersonalidadRM1" />
+                <ScalarProperty Name="FK_DSMV_TrastornosClinicos3" ColumnName="FK_DSMV_TrastornosClinicos3" />
+                <ScalarProperty Name="FK_DSMV_TrastornosClinicos2" ColumnName="FK_DSMV_TrastornosClinicos2" />
+                <ScalarProperty Name="FK_DSMV_TrastornosClinicos1" ColumnName="FK_DSMV_TrastornosClinicos1" />
+                <ScalarProperty Name="FK_CategoriaCentroPrivado" ColumnName="FK_CategoriaCentroPrivado" />
+                <ScalarProperty Name="FE_ENVIADO_SM" ColumnName="FE_ENVIADO_SM" />
+                <ScalarProperty Name="CHK_ENVIADO_SM" ColumnName="CHK_ENVIADO_SM" />
+                <ScalarProperty Name="IN_NOENVIADO" ColumnName="IN_NOENVIADO" />
+                <ScalarProperty Name="FE_ENVIADO" ColumnName="FE_ENVIADO" />
+                <ScalarProperty Name="CHK_ENVIADO" ColumnName="CHK_ENVIADO" />
+                <ScalarProperty Name="FK_Old" ColumnName="FK_Old" />
+                <ScalarProperty Name="PK_PerfilID_Legacy" ColumnName="PK_PerfilID_Legacy" />
+                <ScalarProperty Name="ES_Perfil" ColumnName="ES_Perfil" />
+                <ScalarProperty Name="FE_Edicion" ColumnName="FE_Edicion" />
+                <ScalarProperty Name="TI_Edicion" ColumnName="TI_Edicion" />
+                <ScalarProperty Name="FK_Sesion" ColumnName="FK_Sesion" />
+                <ScalarProperty Name="TI_Transaccion" ColumnName="TI_Transaccion" />
+                <ScalarProperty Name="DE_Comentario" ColumnName="DE_Comentario" />
+                <ScalarProperty Name="FK_CentroTraslado" ColumnName="FK_CentroTraslado" />
+                <ScalarProperty Name="FK_Alta" ColumnName="FK_Alta" />
+                <ScalarProperty Name="NR_PromedioVisitas" ColumnName="NR_PromedioVisitas" />
+                <ScalarProperty Name="NR_GastoTerciario" ColumnName="NR_GastoTerciario" />
+                <ScalarProperty Name="FK_MedidaTerciario" ColumnName="FK_MedidaTerciario" />
+                <ScalarProperty Name="NR_CantidadTerciario" ColumnName="NR_CantidadTerciario" />
+                <ScalarProperty Name="IN_EdadInicioTerciario" ColumnName="IN_EdadInicioTerciario" />
+                <ScalarProperty Name="FK_FrecuenciaTerciario" ColumnName="FK_FrecuenciaTerciario" />
+                <ScalarProperty Name="FK_ViaTerciario" ColumnName="FK_ViaTerciario" />
+                <ScalarProperty Name="FK_DrogaTerciario" ColumnName="FK_DrogaTerciario" />
+                <ScalarProperty Name="NR_GastoSecundario" ColumnName="NR_GastoSecundario" />
+                <ScalarProperty Name="FK_MedidaSecundario" ColumnName="FK_MedidaSecundario" />
+                <ScalarProperty Name="NR_CantidadSecundario" ColumnName="NR_CantidadSecundario" />
+                <ScalarProperty Name="IN_EdadInicioSecundario" ColumnName="IN_EdadInicioSecundario" />
+                <ScalarProperty Name="FK_FrecuenciaSecundario" ColumnName="FK_FrecuenciaSecundario" />
+                <ScalarProperty Name="FK_ViaSecundario" ColumnName="FK_ViaSecundario" />
+                <ScalarProperty Name="FK_DrogaSecundario" ColumnName="FK_DrogaSecundario" />
+                <ScalarProperty Name="NR_GastoPrimario" ColumnName="NR_GastoPrimario" />
+                <ScalarProperty Name="FK_MedidaPrimario" ColumnName="FK_MedidaPrimario" />
+                <ScalarProperty Name="NR_CantidadPrimario" ColumnName="NR_CantidadPrimario" />
+                <ScalarProperty Name="IN_EdadInicioPrimario" ColumnName="IN_EdadInicioPrimario" />
+                <ScalarProperty Name="FK_FrecuenciaPrimario" ColumnName="FK_FrecuenciaPrimario" />
+                <ScalarProperty Name="FK_ViaPrimario" ColumnName="FK_ViaPrimario" />
+                <ScalarProperty Name="FK_DrogaPrimario" ColumnName="FK_DrogaPrimario" />
+                <ScalarProperty Name="FK_DisposicionFinalReferido" ColumnName="FK_DisposicionFinalReferido" />
+                <ScalarProperty Name="FK_ReferidosGeneradosTX" ColumnName="FK_ReferidosGeneradosTX" />
+                <ScalarProperty Name="NR_EscalaGAF" ColumnName="NR_EscalaGAF" />
+                <ScalarProperty Name="FK_ProblemasPsicosocialesTerciario" ColumnName="FK_ProblemasPsicosocialesTerciario" />
+                <ScalarProperty Name="FK_ProblemasPsicosocialesSecundario" ColumnName="FK_ProblemasPsicosocialesSecundario" />
+                <ScalarProperty Name="FK_ProblemasPsicosocialesPrimario" ColumnName="FK_ProblemasPsicosocialesPrimario" />
+                <ScalarProperty Name="CO_CondicionesMedicasTerciario" ColumnName="CO_CondicionesMedicasTerciario" />
+                <ScalarProperty Name="CO_CondicionesMedicasSecundario" ColumnName="CO_CondicionesMedicasSecundario" />
+                <ScalarProperty Name="CO_CondicionesMedicasPrimario" ColumnName="CO_CondicionesMedicasPrimario" />
+                <ScalarProperty Name="FK_TrastornosPersonalidadTerciario" ColumnName="FK_TrastornosPersonalidadTerciario" />
+                <ScalarProperty Name="FK_TrastornosPersonalidadSecundario" ColumnName="FK_TrastornosPersonalidadSecundario" />
+                <ScalarProperty Name="FK_TrastornosPersonalidadPrimario" ColumnName="FK_TrastornosPersonalidadPrimario" />
+                <ScalarProperty Name="FK_TrastornosClinicosTerciario" ColumnName="FK_TrastornosClinicosTerciario" />
+                <ScalarProperty Name="FK_TrastornosClinicosSecundario" ColumnName="FK_TrastornosClinicosSecundario" />
+                <ScalarProperty Name="FK_TrastornosClinicosPrimario" ColumnName="FK_TrastornosClinicosPrimario" />
+                <ScalarProperty Name="FK_CondicionTerciaria" ColumnName="FK_CondicionTerciaria" />
+                <ScalarProperty Name="FK_CondicionSecundaria" ColumnName="FK_CondicionSecundaria" />
+                <ScalarProperty Name="FK_CondicionPrimaria" ColumnName="FK_CondicionPrimaria" />
+                <ScalarProperty Name="IN_EstLeg" ColumnName="IN_EstLeg" />
+                <ScalarProperty Name="IN_Arrestado365dias" ColumnName="IN_Arrestado365dias" />
+                <ScalarProperty Name="NR_Arrestos30dias" ColumnName="NR_Arrestos30dias" />
+                <ScalarProperty Name="IN_Arrestado30dias" ColumnName="IN_Arrestado30dias" />
+                <ScalarProperty Name="FK_FreqAutoAyuda" ColumnName="FK_FreqAutoAyuda" />
+                <ScalarProperty Name="IN_ParticReunGrupos" ColumnName="IN_ParticReunGrupos" />
+                <ScalarProperty Name="FK_Residencia" ColumnName="FK_Residencia" />
+                <ScalarProperty Name="NR_Familiar" ColumnName="NR_Familiar" />
+                <ScalarProperty Name="FK_Familia" ColumnName="FK_Familia" />
+                <ScalarProperty Name="IN_DesertorEscolar" ColumnName="IN_DesertorEscolar" />
+                <ScalarProperty Name="IN_EducEspecial" ColumnName="IN_EducEspecial" />
+                <ScalarProperty Name="NR_AusenciasAcad" ColumnName="NR_AusenciasAcad" />
+                <ScalarProperty Name="NR_PromedioAcademico" ColumnName="NR_PromedioAcademico" />
+                <ScalarProperty Name="FE_UltimoInformeEscolar" ColumnName="FE_UltimoInformeEscolar" />
+                <ScalarProperty Name="FK_Escolaridad" ColumnName="FK_Escolaridad" />
+                <ScalarProperty Name="NR_Hijos" ColumnName="NR_Hijos" />
+                <ScalarProperty Name="IN_EmbarazosTratamiento" ColumnName="IN_EmbarazosTratamiento" />
+                <ScalarProperty Name="FK_ActividadNoLaboral" ColumnName="FK_ActividadNoLaboral" />
+                <ScalarProperty Name="FK_CondicionLaboral" ColumnName="FK_CondicionLaboral" />
+                <ScalarProperty Name="FK_EstadoMarital" ColumnName="FK_EstadoMarital" />
+                <ScalarProperty Name="IN_Emancipado" ColumnName="IN_Emancipado" />
+                <ScalarProperty Name="IN_TI_Perfil" ColumnName="IN_TI_Perfil" />
+                <ScalarProperty Name="FE_Contacto" ColumnName="FE_Contacto" />
+                <ScalarProperty Name="FE_Perfil" ColumnName="FE_Perfil" />
+                <ScalarProperty Name="FK_Episodio" ColumnName="FK_Episodio" />
+                <ScalarProperty Name="PK_NR_Perfil" ColumnName="PK_NR_Perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_EXTRACCIONES_MH_AD">
+            <EntityTypeMapping TypeName="SEPS_JRModel.VW_EXTRACCIONES_MH_AD">
+              <MappingFragment StoreEntitySet="VW_EXTRACCIONES_MH_AD">
+                <ScalarProperty Name="FK_ESTATUS_PERFIL_TEDS" ColumnName="FK_ESTATUS_PERFIL_TEDS" />
+                <ScalarProperty Name="PK_PROGRAMA" ColumnName="PK_PROGRAMA" />
+                <ScalarProperty Name="FE_PERFIL" ColumnName="FE_PERFIL" />
+                <ScalarProperty Name="Episode" ColumnName="Episode" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Escala_GAF" ColumnName="Escala GAF" />
+                <ScalarProperty Name="Legal_Status_at_Admission_State_Hospital" ColumnName="Legal Status at Admission State Hospital" />
+                <ScalarProperty Name="School_Attendance_Status" ColumnName="School Attendance Status" />
+                <ScalarProperty Name="Smi_Sed_Status" ColumnName="Smi/Sed Status" />
+                <ScalarProperty Name="MH_Diag_Code_Tertiary_ICD_10" ColumnName="MH Diag Code Tertiary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Secondary_ICD_10" ColumnName="MH Diag Code Secondary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Primary_ICD_10" ColumnName="MH Diag Code Primary ICD-10" />
+                <ScalarProperty Name="Substance_Abuse_Diagnostic_ICD_10" ColumnName="Substance Abuse Diagnostic ICD-10" />
+                <ScalarProperty Name="Diagnostic_Code_Set_Identifier" ColumnName="Diagnostic Code Set Identifier" />
+                <ScalarProperty Name="Frequency_of_Attendance" ColumnName="Frequency of Attendance" />
+                <ScalarProperty Name="Number_of_Arrests_in_30_Days_Prior_Adm" ColumnName="Number of Arrests in 30 Days Prior Adm" />
+                <ScalarProperty Name="Days_Waiting_to_Enter_Treatment" ColumnName="Days Waiting to Enter Treatment" />
+                <ScalarProperty Name="Maritial_Status" ColumnName="Maritial Status" />
+                <ScalarProperty Name="Detailed_Criminal_Justice_Referral" ColumnName="Detailed Criminal Justice Referral" />
+                <ScalarProperty Name="Detailed_Not_In_Labor_Force" ColumnName="Detailed Not In Labor Force" />
+                <ScalarProperty Name="Expected_Actual_Primary_Source_of_Payment" ColumnName="Expected/Actual Primary Source of Payment" />
+                <ScalarProperty Name="Health_Insurance" ColumnName="Health Insurance" />
+                <ScalarProperty Name="Source_of_Income_Support" ColumnName="Source of Income/Support" />
+                <ScalarProperty Name="Living_Arrangements" ColumnName="Living Arrangements" />
+                <ScalarProperty Name="Veteran_Status" ColumnName="Veteran Status" />
+                <ScalarProperty Name="Pregnant_at_Time_of_Admision" ColumnName="Pregnant at Time of Admision" />
+                <ScalarProperty Name="Co_occuring_Substance_Abuse_and_Mental_Health_Problems" ColumnName="Co-occuring Substance Abuse and Mental Health Problems" />
+                <ScalarProperty Name="DSM_Diagnosis" ColumnName="DSM Diagnosis" />
+                <ScalarProperty Name="Detailed_Drug_Code_Tertiary" ColumnName="Detailed Drug Code Tertiary" />
+                <ScalarProperty Name="Detailed_Drug_Code_Secondary" ColumnName="Detailed Drug Code Secondary" />
+                <ScalarProperty Name="Detailed_Drug_Code_Primary" ColumnName="Detailed Drug Code Primary" />
+                <ScalarProperty Name="Opioid_Replacement_Therapy" ColumnName="Opioid Replacement Therapy" />
+                <ScalarProperty Name="Age_of_First_Use_Tertiary" ColumnName="Age of First Use Tertiary" />
+                <ScalarProperty Name="Frecuency_of_Use_Tertiary" ColumnName="Frecuency of Use Tertiary" />
+                <ScalarProperty Name="Usual_Route_of_Admin_Tertiary" ColumnName="Usual Route of Admin Tertiary" />
+                <ScalarProperty Name="Substance_Pro_Code_Tertiary" ColumnName="Substance Pro Code Tertiary" />
+                <ScalarProperty Name="Age_of_First_Use_Secondary" ColumnName="Age of First Use Secondary" />
+                <ScalarProperty Name="Frecuency_of_Use_Secondary" ColumnName="Frecuency of Use Secondary" />
+                <ScalarProperty Name="Usual_Route_of_Admin_Secondary" ColumnName="Usual Route of Admin Secondary" />
+                <ScalarProperty Name="Substance_Pro_Code_Secondary" ColumnName="Substance Pro Code Secondary" />
+                <ScalarProperty Name="Age_of_First_Use_Primary" ColumnName="Age of First Use Primary" />
+                <ScalarProperty Name="Frecuency_of_Use_Primary" ColumnName="Frecuency of Use Primary" />
+                <ScalarProperty Name="Usual_Route_of_Admin_Primary" ColumnName="Usual Route of Admin Primary" />
+                <ScalarProperty Name="Substance_Pro_Code_Primary" ColumnName="Substance Pro Code Primary" />
+                <ScalarProperty Name="Employment_Status" ColumnName="Employment Status" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+                <ScalarProperty Name="Principal_Source_of_Referral" ColumnName="Principal Source of Referral" />
+                <ScalarProperty Name="Num_of_Prior_Treat_Episode" ColumnName="Num of Prior Treat Episode" />
+                <ScalarProperty Name="Type_of_Service" ColumnName="Type of Service" />
+                <ScalarProperty Name="Date_of_Admision" ColumnName="Date of Admision" />
+                <ScalarProperty Name="Client_Transaction_Type" ColumnName="Client Transaction Type" />
+                <ScalarProperty Name="Co_Dependant" ColumnName="Co-Dependant" />
+                <ScalarProperty Name="Client_Identifier" ColumnName="Client Identifier" />
+                <ScalarProperty Name="Provider_Identifier" ColumnName="Provider Identifier" />
+                <ScalarProperty Name="Reporting_Date" ColumnName="Reporting Date" />
+                <ScalarProperty Name="State_Code" ColumnName="State Code" />
+                <ScalarProperty Name="System_Transaction_Type" ColumnName="System Transaction Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_EXTRACCIONES_MH_DIS">
+            <EntityTypeMapping TypeName="SEPS_JRModel.VW_EXTRACCIONES_MH_DIS">
+              <MappingFragment StoreEntitySet="VW_EXTRACCIONES_MH_DIS">
+                <ScalarProperty Name="FK_ESTATUS_PERFIL_TEDS" ColumnName="FK_ESTATUS_PERFIL_TEDS" />
+                <ScalarProperty Name="PK_PROGRAMA" ColumnName="PK_PROGRAMA" />
+                <ScalarProperty Name="FE_PERFIL" ColumnName="FE_PERFIL" />
+                <ScalarProperty Name="Episode" ColumnName="Episode" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Escala_GAF" ColumnName="Escala GAF" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="School_Attendance_Status" ColumnName="School Attendance Status" />
+                <ScalarProperty Name="Smi_Sed_Status" ColumnName="Smi/Sed Status" />
+                <ScalarProperty Name="MH_Diag_Code_Tertiary_ICD_10" ColumnName="MH Diag Code Tertiary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Secondary_ICD_10" ColumnName="MH Diag Code Secondary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Primary_ICD_10" ColumnName="MH Diag Code Primary ICD-10" />
+                <ScalarProperty Name="Diagnostic_Code_Set_Identifier" ColumnName="Diagnostic Code Set Identifier" />
+                <ScalarProperty Name="Client_Transaction_Type" ColumnName="Client Transaction Type" />
+                <ScalarProperty Name="Frequency_of_Attendance" ColumnName="Frequency of Attendance" />
+                <ScalarProperty Name="Number_of_Arrests_in_30_Days_Prior_Adm" ColumnName="Number of Arrests in 30 Days Prior Adm" />
+                <ScalarProperty Name="Detailed_Not_In_Labor_Force" ColumnName="Detailed Not In Labor Force" />
+                <ScalarProperty Name="Employment_Status" ColumnName="Employment Status" />
+                <ScalarProperty Name="Living_Arrangements" ColumnName="Living Arrangements" />
+                <ScalarProperty Name="Frecuency_of_Use_Tertiary" ColumnName="Frecuency of Use Tertiary" />
+                <ScalarProperty Name="Frecuency_of_Use_Secondary" ColumnName="Frecuency of Use Secondary" />
+                <ScalarProperty Name="Frecuency_of_Use_Primary" ColumnName="Frecuency of Use Primary" />
+                <ScalarProperty Name="Substance_Pro_Code_Tertiary" ColumnName="Substance Pro Code Tertiary" />
+                <ScalarProperty Name="Substance_Pro_Code_Secondary" ColumnName="Substance Pro Code Secondary" />
+                <ScalarProperty Name="Substance_Pro_Code_Primary" ColumnName="Substance Pro Code Primary" />
+                <ScalarProperty Name="Ethnicity_at_AD" ColumnName="Ethnicity at AD" />
+                <ScalarProperty Name="Race_at_AD" ColumnName="Race at AD" />
+                <ScalarProperty Name="Sex_at_AD" ColumnName="Sex at AD" />
+                <ScalarProperty Name="Date_of_Birth_at_AD" ColumnName="Date of Birth at AD" />
+                <ScalarProperty Name="Type_of_Service_AD" ColumnName="Type of Service AD" />
+                <ScalarProperty Name="Date_of_Admision" ColumnName="Date of Admision" />
+                <ScalarProperty Name="Client_Transaction_Type_AD" ColumnName="Client Transaction Type AD" />
+                <ScalarProperty Name="Co_dependent_Collateral" ColumnName="Co-dependent Collateral" />
+                <ScalarProperty Name="Client_ID_at_Admission" ColumnName="Client ID at Admission" />
+                <ScalarProperty Name="Provider_ID_at_Admission" ColumnName="Provider ID at Admission" />
+                <ScalarProperty Name="Reason_for_Discharge" ColumnName="Reason for Discharge" />
+                <ScalarProperty Name="Date_of_Discharge" ColumnName="Date of Discharge" />
+                <ScalarProperty Name="Date_Last_Contact" ColumnName="Date Last Contact" />
+                <ScalarProperty Name="Type_of_Service" ColumnName="Type of Service" />
+                <ScalarProperty Name="Co_Dependant" ColumnName="Co-Dependant" />
+                <ScalarProperty Name="Client_Identifier" ColumnName="Client Identifier" />
+                <ScalarProperty Name="Provider_Identifier" ColumnName="Provider Identifier" />
+                <ScalarProperty Name="Reporting_Date" ColumnName="Reporting Date" />
+                <ScalarProperty Name="State_Code" ColumnName="State Code" />
+                <ScalarProperty Name="System_Transaction_Type" ColumnName="System Transaction Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_EXTRACCIONES_SA_AD">
+            <EntityTypeMapping TypeName="SEPS_JRModel.VW_EXTRACCIONES_SA_AD">
+              <MappingFragment StoreEntitySet="VW_EXTRACCIONES_SA_AD">
+                <ScalarProperty Name="FK_ESTATUS_PERFIL_TEDS" ColumnName="FK_ESTATUS_PERFIL_TEDS" />
+                <ScalarProperty Name="PK_PROGRAMA" ColumnName="PK_PROGRAMA" />
+                <ScalarProperty Name="FE_PERFIL" ColumnName="FE_PERFIL" />
+                <ScalarProperty Name="Episode" ColumnName="Episode" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Escala_GAF" ColumnName="Escala GAF" />
+                <ScalarProperty Name="Legal_Status_at_Admission_State_Hospital" ColumnName="Legal Status at Admission State Hospital" />
+                <ScalarProperty Name="School_Attendance_Status" ColumnName="School Attendance Status" />
+                <ScalarProperty Name="Smi_Sed_Status" ColumnName="Smi/Sed Status" />
+                <ScalarProperty Name="MH_Diag_Code_Tertiary_ICD_10" ColumnName="MH Diag Code Tertiary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Secondary_ICD_10" ColumnName="MH Diag Code Secondary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Primary_ICD_10" ColumnName="MH Diag Code Primary ICD-10" />
+                <ScalarProperty Name="Substance_Abuse_Diagnostic_ICD_10" ColumnName="Substance Abuse Diagnostic ICD-10" />
+                <ScalarProperty Name="Diagnostic_Code_Set_Identifier" ColumnName="Diagnostic Code Set Identifier" />
+                <ScalarProperty Name="Frequency_of_Attendance" ColumnName="Frequency of Attendance" />
+                <ScalarProperty Name="Number_of_Arrests_in_30_Days_Prior_Adm" ColumnName="Number of Arrests in 30 Days Prior Adm" />
+                <ScalarProperty Name="Days_Waiting_to_Enter_Treatment" ColumnName="Days Waiting to Enter Treatment" />
+                <ScalarProperty Name="Maritial_Status" ColumnName="Maritial Status" />
+                <ScalarProperty Name="Detailed_Criminal_Justice_Referral" ColumnName="Detailed Criminal Justice Referral" />
+                <ScalarProperty Name="Detailed_Not_In_Labor_Force" ColumnName="Detailed Not In Labor Force" />
+                <ScalarProperty Name="Expected_Actual_Primary_Source_of_Payment" ColumnName="Expected/Actual Primary Source of Payment" />
+                <ScalarProperty Name="Health_Insurance" ColumnName="Health Insurance" />
+                <ScalarProperty Name="Source_of_Income_Support" ColumnName="Source of Income/Support" />
+                <ScalarProperty Name="Living_Arrangements" ColumnName="Living Arrangements" />
+                <ScalarProperty Name="Veteran_Status" ColumnName="Veteran Status" />
+                <ScalarProperty Name="Pregnant_at_Time_of_Admision" ColumnName="Pregnant at Time of Admision" />
+                <ScalarProperty Name="DSMV_DUAL_DIAGNOSTIC" ColumnName="DSMV DUAL DIAGNOSTIC" />
+                <ScalarProperty Name="DSM_Diagnosis" ColumnName="DSM Diagnosis" />
+                <ScalarProperty Name="Detailed_Drug_Code_Tertiary" ColumnName="Detailed Drug Code Tertiary" />
+                <ScalarProperty Name="Detailed_Drug_Code_Secondary" ColumnName="Detailed Drug Code Secondary" />
+                <ScalarProperty Name="Detailed_Drug_Code_Primary" ColumnName="Detailed Drug Code Primary" />
+                <ScalarProperty Name="Opioid_Replacement_Therapy" ColumnName="Opioid Replacement Therapy" />
+                <ScalarProperty Name="Age_of_First_Use_Tertiary" ColumnName="Age of First Use Tertiary" />
+                <ScalarProperty Name="Frecuency_of_Use_Tertiary" ColumnName="Frecuency of Use Tertiary" />
+                <ScalarProperty Name="Usual_Route_of_Admin_Tertiary" ColumnName="Usual Route of Admin Tertiary" />
+                <ScalarProperty Name="Substance_Pro_Code_Tertiary" ColumnName="Substance Pro Code Tertiary" />
+                <ScalarProperty Name="Age_of_First_Use_Secondary" ColumnName="Age of First Use Secondary" />
+                <ScalarProperty Name="Frecuency_of_Use_Secondary" ColumnName="Frecuency of Use Secondary" />
+                <ScalarProperty Name="Usual_Route_of_Admin_Secondary" ColumnName="Usual Route of Admin Secondary" />
+                <ScalarProperty Name="Substance_Pro_Code_Secondary" ColumnName="Substance Pro Code Secondary" />
+                <ScalarProperty Name="Age_of_First_Use_Primary" ColumnName="Age of First Use Primary" />
+                <ScalarProperty Name="Frecuency_of_Use_Primary" ColumnName="Frecuency of Use Primary" />
+                <ScalarProperty Name="Usual_Route_of_Admin_Primary" ColumnName="Usual Route of Admin Primary" />
+                <ScalarProperty Name="Substance_Pro_Code_Primary" ColumnName="Substance Pro Code Primary" />
+                <ScalarProperty Name="Employment_Status" ColumnName="Employment Status" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+                <ScalarProperty Name="Principal_Source_of_Referral" ColumnName="Principal Source of Referral" />
+                <ScalarProperty Name="Num_of_Prior_Treat_Episode" ColumnName="Num of Prior Treat Episode" />
+                <ScalarProperty Name="Type_of_Service" ColumnName="Type of Service" />
+                <ScalarProperty Name="Date_of_Admision" ColumnName="Date of Admision" />
+                <ScalarProperty Name="Client_Transaction_Type" ColumnName="Client Transaction Type" />
+                <ScalarProperty Name="Co_Dependant" ColumnName="Co-Dependant" />
+                <ScalarProperty Name="Client_Identifier" ColumnName="Client Identifier" />
+                <ScalarProperty Name="Provider_Identifier" ColumnName="Provider Identifier" />
+                <ScalarProperty Name="Reporting_Date" ColumnName="Reporting Date" />
+                <ScalarProperty Name="State_Code" ColumnName="State Code" />
+                <ScalarProperty Name="System_Transaction_Type" ColumnName="System Transaction Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_EXTRACCIONES_SA_DIS">
+            <EntityTypeMapping TypeName="SEPS_JRModel.VW_EXTRACCIONES_SA_DIS">
+              <MappingFragment StoreEntitySet="VW_EXTRACCIONES_SA_DIS">
+                <ScalarProperty Name="FK_ESTATUS_PERFIL_TEDS" ColumnName="FK_ESTATUS_PERFIL_TEDS" />
+                <ScalarProperty Name="PK_PROGRAMA" ColumnName="PK_PROGRAMA" />
+                <ScalarProperty Name="FE_PERFIL" ColumnName="FE_PERFIL" />
+                <ScalarProperty Name="Episode" ColumnName="Episode" />
+                <ScalarProperty Name="Perfil" ColumnName="Perfil" />
+                <ScalarProperty Name="Escala_GAF" ColumnName="Escala GAF" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="School_Attendance_Status" ColumnName="School Attendance Status" />
+                <ScalarProperty Name="Smi_Sed_Status" ColumnName="Smi/Sed Status" />
+                <ScalarProperty Name="MH_Diag_Code_Tertiary_ICD_10" ColumnName="MH Diag Code Tertiary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Secondary_ICD_10" ColumnName="MH Diag Code Secondary ICD-10" />
+                <ScalarProperty Name="MH_Diag_Code_Primary_ICD_10" ColumnName="MH Diag Code Primary ICD-10" />
+                <ScalarProperty Name="Diagnostic_Code_Set_Identifier" ColumnName="Diagnostic Code Set Identifier" />
+                <ScalarProperty Name="Client_Transaction_Type" ColumnName="Client Transaction Type" />
+                <ScalarProperty Name="Frecuency_of_Attendance" ColumnName="Frecuency of Attendance" />
+                <ScalarProperty Name="Number_of_Arrests_in_30_Days_Prior_Dis" ColumnName="Number of Arrests in 30 Days Prior Dis" />
+                <ScalarProperty Name="Detailed_Not_In_Labor_Force" ColumnName="Detailed Not In Labor Force" />
+                <ScalarProperty Name="Employment_Status" ColumnName="Employment Status" />
+                <ScalarProperty Name="Living_Arrangements" ColumnName="Living Arrangements" />
+                <ScalarProperty Name="Frecuency_of_Use_Tertiary" ColumnName="Frecuency of Use Tertiary" />
+                <ScalarProperty Name="Frecuency_of_Use_SECUNDARIA" ColumnName="Frecuency of Use SECUNDARIA" />
+                <ScalarProperty Name="Frecuency_of_Use_Primary" ColumnName="Frecuency of Use Primary" />
+                <ScalarProperty Name="Substance_Pro_Code_Tertiary" ColumnName="Substance Pro Code Tertiary" />
+                <ScalarProperty Name="Substance_Pro_Code_SECUNDARIA" ColumnName="Substance Pro Code SECUNDARIA" />
+                <ScalarProperty Name="Substance_Pro_Code_Primary" ColumnName="Substance Pro Code Primary" />
+                <ScalarProperty Name="Ethnicity_at_AD" ColumnName="Ethnicity at AD" />
+                <ScalarProperty Name="Race_at_AD" ColumnName="Race at AD" />
+                <ScalarProperty Name="Sex_at_AD" ColumnName="Sex at AD" />
+                <ScalarProperty Name="Date_of_Birth_at_AD" ColumnName="Date of Birth at AD" />
+                <ScalarProperty Name="Type_of_Service_AD" ColumnName="Type of Service AD" />
+                <ScalarProperty Name="Date_of_Admision" ColumnName="Date of Admision" />
+                <ScalarProperty Name="Client_Transaction_Type_AD" ColumnName="Client Transaction Type AD" />
+                <ScalarProperty Name="Co_dependent_Collateral" ColumnName="Co-dependent Collateral" />
+                <ScalarProperty Name="Client_ID_at_Admission" ColumnName="Client ID at Admission" />
+                <ScalarProperty Name="Provider_ID_at_Admission" ColumnName="Provider ID at Admission" />
+                <ScalarProperty Name="Reason_for_Discharge" ColumnName="Reason for Discharge" />
+                <ScalarProperty Name="Date_of_Discharge" ColumnName="Date of Discharge" />
+                <ScalarProperty Name="Date_Last_Contact" ColumnName="Date Last Contact" />
+                <ScalarProperty Name="Type_of_Service" ColumnName="Type of Service" />
+                <ScalarProperty Name="Co_Dependant" ColumnName="Co-Dependant" />
+                <ScalarProperty Name="Client_Identifier" ColumnName="Client Identifier" />
+                <ScalarProperty Name="Provider_Identifier" ColumnName="Provider Identifier" />
+                <ScalarProperty Name="Reporting_Date" ColumnName="Reporting Date" />
+                <ScalarProperty Name="State_Code" ColumnName="State Code" />
+                <ScalarProperty Name="System_Transaction_Type" ColumnName="System Transaction Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPC_PERFILES_ELIMINADOS_POR_EPISODIO" FunctionName="SEPS_JRModel.Store.SPC_PERFILES_ELIMINADOS_POR_EPISODIO" />
+          <FunctionImportMapping FunctionImportName="SPC_PERFILES_ELIMINADOS_POR_PERFIL" FunctionName="SEPS_JRModel.Store.SPC_PERFILES_ELIMINADOS_POR_PERFIL" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
